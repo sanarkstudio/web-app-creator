@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import sanarkLogo from "@/assets/sanark-logo.png";
 
 const Footer = () => (
   <footer className="border-t border-border/50 bg-background">
     <div className="container mx-auto px-6 py-16">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
         <div>
-          <h3 className="font-display text-2xl font-semibold tracking-widest text-gold uppercase mb-4">Sanark</h3>
+          <img src={sanarkLogo} alt="Sanark" className="h-12 w-auto mb-4 opacity-80" />
           <p className="font-body text-sm text-muted-foreground leading-relaxed max-w-xs">
             Decodificación Estructural de Vida. Revelamos la estructura desde la que operas para que diseñes la que te corresponde.
           </p>
