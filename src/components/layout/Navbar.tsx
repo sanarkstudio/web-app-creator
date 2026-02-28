@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import sanarkLogo from "@/assets/sanark-logo.png";
 
 const navLinks = [
   { to: "/", label: "Inicio" },
@@ -11,13 +12,26 @@ const navLinks = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-background/90 backdrop-blur-xl border-b border-border/50"
+          : "bg-transparent"
+      }`}
+    >
       <div className="container mx-auto flex items-center justify-between h-20 px-6">
-        <Link to="/" className="font-display text-2xl font-semibold tracking-widest text-gold uppercase">
-          Sanark
+        <Link to="/" className="flex items-center gap-3">
+          <img src={sanarkLogo} alt="Sanark" className="h-10 w-auto" />
         </Link>
 
         {/* Desktop */}
@@ -56,7 +70,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-border"
+            className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border"
           >
             <div className="flex flex-col px-6 py-6 gap-5">
               {navLinks.map((link) => (

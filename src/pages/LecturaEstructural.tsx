@@ -1,26 +1,33 @@
 import Layout from "@/components/layout/Layout";
 import FadeIn from "@/components/shared/FadeIn";
 import SectionDivider from "@/components/shared/SectionDivider";
+import FloatingParticles from "@/components/shared/FloatingParticles";
+import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import { ArrowRight } from "lucide-react";
 
 const LecturaEstructural = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-center justify-center">
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-secondary/20" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.05)_0%,transparent_60%)]" />
+        <FloatingParticles count={20} />
         <div className="relative z-10 container mx-auto px-6 text-center max-w-4xl py-28">
           <FadeIn>
+            <SanarkSymbol size={100} className="mx-auto mb-8 opacity-50" />
+          </FadeIn>
+          <FadeIn delay={0.2}>
             <p className="font-body text-xs tracking-[0.4em] uppercase text-gold mb-8">
               El punto de partida
             </p>
           </FadeIn>
-          <FadeIn delay={0.2}>
-            <h1 className="font-display text-5xl md:text-7xl font-light leading-[1.1] mb-8">
+          <FadeIn delay={0.4}>
+            <h1 className="font-display text-5xl md:text-7xl font-light leading-[1.1] mb-8 text-shadow-gold">
               Lectura Estructural
             </h1>
           </FadeIn>
-          <FadeIn delay={0.4}>
+          <FadeIn delay={0.6}>
             <p className="font-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Un diagnóstico avanzado que revela la estructura profunda desde la que operas.
               No lo que te pasa. Sino lo que lo sostiene.
@@ -30,8 +37,9 @@ const LecturaEstructural = () => {
       </section>
 
       {/* What is it */}
-      <section className="py-28 md:py-36">
-        <div className="container mx-auto px-6 max-w-3xl">
+      <section className="py-28 md:py-36 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(38_50%_48%/0.03)_0%,transparent_50%)]" />
+        <div className="container mx-auto px-6 max-w-3xl relative z-10">
           <FadeIn><SectionDivider /></FadeIn>
           <FadeIn delay={0.15}>
             <h2 className="font-display text-3xl md:text-5xl font-light text-center mt-12 mb-10">
@@ -61,8 +69,10 @@ const LecturaEstructural = () => {
       </section>
 
       {/* What it reveals */}
-      <section className="py-28 md:py-36 bg-secondary/30">
-        <div className="container mx-auto px-6 max-w-5xl">
+      <section className="py-28 md:py-36 relative overflow-hidden">
+        <div className="absolute inset-0 bg-secondary/30" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,hsl(38_50%_48%/0.04)_0%,transparent_60%)]" />
+        <div className="container mx-auto px-6 max-w-5xl relative z-10">
           <FadeIn>
             <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-16">
               Lo que revela
@@ -84,7 +94,7 @@ const LecturaEstructural = () => {
               },
             ].map((item, i) => (
               <FadeIn key={i} delay={i * 0.15}>
-                <div className="p-8 bg-card border border-border/50 h-full">
+                <div className="p-8 bg-card/80 backdrop-blur-sm border border-border/50 h-full hover:border-gold/20 transition-all duration-500 hover:glow-gold">
                   <div className="w-8 h-px bg-gold mb-6" />
                   <h3 className="font-display text-xl font-medium mb-4">{item.title}</h3>
                   <p className="font-body text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
@@ -121,8 +131,11 @@ const LecturaEstructural = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-28 md:py-36 bg-secondary/30">
-        <div className="container mx-auto px-6 max-w-3xl text-center">
+      <section className="py-28 md:py-36 relative overflow-hidden">
+        <div className="absolute inset-0 bg-secondary/30" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
+        <FloatingParticles count={15} />
+        <div className="container mx-auto px-6 max-w-3xl text-center relative z-10">
           <FadeIn>
             <h2 className="font-display text-3xl md:text-5xl font-light mb-8 leading-tight">
               El primer paso es <span className="text-gold">ver</span>
@@ -137,10 +150,10 @@ const LecturaEstructural = () => {
           <FadeIn delay={0.35}>
             <a
               href="mailto:info@sanark.com?subject=Reserva%20Lectura%20Estructural"
-              className="inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-8 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
+              className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
             >
               Reserva tu Lectura Estructural
-              <ArrowRight size={16} />
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </a>
           </FadeIn>
         </div>

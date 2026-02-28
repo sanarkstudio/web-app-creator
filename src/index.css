@@ -6,50 +6,53 @@
 
 @layer base {
   :root {
-    --background: 220 20% 4%;
-    --foreground: 40 20% 90%;
+    /* Sanark Palette: Oro #B68C40, Marfil #F4F0E3, Negro carbón #0E0E0E, Gris pizarra #4A4845 */
+    --background: 0 0% 5.5%;          /* #0E0E0E */
+    --foreground: 40 30% 92%;         /* #F4F0E3 */
 
-    --card: 220 18% 8%;
-    --card-foreground: 40 20% 90%;
+    --card: 0 0% 8%;
+    --card-foreground: 40 30% 92%;
 
-    --popover: 220 18% 8%;
-    --popover-foreground: 40 20% 90%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 40 30% 92%;
 
-    --primary: 38 72% 58%;
-    --primary-foreground: 220 20% 4%;
+    --primary: 38 50% 48%;            /* #B68C40 */
+    --primary-foreground: 0 0% 5.5%;
 
-    --secondary: 220 15% 14%;
-    --secondary-foreground: 40 20% 85%;
+    --secondary: 30 4% 10%;
+    --secondary-foreground: 40 30% 85%;
 
-    --muted: 220 15% 12%;
-    --muted-foreground: 220 10% 50%;
+    --muted: 30 4% 12%;
+    --muted-foreground: 30 5% 40%;    /* #4A4845 inspired */
 
-    --accent: 38 72% 58%;
-    --accent-foreground: 220 20% 4%;
+    --accent: 38 50% 48%;
+    --accent-foreground: 0 0% 5.5%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 40 30% 92%;
 
-    --border: 220 15% 16%;
-    --input: 220 15% 16%;
-    --ring: 38 72% 58%;
+    --border: 30 5% 15%;
+    --input: 30 5% 15%;
+    --ring: 38 50% 48%;
 
     --radius: 0.25rem;
 
-    --gold: 38 72% 58%;
-    --gold-light: 38 60% 72%;
-    --gold-dark: 38 80% 42%;
-    --surface: 220 18% 8%;
-    --surface-elevated: 220 16% 12%;
+    --gold: 38 50% 48%;              /* #B68C40 */
+    --gold-light: 38 42% 62%;
+    --gold-dark: 38 58% 36%;
+    --ivory: 40 30% 92%;             /* #F4F0E3 */
+    --slate: 30 3% 27%;              /* #4A4845 */
+    --surface: 0 0% 8%;
+    --surface-elevated: 0 0% 11%;
 
-    --sidebar-background: 220 18% 6%;
-    --sidebar-foreground: 40 20% 90%;
-    --sidebar-primary: 38 72% 58%;
-    --sidebar-primary-foreground: 220 20% 4%;
-    --sidebar-accent: 220 15% 14%;
-    --sidebar-accent-foreground: 40 20% 85%;
-    --sidebar-border: 220 15% 16%;
-    --sidebar-ring: 38 72% 58%;
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 40 30% 92%;
+    --sidebar-primary: 38 50% 48%;
+    --sidebar-primary-foreground: 0 0% 5.5%;
+    --sidebar-accent: 30 4% 12%;
+    --sidebar-accent-foreground: 40 30% 85%;
+    --sidebar-border: 30 5% 15%;
+    --sidebar-ring: 38 50% 48%;
   }
 }
 
@@ -65,6 +68,21 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Cormorant Garamond', serif;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--gold) / 0.3);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--gold) / 0.5);
   }
 }
 
@@ -85,6 +103,10 @@
     color: hsl(var(--gold-light));
   }
 
+  .text-ivory {
+    color: hsl(var(--ivory));
+  }
+
   .bg-gold {
     background-color: hsl(var(--gold));
   }
@@ -102,5 +124,15 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  /* Immersive glow */
+  .glow-gold {
+    box-shadow: 0 0 60px -12px hsl(var(--gold) / 0.15),
+                0 0 120px -24px hsl(var(--gold) / 0.08);
+  }
+
+  .text-shadow-gold {
+    text-shadow: 0 0 80px hsl(var(--gold) / 0.3);
   }
 }
