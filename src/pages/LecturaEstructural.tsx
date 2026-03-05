@@ -130,31 +130,38 @@ const LecturaEstructural = () => {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Price box */}
       <section className="py-28 md:py-36 relative overflow-hidden">
-        <div className="absolute inset-0 bg-secondary/30" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
-        <FloatingParticles count={15} />
-        <div className="container mx-auto px-6 max-w-3xl text-center relative z-10">
+        <FloatingParticles count={12} />
+        <div className="container mx-auto px-6 max-w-3xl relative z-10">
           <FadeIn>
-            <h2 className="font-display text-3xl md:text-5xl font-light mb-8 leading-tight">
-              El primer paso es <span className="text-gold">ver</span>
-            </h2>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <p className="font-body text-base text-muted-foreground mb-12 max-w-xl mx-auto">
-              La Lectura Estructural es una sesión individual donde decodifico tu estructura
-              actual. Sin interpretaciones. Sin suposiciones. Solo lo que está operando.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.35}>
-            <a
-              href="mailto:info@sanark.com?subject=Reserva%20Lectura%20Estructural"
-              className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
-            >
-              Reserva tu Lectura Estructural
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </a>
+            <div className="relative p-12 md:p-16 bg-card/80 backdrop-blur-sm border border-gold/20 text-center hover:border-gold/40 transition-all duration-500 glow-gold">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <SanarkSymbol size={40} className="opacity-40" />
+              </div>
+              <p className="font-body text-xs tracking-[0.4em] uppercase text-gold mb-6">
+                Sesión individual
+              </p>
+              <h3 className="font-display text-2xl md:text-3xl font-light mb-4">
+                90 minutos · 1 lectura · Tu estructura al descubierto
+              </h3>
+              <p className="font-body text-sm text-muted-foreground leading-relaxed mb-8 max-w-lg mx-auto">
+                Una sesión individual conmigo donde leo con precisión la arquitectura
+                desde la que operas. Sin interpretaciones. Sin suposiciones. Solo lo que está operando.
+              </p>
+              <p className="font-display text-5xl md:text-6xl font-light text-gold mb-2">180€</p>
+              <p className="font-body text-xs text-muted-foreground tracking-wider mb-10">
+                Sesión única 1:1 · 90 minutos
+              </p>
+              <a
+                href="mailto:info@sanark.com?subject=Quiero%20mi%20Lectura%20Estructural"
+                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
+              >
+                Quiero mi Lectura Estructural
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
           </FadeIn>
         </div>
       </section>
