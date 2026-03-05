@@ -220,14 +220,13 @@ const Index = () => {
                 Una sesión única donde leo la arquitectura activa desde la que operas hoy — la estructura
                 que heredaste y que sigue dirigiendo tu vida aunque hayas trabajado en ti durante años.
               </p>
-              <p className="font-display text-4xl md:text-5xl font-light text-gold mb-8">180€</p>
-              <a
-                href="mailto:info@sanark.com?subject=Quiero%20mi%20Lectura%20Estructural"
+              <Link
+                to="/lectura-estructural"
                 className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
               >
                 Quiero mi Lectura Estructural
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
             </div>
           </FadeIn>
         </div>
