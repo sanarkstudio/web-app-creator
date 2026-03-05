@@ -5,8 +5,9 @@ import SectionDivider from "@/components/shared/SectionDivider";
 import FloatingParticles from "@/components/shared/FloatingParticles";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import { ArrowRight } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
+import juanCarlosImg from "@/assets/juan-carlos-pro.jpg";
 
 const Index = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -17,6 +18,26 @@ const Index = () => {
   const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
   const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.92]);
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 100]);
+
+  // Parallax for problem section
+  const problemRef = useRef<HTMLElement>(null);
+  const { scrollYProgress: problemProgress } = useScroll({
+    target: problemRef,
+    offset: ["start end", "end start"],
+  });
+  const problemY = useTransform(problemProgress, [0, 1], [60, -60]);
+
+  // Parallax for bio section
+  const bioRef = useRef<HTMLElement>(null);
+  const { scrollYProgress: bioProgress } = useScroll({
+    target: bioRef,
+    offset: ["start end", "end start"],
+  });
+  const bioImageY = useTransform(bioProgress, [0, 1], [80, -40]);
+
+  // Reveal line animation
+  const lineRef = useRef(null);
+  const lineInView = useInView(lineRef, { once: true, margin: "-100px" });
 
   return (
     <Layout>
@@ -46,7 +67,7 @@ const Index = () => {
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-light leading-[1.05] mb-8 text-shadow-gold">
               Lo que te frena no es visible.
               <br />
-              <span className="gradient-text-gold font-medium">Pero sí es desmontable.</span>
+              <span className="gradient-text-gold font-medium">Pero yo sí lo veo.</span>
             </h1>
           </FadeIn>
 
@@ -60,9 +81,9 @@ const Index = () => {
           <FadeIn delay={1}>
             <Link
               to="/lectura-estructural"
-              className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-all duration-500"
+              className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
             >
-              Descubre tu estructura
+              Muéstrame lo que no veo
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </FadeIn>
@@ -77,10 +98,20 @@ const Index = () => {
         </motion.div>
       </section>
 
+      {/* Reveal line */}
+      <div ref={lineRef} className="flex justify-center py-4">
+        <motion.div
+          className="h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent"
+          initial={{ width: 0 }}
+          animate={lineInView ? { width: "60%" } : {}}
+          transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+        />
+      </div>
+
       {/* Problem — the mirror */}
-      <section className="py-28 md:py-36 relative">
+      <section ref={problemRef} className="py-28 md:py-40 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(38_50%_48%/0.03)_0%,transparent_50%)]" />
-        <div className="container mx-auto px-6 max-w-3xl relative z-10">
+        <motion.div style={{ y: problemY }} className="container mx-auto px-6 max-w-3xl relative z-10">
           <FadeIn>
             <SectionDivider />
           </FadeIn>
@@ -107,11 +138,11 @@ const Index = () => {
               </p>
             </div>
           </FadeIn>
-        </div>
+        </motion.div>
       </section>
 
       {/* Solution — the path */}
-      <section className="py-28 md:py-36 relative overflow-hidden">
+      <section className="py-28 md:py-40 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,hsl(38_50%_48%/0.05)_0%,transparent_60%)]" />
         <FloatingParticles count={15} />
@@ -129,7 +160,7 @@ const Index = () => {
             <FadeIn delay={0.15}>
               <Link
                 to="/lectura-estructural"
-                className="group block p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 hover:glow-gold"
+                className="group block p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 hover:glow-gold h-full"
               >
                 <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4">Paso 1</p>
                 <h3 className="font-display text-2xl md:text-3xl font-light mb-4">Lectura Estructural</h3>
@@ -138,14 +169,14 @@ const Index = () => {
                   heredados dirigen tu vida física, emocional, relacional y financiera.
                 </p>
                 <span className="inline-flex items-center gap-2 text-gold text-sm font-body tracking-wider uppercase group-hover:gap-4 transition-all duration-300">
-                  Conocer más <ArrowRight size={14} />
+                  Accede a tu lectura <ArrowRight size={14} />
                 </span>
               </Link>
             </FadeIn>
             <FadeIn delay={0.3}>
               <Link
                 to="/proceso-sanark"
-                className="group block p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 hover:glow-gold"
+                className="group block p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 hover:glow-gold h-full"
               >
                 <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4">Paso 2</p>
                 <h3 className="font-display text-2xl md:text-3xl font-light mb-4">Proceso Sanark</h3>
@@ -154,7 +185,7 @@ const Index = () => {
                   No se trata de mejorar la versión actual. Se trata de operar desde otro lugar.
                 </p>
                 <span className="inline-flex items-center gap-2 text-gold text-sm font-body tracking-wider uppercase group-hover:gap-4 transition-all duration-300">
-                  Conocer más <ArrowRight size={14} />
+                  Conocer el proceso <ArrowRight size={14} />
                 </span>
               </Link>
             </FadeIn>
@@ -162,11 +193,11 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Identification — the mirror deepens */}
-      <section className="py-28 md:py-36 relative">
+      {/* Identification — scroll-stopping mirror */}
+      <section className="py-28 md:py-40 relative">
         <div className="container mx-auto px-6 max-w-3xl text-center relative z-10">
           <FadeIn>
-            <h2 className="font-display text-3xl md:text-5xl font-light mb-12 leading-tight">
+            <h2 className="font-display text-3xl md:text-5xl font-light mb-14 leading-tight">
               Si esto te suena, no es casualidad
             </h2>
           </FadeIn>
@@ -189,11 +220,22 @@ const Index = () => {
               </FadeIn>
             ))}
           </div>
+          <FadeIn delay={0.6}>
+            <div className="mt-14">
+              <Link
+                to="/lectura-estructural"
+                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-all duration-500"
+              >
+                Deja de repetir. Empieza a ver.
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* ENTRADA — Lectura Estructural */}
-      <section className="py-28 md:py-36 relative overflow-hidden">
+      <section className="py-28 md:py-40 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
         <FloatingParticles count={15} />
@@ -214,7 +256,7 @@ const Index = () => {
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
-            <div className="p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 text-center">
+            <div className="p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 text-center hover:glow-gold">
               <h3 className="font-display text-2xl md:text-3xl font-light mb-4">Lectura Estructural</h3>
               <p className="font-body text-sm text-muted-foreground leading-relaxed mb-8 max-w-xl mx-auto">
                 Una sesión única donde leo la arquitectura activa desde la que operas hoy — la estructura
@@ -224,7 +266,7 @@ const Index = () => {
                 to="/lectura-estructural"
                 className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
               >
-                Quiero mi Lectura Estructural
+                Accede a tu estructura
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -233,19 +275,26 @@ const Index = () => {
       </section>
 
       {/* Quien dirige — Juan Carlos */}
-      <section className="py-28 md:py-36 relative">
+      <section ref={bioRef} className="py-28 md:py-40 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,hsl(38_50%_48%/0.04)_0%,transparent_50%)]" />
         <div className="container mx-auto px-6 max-w-5xl relative z-10">
           <FadeIn>
-            <p className="font-body text-xs tracking-[0.4em] uppercase text-gold text-center mb-12">
-              Quien dirige las lecturas
+            <p className="font-body text-xs tracking-[0.4em] uppercase text-gold text-center mb-14">
+              Quien está detrás
             </p>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
             <FadeIn delay={0.15}>
-              <div className="aspect-[3/4] bg-card/60 border border-border/40 flex items-center justify-center">
-                <p className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground/40">Foto</p>
-              </div>
+              <motion.div style={{ y: bioImageY }} className="relative">
+                <div className="aspect-[3/4] overflow-hidden border border-border/40">
+                  <img
+                    src={juanCarlosImg}
+                    alt="Juan Carlos Sánchez Velázquez"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 border border-gold/20 -z-10" />
+              </motion.div>
             </FadeIn>
             <FadeIn delay={0.3}>
               <div>
@@ -253,19 +302,24 @@ const Index = () => {
                 <p className="font-body text-sm text-gold tracking-wider mb-8">Sánchez Velázquez</p>
                 <div className="space-y-5 font-body text-base text-muted-foreground leading-relaxed">
                   <p>
-                    Llevo 14 años trabajando con la arquitectura invisible que define cómo las personas
-                    viven, deciden y se relacionan.
+                    14 años leyendo lo que nadie más lee. No emociones, no creencias, no historias.{" "}
+                    <span className="text-foreground font-medium">Estructuras.</span> Los programas heredados
+                    que determinan cómo vives, decides, te vinculas y gestionas cada recurso que tienes.
                   </p>
                   <p>
-                    Mi trabajo no es terapéutico ni motivacional.{" "}
-                    <span className="text-foreground font-medium">Es estructural.</span>
+                    He trabajado con cientos de personas que ya habían hecho todo: terapia, coaching,
+                    meditación, constelaciones. Llegaron porque sabían que había algo más profundo
+                    operando. Y tenían razón.
                   </p>
                   <p>
-                    No vengo a ayudarte a sentirte mejor con lo que tienes. Vengo a enseñarte a operar
-                    desde una base que hayas construido tú — una que no dependa de mi presencia para
-                    sostenerse.
+                    Mi enfoque no se parece a nada que hayas probado. No interpreto. No aconsejo.
+                    No motivo.{" "}
+                    <span className="text-foreground font-medium">
+                      Leo la arquitectura desde la que operas y te muestro con precisión lo que está
+                      generando los resultados que tienes.
+                    </span>
                   </p>
-                  <p className="text-foreground/90 italic">
+                  <p className="text-foreground/90 italic border-l-2 border-gold/30 pl-5">
                     Mi trabajo termina cuando tu estructura se sostiene sola. Eso no es un objetivo — es
                     el único criterio válido.
                   </p>
@@ -277,7 +331,7 @@ const Index = () => {
       </section>
 
       {/* DESPUÉS DE LA SESIÓN */}
-      <section className="py-28 md:py-36 relative">
+      <section className="py-28 md:py-40 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,hsl(38_50%_48%/0.03)_0%,transparent_50%)]" />
         <div className="container mx-auto px-6 max-w-4xl relative z-10">
           <FadeIn>
@@ -319,8 +373,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-28 md:py-36 relative overflow-hidden">
+      {/* Final CTA — scroll-stopping */}
+      <section className="py-32 md:py-44 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.08)_0%,transparent_60%)]" />
         <FloatingParticles count={20} />
@@ -336,7 +390,7 @@ const Index = () => {
             </h2>
           </FadeIn>
           <FadeIn delay={0.3}>
-            <p className="font-body text-base text-muted-foreground mb-12 max-w-xl mx-auto">
+            <p className="font-body text-base text-muted-foreground mb-14 max-w-xl mx-auto">
               La Lectura Estructural es el primer paso. Te muestra exactamente
               desde dónde estás operando y por qué ciertos resultados se repiten.
             </p>
@@ -344,7 +398,7 @@ const Index = () => {
           <FadeIn delay={0.45}>
             <Link
               to="/lectura-estructural"
-              className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
+              className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium glow-gold"
             >
               Reserva tu Lectura Estructural
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
