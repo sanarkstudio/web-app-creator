@@ -431,12 +431,7 @@ const Index = () => {
         <FloatingParticles count={25} />
         <div className="container mx-auto px-6 max-w-3xl text-center relative z-10">
           <FadeIn>
-            <motion.div
-              animate={{ rotate: [0, -360] }}
-              transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
-            >
-              <SanarkSymbol size={80} className="mx-auto mb-10 opacity-40" />
-            </motion.div>
+            <SanarkSymbol size={80} className="mx-auto mb-10 opacity-40" />
           </FadeIn>
           <FadeIn delay={0.15}>
             <h2 className="font-display text-3xl md:text-5xl font-light mb-8 leading-tight">
