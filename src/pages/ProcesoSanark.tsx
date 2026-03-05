@@ -6,6 +6,7 @@ import FloatingParticles from "@/components/shared/FloatingParticles";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import structuralJourney from "@/assets/structural-journey.jpg";
 
 const phases = [
   {
@@ -61,6 +62,19 @@ const ProcesoSanark = () => {
         </div>
       </section>
 
+      {/* Immersive image divider */}
+      <section className="relative h-[40vh] md:h-[50vh] overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={structuralJourney}
+            alt="Viaje estructural — líneas doradas en la oscuridad"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
+          <div className="absolute inset-0 bg-background/40" />
+        </div>
+      </section>
+
       {/* Intro */}
       <section className="py-28 md:py-36 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(38_50%_48%/0.03)_0%,transparent_50%)]" />
@@ -76,7 +90,7 @@ const ProcesoSanark = () => {
               <p>
                 El Proceso Sanark no es un programa de mejora personal. Es un proceso de
                 reconfiguración estructural. Parte de la base revelada en la Lectura Estructural y
-                trabaja directamente sobre los programas que sostienen tus patrones repetitivos.
+                trabajo directamente sobre los programas que sostienen tus patrones repetitivos.
               </p>
               <p>
                 Puedes cambiar hábitos, rutinas, entornos. Pero si la estructura subyacente
@@ -124,6 +138,42 @@ const ProcesoSanark = () => {
         </div>
       </section>
 
+      {/* Price box */}
+      <section className="py-28 md:py-36 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
+        <FloatingParticles count={12} />
+        <div className="container mx-auto px-6 max-w-3xl relative z-10">
+          <FadeIn>
+            <div className="relative p-12 md:p-16 bg-card/80 backdrop-blur-sm border border-gold/20 text-center hover:border-gold/40 transition-all duration-500 glow-gold">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <SanarkSymbol size={40} className="opacity-40" />
+              </div>
+              <p className="font-body text-xs tracking-[0.4em] uppercase text-gold mb-6">
+                Proceso completo
+              </p>
+              <h3 className="font-display text-2xl md:text-3xl font-light mb-4">
+                12 sesiones · 4 fases · 1 transformación
+              </h3>
+              <p className="font-body text-sm text-muted-foreground leading-relaxed mb-8 max-w-lg mx-auto">
+                Doce sesiones individuales conmigo donde trabajo directamente sobre tu estructura heredada.
+                Detectar, diseñar, crear y habitar. Cada fase es un paso irreversible hacia una nueva forma de operar.
+              </p>
+              <p className="font-display text-5xl md:text-6xl font-light text-gold mb-2">2.000€</p>
+              <p className="font-body text-xs text-muted-foreground tracking-wider mb-10">
+                12 sesiones individuales 1:1
+              </p>
+              <a
+                href="mailto:info@sanark.com?subject=Quiero%20iniciar%20el%20Proceso%20Sanark"
+                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
+              >
+                Quiero iniciar mi Proceso
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* Prerequisite */}
       <section className="py-28 md:py-36">
         <div className="container mx-auto px-6 max-w-3xl text-center">
@@ -134,8 +184,8 @@ const ProcesoSanark = () => {
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed mb-10">
-              El Proceso Sanark comienza siempre con una Lectura Estructural. Es el diagnóstico
-              necesario para saber exactamente desde dónde partes y qué estructuras están operando.
+              El Proceso Sanark comienza siempre con una Lectura Estructural. Es la lectura
+              necesaria para saber exactamente desde dónde partes y qué estructuras están operando.
               Sin ese mapa, no hay intervención posible.
             </p>
           </FadeIn>

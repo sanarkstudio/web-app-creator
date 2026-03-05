@@ -22,7 +22,6 @@ const Index = () => {
     <Layout>
       {/* Hero — immersive full-screen entry */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Layered backgrounds */}
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.06)_0%,transparent_70%)]" />
         <FloatingParticles count={35} />
@@ -31,7 +30,6 @@ const Index = () => {
           style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
           className="relative z-10 container mx-auto px-6 text-center max-w-4xl"
         >
-          {/* Animated symbol */}
           <FadeIn delay={0}>
             <div className="flex justify-center mb-10">
               <SanarkSymbol size={140} className="opacity-60" />
@@ -46,9 +44,9 @@ const Index = () => {
 
           <FadeIn delay={0.6}>
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-light leading-[1.05] mb-8 text-shadow-gold">
-              No cambias lo que haces.
+              Lo que te frena no es visible.
               <br />
-              <span className="gradient-text-gold font-medium">Cambias desde donde operas.</span>
+              <span className="gradient-text-gold font-medium">Pero sí es operable.</span>
             </h1>
           </FadeIn>
 
@@ -70,7 +68,6 @@ const Index = () => {
           </FadeIn>
         </motion.div>
 
-        {/* Scroll indicator */}
         <motion.div
           className="absolute bottom-10 left-1/2 -translate-x-1/2"
           animate={{ y: [0, 10, 0] }}
@@ -121,10 +118,10 @@ const Index = () => {
         <div className="container mx-auto px-6 max-w-5xl relative z-10">
           <FadeIn>
             <p className="font-body text-xs tracking-[0.4em] uppercase text-gold text-center mb-6">
-              Lo que hacemos
+              Lo que hago
             </p>
             <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-16 leading-tight">
-              Revelamos lo que sostiene todo lo demás
+              Revelo lo que sostiene todo lo demás
             </h2>
           </FadeIn>
 
@@ -137,7 +134,7 @@ const Index = () => {
                 <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4">Paso 1</p>
                 <h3 className="font-display text-2xl md:text-3xl font-light mb-4">Lectura Estructural</h3>
                 <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6">
-                  Un diagnóstico profundo que revela la estructura desde la que operas: qué programas
+                  Una lectura profunda que revela la estructura desde la que operas: qué programas
                   heredados dirigen tu vida física, emocional, relacional y financiera.
                 </p>
                 <span className="inline-flex items-center gap-2 text-gold text-sm font-body tracking-wider uppercase group-hover:gap-4 transition-all duration-300">
@@ -212,7 +209,7 @@ const Index = () => {
           <FadeIn delay={0.15}>
             <p className="font-body text-base md:text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-12 leading-relaxed">
               90 minutos para ver con exactitud desde dónde estás operando.
-              No es terapia. No es diagnóstico. No es coaching.
+              No es terapia. No es coaching. No es nada que hayas probado antes.
               Es el único punto de acceso a todo mi trabajo.
             </p>
           </FadeIn>
@@ -220,7 +217,7 @@ const Index = () => {
             <div className="p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 text-center">
               <h3 className="font-display text-2xl md:text-3xl font-light mb-4">Lectura Estructural</h3>
               <p className="font-body text-sm text-muted-foreground leading-relaxed mb-8 max-w-xl mx-auto">
-                Una sesión única donde leemos la arquitectura activa desde la que operas hoy — la estructura
+                Una sesión única donde leo la arquitectura activa desde la que operas hoy — la estructura
                 que heredaste y que sigue dirigiendo tu vida aunque hayas trabajado en ti durante años.
               </p>
               <p className="font-display text-4xl md:text-5xl font-light text-gold mb-8">180€</p>
@@ -247,7 +244,6 @@ const Index = () => {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
             <FadeIn delay={0.15}>
-              {/* Photo placeholder */}
               <div className="aspect-[3/4] bg-card/60 border border-border/40 flex items-center justify-center">
                 <p className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground/40">Foto</p>
               </div>
@@ -299,7 +295,7 @@ const Index = () => {
           </FadeIn>
           <FadeIn delay={0.3}>
             <p className="font-body text-base text-muted-foreground mb-12 max-w-xl mx-auto">
-              La Lectura Estructural es el primer paso. Un diagnóstico que te muestra exactamente
+              La Lectura Estructural es el primer paso. Te muestra exactamente
               desde dónde estás operando y por qué ciertos resultados se repiten.
             </p>
           </FadeIn>

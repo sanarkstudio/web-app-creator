@@ -29,7 +29,7 @@ const LecturaEstructural = () => {
           </FadeIn>
           <FadeIn delay={0.6}>
             <p className="font-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Un diagnóstico avanzado que revela la estructura profunda desde la que operas.
+              Una lectura profunda que revela la estructura desde la que operas.
               No lo que te pasa. Sino lo que lo sostiene.
             </p>
           </FadeIn>
@@ -49,8 +49,8 @@ const LecturaEstructural = () => {
           <FadeIn delay={0.3}>
             <div className="space-y-6 font-body text-base md:text-lg text-muted-foreground leading-relaxed">
               <p>
-                Es un modelo de diagnóstico que va más allá de los síntomas, las emociones o los
-                comportamientos visibles. La Lectura Estructural accede a la capa más profunda de tu
+                Es una lectura que va más allá de los síntomas, las emociones o los
+                comportamientos visibles. Accede a la capa más profunda de tu
                 funcionamiento: los programas heredados que configuran tu manera de operar.
               </p>
               <p>
@@ -81,16 +81,16 @@ const LecturaEstructural = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                title: "Tus programas heredados",
-                desc: "Los patrones instalados antes de tu consciencia que dictan cómo gestionas energía, vínculos, salud y recursos.",
+                title: "Tu arquitectura heredada",
+                desc: "Los programas instalados antes de tu consciencia que dictan cómo gestionas tu energía, tus vínculos, tu salud y tus recursos. Lo que nunca elegiste pero que sigue operando.",
               },
               {
                 title: "Tus fugas activas",
-                desc: "Dónde pierdes energía, tiempo y claridad de forma cíclica. Las repeticiones que ningún hábito nuevo ha logrado detener.",
+                desc: "Los puntos exactos donde pierdes energía, claridad y dirección de forma cíclica. Las repeticiones que ningún hábito nuevo, ninguna terapia ni ningún propósito ha logrado detener.",
               },
               {
-                title: "Tu mapa estructural",
-                desc: "Una visión completa de las dimensiones donde estos programas operan: física, emocional, mental, relacional, social y financiera.",
+                title: "Tu mapa estructural completo",
+                desc: "Una visión precisa de cómo estos programas operan en cada dimensión de tu vida: física, emocional, mental, relacional, social y financiera. El mapa desde el que realmente estás viviendo.",
               },
             ].map((item, i) => (
               <FadeIn key={i} delay={i * 0.15}>
@@ -143,7 +143,7 @@ const LecturaEstructural = () => {
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="font-body text-base text-muted-foreground mb-12 max-w-xl mx-auto">
-              La Lectura Estructural es una sesión individual donde se decodifica tu estructura
+              La Lectura Estructural es una sesión individual donde decodifico tu estructura
               actual. Sin interpretaciones. Sin suposiciones. Solo lo que está operando.
             </p>
           </FadeIn>
