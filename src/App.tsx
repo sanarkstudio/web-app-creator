@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import LecturaEstructural from "./pages/LecturaEstructural";
 import ProcesoSanark from "./pages/ProcesoSanark";
+import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
+import AvisoLegal from "./pages/AvisoLegal";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,6 +22,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/lectura-estructural" element={<LecturaEstructural />} />
           <Route path="/proceso-sanark" element={<ProcesoSanark />} />
+          <Route path="/politica-privacidad" element={<PoliticaPrivacidad />} />
+          <Route path="/aviso-legal" element={<AvisoLegal />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
