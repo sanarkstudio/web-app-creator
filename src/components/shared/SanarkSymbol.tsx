@@ -1,9 +1,12 @@
-import { motion, type Easing } from "framer-motion";
+import { motion, useAnimation, type Easing } from "framer-motion";
+import { useCallback } from "react";
 
 const ease: Easing = [0.22, 1, 0.36, 1];
 
-/** Animated SVG of the Sanark compass symbol — draws on scroll/view */
+/** Animated SVG of the Sanark compass symbol — draws on scroll/view, replays on hover */
 const SanarkSymbol = ({ size = 200, className = "" }: { size?: number; className?: string }) => {
+  const controls = useAnimation();
+
   const draw = {
     hidden: { pathLength: 0, opacity: 0 },
     visible: (i: number) => ({
@@ -16,6 +19,11 @@ const SanarkSymbol = ({ size = 200, className = "" }: { size?: number; className
     }),
   };
 
+  const handleHover = useCallback(async () => {
+    await controls.start("hidden");
+    controls.start("visible");
+  }, [controls]);
+
   return (
     <motion.svg
       viewBox="0 0 200 200"
@@ -25,6 +33,9 @@ const SanarkSymbol = ({ size = 200, className = "" }: { size?: number; className
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
+      animate={controls}
+      onHoverStart={handleHover}
+      style={{ cursor: "pointer" }}
     >
       <motion.circle cx="100" cy="100" r="85" fill="none" stroke="hsl(38 50% 48%)" strokeWidth="1.5" variants={draw} custom={0} />
       <motion.path d="M100 30 Q120 80 170 100 Q120 120 100 170 Q80 120 30 100 Q80 80 100 30Z" fill="none" stroke="hsl(38 50% 48%)" strokeWidth="1.5" variants={draw} custom={0.5} />
