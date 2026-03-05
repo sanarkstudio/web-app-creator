@@ -46,7 +46,7 @@ const Index = () => {
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-light leading-[1.05] mb-8 text-shadow-gold">
               Lo que te frena no es visible.
               <br />
-              <span className="gradient-text-gold font-medium">Pero sí es operable.</span>
+              <span className="gradient-text-gold font-medium">Pero sí es desmontable.</span>
             </h1>
           </FadeIn>
 
