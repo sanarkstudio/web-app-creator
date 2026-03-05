@@ -83,13 +83,9 @@ const Index = () => {
           className="relative z-10 container mx-auto px-6 text-center max-w-4xl"
         >
           <FadeIn delay={0}>
-            <motion.div
-              className="flex justify-center mb-10"
-              animate={{ rotate: [0, 360] }}
-              transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-            >
+            <div className="flex justify-center mb-10">
               <SanarkSymbol size={140} className="opacity-50" />
-            </motion.div>
+            </div>
           </FadeIn>
 
           <FadeIn delay={0.4}>
