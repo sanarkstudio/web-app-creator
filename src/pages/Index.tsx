@@ -7,7 +7,6 @@ import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import { ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
-import juanCarlosImg from "@/assets/juan-carlos-pro.jpg";
 
 const Index = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -16,8 +15,9 @@ const Index = () => {
     offset: ["start start", "end start"],
   });
   const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.92]);
-  const heroY = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.88]);
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, 140]);
+  const heroBlur = useTransform(scrollYProgress, [0, 0.8, 1], [0, 0, 8]);
 
   // Parallax for problem section
   const problemRef = useRef<HTMLElement>(null);
@@ -25,7 +25,16 @@ const Index = () => {
     target: problemRef,
     offset: ["start end", "end start"],
   });
-  const problemY = useTransform(problemProgress, [0, 1], [60, -60]);
+  const problemY = useTransform(problemProgress, [0, 1], [80, -80]);
+  const problemOpacity = useTransform(problemProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0.3]);
+
+  // Parallax for solution section
+  const solutionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress: solutionProgress } = useScroll({
+    target: solutionRef,
+    offset: ["start end", "end start"],
+  });
+  const solutionScale = useTransform(solutionProgress, [0, 0.5, 1], [0.95, 1, 0.98]);
 
   // Parallax for bio section
   const bioRef = useRef<HTMLElement>(null);
@@ -33,28 +42,54 @@ const Index = () => {
     target: bioRef,
     offset: ["start end", "end start"],
   });
-  const bioImageY = useTransform(bioProgress, [0, 1], [80, -40]);
+  const bioTextX = useTransform(bioProgress, [0, 0.5], [60, 0]);
+  const bioTextOpacity = useTransform(bioProgress, [0, 0.4], [0, 1]);
+
+  // Parallax for identification section
+  const identRef = useRef<HTMLElement>(null);
+  const { scrollYProgress: identProgress } = useScroll({
+    target: identRef,
+    offset: ["start end", "end start"],
+  });
+  const identScale = useTransform(identProgress, [0, 0.4], [0.9, 1]);
 
   // Reveal line animation
   const lineRef = useRef(null);
   const lineInView = useInView(lineRef, { once: true, margin: "-100px" });
+
+  // Final CTA parallax
+  const finalRef = useRef<HTMLElement>(null);
+  const { scrollYProgress: finalProgress } = useScroll({
+    target: finalRef,
+    offset: ["start end", "end start"],
+  });
+  const finalGlow = useTransform(finalProgress, [0, 0.5, 1], [0, 0.12, 0.04]);
 
   return (
     <Layout>
       {/* Hero — immersive full-screen entry */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.06)_0%,transparent_70%)]" />
-        <FloatingParticles count={35} />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.08)_0%,transparent_70%)]" />
+        <FloatingParticles count={50} />
 
         <motion.div
-          style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
+          style={{
+            opacity: heroOpacity,
+            scale: heroScale,
+            y: heroY,
+            filter: useTransform(heroBlur, (v) => `blur(${v}px)`),
+          }}
           className="relative z-10 container mx-auto px-6 text-center max-w-4xl"
         >
           <FadeIn delay={0}>
-            <div className="flex justify-center mb-10">
-              <SanarkSymbol size={140} className="opacity-60" />
-            </div>
+            <motion.div
+              className="flex justify-center mb-10"
+              animate={{ rotate: [0, 360] }}
+              transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
+            >
+              <SanarkSymbol size={140} className="opacity-50" />
+            </motion.div>
           </FadeIn>
 
           <FadeIn delay={0.4}>
@@ -67,7 +102,7 @@ const Index = () => {
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-light leading-[1.05] mb-8 text-shadow-gold">
               Lo que te frena no es visible.
               <br />
-              <span className="gradient-text-gold font-medium">Pero yo sí lo veo.</span>
+              <span className="gradient-text-gold font-medium">Y aun así, se puede desmontar.</span>
             </h1>
           </FadeIn>
 
@@ -83,7 +118,7 @@ const Index = () => {
               to="/lectura-estructural"
               className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
             >
-              Muéstrame lo que no veo
+              Quiero ver lo que no veo
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </FadeIn>
@@ -91,27 +126,30 @@ const Index = () => {
 
         <motion.div
           className="absolute bottom-10 left-1/2 -translate-x-1/2"
-          animate={{ y: [0, 10, 0] }}
+          animate={{ y: [0, 12, 0] }}
           transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
         >
-          <div className="w-px h-12 bg-gradient-to-b from-transparent via-gold/40 to-transparent" />
+          <div className="w-px h-16 bg-gradient-to-b from-transparent via-gold/50 to-transparent" />
         </motion.div>
       </section>
 
       {/* Reveal line */}
       <div ref={lineRef} className="flex justify-center py-4">
         <motion.div
-          className="h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent"
+          className="h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"
           initial={{ width: 0 }}
-          animate={lineInView ? { width: "60%" } : {}}
-          transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+          animate={lineInView ? { width: "70%" } : {}}
+          transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
         />
       </div>
 
       {/* Problem — the mirror */}
-      <section ref={problemRef} className="py-28 md:py-40 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(38_50%_48%/0.03)_0%,transparent_50%)]" />
-        <motion.div style={{ y: problemY }} className="container mx-auto px-6 max-w-3xl relative z-10">
+      <section ref={problemRef} className="py-32 md:py-48 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(38_50%_48%/0.04)_0%,transparent_50%)]" />
+        <motion.div
+          style={{ y: problemY, opacity: problemOpacity }}
+          className="container mx-auto px-6 max-w-3xl relative z-10"
+        >
           <FadeIn>
             <SectionDivider />
           </FadeIn>
@@ -142,11 +180,11 @@ const Index = () => {
       </section>
 
       {/* Solution — the path */}
-      <section className="py-28 md:py-40 relative overflow-hidden">
+      <section ref={solutionRef} className="py-32 md:py-48 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,hsl(38_50%_48%/0.05)_0%,transparent_60%)]" />
-        <FloatingParticles count={15} />
-        <div className="container mx-auto px-6 max-w-5xl relative z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
+        <FloatingParticles count={20} />
+        <motion.div style={{ scale: solutionScale }} className="container mx-auto px-6 max-w-5xl relative z-10">
           <FadeIn>
             <p className="font-body text-xs tracking-[0.4em] uppercase text-gold text-center mb-6">
               Lo que hago
@@ -190,12 +228,16 @@ const Index = () => {
               </Link>
             </FadeIn>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Identification — scroll-stopping mirror */}
-      <section className="py-28 md:py-40 relative">
-        <div className="container mx-auto px-6 max-w-3xl text-center relative z-10">
+      <section ref={identRef} className="py-32 md:py-48 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.03)_0%,transparent_60%)]" />
+        <motion.div
+          style={{ scale: identScale }}
+          className="container mx-auto px-6 max-w-3xl text-center relative z-10"
+        >
           <FadeIn>
             <h2 className="font-display text-3xl md:text-5xl font-light mb-14 leading-tight">
               Si esto te suena, no es casualidad
@@ -209,10 +251,10 @@ const Index = () => {
               "Sabes que hay algo más profundo operando, pero no sabes qué es.",
               "Estás listo para dejar de trabajar sobre los síntomas.",
             ].map((text, i) => (
-              <FadeIn key={i} delay={i * 0.1}>
+              <FadeIn key={i} delay={i * 0.12}>
                 <motion.p
-                  className="font-body text-base md:text-lg text-foreground/80 py-5 border-b border-border/20 last:border-0 cursor-default"
-                  whileHover={{ x: 8, color: "hsl(38 50% 48%)" }}
+                  className="font-body text-base md:text-lg text-foreground/80 py-6 border-b border-border/20 last:border-0 cursor-default"
+                  whileHover={{ x: 12, color: "hsl(38 50% 48%)" }}
                   transition={{ duration: 0.3 }}
                 >
                   {text}
@@ -220,8 +262,8 @@ const Index = () => {
               </FadeIn>
             ))}
           </div>
-          <FadeIn delay={0.6}>
-            <div className="mt-14">
+          <FadeIn delay={0.7}>
+            <div className="mt-16">
               <Link
                 to="/lectura-estructural"
                 className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-all duration-500"
@@ -231,14 +273,14 @@ const Index = () => {
               </Link>
             </div>
           </FadeIn>
-        </div>
+        </motion.div>
       </section>
 
       {/* ENTRADA — Lectura Estructural */}
-      <section className="py-28 md:py-40 relative overflow-hidden">
+      <section className="py-32 md:py-48 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
-        <FloatingParticles count={15} />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.08)_0%,transparent_60%)]" />
+        <FloatingParticles count={20} />
         <div className="container mx-auto px-6 max-w-3xl relative z-10">
           <FadeIn>
             <p className="font-body text-xs tracking-[0.5em] uppercase text-gold text-center mb-6">
@@ -266,7 +308,7 @@ const Index = () => {
                 to="/lectura-estructural"
                 className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
               >
-                Accede a tu estructura
+                Quiero ver lo que no veo
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -275,7 +317,7 @@ const Index = () => {
       </section>
 
       {/* Quien dirige — Juan Carlos */}
-      <section ref={bioRef} className="py-28 md:py-40 relative overflow-hidden">
+      <section ref={bioRef} className="py-32 md:py-48 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,hsl(38_50%_48%/0.04)_0%,transparent_50%)]" />
         <div className="container mx-auto px-6 max-w-5xl relative z-10">
           <FadeIn>
@@ -285,54 +327,59 @@ const Index = () => {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
             <FadeIn delay={0.15}>
-              <motion.div style={{ y: bioImageY }} className="relative">
-                <div className="aspect-[3/4] overflow-hidden border border-border/40">
-                  <img
-                    src={juanCarlosImg}
-                    alt="Juan Carlos Sánchez Velázquez"
-                    className="w-full h-full object-cover"
-                  />
+              <div className="relative">
+                <div className="aspect-[3/4] overflow-hidden border border-border/40 bg-surface-elevated flex items-center justify-center">
+                  <div className="text-center px-8">
+                    <SanarkSymbol size={80} className="mx-auto mb-6 opacity-30" />
+                    <p className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground">
+                      Foto próximamente
+                    </p>
+                  </div>
                 </div>
                 <div className="absolute -bottom-4 -right-4 w-24 h-24 border border-gold/20 -z-10" />
-              </motion.div>
-            </FadeIn>
-            <FadeIn delay={0.3}>
-              <div>
-                <h2 className="font-display text-3xl md:text-4xl font-light mb-2">Juan Carlos</h2>
-                <p className="font-body text-sm text-gold tracking-wider mb-8">Sánchez Velázquez</p>
-                <div className="space-y-5 font-body text-base text-muted-foreground leading-relaxed">
-                  <p>
-                    14 años leyendo lo que nadie más lee. No emociones, no creencias, no historias.{" "}
-                    <span className="text-foreground font-medium">Estructuras.</span> Los programas heredados
-                    que determinan cómo vives, decides, te vinculas y gestionas cada recurso que tienes.
-                  </p>
-                  <p>
-                    He trabajado con cientos de personas que ya habían hecho todo: terapia, coaching,
-                    meditación, constelaciones. Llegaron porque sabían que había algo más profundo
-                    operando. Y tenían razón.
-                  </p>
-                  <p>
-                    Mi enfoque no se parece a nada que hayas probado. No interpreto. No aconsejo.
-                    No motivo.{" "}
-                    <span className="text-foreground font-medium">
-                      Leo la arquitectura desde la que operas y te muestro con precisión lo que está
-                      generando los resultados que tienes.
-                    </span>
-                  </p>
-                  <p className="text-foreground/90 italic border-l-2 border-gold/30 pl-5">
-                    Mi trabajo termina cuando tu estructura se sostiene sola. Eso no es un objetivo — es
-                    el único criterio válido.
-                  </p>
-                </div>
               </div>
             </FadeIn>
+            <motion.div style={{ x: bioTextX, opacity: bioTextOpacity }}>
+              <FadeIn delay={0.3}>
+                <div>
+                  <h2 className="font-display text-3xl md:text-4xl font-light mb-2">Juan Carlos</h2>
+                  <p className="font-body text-sm text-gold tracking-wider mb-8">Sánchez Velázquez</p>
+                  <div className="space-y-5 font-body text-base text-muted-foreground leading-relaxed">
+                    <p>
+                      Llevo 14 años especializándome en un solo campo:{" "}
+                      <span className="text-foreground font-medium">la decodificación de las estructuras
+                      que operan por debajo de la consciencia</span>. Los programas heredados que determinan
+                      cómo te vinculas, cómo gestionas tu energía, qué te permites y qué no — antes
+                      de que intervenga tu voluntad.
+                    </p>
+                    <p>
+                      He acompañado a cientos de personas que ya habían invertido años en su proceso
+                      personal — terapia, coaching, meditación, constelaciones — y seguían encontrándose
+                      con el mismo techo. Llegaron porque intuían que había algo más profundo operando.
+                      Y en todos los casos, lo había.
+                    </p>
+                    <p>
+                      Mi método es preciso y directo. No interpreto, no aconsejo, no motivo.{" "}
+                      <span className="text-foreground font-medium">
+                        Leo la arquitectura estructural desde la que operas y te muestro, con total claridad,
+                        qué está generando los resultados que tienes.
+                      </span>
+                    </p>
+                    <p className="text-foreground/90 italic border-l-2 border-gold/30 pl-5">
+                      Mi trabajo termina cuando tu estructura se sostiene sola. Eso no es un objetivo — es
+                      el único criterio válido.
+                    </p>
+                  </div>
+                </div>
+              </FadeIn>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* DESPUÉS DE LA SESIÓN */}
-      <section className="py-28 md:py-40 relative">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,hsl(38_50%_48%/0.03)_0%,transparent_50%)]" />
+      <section className="py-32 md:py-48 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,hsl(38_50%_48%/0.04)_0%,transparent_50%)]" />
         <div className="container mx-auto px-6 max-w-4xl relative z-10">
           <FadeIn>
             <p className="font-body text-xs tracking-[0.5em] uppercase text-gold text-center mb-6">
@@ -374,13 +421,26 @@ const Index = () => {
       </section>
 
       {/* Final CTA — scroll-stopping */}
-      <section className="py-32 md:py-44 relative overflow-hidden">
+      <section ref={finalRef} className="py-36 md:py-52 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.08)_0%,transparent_60%)]" />
-        <FloatingParticles count={20} />
+        <motion.div
+          className="absolute inset-0"
+          style={{
+            background: useTransform(
+              finalGlow,
+              (v) => `radial-gradient(ellipse at center, hsl(38 50% 48% / ${v}) 0%, transparent 60%)`
+            ),
+          }}
+        />
+        <FloatingParticles count={25} />
         <div className="container mx-auto px-6 max-w-3xl text-center relative z-10">
           <FadeIn>
-            <SanarkSymbol size={80} className="mx-auto mb-10 opacity-40" />
+            <motion.div
+              animate={{ rotate: [0, -360] }}
+              transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
+            >
+              <SanarkSymbol size={80} className="mx-auto mb-10 opacity-40" />
+            </motion.div>
           </FadeIn>
           <FadeIn delay={0.15}>
             <h2 className="font-display text-3xl md:text-5xl font-light mb-8 leading-tight">
@@ -400,7 +460,7 @@ const Index = () => {
               to="/lectura-estructural"
               className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium glow-gold"
             >
-              Reserva tu Lectura Estructural
+              Quiero ver lo que no veo
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </FadeIn>
