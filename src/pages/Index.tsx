@@ -195,6 +195,92 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ENTRADA — Lectura Estructural */}
+      <section className="py-28 md:py-36 relative overflow-hidden">
+        <div className="absolute inset-0 bg-secondary/30" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
+        <FloatingParticles count={15} />
+        <div className="container mx-auto px-6 max-w-3xl relative z-10">
+          <FadeIn>
+            <p className="font-body text-xs tracking-[0.5em] uppercase text-gold text-center mb-6">
+              Entrada
+            </p>
+            <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-8 leading-tight">
+              Todo comienza con una sola sesión.
+            </h2>
+          </FadeIn>
+          <FadeIn delay={0.15}>
+            <p className="font-body text-base md:text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-12 leading-relaxed">
+              90 minutos para ver con exactitud desde dónde estás operando.
+              No es terapia. No es diagnóstico. No es coaching.
+              Es el único punto de acceso a todo mi trabajo.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.3}>
+            <div className="p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 text-center">
+              <h3 className="font-display text-2xl md:text-3xl font-light mb-4">Lectura Estructural</h3>
+              <p className="font-body text-sm text-muted-foreground leading-relaxed mb-8 max-w-xl mx-auto">
+                Una sesión única donde leemos la arquitectura activa desde la que operas hoy — la estructura
+                que heredaste y que sigue dirigiendo tu vida aunque hayas trabajado en ti durante años.
+              </p>
+              <p className="font-display text-4xl md:text-5xl font-light text-gold mb-8">180€</p>
+              <a
+                href="mailto:info@sanark.com?subject=Quiero%20mi%20Lectura%20Estructural"
+                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
+              >
+                Quiero mi Lectura Estructural
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Quien dirige — Juan Carlos */}
+      <section className="py-28 md:py-36 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,hsl(38_50%_48%/0.04)_0%,transparent_50%)]" />
+        <div className="container mx-auto px-6 max-w-5xl relative z-10">
+          <FadeIn>
+            <p className="font-body text-xs tracking-[0.4em] uppercase text-gold text-center mb-12">
+              Quien dirige las lecturas
+            </p>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+            <FadeIn delay={0.15}>
+              {/* Photo placeholder */}
+              <div className="aspect-[3/4] bg-card/60 border border-border/40 flex items-center justify-center">
+                <p className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground/40">Foto</p>
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.3}>
+              <div>
+                <h2 className="font-display text-3xl md:text-4xl font-light mb-2">Juan Carlos</h2>
+                <p className="font-body text-sm text-gold tracking-wider mb-8">Sánchez Velázquez</p>
+                <div className="space-y-5 font-body text-base text-muted-foreground leading-relaxed">
+                  <p>
+                    Llevo 14 años trabajando con la arquitectura invisible que define cómo las personas
+                    viven, deciden y se relacionan.
+                  </p>
+                  <p>
+                    Mi trabajo no es terapéutico ni motivacional.{" "}
+                    <span className="text-foreground font-medium">Es estructural.</span>
+                  </p>
+                  <p>
+                    No vengo a ayudarte a sentirte mejor con lo que tienes. Vengo a enseñarte a operar
+                    desde una base que hayas construido tú — una que no dependa de mi presencia para
+                    sostenerse.
+                  </p>
+                  <p className="text-foreground/90 italic">
+                    Mi trabajo termina cuando tu estructura se sostiene sola. Eso no es un objetivo — es
+                    el único criterio válido.
+                  </p>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="py-28 md:py-36 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
