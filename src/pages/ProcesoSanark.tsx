@@ -6,7 +6,7 @@ import FloatingParticles from "@/components/shared/FloatingParticles";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import structuralJourney from "@/assets/structural-journey.jpg";
+
 
 const phases = [
   {
