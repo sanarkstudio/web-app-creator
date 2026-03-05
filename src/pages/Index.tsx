@@ -46,7 +46,7 @@ const Index = () => {
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-light leading-[1.05] mb-8 text-shadow-gold">
               Lo que te frena no es visible.
               <br />
-              <span className="gradient-text-gold font-medium">Pero sí es operable.</span>
+              <span className="gradient-text-gold font-medium">Pero sí es desmontable.</span>
             </h1>
           </FadeIn>
 
@@ -220,14 +220,13 @@ const Index = () => {
                 Una sesión única donde leo la arquitectura activa desde la que operas hoy — la estructura
                 que heredaste y que sigue dirigiendo tu vida aunque hayas trabajado en ti durante años.
               </p>
-              <p className="font-display text-4xl md:text-5xl font-light text-gold mb-8">180€</p>
-              <a
-                href="mailto:info@sanark.com?subject=Quiero%20mi%20Lectura%20Estructural"
+              <Link
+                to="/lectura-estructural"
                 className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
               >
                 Quiero mi Lectura Estructural
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
             </div>
           </FadeIn>
         </div>
@@ -272,6 +271,49 @@ const Index = () => {
                   </p>
                 </div>
               </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* DESPUÉS DE LA SESIÓN */}
+      <section className="py-28 md:py-36 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,hsl(38_50%_48%/0.03)_0%,transparent_50%)]" />
+        <div className="container mx-auto px-6 max-w-4xl relative z-10">
+          <FadeIn>
+            <p className="font-body text-xs tracking-[0.5em] uppercase text-gold text-center mb-6">
+              Después de la sesión
+            </p>
+            <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-16 leading-tight">
+              La claridad te deja frente a una decisión.
+            </h2>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <FadeIn delay={0.15}>
+              <div className="p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/20 transition-all duration-500 h-full">
+                <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4">Autonomía inmediata</p>
+                <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed">
+                  Con tu estructura visible, tienes todo lo que necesitas para empezar a tomar decisiones
+                  desde un lugar distinto. La lectura te da el mapa. El recorrido es tuyo. Para muchos,
+                  esta sola sesión es el mayor punto de inflexión de su proceso personal.
+                </p>
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.3}>
+              <Link
+                to="/proceso-sanark"
+                className="group block p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 h-full hover:glow-gold"
+              >
+                <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4">El siguiente nivel</p>
+                <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed mb-6">
+                  Si tu estructura requiere una reconstrucción profunda — no un ajuste — valoramos juntos
+                  tu acceso al Proceso Sanark: 12 intervenciones 1:1 para desmantelar la arquitectura
+                  heredada y construir una base propia.
+                </p>
+                <span className="inline-flex items-center gap-2 text-gold text-sm font-body tracking-wider uppercase group-hover:gap-4 transition-all duration-300">
+                  Conocer el Proceso Sanark <ArrowRight size={14} />
+                </span>
+              </Link>
             </FadeIn>
           </div>
         </div>

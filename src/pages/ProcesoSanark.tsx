@@ -6,7 +6,7 @@ import FloatingParticles from "@/components/shared/FloatingParticles";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import structuralJourney from "@/assets/structural-journey.jpg";
+
 
 const phases = [
   {
@@ -62,18 +62,6 @@ const ProcesoSanark = () => {
         </div>
       </section>
 
-      {/* Immersive image divider */}
-      <section className="relative h-[40vh] md:h-[50vh] overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src={structuralJourney}
-            alt="Viaje estructural — líneas doradas en la oscuridad"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
-          <div className="absolute inset-0 bg-background/40" />
-        </div>
-      </section>
 
       {/* Intro */}
       <section className="py-28 md:py-36 relative">
