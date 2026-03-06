@@ -33,7 +33,7 @@ const phases = [
 
 /** Golden SVG flowing path that connects phases */
 const GoldenFlowPath = () => {
-  const ref = useRef<SVGSVGElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start center", "end center"],
@@ -42,9 +42,9 @@ const GoldenFlowPath = () => {
   const glowOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 0.6, 0.3]);
 
   return (
+    <div ref={ref} className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-20 hidden md:block pointer-events-none">
     <svg
-      ref={ref}
-      className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-20 h-full hidden md:block pointer-events-none"
+      className="w-full h-full"
       viewBox="0 0 80 1000"
       preserveAspectRatio="none"
       fill="none"
