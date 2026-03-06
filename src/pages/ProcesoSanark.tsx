@@ -4,6 +4,8 @@ import FadeIn from "@/components/shared/FadeIn";
 import SectionDivider from "@/components/shared/SectionDivider";
 import FloatingParticles from "@/components/shared/FloatingParticles";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
+import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
+import StickyRevealSection from "@/components/shared/StickyRevealSection";
 import { ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
@@ -43,60 +45,37 @@ const GoldenFlowPath = () => {
 
   return (
     <div ref={ref} className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-20 hidden md:block pointer-events-none">
-    <svg
-      className="w-full h-full"
-      viewBox="0 0 80 1000"
-      preserveAspectRatio="none"
-      fill="none"
-    >
-      {/* Glow filter */}
-      <defs>
-        <filter id="golden-glow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="4" result="blur" />
-          <feMerge>
-            <feMergeNode in="blur" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-        <linearGradient id="gold-gradient" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="hsl(38 50% 48%)" stopOpacity="0.1" />
-          <stop offset="20%" stopColor="hsl(38 50% 48%)" stopOpacity="0.8" />
-          <stop offset="50%" stopColor="hsl(38 60% 55%)" stopOpacity="1" />
-          <stop offset="80%" stopColor="hsl(38 50% 48%)" stopOpacity="0.8" />
-          <stop offset="100%" stopColor="hsl(38 50% 48%)" stopOpacity="0.1" />
-        </linearGradient>
-      </defs>
-
-      {/* Background trace */}
-      <path
-        d="M40 0 C40 120, 20 180, 40 250 S60 320, 40 400 S20 480, 40 500 S60 580, 40 650 S20 720, 40 750 S60 850, 40 900 L40 1000"
-        stroke="hsl(38 50% 48% / 0.08)"
-        strokeWidth="1"
-      />
-
-      {/* Animated golden flow */}
-      <motion.path
-        d="M40 0 C40 120, 20 180, 40 250 S60 320, 40 400 S20 480, 40 500 S60 580, 40 650 S20 720, 40 750 S60 850, 40 900 L40 1000"
-        stroke="url(#gold-gradient)"
-        strokeWidth="2"
-        filter="url(#golden-glow)"
-        style={{ pathLength }}
-        strokeLinecap="round"
-      />
-
-      {/* Phase connection dots */}
-      {[125, 375, 625, 875].map((cy, i) => (
-        <motion.circle
-          key={i}
-          cx="40"
-          cy={cy}
-          r="5"
-          fill="hsl(38 50% 48%)"
-          style={{ opacity: glowOpacity }}
-          filter="url(#golden-glow)"
+      <svg className="w-full h-full" viewBox="0 0 80 1000" preserveAspectRatio="none" fill="none">
+        <defs>
+          <filter id="golden-glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="4" result="blur" />
+            <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+          <linearGradient id="gold-gradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="hsl(38 50% 48%)" stopOpacity="0.1" />
+            <stop offset="20%" stopColor="hsl(38 50% 48%)" stopOpacity="0.8" />
+            <stop offset="50%" stopColor="hsl(38 60% 55%)" stopOpacity="1" />
+            <stop offset="80%" stopColor="hsl(38 50% 48%)" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="hsl(38 50% 48%)" stopOpacity="0.1" />
+          </linearGradient>
+        </defs>
+        <path
+          d="M40 0 C40 120, 20 180, 40 250 S60 320, 40 400 S20 480, 40 500 S60 580, 40 650 S20 720, 40 750 S60 850, 40 900 L40 1000"
+          stroke="hsl(38 50% 48% / 0.08)"
+          strokeWidth="1"
         />
-      ))}
-    </svg>
+        <motion.path
+          d="M40 0 C40 120, 20 180, 40 250 S60 320, 40 400 S20 480, 40 500 S60 580, 40 650 S20 720, 40 750 S60 850, 40 900 L40 1000"
+          stroke="url(#gold-gradient)"
+          strokeWidth="2"
+          filter="url(#golden-glow)"
+          style={{ pathLength }}
+          strokeLinecap="round"
+        />
+        {[125, 375, 625, 875].map((cy, i) => (
+          <motion.circle key={i} cx="40" cy={cy} r="5" fill="hsl(38 50% 48%)" style={{ opacity: glowOpacity }} filter="url(#golden-glow)" />
+        ))}
+      </svg>
     </div>
   );
 };
@@ -126,7 +105,7 @@ const ProcesoSanark = () => {
 
   return (
     <Layout>
-      {/* Hero — cinematic entry */}
+      {/* Hero */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-secondary/20" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.08)_0%,transparent_70%)]" />
@@ -183,38 +162,31 @@ const ProcesoSanark = () => {
         />
       </div>
 
-      {/* Intro */}
+      {/* Apple-style sticky reveal — Intro */}
+      <StickyRevealSection scrollHeight={1.8}>
+        <div className="container mx-auto px-6 max-w-3xl text-center">
+          <SectionDivider />
+          <h2 className="font-display text-4xl md:text-6xl font-light mt-12 mb-8 leading-tight">
+            Esto no es terapia.
+            <br />
+            <span className="gradient-text-gold">Es ingeniería estructural de vida.</span>
+          </h2>
+          <p className="font-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+            Parte de la base revelada en la Lectura Estructural y trabaja directamente
+            sobre los programas que sostienen tus patrones repetitivos.
+          </p>
+        </div>
+      </StickyRevealSection>
+
+      {/* Apple-style word-by-word scroll reveal */}
       <section className="py-28 md:py-36 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(38_50%_48%/0.03)_0%,transparent_50%)]" />
         <div className="container mx-auto px-6 max-w-3xl relative z-10">
-          <FadeIn><SectionDivider /></FadeIn>
-          <FadeIn delay={0.15}>
-            <h2 className="font-display text-3xl md:text-5xl font-light text-center mt-12 mb-10">
-              Esto no es terapia. No es coaching. Es ingeniería estructural de vida.
-            </h2>
-          </FadeIn>
-          <FadeIn delay={0.3}>
-            <div className="space-y-6 font-body text-base md:text-lg text-muted-foreground leading-relaxed">
-              <p>
-                El Proceso Sanark no es un programa de mejora personal. Es un proceso de
-                reconfiguración estructural. Parte de la base revelada en la Lectura Estructural y
-                trabajo directamente sobre los programas que sostienen tus patrones repetitivos.
-              </p>
-              <p>
-                Puedes cambiar hábitos, rutinas, entornos. Pero si la estructura subyacente
-                permanece intacta, las fugas volverán. Los ciclos se repetirán. El techo seguirá ahí.
-              </p>
-              <motion.p
-                className="text-foreground font-medium text-lg md:text-xl text-center py-6"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              >
-                Este proceso existe para quienes están listos para intervenir en la raíz.
-              </motion.p>
-            </div>
-          </FadeIn>
+          <ScrollTextReveal
+            text="Puedes cambiar hábitos, rutinas, entornos. Pero si la estructura subyacente permanece intacta, las fugas volverán. Los ciclos se repetirán. El techo seguirá ahí. Este proceso existe para quienes están listos para intervenir en la raíz."
+            className="font-display text-2xl md:text-4xl font-light text-center text-foreground leading-snug"
+            as="h2"
+          />
         </div>
       </section>
 
@@ -233,10 +205,8 @@ const ProcesoSanark = () => {
             </p>
           </FadeIn>
 
-          {/* Timeline with golden flow */}
           <div className="relative">
             <GoldenFlowPath />
-
             <div className="space-y-16 md:space-y-24">
               {phases.map((phase, i) => (
                 <FadeIn key={i} delay={i * 0.1} direction={i % 2 === 0 ? "left" : "right"}>
@@ -245,7 +215,6 @@ const ProcesoSanark = () => {
                     whileHover={{ scale: 1.03, y: -4 }}
                     transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    {/* Connector line to center */}
                     <motion.div
                       className={`hidden md:block absolute top-10 ${i % 2 === 0 ? "right-0 w-[calc(55vw/2-50%)]" : "left-0 w-[calc(55vw/2-50%)]"} h-px bg-gradient-to-r ${i % 2 === 0 ? "from-transparent to-gold/30" : "from-gold/30 to-transparent"}`}
                       initial={{ scaleX: 0 }}
@@ -254,11 +223,8 @@ const ProcesoSanark = () => {
                       transition={{ delay: i * 0.15 + 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                       style={{ transformOrigin: i % 2 === 0 ? "right" : "left" }}
                     />
-
                     <div className="relative p-8 md:p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/40 transition-all duration-500 hover:glow-gold overflow-hidden group">
-                      {/* Subtle gold sweep on hover */}
                       <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                      
                       <span className="font-display text-5xl md:text-6xl font-light text-gold/20 block mb-3 relative z-10">
                         {phase.num}
                       </span>

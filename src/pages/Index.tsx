@@ -4,6 +4,8 @@ import FadeIn from "@/components/shared/FadeIn";
 import SectionDivider from "@/components/shared/SectionDivider";
 import FloatingParticles from "@/components/shared/FloatingParticles";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
+import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
+import StickyRevealSection from "@/components/shared/StickyRevealSection";
 import { ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
@@ -18,15 +20,6 @@ const Index = () => {
   const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.88]);
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 140]);
   const heroBlur = useTransform(scrollYProgress, [0, 0.8, 1], [0, 0, 8]);
-
-  // Parallax for problem section
-  const problemRef = useRef<HTMLElement>(null);
-  const { scrollYProgress: problemProgress } = useScroll({
-    target: problemRef,
-    offset: ["start end", "end start"],
-  });
-  const problemY = useTransform(problemProgress, [0, 1], [80, -80]);
-  const problemOpacity = useTransform(problemProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0.3]);
 
   // Parallax for solution section
   const solutionRef = useRef<HTMLElement>(null);
@@ -139,40 +132,32 @@ const Index = () => {
         />
       </div>
 
-      {/* Problem — the mirror */}
-      <section ref={problemRef} className="py-32 md:py-48 relative overflow-hidden">
+      {/* Apple-style sticky reveal — Problem */}
+      <StickyRevealSection scrollHeight={2}>
+        <div className="container mx-auto px-6 max-w-3xl text-center">
+          <SectionDivider />
+          <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-light mt-12 mb-10 leading-tight">
+            Has cambiado hábitos,
+            <br />
+            <span className="gradient-text-gold">pero el patrón permanece</span>
+          </h2>
+          <p className="font-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            No es que no hayas avanzado. Es que hay una capa más profunda que nadie te ha
+            mostrado: la estructura desde la que operas.
+          </p>
+        </div>
+      </StickyRevealSection>
+
+      {/* Apple-style word-by-word reveal */}
+      <section className="py-28 md:py-36 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(38_50%_48%/0.04)_0%,transparent_50%)]" />
-        <motion.div
-          style={{ y: problemY, opacity: problemOpacity }}
-          className="container mx-auto px-6 max-w-3xl relative z-10"
-        >
-          <FadeIn>
-            <SectionDivider />
-          </FadeIn>
-          <FadeIn delay={0.15}>
-            <h2 className="font-display text-3xl md:text-5xl font-light text-center mt-12 mb-10 leading-tight">
-              Has cambiado hábitos, pero el patrón permanece
-            </h2>
-          </FadeIn>
-          <FadeIn delay={0.3}>
-            <div className="space-y-6 font-body text-base md:text-lg text-muted-foreground leading-relaxed">
-              <p>
-                Llevas años tomando decisiones conscientes. Has ido a terapia, has leído, has
-                practicado. Y sin embargo, hay algo que se repite. Una forma de vincularte, una
-                manera de sabotearte, un techo invisible que no logras atravesar.
-              </p>
-              <p>
-                No es que no hayas avanzado. Es que hay una capa más profunda que nadie te ha
-                mostrado: <span className="text-foreground font-medium">la estructura desde la que operas</span>.
-              </p>
-              <p>
-                Un programa heredado, inscrito en tu sistema antes de que tuvieras palabras para
-                nombrarlo. Esa estructura decide cómo gestionas tu energía, cómo te relacionas, qué
-                permites y qué no. Y mientras siga ahí, cualquier cambio será temporal.
-              </p>
-            </div>
-          </FadeIn>
-        </motion.div>
+        <div className="container mx-auto px-6 max-w-3xl relative z-10">
+          <ScrollTextReveal
+            text="Un programa heredado, inscrito en tu sistema antes de que tuvieras palabras para nombrarlo. Esa estructura decide cómo gestionas tu energía, cómo te relacionas, qué permites y qué no. Y mientras siga ahí, cualquier cambio será temporal."
+            className="font-display text-2xl md:text-4xl font-light text-center text-foreground leading-snug"
+            as="h2"
+          />
+        </div>
       </section>
 
       {/* Solution — the path */}
@@ -227,7 +212,7 @@ const Index = () => {
         </motion.div>
       </section>
 
-      {/* Identification — scroll-stopping mirror */}
+      {/* Identification — Apple-style scroll */}
       <section ref={identRef} className="py-32 md:py-48 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.03)_0%,transparent_60%)]" />
         <motion.div
@@ -236,7 +221,7 @@ const Index = () => {
         >
           <FadeIn>
             <h2 className="font-display text-3xl md:text-5xl font-light mb-14 leading-tight">
-              Solo trabajo con personas que ya están aquí
+              Reconoces esto porque ya lo has vivido
             </h2>
           </FadeIn>
           <div className="space-y-0">
@@ -360,21 +345,9 @@ const Index = () => {
                       de que intervenga tu voluntad.
                     </p>
                     <p>
-                      He acompañado a cientos de personas que ya habían invertido años en su proceso
-                      personal — terapia, coaching, meditación, constelaciones — y seguían encontrándose
-                      con el mismo techo. Llegaron porque intuían que había algo más profundo operando.
-                      Y en todos los casos, lo había.
-                    </p>
-                    <p>
-                      Mi método es preciso y directo. No interpreto, no aconsejo, no motivo.{" "}
-                      <span className="text-foreground font-medium">
-                        Leo la arquitectura estructural desde la que operas y te muestro, con total claridad,
-                        qué está generando los resultados que tienes.
-                      </span>
-                    </p>
-                    <p className="text-foreground/90 italic border-l-2 border-gold/30 pl-5">
-                      Mi trabajo termina cuando tu estructura se sostiene sola. Eso no es un objetivo — es
-                      el único criterio válido.
+                      No ofrezco motivación ni acompañamiento emocional. Mi trabajo consiste en hacer
+                      visible la arquitectura que dirige tu vida y, cuando el proceso lo requiere,
+                      intervenirla de forma estructural.
                     </p>
                   </div>
                 </div>
@@ -384,85 +357,33 @@ const Index = () => {
         </div>
       </section>
 
-      {/* DESPUÉS DE LA SESIÓN */}
-      <section className="py-32 md:py-48 relative">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,hsl(38_50%_48%/0.04)_0%,transparent_50%)]" />
-        <div className="container mx-auto px-6 max-w-4xl relative z-10">
-          <FadeIn>
-            <p className="font-body text-xs tracking-[0.5em] uppercase text-gold text-center mb-6">
-              Después de la sesión
-            </p>
-            <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-16 leading-tight">
-              La claridad te deja frente a una decisión.
-            </h2>
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <FadeIn delay={0.15}>
-              <div className="p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/20 transition-all duration-500 h-full">
-                <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4">Autonomía inmediata</p>
-                <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed">
-                  Con tu estructura visible, tienes todo lo que necesitas para empezar a tomar decisiones
-                  desde un lugar distinto. La lectura te da el mapa. El recorrido es tuyo. Para muchos,
-                  esta sola sesión es el mayor punto de inflexión de su proceso personal.
-                </p>
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.3}>
-              <Link
-                to="/proceso-sanark"
-                className="group block p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 h-full hover:glow-gold"
-              >
-                <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4">El siguiente nivel</p>
-                <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed mb-6">
-                  Si tu estructura requiere una reconstrucción profunda — no un ajuste — valoramos juntos
-                  tu acceso al Proceso Sanark: 12 intervenciones 1:1 para desmantelar la arquitectura
-                  heredada y construir una base propia.
-                </p>
-                <span className="inline-flex items-center gap-2 text-gold text-sm font-body tracking-wider uppercase group-hover:gap-4 transition-all duration-300">
-                  Conocer el Proceso Sanark <ArrowRight size={14} />
-                </span>
-              </Link>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA — scroll-stopping */}
-      <section ref={finalRef} className="py-36 md:py-52 relative overflow-hidden">
+      {/* Final CTA */}
+      <section ref={finalRef} className="py-32 md:py-48 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
         <motion.div
           className="absolute inset-0"
           style={{
-            background: useTransform(
-              finalGlow,
-              (v) => `radial-gradient(ellipse at center, hsl(38 50% 48% / ${v}) 0%, transparent 60%)`
-            ),
+            background: useTransform(finalGlow, (v) => `radial-gradient(ellipse at center, hsl(38 50% 48% / ${v}) 0%, transparent 60%)`),
           }}
         />
         <FloatingParticles count={25} />
         <div className="container mx-auto px-6 max-w-3xl text-center relative z-10">
           <FadeIn>
-            <SanarkSymbol size={80} className="mx-auto mb-10 opacity-40" />
+            <SanarkSymbol size={80} className="mx-auto mb-8 opacity-40" />
           </FadeIn>
           <FadeIn delay={0.15}>
             <h2 className="font-display text-3xl md:text-5xl font-light mb-8 leading-tight">
-              Tu estructura actual tiene una fecha de caducidad.
+              El punto de partida es siempre el mismo:
               <br />
-              <span className="text-gold">Tú decides cuándo.</span>
+              <span className="text-gold">ver lo que aún no has visto.</span>
             </h2>
           </FadeIn>
           <FadeIn delay={0.3}>
-            <p className="font-body text-base text-muted-foreground mb-14 max-w-xl mx-auto">
-              La Lectura Estructural es el primer paso. Te muestra exactamente
-              desde dónde estás operando y por qué ciertos resultados se repiten.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.45}>
             <Link
               to="/lectura-estructural"
-              className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium glow-gold"
+              className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
             >
-              Quiero ver lo que no veo
+              Empezar con mi Lectura Estructural
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </FadeIn>

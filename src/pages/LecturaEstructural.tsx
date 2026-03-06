@@ -3,6 +3,8 @@ import FadeIn from "@/components/shared/FadeIn";
 import SectionDivider from "@/components/shared/SectionDivider";
 import FloatingParticles from "@/components/shared/FloatingParticles";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
+import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
+import StickyRevealSection from "@/components/shared/StickyRevealSection";
 import { ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
@@ -37,11 +39,10 @@ const LecturaEstructural = () => {
 
   return (
     <Layout>
-      {/* Hero — cinematic slider-style entry */}
+      {/* Hero — cinematic entry, no rings */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.1)_0%,transparent_70%)]" />
-        
 
         <FloatingParticles count={60} />
 
@@ -116,44 +117,41 @@ const LecturaEstructural = () => {
         />
       </div>
 
-      {/* What is it — parallax section */}
+      {/* Apple-style sticky text reveal — What is it */}
+      <StickyRevealSection scrollHeight={1.8}>
+        <div className="container mx-auto px-6 max-w-3xl text-center">
+          <SectionDivider />
+          <h2 className="font-display text-4xl md:text-6xl font-light mt-12 mb-10">
+            ¿Qué es una Lectura Estructural?
+          </h2>
+          <p className="font-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Es una lectura que va más allá de los síntomas, las emociones o los
+            comportamientos visibles. Accede a la capa más profunda de tu
+            funcionamiento.
+          </p>
+        </div>
+      </StickyRevealSection>
+
+      {/* Apple-style word-by-word scroll reveal */}
       <section className="py-28 md:py-36 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(38_50%_48%/0.03)_0%,transparent_50%)]" />
         <div className="container mx-auto px-6 max-w-3xl relative z-10">
-          <FadeIn><SectionDivider /></FadeIn>
-          <FadeIn delay={0.15}>
-            <h2 className="font-display text-3xl md:text-5xl font-light text-center mt-12 mb-10">
-              ¿Qué es una Lectura Estructural?
-            </h2>
-          </FadeIn>
-          <FadeIn delay={0.3}>
-            <div className="space-y-6 font-body text-base md:text-lg text-muted-foreground leading-relaxed">
-              <p>
-                Es una lectura que va más allá de los síntomas, las emociones o los
-                comportamientos visibles. Accede a la capa más profunda de tu
-                funcionamiento: los programas heredados que configuran tu manera de operar.
-              </p>
-              <p>
-                Estos programas actúan en múltiples dimensiones —física, emocional, mental,
-                conductual, relacional y social— y determinan tus resultados de forma silenciosa
-                pero constante.
-              </p>
-              <motion.p
-                className="text-foreground font-medium text-lg md:text-xl text-center py-6"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              >
-                La Lectura Estructural los hace visibles. Te muestra con precisión qué estructura
-                estás habitando y por qué ciertos patrones se repiten sin importar lo que hagas.
-              </motion.p>
-            </div>
-          </FadeIn>
+          <ScrollTextReveal
+            text="Los programas heredados actúan en múltiples dimensiones — física, emocional, mental, conductual, relacional y social — y determinan tus resultados de forma silenciosa pero constante."
+            className="font-display text-3xl md:text-5xl font-light text-center text-foreground"
+            as="h2"
+          />
+          <div className="mt-16">
+            <ScrollTextReveal
+              text="La Lectura Estructural los hace visibles. Te muestra con precisión qué estructura estás habitando y por qué ciertos patrones se repiten sin importar lo que hagas."
+              className="font-body text-lg md:text-xl text-muted-foreground text-center leading-relaxed"
+              as="p"
+            />
+          </div>
         </div>
       </section>
 
-      {/* What it reveals — slider-style cards */}
+      {/* What it reveals — cards with scale */}
       <section ref={revealRef} className="py-28 md:py-36 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
@@ -198,7 +196,7 @@ const LecturaEstructural = () => {
         </motion.div>
       </section>
 
-      {/* Who is it for — interactive list */}
+      {/* Who is it for — Apple-style word reveal */}
       <section className="py-28 md:py-36">
         <div className="container mx-auto px-6 max-w-3xl">
           <FadeIn>
@@ -206,20 +204,18 @@ const LecturaEstructural = () => {
               Para quién es
             </h2>
           </FadeIn>
-          <FadeIn delay={0.2}>
-            <div className="space-y-6 font-body text-base md:text-lg text-muted-foreground leading-relaxed">
-              <p>
-                Para personas que ya han recorrido un camino significativo de autoconocimiento.
-                Que han hecho terapia, coaching, trabajo personal o espiritual. Y que saben —aunque
-                quizá no puedan nombrarlo— que hay una capa más profunda que aún no han tocado.
-              </p>
-              <motion.p
-                className="text-foreground font-medium text-center py-4"
-                whileHover={{ scale: 1.02 }}
-              >
-                No es para quien busca motivación. Es para quien busca la raíz.
-              </motion.p>
-            </div>
+          <ScrollTextReveal
+            text="Para personas que ya han recorrido un camino significativo de autoconocimiento. Que han hecho terapia, coaching, trabajo personal o espiritual. Y que saben — aunque quizá no puedan nombrarlo — que hay una capa más profunda que aún no han tocado."
+            className="font-body text-lg md:text-xl text-muted-foreground text-center leading-relaxed"
+            as="p"
+          />
+          <FadeIn delay={0.3}>
+            <motion.p
+              className="text-foreground font-medium text-center py-8 font-display text-2xl md:text-3xl"
+              whileHover={{ scale: 1.02 }}
+            >
+              No es para quien busca motivación. Es para quien busca la raíz.
+            </motion.p>
           </FadeIn>
         </div>
       </section>
