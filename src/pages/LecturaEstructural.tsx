@@ -42,29 +42,6 @@ const LecturaEstructural = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.1)_0%,transparent_70%)]" />
         
-        {/* Animated radial rings */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          {[1, 2, 3].map((ring) => (
-            <motion.div
-              key={ring}
-              className="absolute rounded-full border border-gold/5"
-              style={{
-                width: `${ring * 30}vw`,
-                height: `${ring * 30}vw`,
-              }}
-              animate={{
-                scale: [1, 1.05, 1],
-                opacity: [0.3, 0.6, 0.3],
-              }}
-              transition={{
-                duration: 6 + ring * 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: ring * 0.8,
-              }}
-            />
-          ))}
-        </div>
 
         <FloatingParticles count={60} />
 
