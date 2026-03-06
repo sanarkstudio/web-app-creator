@@ -301,7 +301,7 @@ const Index = () => {
             <p className="font-body text-base md:text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-12 leading-relaxed">
               90 minutos para ver con exactitud desde dónde estás operando.
               No es terapia. No es coaching. No es nada que hayas probado antes.
-              Es el único punto de acceso a todo mi trabajo.
+              Es la puerta de entrada a todo mi sistema de decodificación estructural.
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
