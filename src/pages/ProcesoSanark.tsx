@@ -97,6 +97,7 @@ const GoldenFlowPath = () => {
         />
       ))}
     </svg>
+    </div>
   );
 };
 
