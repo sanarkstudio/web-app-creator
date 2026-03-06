@@ -259,7 +259,18 @@ const Index = () => {
             ))}
           </div>
           <FadeIn delay={0.7}>
-            <div className="mt-16">
+            <motion.p
+              className="font-display text-lg md:text-xl text-gold/90 text-center mt-10 mb-6 font-light italic"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            >
+              Si estás listo para acceder a un nivel más avanzado — el de crear desde una estructura nueva — este es tu punto de entrada.
+            </motion.p>
+          </FadeIn>
+          <FadeIn delay={0.85}>
+            <div className="mt-8">
               <Link
                 to="/lectura-estructural"
                 className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-all duration-500"
