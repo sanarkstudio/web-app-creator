@@ -7,7 +7,6 @@ import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import { ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
-import procesoVideo from "@/assets/proceso-sanark-video.mp4";
 
 const phases = [
   {
@@ -32,6 +31,76 @@ const phases = [
   },
 ];
 
+/** Golden SVG flowing path that connects phases */
+const GoldenFlowPath = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start center", "end center"],
+  });
+  const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const glowOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 0.6, 0.3]);
+
+  return (
+    <div ref={ref} className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-20 hidden md:block pointer-events-none">
+    <svg
+      className="w-full h-full"
+      viewBox="0 0 80 1000"
+      preserveAspectRatio="none"
+      fill="none"
+    >
+      {/* Glow filter */}
+      <defs>
+        <filter id="golden-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="4" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+        <linearGradient id="gold-gradient" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="hsl(38 50% 48%)" stopOpacity="0.1" />
+          <stop offset="20%" stopColor="hsl(38 50% 48%)" stopOpacity="0.8" />
+          <stop offset="50%" stopColor="hsl(38 60% 55%)" stopOpacity="1" />
+          <stop offset="80%" stopColor="hsl(38 50% 48%)" stopOpacity="0.8" />
+          <stop offset="100%" stopColor="hsl(38 50% 48%)" stopOpacity="0.1" />
+        </linearGradient>
+      </defs>
+
+      {/* Background trace */}
+      <path
+        d="M40 0 C40 120, 20 180, 40 250 S60 320, 40 400 S20 480, 40 500 S60 580, 40 650 S20 720, 40 750 S60 850, 40 900 L40 1000"
+        stroke="hsl(38 50% 48% / 0.08)"
+        strokeWidth="1"
+      />
+
+      {/* Animated golden flow */}
+      <motion.path
+        d="M40 0 C40 120, 20 180, 40 250 S60 320, 40 400 S20 480, 40 500 S60 580, 40 650 S20 720, 40 750 S60 850, 40 900 L40 1000"
+        stroke="url(#gold-gradient)"
+        strokeWidth="2"
+        filter="url(#golden-glow)"
+        style={{ pathLength }}
+        strokeLinecap="round"
+      />
+
+      {/* Phase connection dots */}
+      {[125, 375, 625, 875].map((cy, i) => (
+        <motion.circle
+          key={i}
+          cx="40"
+          cy={cy}
+          r="5"
+          fill="hsl(38 50% 48%)"
+          style={{ opacity: glowOpacity }}
+          filter="url(#golden-glow)"
+        />
+      ))}
+    </svg>
+    </div>
+  );
+};
+
 const ProcesoSanark = () => {
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress: heroProgress } = useScroll({
@@ -41,16 +110,9 @@ const ProcesoSanark = () => {
   const heroOpacity = useTransform(heroProgress, [0, 1], [1, 0]);
   const heroScale = useTransform(heroProgress, [0, 1], [1, 0.85]);
   const heroY = useTransform(heroProgress, [0, 1], [0, 120]);
+  const heroBlur = useTransform(heroProgress, [0, 0.8, 1], [0, 0, 6]);
 
   const phasesRef = useRef<HTMLElement>(null);
-  const { scrollYProgress: phasesProgress } = useScroll({
-    target: phasesRef,
-    offset: ["start end", "end start"],
-  });
-  const phasesY = useTransform(phasesProgress, [0, 1], [60, -60]);
-
-  const videoRef = useRef<HTMLElement>(null);
-  const videoInView = useInView(videoRef, { once: false, margin: "-100px" });
 
   const lineRef = useRef(null);
   const lineInView = useInView(lineRef, { once: true, margin: "-100px" });
@@ -68,10 +130,15 @@ const ProcesoSanark = () => {
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-secondary/20" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.08)_0%,transparent_70%)]" />
-        <FloatingParticles count={40} />
+        <FloatingParticles count={50} />
 
         <motion.div
-          style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
+          style={{
+            opacity: heroOpacity,
+            scale: heroScale,
+            y: heroY,
+            filter: useTransform(heroBlur, (v) => `blur(${v}px)`),
+          }}
           className="relative z-10 container mx-auto px-6 text-center max-w-4xl py-28"
         >
           <FadeIn>
@@ -84,9 +151,9 @@ const ProcesoSanark = () => {
           </FadeIn>
           <FadeIn delay={0.4}>
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-light leading-[1.05] mb-8 text-shadow-gold">
-              No viniste a mejorar.
+              Lo que heredaste
               <br />
-              <span className="gradient-text-gold font-medium">Viniste a reconstruirte.</span>
+              <span className="gradient-text-gold font-medium">ya no tiene que dirigirte.</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.6}>
@@ -116,40 +183,6 @@ const ProcesoSanark = () => {
         />
       </div>
 
-      {/* Video section */}
-      <section ref={videoRef} className="py-20 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-secondary/20" />
-        <div className="container mx-auto px-6 max-w-5xl relative z-10">
-          <FadeIn>
-            <p className="font-body text-xs tracking-[0.4em] uppercase text-gold text-center mb-6">
-              Escúchalo
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.15}>
-            <motion.div
-              className="relative overflow-hidden border border-gold/20 glow-gold"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <video
-                src={procesoVideo}
-                controls
-                playsInline
-                className="w-full aspect-video object-cover"
-                poster=""
-              />
-            </motion.div>
-          </FadeIn>
-          <FadeIn delay={0.3}>
-            <p className="font-body text-sm text-muted-foreground text-center mt-6 italic max-w-2xl mx-auto">
-              "Ha llegado el momento de que operes desde un lugar distinto."
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
       {/* Intro */}
       <section className="py-28 md:py-36 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(38_50%_48%/0.03)_0%,transparent_50%)]" />
@@ -157,7 +190,7 @@ const ProcesoSanark = () => {
           <FadeIn><SectionDivider /></FadeIn>
           <FadeIn delay={0.15}>
             <h2 className="font-display text-3xl md:text-5xl font-light text-center mt-12 mb-10">
-              Más allá del cambio de hábitos
+              Esto no es terapia. No es coaching. Es ingeniería estructural de vida.
             </h2>
           </FadeIn>
           <FadeIn delay={0.3}>
@@ -185,55 +218,52 @@ const ProcesoSanark = () => {
         </div>
       </section>
 
-      {/* Phases — interactive timeline */}
+      {/* Phases — golden flow timeline */}
       <section ref={phasesRef} className="py-28 md:py-36 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
         <FloatingParticles count={25} />
-        <motion.div style={{ y: phasesY }} className="container mx-auto px-6 max-w-5xl relative z-10">
+        <div className="container mx-auto px-6 max-w-5xl relative z-10">
           <FadeIn>
             <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-6">
-              Las cuatro fases
+              Cuatro fases. Un solo propósito: reconstruirte.
             </h2>
-            <p className="font-body text-sm text-muted-foreground text-center mb-16 max-w-xl mx-auto">
+            <p className="font-body text-sm text-muted-foreground text-center mb-20 max-w-xl mx-auto">
               Cada fase es un paso irreversible. No hay vuelta atrás porque no queda nada a lo que volver.
             </p>
           </FadeIn>
 
-          {/* Vertical timeline */}
+          {/* Timeline with golden flow */}
           <div className="relative">
-            {/* Animated timeline line */}
-            <motion.div
-              className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-gold/40 via-gold/20 to-transparent md:-translate-x-px hidden md:block"
-              initial={{ scaleY: 0 }}
-              whileInView={{ scaleY: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
-              style={{ transformOrigin: "top" }}
-            />
+            <GoldenFlowPath />
 
-            <div className="space-y-12 md:space-y-0">
+            <div className="space-y-16 md:space-y-24">
               {phases.map((phase, i) => (
-                <FadeIn key={i} delay={i * 0.15} direction={i % 2 === 0 ? "left" : "right"}>
+                <FadeIn key={i} delay={i * 0.1} direction={i % 2 === 0 ? "left" : "right"}>
                   <motion.div
-                    className={`relative md:w-1/2 ${i % 2 === 0 ? "md:pr-16" : "md:ml-auto md:pl-16"} mb-12`}
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.3 }}
+                    className={`relative md:w-[45%] ${i % 2 === 0 ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"}`}
+                    whileHover={{ scale: 1.03, y: -4 }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    {/* Timeline dot */}
+                    {/* Connector line to center */}
                     <motion.div
-                      className={`hidden md:block absolute top-8 ${i % 2 === 0 ? "right-0 translate-x-1/2" : "left-0 -translate-x-1/2"} w-3 h-3 rotate-45 border border-gold/60 bg-background z-10`}
-                      whileInView={{ scale: [0, 1.3, 1] }}
+                      className={`hidden md:block absolute top-10 ${i % 2 === 0 ? "right-0 w-[calc(55vw/2-50%)]" : "left-0 w-[calc(55vw/2-50%)]"} h-px bg-gradient-to-r ${i % 2 === 0 ? "from-transparent to-gold/30" : "from-gold/30 to-transparent"}`}
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
                       viewport={{ once: true }}
-                      transition={{ delay: i * 0.2 + 0.5, duration: 0.5 }}
+                      transition={{ delay: i * 0.15 + 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                      style={{ transformOrigin: i % 2 === 0 ? "right" : "left" }}
                     />
 
-                    <div className="p-8 md:p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 hover:glow-gold">
-                      <span className="font-display text-4xl md:text-5xl font-light text-gold/25 block mb-3">
+                    <div className="relative p-8 md:p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/40 transition-all duration-500 hover:glow-gold overflow-hidden group">
+                      {/* Subtle gold sweep on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                      
+                      <span className="font-display text-5xl md:text-6xl font-light text-gold/20 block mb-3 relative z-10">
                         {phase.num}
                       </span>
-                      <h3 className="font-display text-xl md:text-2xl font-medium mb-3">{phase.title}</h3>
-                      <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed">
+                      <h3 className="font-display text-xl md:text-2xl font-medium mb-3 relative z-10">{phase.title}</h3>
+                      <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed relative z-10">
                         {phase.desc}
                       </p>
                     </div>
@@ -242,7 +272,7 @@ const ProcesoSanark = () => {
               ))}
             </div>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Price box */}
@@ -264,7 +294,7 @@ const ProcesoSanark = () => {
                 Proceso completo
               </p>
               <h3 className="font-display text-2xl md:text-3xl font-light mb-4">
-                12 sesiones · 4 fases · 1 transformación
+                12 sesiones · 4 fases · 1 reconstrucción
               </h3>
               <p className="font-body text-sm text-muted-foreground leading-relaxed mb-8 max-w-lg mx-auto">
                 Doce sesiones individuales conmigo donde trabajo directamente sobre tu estructura heredada.
@@ -299,7 +329,7 @@ const ProcesoSanark = () => {
         <div className="container mx-auto px-6 max-w-3xl text-center">
           <FadeIn>
             <h2 className="font-display text-3xl md:text-5xl font-light mb-8">
-              ¿Cómo empezar?
+              El primer paso es ver desde dónde operas
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
