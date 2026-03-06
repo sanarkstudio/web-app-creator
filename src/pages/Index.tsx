@@ -236,7 +236,7 @@ const Index = () => {
         >
           <FadeIn>
             <h2 className="font-display text-3xl md:text-5xl font-light mb-14 leading-tight">
-              Si esto te suena, no es casualidad
+              Esto no es para cualquiera
             </h2>
           </FadeIn>
           <div className="space-y-0">
