@@ -89,9 +89,9 @@ const Index = () => {
 
           <FadeIn delay={0.6}>
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-light leading-[1.05] mb-8 text-shadow-gold">
-              Lo que te frena no es visible.
+              Estás viviendo desde una estructura
               <br />
-              <span className="gradient-text-gold font-medium">Y aun así, se puede desmontar.</span>
+              <span className="gradient-text-gold font-medium">que nunca fue tuya.</span>
             </h1>
           </FadeIn>
 
@@ -378,14 +378,28 @@ const Index = () => {
               <span className="text-gold">ver lo que aún no has visto.</span>
             </h2>
           </FadeIn>
+          <FadeIn delay={0.2}>
+            <p className="font-body text-base text-muted-foreground mb-10 max-w-xl mx-auto">
+              Empieza con una lectura introductoria gratuita. Descubre en minutos qué estructura opera por debajo de tus decisiones.
+            </p>
+          </FadeIn>
           <FadeIn delay={0.3}>
-            <Link
-              to="/lectura-estructural"
-              className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
-            >
-              Empezar con mi Lectura Estructural
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                to="/lectura-introductoria"
+                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
+              >
+                Lectura gratuita
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                to="/lectura-estructural"
+                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-all duration-500"
+              >
+                Lectura completa
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
           </FadeIn>
         </div>
       </section>
