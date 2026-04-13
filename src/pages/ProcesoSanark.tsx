@@ -13,21 +13,25 @@ import { useRef } from "react";
 const phases = [
   {
     num: "01",
+    icon: Search,
     title: "Detectar Estructuras Heredadas",
     desc: "Identificación profunda de los programas y patrones arraigados en tu psique y tu ADN que dictan cómo operas. Lo que no se ve, se repite. Aquí empieza a verse.",
   },
   {
     num: "02",
+    icon: Compass,
     title: "Diseño de Nuevas Estructuras",
     desc: "Conceptualización de marcos operativos completamente nuevos, alineados con lo que deseas crear. No se trata de mejorar lo viejo. Se trata de diseñar lo que viene.",
   },
   {
     num: "03",
+    icon: Hammer,
     title: "Creación de la Nueva Estructura",
     desc: "Implementación y materialización activa de estos nuevos marcos. La estructura deja de ser una idea y empieza a tomar forma en tu realidad concreta.",
   },
   {
     num: "04",
+    icon: Home,
     title: "Habitar la Nueva Estructura",
     desc: "Integración plena de la nueva forma de ser y operar. Lo que antes parecía inalcanzable se convierte en tu nuevo punto de partida.",
   },
@@ -228,6 +232,7 @@ const ProcesoSanark = () => {
                       <span className="font-display text-5xl md:text-6xl font-light text-gold/20 block mb-3 relative z-10">
                         {phase.num}
                       </span>
+                      <phase.icon size={20} className="text-gold/60 mb-3 relative z-10" />
                       <h3 className="font-display text-xl md:text-2xl font-medium mb-3 relative z-10">{phase.title}</h3>
                       <p className="font-body text-sm md:text-base text-foreground/50 leading-relaxed relative z-10">
                         {phase.desc}
