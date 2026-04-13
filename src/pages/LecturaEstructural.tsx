@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import FadeIn from "@/components/shared/FadeIn";
 import SectionDivider from "@/components/shared/SectionDivider";
@@ -5,7 +6,7 @@ import FloatingParticles from "@/components/shared/FloatingParticles";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
-import { ArrowRight, Layers, Flame, Map } from "lucide-react";
+import { ArrowRight, Layers, Flame, Map, Activity, HeartHandshake, Zap, DollarSign, Sparkles } from "lucide-react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
 
@@ -201,7 +202,45 @@ const LecturaEstructural = () => {
         </motion.div>
       </section>
 
-      {/* Who is it for — Apple-style word reveal */}
+      {/* Vision — What changes */}
+      <section className="py-28 md:py-36 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(38_50%_48%/0.05)_0%,transparent_60%)]" />
+        <div className="container mx-auto px-6 max-w-3xl relative z-10 text-center">
+          <FadeIn>
+            <Sparkles size={22} className="text-gold/60 mx-auto mb-5" />
+            <h2 className="font-display text-3xl md:text-4xl font-light mb-6">
+              Cuando ves la estructura, dejas de repetirla
+            </h2>
+            <p className="font-body text-base text-foreground/50 leading-relaxed mb-10 max-w-xl mx-auto">
+              La Lectura Estructural es el primer paso hacia una vida donde la energía que tienes, la salud que experimentas, la pareja que eliges y el dinero que produces responden a ti — no a un programa heredado.
+            </p>
+          </FadeIn>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { icon: Activity, label: "Energía" },
+              { icon: HeartHandshake, label: "Pareja" },
+              { icon: Zap, label: "Salud" },
+              { icon: DollarSign, label: "Finanzas" },
+            ].map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <FadeIn key={i} delay={i * 0.1}>
+                  <div className="p-4 border border-border/30 bg-card/30 hover:border-gold/30 transition-all duration-500 group">
+                    <Icon size={18} className="text-gold/60 mx-auto mb-2 group-hover:text-gold transition-colors" />
+                    <p className="font-display text-xs tracking-[0.2em] uppercase text-foreground/60 group-hover:text-foreground/80 transition-colors">{item.label}</p>
+                  </div>
+                </FadeIn>
+              );
+            })}
+          </div>
+          <FadeIn delay={0.4}>
+            <p className="font-body text-sm text-foreground/40 mt-8">
+              Con el <Link to="/proceso-sanark" className="text-gold hover:text-gold-light transition-colors">Proceso Sanark de 4 fases</Link>, cada área se transforma desde la raíz.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
       <section className="py-28 md:py-36">
         <div className="container mx-auto px-6 max-w-3xl">
           <FadeIn>

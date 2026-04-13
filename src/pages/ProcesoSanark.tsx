@@ -6,7 +6,7 @@ import FloatingParticles from "@/components/shared/FloatingParticles";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
-import { ArrowRight, Search, Compass, Hammer, Home } from "lucide-react";
+import { ArrowRight, Search, Compass, Hammer, Home, Activity, HeartHandshake, Zap, DollarSign, Brain, Gem, Sparkles } from "lucide-react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
 
@@ -242,6 +242,47 @@ const ProcesoSanark = () => {
                 </FadeIn>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Vision — What becomes possible */}
+      <section className="py-28 md:py-36 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.04)_0%,transparent_60%)]" />
+        <div className="container mx-auto px-6 max-w-4xl relative z-10">
+          <FadeIn>
+            <Sparkles size={22} className="text-gold/60 mx-auto mb-5" />
+            <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-6 leading-tight">
+              Lo que se abre cuando la estructura cambia
+            </h2>
+            <p className="font-body text-base text-foreground/50 text-center mb-14 max-w-2xl mx-auto">
+              Después de las 4 fases, estas áreas dejan de estar gobernadas por lo heredado. Tú decides cómo operan.
+            </p>
+          </FadeIn>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+            {[
+              { icon: Activity, area: "Energía", text: "Vitalidad sostenida, sin los ciclos de colapso que no elegiste." },
+              { icon: HeartHandshake, area: "Pareja", text: "Vínculos elegidos desde la plenitud, no desde la necesidad." },
+              { icon: Zap, area: "Salud", text: "Un cuerpo libre de la carga emocional heredada." },
+              { icon: DollarSign, area: "Finanzas", text: "Expansión sin el techo invisible que te frena." },
+              { icon: Brain, area: "Claridad", text: "Decisiones limpias, sin ruido heredado." },
+              { icon: Gem, area: "Propósito", text: "Metas que se materializan porque nacen de ti." },
+            ].map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <FadeIn key={i} delay={i * 0.08}>
+                  <motion.div
+                    className="p-5 bg-card/50 backdrop-blur-sm border border-border/30 hover:border-gold/30 transition-all duration-500 group"
+                    whileHover={{ y: -3 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Icon size={18} className="text-gold/60 mb-2 group-hover:text-gold transition-colors" />
+                    <p className="font-display text-xs tracking-[0.2em] uppercase text-gold/80 mb-1">{item.area}</p>
+                    <p className="font-body text-sm text-foreground/50 leading-relaxed group-hover:text-foreground/70 transition-colors">{item.text}</p>
+                  </motion.div>
+                </FadeIn>
+              );
+            })}
           </div>
         </div>
       </section>
