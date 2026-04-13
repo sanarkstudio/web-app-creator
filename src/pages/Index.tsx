@@ -119,9 +119,9 @@ const Index = () => {
 
           <FadeIn delay={0.6}>
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-light leading-[1.05] mb-8 text-shadow-gold">
-              Lo que te frena
+              Tu vida funciona.
               <br />
-              <span className="gradient-text-gold font-medium">no está donde crees.</span>
+              <span className="gradient-text-gold font-medium">Pero no te pertenece.</span>
             </h1>
           </FadeIn>
 
