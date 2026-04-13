@@ -6,7 +6,7 @@ import FloatingParticles from "@/components/shared/FloatingParticles";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
-import { ArrowRight, Flame, Heart, DollarSign, Brain, Users, Zap, ShieldOff, Eye } from "lucide-react";
+import { ArrowRight, Flame, Heart, DollarSign, Brain, Users, Zap, ShieldOff, Eye, Target, Sparkles, Activity, HeartHandshake, Gem, TrendingUp } from "lucide-react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
 
@@ -34,6 +34,14 @@ const identItems = [
   {
     icon: ShieldOff,
     text: "Has probado todo — terapia, coaching, meditación — y algo fundamental sigue sin moverse.",
+  },
+  {
+    icon: Heart,
+    text: "Sientes un vacío que no se llena con logros. Estás funcional por fuera, pero por dentro algo sigue apagado.",
+  },
+  {
+    icon: Target,
+    text: "Tienes metas claras pero no avanzas. Sabes lo que quieres construir, pero una fuerza invisible te frena justo antes de lograrlo.",
   },
 ];
 
