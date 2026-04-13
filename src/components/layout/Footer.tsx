@@ -8,7 +8,7 @@ const Footer = () => (
         <div>
           <img src={sanarkLogo} alt="Sanark" className="h-12 w-auto mb-4 opacity-80" />
           <p className="font-body text-sm text-muted-foreground leading-relaxed max-w-xs">
-            Decodificación Estructural de Vida. Revelo la estructura desde la que operas para que diseñes la que te corresponde.
+            Decodificación Estructural de Vida. Revelo la estructura desde la que operas para que diseñes la que deseas.
           </p>
         </div>
         <div>

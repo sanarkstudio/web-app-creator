@@ -159,9 +159,9 @@ const Index = () => {
         <div className="container mx-auto px-6 max-w-3xl text-center">
           <SectionDivider />
           <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-light mt-12 mb-10 leading-tight">
-            Has cambiado hábitos,
+            Has cambiado hábitos
             <br />
-            <span className="gradient-text-gold">pero el patrón permanece</span>
+            <span className="gradient-text-gold my-[2px]">pero el patrón permanece</span>
           </h2>
           <p className="font-body text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto leading-relaxed">
             No es que no hayas avanzado. Es que hay una capa más profunda que nadie te ha
