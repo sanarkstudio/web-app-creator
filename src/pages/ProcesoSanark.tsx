@@ -6,7 +6,7 @@ import FloatingParticles from "@/components/shared/FloatingParticles";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Search, Compass, Hammer, Home } from "lucide-react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
 

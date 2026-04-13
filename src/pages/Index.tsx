@@ -6,9 +6,36 @@ import FloatingParticles from "@/components/shared/FloatingParticles";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Flame, Heart, DollarSign, Brain, Users, Zap, ShieldOff, Eye } from "lucide-react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
+
+const identItems = [
+  {
+    icon: Zap,
+    text: "Tu cuerpo habla antes que tú. Fatiga crónica, tensión que no se va, síntomas que nadie explica.",
+  },
+  {
+    icon: Heart,
+    text: "Atraes las mismas relaciones con distinto rostro. El patrón cambia de nombre, pero no de forma.",
+  },
+  {
+    icon: DollarSign,
+    text: "Ganas más pero el dinero se fuga. Hay un techo invisible que no tiene que ver con tu talento.",
+  },
+  {
+    icon: Brain,
+    text: "Piensas demasiado, decides poco. El ruido mental te paraliza cuando más claridad necesitas.",
+  },
+  {
+    icon: Users,
+    text: "Cuidas a todos menos a ti. Das hasta vaciarte y después no entiendes por qué te sientes solo.",
+  },
+  {
+    icon: ShieldOff,
+    text: "Has probado todo — terapia, coaching, meditación — y algo fundamental sigue sin moverse.",
+  },
+];
 
 const Index = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -21,7 +48,6 @@ const Index = () => {
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 140]);
   const heroBlur = useTransform(scrollYProgress, [0, 0.8, 1], [0, 0, 8]);
 
-  // Parallax for solution section
   const solutionRef = useRef<HTMLElement>(null);
   const { scrollYProgress: solutionProgress } = useScroll({
     target: solutionRef,
@@ -29,7 +55,6 @@ const Index = () => {
   });
   const solutionScale = useTransform(solutionProgress, [0, 0.5, 1], [0.95, 1, 0.98]);
 
-  // Parallax for bio section
   const bioRef = useRef<HTMLElement>(null);
   const { scrollYProgress: bioProgress } = useScroll({
     target: bioRef,
@@ -38,7 +63,6 @@ const Index = () => {
   const bioTextX = useTransform(bioProgress, [0, 0.5], [60, 0]);
   const bioTextOpacity = useTransform(bioProgress, [0, 0.4], [0, 1]);
 
-  // Parallax for identification section
   const identRef = useRef<HTMLElement>(null);
   const { scrollYProgress: identProgress } = useScroll({
     target: identRef,
@@ -46,11 +70,9 @@ const Index = () => {
   });
   const identScale = useTransform(identProgress, [0, 0.4], [0.9, 1]);
 
-  // Reveal line animation
   const lineRef = useRef(null);
   const lineInView = useInView(lineRef, { once: true, margin: "-100px" });
 
-  // Final CTA parallax
   const finalRef = useRef<HTMLElement>(null);
   const { scrollYProgress: finalProgress } = useScroll({
     target: finalRef,
@@ -60,7 +82,7 @@ const Index = () => {
 
   return (
     <Layout>
-      {/* Hero — immersive full-screen entry */}
+      {/* Hero */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.08)_0%,transparent_70%)]" />
@@ -89,16 +111,16 @@ const Index = () => {
 
           <FadeIn delay={0.6}>
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-light leading-[1.05] mb-8 text-shadow-gold">
-              Tu vida funciona.
+              Lo que te frena
               <br />
-              <span className="gradient-text-gold font-medium">Pero no es tuya.</span>
+              <span className="gradient-text-gold font-medium">no está donde crees.</span>
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.8}>
             <p className="font-body text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto mb-14 leading-relaxed">
-              Has trabajado en ti. Has invertido tiempo, energía y recursos. Pero ciertos patrones
-              siguen ahí, intactos. No es un problema de voluntad. Es un problema de estructura.
+              Has invertido años en conocerte. Y aun así, ciertos patrones siguen intactos.
+              No es un problema de voluntad. Es un problema de estructura.
             </p>
           </FadeIn>
 
@@ -167,6 +189,9 @@ const Index = () => {
         <FloatingParticles count={20} />
         <motion.div style={{ scale: solutionScale }} className="container mx-auto px-6 max-w-5xl relative z-10">
           <FadeIn>
+            <div className="flex justify-center mb-6">
+              <Eye size={28} className="text-gold/60" />
+            </div>
             <p className="font-body text-xs tracking-[0.4em] uppercase text-gold text-center mb-6">
               Lo que hago
             </p>
@@ -181,6 +206,7 @@ const Index = () => {
                 to="/lectura-estructural"
                 className="group block p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 hover:glow-gold h-full"
               >
+                <Flame size={22} className="text-gold mb-4" />
                 <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4">Paso 1</p>
                 <h3 className="font-display text-2xl md:text-3xl font-light mb-4">Lectura Estructural</h3>
                 <p className="font-body text-sm text-foreground/50 leading-relaxed mb-6">
@@ -197,6 +223,7 @@ const Index = () => {
                 to="/proceso-sanark"
                 className="group block p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 hover:glow-gold h-full"
               >
+                <Zap size={22} className="text-gold mb-4" />
                 <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4">Paso 2</p>
                 <h3 className="font-display text-2xl md:text-3xl font-light mb-4">Proceso Sanark</h3>
                 <p className="font-body text-sm text-foreground/50 leading-relaxed mb-6">
@@ -212,51 +239,59 @@ const Index = () => {
         </motion.div>
       </section>
 
-      {/* Identification — Apple-style scroll */}
+      {/* Identification — with icons */}
       <section ref={identRef} className="py-32 md:py-48 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.03)_0%,transparent_60%)]" />
         <motion.div
           style={{ scale: identScale }}
-          className="container mx-auto px-6 max-w-3xl text-center relative z-10"
+          className="container mx-auto px-6 max-w-4xl relative z-10"
         >
           <FadeIn>
-            <h2 className="font-display text-3xl md:text-5xl font-light mb-14 leading-tight">
+            <h2 className="font-display text-3xl md:text-5xl font-light mb-6 leading-tight text-center">
               Reconoces esto porque ya lo has vivido
             </h2>
+            <p className="font-body text-sm text-foreground/40 text-center mb-16 tracking-wide">
+              No hace falta que lo expliques. Solo léelo.
+            </p>
           </FadeIn>
-          <div className="space-y-0">
-            {[
-              "Has hecho \"todo lo que se supone que funciona\" y algo esencial sigue sin moverse.",
-              "Cambias de pareja, de trabajo, de ciudad — pero el mismo guion se repite.",
-              "Ganas más, pero la sensación de techo invisible no desaparece.",
-              "Sabes que lo que te frena no está en la superficie, pero nadie te ha mostrado dónde está.",
-              "Ya no buscas motivación. Buscas la causa real.",
-            ].map((text, i) => (
-              <FadeIn key={i} delay={i * 0.12}>
-                <motion.p
-                  className="font-body text-base md:text-lg text-foreground/75 py-6 border-b border-border/20 last:border-0 cursor-default"
-                  whileHover={{ x: 12, color: "hsl(38 50% 48%)" }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {text}
-                </motion.p>
-              </FadeIn>
-            ))}
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {identItems.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <FadeIn key={i} delay={i * 0.1}>
+                  <motion.div
+                    className="flex gap-5 p-6 bg-card/50 backdrop-blur-sm border border-border/30 hover:border-gold/30 transition-all duration-500 cursor-default group"
+                    whileHover={{ x: 6, borderColor: "hsl(38 50% 48% / 0.4)" }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="flex-shrink-0 mt-1">
+                      <Icon size={20} className="text-gold/70 group-hover:text-gold transition-colors duration-300" />
+                    </div>
+                    <p className="font-body text-sm md:text-base text-foreground/70 leading-relaxed group-hover:text-foreground/90 transition-colors duration-300">
+                      {item.text}
+                    </p>
+                  </motion.div>
+                </FadeIn>
+              );
+            })}
           </div>
+
           <FadeIn delay={0.7}>
-            <motion.p
-              className="font-display text-xl md:text-2xl text-foreground/90 text-center mt-12 mb-6 font-light leading-relaxed"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            >
-              Si llegaste hasta aquí, no es casualidad.{" "}
-              <span className="text-gold font-medium">Esto es para ti.</span>
-            </motion.p>
+            <div className="mt-16 p-8 border border-gold/20 bg-card/30 backdrop-blur-sm text-center">
+              <SanarkSymbol size={36} className="mx-auto mb-5 opacity-40" />
+              <p className="font-display text-xl md:text-2xl text-foreground/90 font-light leading-relaxed mb-2">
+                Si estás listo para acceder a un nivel más avanzado —
+              </p>
+              <p className="font-display text-xl md:text-2xl font-light leading-relaxed">
+                el de crear desde una estructura nueva —{" "}
+                <span className="text-gold font-medium">este es tu punto de entrada.</span>
+              </p>
+            </div>
           </FadeIn>
+
           <FadeIn delay={0.85}>
-            <div className="mt-8">
+            <div className="mt-10 text-center">
               <Link
                 to="/lectura-estructural"
                 className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-all duration-500"
@@ -276,6 +311,7 @@ const Index = () => {
         <FloatingParticles count={20} />
         <div className="container mx-auto px-6 max-w-3xl relative z-10">
           <FadeIn>
+            <Flame size={24} className="text-gold/60 mx-auto mb-6" />
             <p className="font-body text-xs tracking-[0.5em] uppercase text-gold text-center mb-6">
               Entrada
             </p>
@@ -315,7 +351,7 @@ const Index = () => {
         <div className="container mx-auto px-6 max-w-5xl relative z-10">
           <FadeIn>
             <p className="font-body text-xs tracking-[0.4em] uppercase text-gold text-center mb-14">
-              Quien está detrás
+              El arquitecto detrás del proceso
             </p>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
@@ -339,16 +375,19 @@ const Index = () => {
                   <p className="font-body text-sm text-gold tracking-wider mb-8">Sánchez Velázquez</p>
                   <div className="space-y-5 font-body text-base text-foreground/60 leading-relaxed">
                     <p>
-                      Llevo 14 años especializándome en un solo campo:{" "}
-                      <span className="text-foreground font-medium">la decodificación de las estructuras
-                      que operan por debajo de la consciencia</span>. Los programas heredados que determinan
-                      cómo te vinculas, cómo gestionas tu energía, qué te permites y qué no — antes
-                      de que intervenga tu voluntad.
+                      14 años trabajando con lo que la mayoría no ve.{" "}
+                      <span className="text-foreground font-medium">He acompañado a cientos de personas,
+                      parejas, familias, grupos y empresas</span> a identificar los programas heredados
+                      que operan por debajo de su consciencia — y a crear estructuras nuevas desde las
+                      que vivir, relacionarse y producir.
                     </p>
                     <p>
-                      No ofrezco motivación ni acompañamiento emocional. Mi trabajo consiste en hacer
-                      visible la arquitectura que dirige tu vida y, cuando el proceso lo requiere,
-                      intervenirla de forma estructural.
+                      No ofrezco motivación ni acompañamiento emocional. Trabajo directo sobre la
+                      arquitectura invisible que dirige tu vida. Mi trabajo termina cuando tu estructura
+                      se sostiene sola.
+                    </p>
+                    <p className="text-foreground/40 text-sm italic border-l-2 border-gold/30 pl-4">
+                      "No vengo a decirte lo que quieres escuchar. Vengo a mostrarte lo que necesitas ver."
                     </p>
                   </div>
                 </div>
