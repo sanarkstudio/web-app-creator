@@ -6,28 +6,32 @@ import FloatingParticles from "@/components/shared/FloatingParticles";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Search, Compass, Hammer, Home } from "lucide-react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const phases = [
   {
     num: "01",
+    icon: Search,
     title: "Detectar Estructuras Heredadas",
     desc: "Identificación profunda de los programas y patrones arraigados en tu psique y tu ADN que dictan cómo operas. Lo que no se ve, se repite. Aquí empieza a verse.",
   },
   {
     num: "02",
+    icon: Compass,
     title: "Diseño de Nuevas Estructuras",
     desc: "Conceptualización de marcos operativos completamente nuevos, alineados con lo que deseas crear. No se trata de mejorar lo viejo. Se trata de diseñar lo que viene.",
   },
   {
     num: "03",
+    icon: Hammer,
     title: "Creación de la Nueva Estructura",
     desc: "Implementación y materialización activa de estos nuevos marcos. La estructura deja de ser una idea y empieza a tomar forma en tu realidad concreta.",
   },
   {
     num: "04",
+    icon: Home,
     title: "Habitar la Nueva Estructura",
     desc: "Integración plena de la nueva forma de ser y operar. Lo que antes parecía inalcanzable se convierte en tu nuevo punto de partida.",
   },
@@ -125,7 +129,7 @@ const ProcesoSanark = () => {
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="font-body text-xs tracking-[0.5em] uppercase text-gold mb-8">
-              Reconstrucción estructural
+              Creación estructural
             </p>
           </FadeIn>
           <FadeIn delay={0.4}>
@@ -198,7 +202,7 @@ const ProcesoSanark = () => {
         <div className="container mx-auto px-6 max-w-5xl relative z-10">
           <FadeIn>
             <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-6">
-              Cuatro fases. Un solo propósito: reconstruirte.
+              Cuatro fases. Un solo propósito: crear desde cero.
             </h2>
             <p className="font-body text-sm text-foreground/50 text-center mb-20 max-w-xl mx-auto">
               Cada fase es un paso irreversible. No hay vuelta atrás porque no queda nada a lo que volver.
@@ -228,6 +232,7 @@ const ProcesoSanark = () => {
                       <span className="font-display text-5xl md:text-6xl font-light text-gold/20 block mb-3 relative z-10">
                         {phase.num}
                       </span>
+                      <phase.icon size={20} className="text-gold/60 mb-3 relative z-10" />
                       <h3 className="font-display text-xl md:text-2xl font-medium mb-3 relative z-10">{phase.title}</h3>
                       <p className="font-body text-sm md:text-base text-foreground/50 leading-relaxed relative z-10">
                         {phase.desc}
@@ -260,7 +265,7 @@ const ProcesoSanark = () => {
                 Proceso completo
               </p>
               <h3 className="font-display text-2xl md:text-3xl font-light mb-4">
-                12 sesiones · 4 fases · 1 reconstrucción
+                12 sesiones · 4 fases · 1 transformación
               </h3>
               <p className="font-body text-sm text-foreground/50 leading-relaxed mb-8 max-w-lg mx-auto">
                 Doce sesiones individuales conmigo donde trabajo directamente sobre tu estructura heredada.

@@ -5,7 +5,7 @@ import FloatingParticles from "@/components/shared/FloatingParticles";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Layers, Flame, Map } from "lucide-react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
 
@@ -165,33 +165,38 @@ const LecturaEstructural = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
+                icon: Layers,
                 title: "Tu arquitectura heredada",
                 desc: "Los programas instalados antes de tu consciencia que dictan cómo gestionas tu energía, tus vínculos, tu salud y tus recursos. Lo que nunca elegiste pero que sigue operando.",
               },
               {
+                icon: Flame,
                 title: "Tus fugas activas",
                 desc: "Los puntos exactos donde pierdes energía, claridad y dirección de forma cíclica. Las repeticiones que ningún hábito nuevo ni ningún propósito ha logrado detener.",
               },
               {
+                icon: Map,
                 title: "Tu mapa estructural completo",
                 desc: "Una visión clara de cómo estos programas operan en cada dimensión de tu vida: física, emocional, mental, relacional, social y financiera.",
               },
-            ].map((item, i) => (
+            ].map((item, i) => {
+              const Icon = item.icon;
+              return (
               <FadeIn key={i} delay={i * 0.15}>
                 <motion.div
                   className="relative p-8 bg-card/80 backdrop-blur-sm border border-border/50 h-full hover:border-gold/20 transition-all duration-500 hover:glow-gold overflow-hidden group"
                   whileHover={{ scale: 1.03, y: -6 }}
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  {/* Gold sweep effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                   
-                  <div className="w-8 h-px bg-gold mb-6 relative z-10" />
+                  <Icon size={22} className="text-gold/70 mb-5 relative z-10" />
                   <h3 className="font-display text-xl font-medium mb-4 relative z-10">{item.title}</h3>
                   <p className="font-body text-sm text-foreground/50 leading-relaxed relative z-10">{item.desc}</p>
                 </motion.div>
               </FadeIn>
-            ))}
+              );
+            })}
           </div>
         </motion.div>
       </section>
