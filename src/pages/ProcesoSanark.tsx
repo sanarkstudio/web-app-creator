@@ -136,7 +136,7 @@ const ProcesoSanark = () => {
             </h1>
           </FadeIn>
           <FadeIn delay={0.6}>
-            <p className="font-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="font-body text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto leading-relaxed">
               12 sesiones para desmontar la arquitectura heredada que limita tu vida
               y edificar una estructura desde la que realmente quieres operar.
             </p>
@@ -171,7 +171,7 @@ const ProcesoSanark = () => {
             <br />
             <span className="gradient-text-gold">Es ingeniería estructural de vida.</span>
           </h2>
-          <p className="font-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="font-body text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto">
             Parte de la base revelada en la Lectura Estructural y trabaja directamente
             sobre los programas que sostienen tus patrones repetitivos.
           </p>
@@ -200,7 +200,7 @@ const ProcesoSanark = () => {
             <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-6">
               Cuatro fases. Un solo propósito: reconstruirte.
             </h2>
-            <p className="font-body text-sm text-muted-foreground text-center mb-20 max-w-xl mx-auto">
+            <p className="font-body text-sm text-foreground/50 text-center mb-20 max-w-xl mx-auto">
               Cada fase es un paso irreversible. No hay vuelta atrás porque no queda nada a lo que volver.
             </p>
           </FadeIn>
@@ -229,7 +229,7 @@ const ProcesoSanark = () => {
                         {phase.num}
                       </span>
                       <h3 className="font-display text-xl md:text-2xl font-medium mb-3 relative z-10">{phase.title}</h3>
-                      <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed relative z-10">
+                      <p className="font-body text-sm md:text-base text-foreground/50 leading-relaxed relative z-10">
                         {phase.desc}
                       </p>
                     </div>
@@ -262,7 +262,7 @@ const ProcesoSanark = () => {
               <h3 className="font-display text-2xl md:text-3xl font-light mb-4">
                 12 sesiones · 4 fases · 1 reconstrucción
               </h3>
-              <p className="font-body text-sm text-muted-foreground leading-relaxed mb-8 max-w-lg mx-auto">
+              <p className="font-body text-sm text-foreground/50 leading-relaxed mb-8 max-w-lg mx-auto">
                 Doce sesiones individuales conmigo donde trabajo directamente sobre tu estructura heredada.
                 Detectar, diseñar, crear y habitar. Cada fase es un paso irreversible hacia una nueva forma de operar.
               </p>
@@ -275,7 +275,7 @@ const ProcesoSanark = () => {
               >
                 2.000€
               </motion.p>
-              <p className="font-body text-xs text-muted-foreground tracking-wider mb-10">
+              <p className="font-body text-xs text-foreground/40 tracking-wider mb-10">
                 12 sesiones individuales 1:1
               </p>
               <a
@@ -299,9 +299,9 @@ const ProcesoSanark = () => {
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed mb-10">
+            <p className="font-body text-base md:text-lg text-foreground/60 leading-relaxed mb-10">
               El Proceso Sanark comienza siempre con una Lectura Estructural. Es la lectura
-              necesaria para saber exactamente desde dónde partes y qué estructuras están operando.
+              necesaria para saber exactamente desde dónde partes y qué estructuras están activas.
               Sin ese mapa, no hay intervención posible.
             </p>
           </FadeIn>
@@ -339,7 +339,7 @@ const ProcesoSanark = () => {
             </h2>
           </FadeIn>
           <FadeIn delay={0.3}>
-            <p className="font-body text-base text-muted-foreground mb-12 max-w-xl mx-auto">
+            <p className="font-body text-base text-foreground/60 mb-12 max-w-xl mx-auto">
               Si ya hiciste tu Lectura Estructural y estás listo para el siguiente nivel, el
               Proceso Sanark es tu camino.
             </p>
