@@ -312,6 +312,58 @@ const Index = () => {
         </motion.div>
       </section>
 
+      {/* Quien dirige — Juan Carlos (trust before possibility) */}
+      <section ref={bioRef} className="py-32 md:py-48 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,hsl(38_50%_48%/0.04)_0%,transparent_50%)]" />
+        <div className="container mx-auto px-6 max-w-5xl relative z-10">
+          <FadeIn>
+            <p className="font-body text-xs tracking-[0.4em] uppercase text-gold text-center mb-14">
+              El arquitecto detrás del proceso
+            </p>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+            <FadeIn delay={0.15}>
+              <div className="relative">
+                <div className="aspect-[3/4] overflow-hidden border border-border/40 bg-surface-elevated flex items-center justify-center">
+                  <div className="text-center px-8">
+                    <SanarkSymbol size={80} className="mx-auto mb-6 opacity-30" />
+                    <p className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground">
+                      Foto próximamente
+                    </p>
+                  </div>
+                </div>
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 border border-gold/20 -z-10" />
+              </div>
+            </FadeIn>
+            <motion.div style={{ x: bioTextX, opacity: bioTextOpacity }}>
+              <FadeIn delay={0.3}>
+                <div>
+                  <h2 className="font-display text-3xl md:text-4xl font-light mb-2">Juan Carlos</h2>
+                  <p className="font-body text-sm text-gold tracking-wider mb-8">Sánchez Velázquez</p>
+                  <div className="space-y-5 font-body text-base text-foreground/60 leading-relaxed">
+                    <p>
+                      14 años trabajando con lo que la mayoría no ve.{" "}
+                      <span className="text-foreground font-medium">He acompañado a cientos de personas,
+                      parejas, familias, grupos y empresas</span> a identificar los programas heredados
+                      que operan por debajo de su consciencia — y a crear estructuras nuevas desde las
+                      que vivir, relacionarse y producir.
+                    </p>
+                    <p>
+                      No ofrezco motivación ni acompañamiento emocional. Trabajo directo sobre la
+                      arquitectura invisible que dirige tu vida. Mi trabajo termina cuando tu estructura
+                      se sostiene sola.
+                    </p>
+                    <p className="text-foreground/40 text-sm italic border-l-2 border-gold/30 pl-4">
+                      "No vengo a decirte lo que quieres escuchar. Vengo a mostrarte lo que necesitas ver."
+                    </p>
+                  </div>
+                </div>
+              </FadeIn>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Vision — What's possible */}
       <section className="py-32 md:py-48 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
