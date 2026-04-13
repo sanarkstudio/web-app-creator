@@ -89,14 +89,14 @@ const Index = () => {
 
           <FadeIn delay={0.6}>
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-light leading-[1.05] mb-8 text-shadow-gold">
-              Estás viviendo desde una estructura
+              Tu vida funciona.
               <br />
-              <span className="gradient-text-gold font-medium">que nunca fue tuya.</span>
+              <span className="gradient-text-gold font-medium">Pero no es tuya.</span>
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.8}>
-            <p className="font-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-14 leading-relaxed">
+            <p className="font-body text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto mb-14 leading-relaxed">
               Has trabajado en ti. Has invertido tiempo, energía y recursos. Pero ciertos patrones
               siguen ahí, intactos. No es un problema de voluntad. Es un problema de estructura.
             </p>
@@ -141,7 +141,7 @@ const Index = () => {
             <br />
             <span className="gradient-text-gold">pero el patrón permanece</span>
           </h2>
-          <p className="font-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="font-body text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto leading-relaxed">
             No es que no hayas avanzado. Es que hay una capa más profunda que nadie te ha
             mostrado: la estructura desde la que operas.
           </p>
@@ -183,7 +183,7 @@ const Index = () => {
               >
                 <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4">Paso 1</p>
                 <h3 className="font-display text-2xl md:text-3xl font-light mb-4">Lectura Estructural</h3>
-                <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6">
+                <p className="font-body text-sm text-foreground/50 leading-relaxed mb-6">
                   Una lectura profunda que revela la estructura desde la que operas: qué programas
                   heredados dirigen tu vida física, emocional, relacional y financiera.
                 </p>
@@ -199,7 +199,7 @@ const Index = () => {
               >
                 <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4">Paso 2</p>
                 <h3 className="font-display text-2xl md:text-3xl font-light mb-4">Proceso Sanark</h3>
-                <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6">
+                <p className="font-body text-sm text-foreground/50 leading-relaxed mb-6">
                   12 sesiones individuales para detectar, diseñar, crear y habitar una nueva estructura.
                   No se trata de mejorar la versión actual. Se trata de operar desde otro lugar.
                 </p>
@@ -226,15 +226,15 @@ const Index = () => {
           </FadeIn>
           <div className="space-y-0">
             {[
-              "Sientes que ya has hecho \"todo\" pero algo sigue sin encajar.",
-              "Repites patrones en tus relaciones, tu salud o tus finanzas.",
-              "Has avanzado mucho, pero hay un techo que no logras romper.",
-              "Sabes que hay algo más profundo operando, pero no sabes qué es.",
-              "Estás listo para dejar de trabajar sobre los síntomas.",
+              "Has hecho \"todo lo que se supone que funciona\" y algo esencial sigue sin moverse.",
+              "Cambias de pareja, de trabajo, de ciudad — pero el mismo guion se repite.",
+              "Ganas más, pero la sensación de techo invisible no desaparece.",
+              "Sabes que lo que te frena no está en la superficie, pero nadie te ha mostrado dónde está.",
+              "Ya no buscas motivación. Buscas la causa real.",
             ].map((text, i) => (
               <FadeIn key={i} delay={i * 0.12}>
                 <motion.p
-                  className="font-body text-base md:text-lg text-foreground/80 py-6 border-b border-border/20 last:border-0 cursor-default"
+                  className="font-body text-base md:text-lg text-foreground/75 py-6 border-b border-border/20 last:border-0 cursor-default"
                   whileHover={{ x: 12, color: "hsl(38 50% 48%)" }}
                   transition={{ duration: 0.3 }}
                 >
@@ -245,13 +245,14 @@ const Index = () => {
           </div>
           <FadeIn delay={0.7}>
             <motion.p
-              className="font-display text-lg md:text-xl text-gold/90 text-center mt-10 mb-6 font-light italic"
+              className="font-display text-xl md:text-2xl text-foreground/90 text-center mt-12 mb-6 font-light leading-relaxed"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
-              Si estás listo para acceder a un nivel más avanzado — el de crear desde una estructura nueva — este es tu punto de entrada.
+              Si llegaste hasta aquí, no es casualidad.{" "}
+              <span className="text-gold font-medium">Esto es para ti.</span>
             </motion.p>
           </FadeIn>
           <FadeIn delay={0.85}>
@@ -283,8 +284,8 @@ const Index = () => {
             </h2>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <p className="font-body text-base md:text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-12 leading-relaxed">
-              90 minutos para ver con exactitud desde dónde estás operando.
+            <p className="font-body text-base md:text-lg text-foreground/60 text-center max-w-2xl mx-auto mb-12 leading-relaxed">
+              90 minutos para ver con claridad desde dónde estás operando.
               No es terapia. No es coaching. No es nada que hayas probado antes.
               Es la puerta de entrada a todo mi sistema de decodificación estructural.
             </p>
@@ -292,7 +293,7 @@ const Index = () => {
           <FadeIn delay={0.3}>
             <div className="p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 text-center hover:glow-gold">
               <h3 className="font-display text-2xl md:text-3xl font-light mb-4">Lectura Estructural</h3>
-              <p className="font-body text-sm text-muted-foreground leading-relaxed mb-8 max-w-xl mx-auto">
+              <p className="font-body text-sm text-foreground/50 leading-relaxed mb-8 max-w-xl mx-auto">
                 Una sesión única donde leo la arquitectura activa desde la que operas hoy — la estructura
                 que heredaste y que sigue dirigiendo tu vida aunque hayas trabajado en ti durante años.
               </p>
@@ -336,7 +337,7 @@ const Index = () => {
                 <div>
                   <h2 className="font-display text-3xl md:text-4xl font-light mb-2">Juan Carlos</h2>
                   <p className="font-body text-sm text-gold tracking-wider mb-8">Sánchez Velázquez</p>
-                  <div className="space-y-5 font-body text-base text-muted-foreground leading-relaxed">
+                  <div className="space-y-5 font-body text-base text-foreground/60 leading-relaxed">
                     <p>
                       Llevo 14 años especializándome en un solo campo:{" "}
                       <span className="text-foreground font-medium">la decodificación de las estructuras
@@ -379,7 +380,7 @@ const Index = () => {
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="font-body text-base text-muted-foreground mb-10 max-w-xl mx-auto">
+            <p className="font-body text-base text-foreground/60 mb-10 max-w-xl mx-auto">
               Empieza con una lectura introductoria gratuita. Descubre en minutos qué estructura opera por debajo de tus decisiones.
             </p>
           </FadeIn>

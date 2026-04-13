@@ -78,8 +78,8 @@ const LecturaEstructural = () => {
           </FadeIn>
 
           <FadeIn delay={0.7}>
-            <p className="font-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 leading-relaxed">
-              Una lectura profunda que revela la estructura desde la que operas.
+            <p className="font-body text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto mb-6 leading-relaxed">
+              Una sesión que va directo a lo que sostiene tus patrones.
             </p>
           </FadeIn>
 
@@ -124,7 +124,7 @@ const LecturaEstructural = () => {
           <h2 className="font-display text-4xl md:text-6xl font-light mt-12 mb-10">
             ¿Qué es una Lectura Estructural?
           </h2>
-          <p className="font-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="font-body text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto leading-relaxed">
             Es una lectura que va más allá de los síntomas, las emociones o los
             comportamientos visibles. Accede a la capa más profunda de tu
             funcionamiento.
@@ -143,8 +143,8 @@ const LecturaEstructural = () => {
           />
           <div className="mt-16">
             <ScrollTextReveal
-              text="La Lectura Estructural los hace visibles. Te muestra con precisión qué estructura estás habitando y por qué ciertos patrones se repiten sin importar lo que hagas."
-              className="font-body text-lg md:text-xl text-muted-foreground text-center leading-relaxed"
+              text="La Lectura Estructural los hace visibles. Te muestra qué estructura estás habitando y por qué ciertos patrones se repiten sin importar lo que hagas."
+              className="font-body text-lg md:text-xl text-foreground/60 text-center leading-relaxed"
               as="p"
             />
           </div>
@@ -170,11 +170,11 @@ const LecturaEstructural = () => {
               },
               {
                 title: "Tus fugas activas",
-                desc: "Los puntos exactos donde pierdes energía, claridad y dirección de forma cíclica. Las repeticiones que ningún hábito nuevo, ninguna terapia ni ningún propósito ha logrado detener.",
+                desc: "Los puntos exactos donde pierdes energía, claridad y dirección de forma cíclica. Las repeticiones que ningún hábito nuevo ni ningún propósito ha logrado detener.",
               },
               {
                 title: "Tu mapa estructural completo",
-                desc: "Una visión precisa de cómo estos programas operan en cada dimensión de tu vida: física, emocional, mental, relacional, social y financiera.",
+                desc: "Una visión clara de cómo estos programas operan en cada dimensión de tu vida: física, emocional, mental, relacional, social y financiera.",
               },
             ].map((item, i) => (
               <FadeIn key={i} delay={i * 0.15}>
@@ -188,7 +188,7 @@ const LecturaEstructural = () => {
                   
                   <div className="w-8 h-px bg-gold mb-6 relative z-10" />
                   <h3 className="font-display text-xl font-medium mb-4 relative z-10">{item.title}</h3>
-                  <p className="font-body text-sm text-muted-foreground leading-relaxed relative z-10">{item.desc}</p>
+                  <p className="font-body text-sm text-foreground/50 leading-relaxed relative z-10">{item.desc}</p>
                 </motion.div>
               </FadeIn>
             ))}
@@ -205,8 +205,8 @@ const LecturaEstructural = () => {
             </h2>
           </FadeIn>
           <ScrollTextReveal
-            text="Para personas que ya han recorrido un camino significativo de autoconocimiento. Que han hecho terapia, coaching, trabajo personal o espiritual. Y que saben — aunque quizá no puedan nombrarlo — que hay una capa más profunda que aún no han tocado."
-            className="font-body text-lg md:text-xl text-muted-foreground text-center leading-relaxed"
+            text="Para personas que ya han recorrido un camino significativo de autoconocimiento. Que han hecho terapia, coaching o trabajo personal. Y que saben — aunque no puedan nombrarlo — que hay una capa más profunda que aún no han tocado."
+            className="font-body text-lg md:text-xl text-foreground/60 text-center leading-relaxed"
             as="p"
           />
           <FadeIn delay={0.3}>
@@ -246,9 +246,9 @@ const LecturaEstructural = () => {
               <h3 className="font-display text-2xl md:text-3xl font-light mb-4">
                 90 minutos · 1 lectura · Tu estructura al descubierto
               </h3>
-              <p className="font-body text-sm text-muted-foreground leading-relaxed mb-8 max-w-lg mx-auto">
-                Una sesión individual conmigo donde leo con precisión la arquitectura
-                desde la que operas. Sin interpretaciones. Sin suposiciones. Solo lo que está operando.
+              <p className="font-body text-sm text-foreground/50 leading-relaxed mb-8 max-w-lg mx-auto">
+                Una sesión individual conmigo donde leo la arquitectura
+                desde la que operas. Sin interpretaciones. Sin suposiciones. Solo lo que está activo.
               </p>
               <motion.p
                 className="font-display text-5xl md:text-6xl font-light text-gold mb-2"
@@ -259,7 +259,7 @@ const LecturaEstructural = () => {
               >
                 180€
               </motion.p>
-              <p className="font-body text-xs text-muted-foreground tracking-wider mb-10">
+              <p className="font-body text-xs text-foreground/40 tracking-wider mb-10">
                 Sesión única 1:1 · 90 minutos
               </p>
               <a
