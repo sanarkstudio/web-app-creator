@@ -125,7 +125,7 @@ const ProcesoSanark = () => {
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="font-body text-xs tracking-[0.5em] uppercase text-gold mb-8">
-              Reconstrucción estructural
+              Creación estructural
             </p>
           </FadeIn>
           <FadeIn delay={0.4}>
@@ -198,7 +198,7 @@ const ProcesoSanark = () => {
         <div className="container mx-auto px-6 max-w-5xl relative z-10">
           <FadeIn>
             <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-6">
-              Cuatro fases. Un solo propósito: reconstruirte.
+              Cuatro fases. Un solo propósito: crear desde cero.
             </h2>
             <p className="font-body text-sm text-foreground/50 text-center mb-20 max-w-xl mx-auto">
               Cada fase es un paso irreversible. No hay vuelta atrás porque no queda nada a lo que volver.
@@ -260,7 +260,7 @@ const ProcesoSanark = () => {
                 Proceso completo
               </p>
               <h3 className="font-display text-2xl md:text-3xl font-light mb-4">
-                12 sesiones · 4 fases · 1 reconstrucción
+                12 sesiones · 4 fases · 1 transformación
               </h3>
               <p className="font-body text-sm text-foreground/50 leading-relaxed mb-8 max-w-lg mx-auto">
                 Doce sesiones individuales conmigo donde trabajo directamente sobre tu estructura heredada.
