@@ -312,7 +312,63 @@ const Index = () => {
         </motion.div>
       </section>
 
-      {/* ENTRADA — Lectura Estructural */}
+      {/* Vision — What's possible */}
+      <section className="py-32 md:py-48 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
+        <div className="container mx-auto px-6 max-w-4xl relative z-10">
+          <FadeIn>
+            <Sparkles size={24} className="text-gold/60 mx-auto mb-6" />
+            <p className="font-body text-xs tracking-[0.4em] uppercase text-gold text-center mb-6">
+              Lo que es posible
+            </p>
+            <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-6 leading-tight">
+              ¿Y si pudieras elegir desde dónde operas?
+            </h2>
+            <p className="font-body text-base text-foreground/50 text-center mb-16 max-w-2xl mx-auto">
+              No es un deseo. Es una decisión estructural. Con el Proceso Sanark de 4 fases, cada una de estas áreas deja de estar determinada por lo heredado.
+            </p>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              { icon: Activity, area: "Energía", text: "La vitalidad que deseas, sin depender de ciclos de agotamiento que no elegiste." },
+              { icon: HeartHandshake, area: "Pareja", text: "Relaciones que construyes desde la elección, no desde la carencia heredada." },
+              { icon: Zap, area: "Salud", text: "Un cuerpo que responde a ti, no a los programas de estrés que carga desde antes de tu consciencia." },
+              { icon: DollarSign, area: "Finanzas", text: "Abundancia real, sin el techo invisible que frena cada vez que estás a punto de expandirte." },
+              { icon: Brain, area: "Claridad mental", text: "Decisiones nítidas, sin el ruido de un sistema operativo que no te pertenece." },
+              { icon: Gem, area: "Propósito", text: "Metas que se materializan porque nacen de una estructura nueva, no de la fuerza de voluntad." },
+            ].map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <FadeIn key={i} delay={i * 0.08}>
+                  <motion.div
+                    className="p-6 bg-card/50 backdrop-blur-sm border border-border/30 hover:border-gold/30 transition-all duration-500 group h-full"
+                    whileHover={{ y: -4 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Icon size={20} className="text-gold/70 mb-3 group-hover:text-gold transition-colors" />
+                    <p className="font-display text-sm tracking-[0.2em] uppercase text-gold/80 mb-2">{item.area}</p>
+                    <p className="font-body text-sm text-foreground/60 leading-relaxed group-hover:text-foreground/80 transition-colors">{item.text}</p>
+                  </motion.div>
+                </FadeIn>
+              );
+            })}
+          </div>
+
+          <FadeIn delay={0.5}>
+            <div className="mt-14 text-center">
+              <Link
+                to="/proceso-sanark"
+                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-8 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-all duration-500"
+              >
+                Conoce las 4 fases del proceso
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       <section className="py-32 md:py-48 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.08)_0%,transparent_60%)]" />
