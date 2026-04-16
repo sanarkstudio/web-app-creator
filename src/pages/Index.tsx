@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import FadeIn from "@/components/shared/FadeIn";
 import SectionDivider from "@/components/shared/SectionDivider";
+import FloatingParticles from "@/components/shared/FloatingParticles";
 import HeroBackground from "@/components/shared/HeroBackground";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
