@@ -77,8 +77,8 @@ const LecturaEstructural = () => {
           </FadeIn>
 
           <FadeIn delay={0.7}>
-            <p className="font-body text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto mb-6 leading-relaxed">
-              Una sesión individual donde accedo a la arquitectura profunda que dirige tu vida — los programas heredados que operan en tu cuerpo, tus emociones, tus relaciones y tus finanzas sin que lo sepas.
+            <p className="font-body text-base md:text-lg text-foreground/60 max-w-xl mx-auto mb-6 leading-relaxed">
+              Accedo a los programas heredados que operan en tu cuerpo, emociones, relaciones y finanzas — sin que lo sepas.
             </p>
           </FadeIn>
 
@@ -120,19 +120,23 @@ const LecturaEstructural = () => {
         <div className="container mx-auto px-6 max-w-3xl text-center">
           <SectionDivider />
           <h2 className="font-display text-4xl md:text-6xl font-light mt-12 mb-10">
-            ¿Qué es una Lectura Estructural?
+            <span className="gradient-text-gold">¿Qué es una Lectura Estructural?</span>
           </h2>
           <p className="font-body text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto leading-relaxed mb-6">
-            Es una lectura que va más allá de los síntomas, las emociones o los
-            comportamientos visibles. Accede a la capa más profunda de tu
-            funcionamiento — la que determina por qué repites lo que repites,
-            por qué te agotas de la misma forma, por qué tus relaciones siguen
-            el mismo guión y por qué el dinero se comporta siempre igual en tu vida.
+            Es una lectura que va más allá de los síntomas o las emociones visibles.
+            Accede a la capa más profunda de tu funcionamiento — esa que determina
+            por qué repites lo que repites, por qué te agotas siempre de la misma
+            forma, por qué tus relaciones siguen un guión invisible y por qué el
+            dinero se comporta siempre igual en tu vida.
+          </p>
+          <p className="font-body text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto leading-relaxed mb-6">
+            No es terapia, no es coaching, no es interpretación. Es una decodificación
+            precisa de los programas que tu sistema familiar inscribió en ti — programas
+            que hoy operan en automático y que condicionan cada decisión, cada vínculo
+            y cada resultado sin que seas consciente de ello.
           </p>
           <p className="font-body text-base text-foreground/40 max-w-xl mx-auto leading-relaxed">
-            No trabajo con lo que crees que te pasa. Trabajo con lo que realmente
-            está operando — los programas que heredaste de tu sistema familiar y que
-            hoy dirigen tu vida sin tu permiso.
+            Trabajo con lo que realmente está activo — no con lo que crees que te pasa.
           </p>
         </div>
       </StickyRevealSection>
@@ -143,7 +147,7 @@ const LecturaEstructural = () => {
         <div className="container mx-auto px-6 max-w-3xl relative z-10">
           <ScrollTextReveal
             text="Los programas heredados actúan en múltiples dimensiones — física, emocional, mental, conductual, relacional y social — y determinan tus resultados de forma silenciosa pero constante."
-            className="font-display text-3xl md:text-5xl font-light text-center text-foreground"
+            className="font-display text-2xl md:text-4xl font-light text-center text-foreground leading-snug"
             as="h2"
           />
           <div className="mt-16">
@@ -222,8 +226,7 @@ const LecturaEstructural = () => {
             </p>
           </FadeIn>
 
-          {/* Staggered horizontal bars — disruptive effect */}
-          <div className="space-y-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {[
               { icon: Activity, label: "Energía", text: "La vitalidad que deseas, disponible sin depender de ciclos heredados." },
               { icon: HeartHandshake, label: "Pareja", text: "Relaciones que eliges desde la plenitud, no desde la carencia." },
@@ -232,20 +235,20 @@ const LecturaEstructural = () => {
             ].map((item, i) => {
               const Icon = item.icon;
               return (
-                <motion.div
-                  key={i}
-                  className="flex items-center gap-5 p-4 md:p-5 border border-border/20 bg-card/30 hover:border-gold/30 transition-all duration-500 group"
-                  initial={{ opacity: 0, x: i % 2 === 0 ? -60 : 60 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-                  whileHover={{ x: i % 2 === 0 ? 8 : -8 }}
-                >
-                  <Icon size={18} className="text-gold flex-shrink-0 group-hover:text-gold-light transition-colors" />
-                  <p className="font-display text-xs tracking-[0.2em] uppercase text-gold/80 w-20 flex-shrink-0">{item.label}</p>
-                  <div className="w-px h-5 bg-border/40 flex-shrink-0" />
-                  <p className="font-body text-sm text-foreground/50 group-hover:text-foreground/70 transition-colors">{item.text}</p>
-                </motion.div>
+                <FadeIn key={i} delay={i * 0.12}>
+                  <motion.div
+                    className="relative p-6 bg-card/50 backdrop-blur-sm border border-border/30 h-full hover:border-gold/30 transition-all duration-500 overflow-hidden group"
+                    whileHover={{ y: -4 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                    <div className="flex items-center gap-3 mb-3 relative z-10">
+                      <Icon size={18} className="text-gold" />
+                      <p className="font-display text-xs tracking-[0.2em] uppercase text-gold/80">{item.label}</p>
+                    </div>
+                    <p className="font-body text-sm text-foreground/50 leading-relaxed relative z-10">{item.text}</p>
+                  </motion.div>
+                </FadeIn>
               );
             })}
           </div>
