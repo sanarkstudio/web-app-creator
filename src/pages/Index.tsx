@@ -126,7 +126,6 @@ const Index = () => {
 
           <FadeIn delay={0.8}>
             <p className="font-body text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto mb-14 leading-relaxed">
-              Has invertido años en conocerte. Y aun así, ciertos patrones siguen intactos.
               No es un problema de voluntad. Es un problema de estructura.
             </p>
           </FadeIn>
