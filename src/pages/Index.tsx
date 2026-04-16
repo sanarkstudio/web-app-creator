@@ -93,22 +93,7 @@ const Index = () => {
     <Layout>
       {/* Hero */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.08)_0%,transparent_70%)]" />
-        
-        {/* Pulsing radial glow */}
-        <motion.div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,hsl(38_50%_48%/0.12)_0%,transparent_50%)]"
-          animate={{ opacity: [0.3, 1, 0.3], scale: [0.9, 1.1, 0.9] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_30%_60%,hsl(38_40%_40%/0.06)_0%,transparent_40%)]"
-          animate={{ opacity: [0.5, 1, 0.5], scale: [1, 1.2, 1] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        />
-        
-        <FloatingParticles count={60} />
+        <HeroBackground particles={60} />
 
         <motion.div
           style={{
