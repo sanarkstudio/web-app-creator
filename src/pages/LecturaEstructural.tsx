@@ -78,7 +78,7 @@ const LecturaEstructural = () => {
 
           <FadeIn delay={0.7}>
             <p className="font-body text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto mb-6 leading-relaxed">
-              Una sesión que va directo a lo que sostiene tus patrones.
+              Una sesión individual donde accedo a la arquitectura profunda que dirige tu vida — los programas heredados que operan en tu cuerpo, tus emociones, tus relaciones y tus finanzas sin que lo sepas.
             </p>
           </FadeIn>
 
@@ -166,7 +166,7 @@ const LecturaEstructural = () => {
               {
                 icon: Layers,
                 title: "Tu arquitectura heredada",
-                desc: "Los programas instalados antes de tu consciencia que dictan cómo gestionas tu energía, tus vínculos, tu salud y tus recursos. Lo que nunca elegiste pero que sigue operando.",
+                desc: "Los programas que se instalaron en tu sistema mucho antes de que pudieras elegir. Patrones familiares, creencias implícitas y formas de funcionar que hoy dictan cómo gestionas tu energía, tus vínculos, tu salud y tus recursos — aunque tú no lo hayas decidido.",
               },
               {
                 icon: Flame,
@@ -189,7 +189,7 @@ const LecturaEstructural = () => {
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                   
-                  <Icon size={22} className="text-gold/70 mb-5 relative z-10" />
+                  <Icon size={22} className="text-gold mb-5 relative z-10" />
                   <h3 className="font-display text-xl font-medium mb-4 relative z-10">{item.title}</h3>
                   <p className="font-body text-sm text-foreground/50 leading-relaxed relative z-10">{item.desc}</p>
                 </motion.div>
@@ -205,7 +205,7 @@ const LecturaEstructural = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(38_50%_48%/0.05)_0%,transparent_60%)]" />
         <div className="container mx-auto px-6 max-w-3xl relative z-10 text-center">
           <FadeIn>
-            <Sparkles size={22} className="text-gold/60 mx-auto mb-5" />
+            <Sparkles size={22} className="text-gold mx-auto mb-5" />
             <h2 className="font-display text-3xl md:text-4xl font-light mb-6">
               Cuando ves la estructura, dejas de repetirla
             </h2>
@@ -224,7 +224,7 @@ const LecturaEstructural = () => {
               return (
                 <FadeIn key={i} delay={i * 0.1}>
                   <div className="p-4 border border-border/30 bg-card/30 hover:border-gold/30 transition-all duration-500 group">
-                    <Icon size={18} className="text-gold/60 mx-auto mb-2 group-hover:text-gold transition-colors" />
+                    <Icon size={18} className="text-gold mx-auto mb-2 group-hover:text-gold-light transition-colors" />
                     <p className="font-display text-xs tracking-[0.2em] uppercase text-foreground/60 group-hover:text-foreground/80 transition-colors">{item.label}</p>
                   </div>
                 </FadeIn>
@@ -243,7 +243,7 @@ const LecturaEstructural = () => {
         <div className="container mx-auto px-6 max-w-3xl">
           <FadeIn>
             <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-12">
-              Para quién es
+              ¿Para quién es?
             </h2>
           </FadeIn>
           <ScrollTextReveal

@@ -231,7 +231,7 @@ const ProcesoSanark = () => {
                       <span className="font-display text-5xl md:text-6xl font-light text-gold/20 block mb-3 relative z-10">
                         {phase.num}
                       </span>
-                      <phase.icon size={20} className="text-gold/60 mb-3 relative z-10" />
+                      <phase.icon size={20} className="text-gold mb-3 relative z-10" />
                       <h3 className="font-display text-xl md:text-2xl font-medium mb-3 relative z-10">{phase.title}</h3>
                       <p className="font-body text-sm md:text-base text-foreground/50 leading-relaxed relative z-10">
                         {phase.desc}
@@ -250,7 +250,7 @@ const ProcesoSanark = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.04)_0%,transparent_60%)]" />
         <div className="container mx-auto px-6 max-w-4xl relative z-10">
           <FadeIn>
-            <Sparkles size={22} className="text-gold/60 mx-auto mb-5" />
+            <Sparkles size={22} className="text-gold mx-auto mb-5" />
             <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-6 leading-tight">
               Lo que se abre cuando la estructura cambia
             </h2>
@@ -260,12 +260,12 @@ const ProcesoSanark = () => {
           </FadeIn>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
             {[
-              { icon: Activity, area: "Energía", text: "Vitalidad sostenida, sin los ciclos de colapso que no elegiste." },
-              { icon: HeartHandshake, area: "Pareja", text: "Vínculos elegidos desde la plenitud, no desde la necesidad." },
-              { icon: Zap, area: "Salud", text: "Un cuerpo libre de la carga emocional heredada." },
-              { icon: DollarSign, area: "Finanzas", text: "Expansión sin el techo invisible que te frena." },
-              { icon: Brain, area: "Claridad", text: "Decisiones limpias, sin ruido heredado." },
-              { icon: Gem, area: "Propósito", text: "Metas que se materializan porque nacen de ti." },
+              { icon: Activity, area: "Energía", text: "Vitalidad constante que no depende de fuerza de voluntad. Tu cuerpo deja de colapsar en ciclos que nunca elegiste." },
+              { icon: HeartHandshake, area: "Pareja", text: "Relaciones que eliges desde la plenitud, no desde el vacío. El patrón de atraer lo mismo con distinto rostro se detiene." },
+              { icon: Zap, area: "Salud", text: "Un cuerpo que responde a ti. Sin la carga emocional heredada que se expresaba como dolor, enfermedad o agotamiento crónico." },
+              { icon: DollarSign, area: "Finanzas", text: "El dinero deja de fugarse. El techo invisible que frenaba tu expansión se disuelve porque ya no opera la estructura que lo sostenía." },
+              { icon: Brain, area: "Claridad", text: "Pensamiento limpio, decisiones nítidas. Sin el ruido mental de un sistema operativo que no te pertenece." },
+              { icon: Gem, area: "Propósito", text: "Tus metas se materializan porque nacen de una estructura nueva — no de la fuerza ni de la repetición." },
             ].map((item, i) => {
               const Icon = item.icon;
               return (
@@ -275,7 +275,7 @@ const ProcesoSanark = () => {
                     whileHover={{ y: -3 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <Icon size={18} className="text-gold/60 mb-2 group-hover:text-gold transition-colors" />
+                    <Icon size={18} className="text-gold mb-2 group-hover:text-gold-light transition-colors" />
                     <p className="font-display text-xs tracking-[0.2em] uppercase text-gold/80 mb-1">{item.area}</p>
                     <p className="font-body text-sm text-foreground/50 leading-relaxed group-hover:text-foreground/70 transition-colors">{item.text}</p>
                   </motion.div>

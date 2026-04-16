@@ -38,7 +38,7 @@ const identItems = [
   },
   {
     icon: Flame,
-    text: "Algo dentro de ti no descansa. Ansiedad sin causa, tristeza sin motivo, una sensación de vacío que no se llena con nada externo — y que aprendiste a esconder.",
+    text: "Algo dentro de ti no descansa. Ansiedad que aparece sin causa, tristeza sin motivo, un vacío que no se llena con nada de afuera. Funcional por fuera, apagado por dentro — y ya no sabes si lo que sientes es tuyo o heredado.",
   },
   {
     icon: Target,
