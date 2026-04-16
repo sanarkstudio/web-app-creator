@@ -3,6 +3,7 @@ import Layout from "@/components/layout/Layout";
 import FadeIn from "@/components/shared/FadeIn";
 import SectionDivider from "@/components/shared/SectionDivider";
 import FloatingParticles from "@/components/shared/FloatingParticles";
+import HeroBackground from "@/components/shared/HeroBackground";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
@@ -37,7 +38,7 @@ const identItems = [
   },
   {
     icon: Flame,
-    text: "Sientes un vacío que no se llena con logros, relaciones ni experiencias. Funcional por fuera, apagado por dentro — y nadie lo nota.",
+    text: "Algo dentro de ti no descansa. Ansiedad sin causa, tristeza sin motivo, una sensación de vacío que no se llena con nada externo — y que aprendiste a esconder.",
   },
   {
     icon: Target,
@@ -92,22 +93,7 @@ const Index = () => {
     <Layout>
       {/* Hero */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.08)_0%,transparent_70%)]" />
-        
-        {/* Pulsing radial glow */}
-        <motion.div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,hsl(38_50%_48%/0.12)_0%,transparent_50%)]"
-          animate={{ opacity: [0.3, 1, 0.3], scale: [0.9, 1.1, 0.9] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_30%_60%,hsl(38_40%_40%/0.06)_0%,transparent_40%)]"
-          animate={{ opacity: [0.5, 1, 0.5], scale: [1, 1.2, 1] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        />
-        
-        <FloatingParticles count={60} />
+        <HeroBackground particles={60} />
 
         <motion.div
           style={{

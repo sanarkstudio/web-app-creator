@@ -3,6 +3,7 @@ import Layout from "@/components/layout/Layout";
 import FadeIn from "@/components/shared/FadeIn";
 import SectionDivider from "@/components/shared/SectionDivider";
 import FloatingParticles from "@/components/shared/FloatingParticles";
+import HeroBackground from "@/components/shared/HeroBackground";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
@@ -42,10 +43,7 @@ const LecturaEstructural = () => {
     <Layout>
       {/* Hero — cinematic entry, no rings */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.1)_0%,transparent_70%)]" />
-
-        <FloatingParticles count={60} />
+        <HeroBackground particles={60} />
 
         <motion.div
           style={{
