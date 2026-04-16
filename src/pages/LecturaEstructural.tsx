@@ -41,7 +41,7 @@ const LecturaEstructural = () => {
 
   return (
     <Layout>
-      {/* Hero — cinematic entry, no rings */}
+      {/* Hero */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <HeroBackground particles={60} />
 
@@ -96,7 +96,6 @@ const LecturaEstructural = () => {
           </FadeIn>
         </motion.div>
 
-        {/* Scroll indicator */}
         <motion.div
           className="absolute bottom-10 left-1/2 -translate-x-1/2"
           animate={{ y: [0, 12, 0] }}
@@ -116,22 +115,29 @@ const LecturaEstructural = () => {
         />
       </div>
 
-      {/* Apple-style sticky text reveal — What is it */}
+      {/* Sticky reveal — expanded text */}
       <StickyRevealSection scrollHeight={1.8}>
         <div className="container mx-auto px-6 max-w-3xl text-center">
           <SectionDivider />
           <h2 className="font-display text-4xl md:text-6xl font-light mt-12 mb-10">
             ¿Qué es una Lectura Estructural?
           </h2>
-          <p className="font-body text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto leading-relaxed">
+          <p className="font-body text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto leading-relaxed mb-6">
             Es una lectura que va más allá de los síntomas, las emociones o los
             comportamientos visibles. Accede a la capa más profunda de tu
-            funcionamiento.
+            funcionamiento — la que determina por qué repites lo que repites,
+            por qué te agotas de la misma forma, por qué tus relaciones siguen
+            el mismo guión y por qué el dinero se comporta siempre igual en tu vida.
+          </p>
+          <p className="font-body text-base text-foreground/40 max-w-xl mx-auto leading-relaxed">
+            No trabajo con lo que crees que te pasa. Trabajo con lo que realmente
+            está operando — los programas que heredaste de tu sistema familiar y que
+            hoy dirigen tu vida sin tu permiso.
           </p>
         </div>
       </StickyRevealSection>
 
-      {/* Apple-style word-by-word scroll reveal */}
+      {/* Word-by-word scroll reveal */}
       <section className="py-28 md:py-36 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(38_50%_48%/0.03)_0%,transparent_50%)]" />
         <div className="container mx-auto px-6 max-w-3xl relative z-10">
@@ -150,96 +156,110 @@ const LecturaEstructural = () => {
         </div>
       </section>
 
-      {/* What it reveals — cards with scale */}
-      <section ref={revealRef} className="py-28 md:py-36 relative overflow-hidden">
+      {/* What it reveals — compact cards like home style */}
+      <section ref={revealRef} className="py-24 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
         <FloatingParticles count={25} />
         <motion.div style={{ scale: revealScale }} className="container mx-auto px-6 max-w-5xl relative z-10">
           <FadeIn>
-            <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-16">
+            <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-4">
               Lo que revela
             </h2>
+            <p className="font-body text-sm text-foreground/40 text-center mb-14 tracking-wide">
+              Lo que ninguna otra lectura te ha mostrado
+            </p>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               {
                 icon: Layers,
                 title: "Tu arquitectura heredada",
-                desc: "Los programas que se instalaron en tu sistema mucho antes de que pudieras elegir. Patrones familiares, creencias implícitas y formas de funcionar que hoy dictan cómo gestionas tu energía, tus vínculos, tu salud y tus recursos — aunque tú no lo hayas decidido.",
+                desc: "Los programas que tu sistema familiar instaló en ti — patrones, creencias y formas de funcionar que hoy dictan cómo gestionas tu energía, tus vínculos, tu salud y tus recursos.",
               },
               {
                 icon: Flame,
                 title: "Tus fugas activas",
-                desc: "Los puntos exactos donde pierdes energía, claridad y dirección de forma cíclica. Las repeticiones que ningún hábito nuevo ni ningún propósito ha logrado detener.",
+                desc: "Los puntos exactos donde pierdes energía, claridad y dirección de forma cíclica. Las repeticiones que ningún hábito nuevo ha logrado detener.",
               },
               {
                 icon: Map,
-                title: "Tu mapa estructural completo",
+                title: "Tu mapa estructural",
                 desc: "Una visión clara de cómo estos programas operan en cada dimensión de tu vida: física, emocional, mental, relacional, social y financiera.",
               },
             ].map((item, i) => {
               const Icon = item.icon;
               return (
-              <FadeIn key={i} delay={i * 0.15}>
-                <motion.div
-                  className="relative p-8 bg-card/80 backdrop-blur-sm border border-border/50 h-full hover:border-gold/20 transition-all duration-500 hover:glow-gold overflow-hidden group"
-                  whileHover={{ scale: 1.03, y: -6 }}
-                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                  
-                  <Icon size={22} className="text-gold mb-5 relative z-10" />
-                  <h3 className="font-display text-xl font-medium mb-4 relative z-10">{item.title}</h3>
-                  <p className="font-body text-sm text-foreground/50 leading-relaxed relative z-10">{item.desc}</p>
-                </motion.div>
-              </FadeIn>
+                <FadeIn key={i} delay={i * 0.15}>
+                  <motion.div
+                    className="relative p-6 bg-card/50 backdrop-blur-sm border border-border/30 h-full hover:border-gold/30 transition-all duration-500 overflow-hidden group"
+                    whileHover={{ y: -4 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                    <Icon size={18} className="text-gold mb-3 relative z-10" />
+                    <h3 className="font-display text-lg font-medium mb-3 relative z-10">{item.title}</h3>
+                    <p className="font-body text-sm text-foreground/50 leading-relaxed relative z-10">{item.desc}</p>
+                  </motion.div>
+                </FadeIn>
               );
             })}
           </div>
         </motion.div>
       </section>
 
-      {/* Vision — What changes */}
-      <section className="py-28 md:py-36 relative">
+      {/* Horizontal reveal — disruptive animation */}
+      <section className="py-24 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(38_50%_48%/0.05)_0%,transparent_60%)]" />
-        <div className="container mx-auto px-6 max-w-3xl relative z-10 text-center">
+        <div className="container mx-auto px-6 max-w-4xl relative z-10">
           <FadeIn>
-            <Sparkles size={22} className="text-gold mx-auto mb-5" />
-            <h2 className="font-display text-3xl md:text-4xl font-light mb-6">
+            <Sparkles size={20} className="text-gold mx-auto mb-5" />
+            <h2 className="font-display text-3xl md:text-4xl font-light text-center mb-5">
               Cuando ves la estructura, dejas de repetirla
             </h2>
-            <p className="font-body text-base text-foreground/50 leading-relaxed mb-10 max-w-xl mx-auto">
-              La Lectura Estructural es el primer paso hacia una vida donde la energía que tienes, la salud que experimentas, la pareja que eliges y el dinero que produces responden a ti — no a un programa heredado.
+            <p className="font-body text-sm text-foreground/40 text-center mb-12 max-w-xl mx-auto">
+              La Lectura Estructural es el primer paso hacia una vida donde cada área responde a ti — no a un programa heredado.
             </p>
           </FadeIn>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+          {/* Staggered horizontal bars — disruptive effect */}
+          <div className="space-y-3">
             {[
-              { icon: Activity, label: "Energía" },
-              { icon: HeartHandshake, label: "Pareja" },
-              { icon: Zap, label: "Salud" },
-              { icon: DollarSign, label: "Finanzas" },
+              { icon: Activity, label: "Energía", text: "La vitalidad que deseas, disponible sin depender de ciclos heredados." },
+              { icon: HeartHandshake, label: "Pareja", text: "Relaciones que eliges desde la plenitud, no desde la carencia." },
+              { icon: Zap, label: "Salud", text: "Tu cuerpo respondiendo a ti, no a los programas de dolor o enfermedad." },
+              { icon: DollarSign, label: "Finanzas", text: "Abundancia que se sostiene, sin el techo invisible que la frena." },
             ].map((item, i) => {
               const Icon = item.icon;
               return (
-                <FadeIn key={i} delay={i * 0.1}>
-                  <div className="p-4 border border-border/30 bg-card/30 hover:border-gold/30 transition-all duration-500 group">
-                    <Icon size={18} className="text-gold mx-auto mb-2 group-hover:text-gold-light transition-colors" />
-                    <p className="font-display text-xs tracking-[0.2em] uppercase text-foreground/60 group-hover:text-foreground/80 transition-colors">{item.label}</p>
-                  </div>
-                </FadeIn>
+                <motion.div
+                  key={i}
+                  className="flex items-center gap-5 p-4 md:p-5 border border-border/20 bg-card/30 hover:border-gold/30 transition-all duration-500 group"
+                  initial={{ opacity: 0, x: i % 2 === 0 ? -60 : 60 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                  whileHover={{ x: i % 2 === 0 ? 8 : -8 }}
+                >
+                  <Icon size={18} className="text-gold flex-shrink-0 group-hover:text-gold-light transition-colors" />
+                  <p className="font-display text-xs tracking-[0.2em] uppercase text-gold/80 w-20 flex-shrink-0">{item.label}</p>
+                  <div className="w-px h-5 bg-border/40 flex-shrink-0" />
+                  <p className="font-body text-sm text-foreground/50 group-hover:text-foreground/70 transition-colors">{item.text}</p>
+                </motion.div>
               );
             })}
           </div>
+
           <FadeIn delay={0.4}>
-            <p className="font-body text-sm text-foreground/40 mt-8">
+            <p className="font-body text-sm text-foreground/40 mt-10 text-center">
               Con el <Link to="/proceso-sanark" className="text-gold hover:text-gold-light transition-colors">Proceso Sanark de 4 fases</Link>, cada área se transforma desde la raíz.
             </p>
           </FadeIn>
         </div>
       </section>
 
-      <section className="py-28 md:py-36">
+      {/* ¿Para quién es? */}
+      <section className="py-24 md:py-32">
         <div className="container mx-auto px-6 max-w-3xl">
           <FadeIn>
             <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-12">
@@ -247,7 +267,7 @@ const LecturaEstructural = () => {
             </h2>
           </FadeIn>
           <ScrollTextReveal
-            text="Para personas que ya han recorrido un camino significativo de autoconocimiento. Que han hecho terapia, coaching o trabajo personal. Y que saben — aunque no puedan nombrarlo — que hay una capa más profunda que aún no han tocado."
+            text="¿Has recorrido un camino significativo de autoconocimiento? ¿Has hecho terapia, coaching o trabajo personal? ¿Sabes — aunque no puedas nombrarlo — que hay una capa más profunda que aún no has tocado?"
             className="font-body text-lg md:text-xl text-foreground/60 text-center leading-relaxed"
             as="p"
           />
@@ -262,8 +282,8 @@ const LecturaEstructural = () => {
         </div>
       </section>
 
-      {/* Price box — with dynamic glow */}
-      <section ref={ctaRef} className="py-28 md:py-36 relative overflow-hidden">
+      {/* Price box */}
+      <section ref={ctaRef} className="py-24 md:py-32 relative overflow-hidden">
         <motion.div
           className="absolute inset-0"
           style={{
