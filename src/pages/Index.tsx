@@ -13,7 +13,7 @@ import { useRef } from "react";
 const identItems = [
   {
     icon: Zap,
-    text: "Tu cuerpo habla antes que tú. Fatiga crónica, tensión que no se va, síntomas que nadie explica.",
+    text: "Tu cuerpo habla antes que tú. Fatiga crónica, tensión que no se va, enfermedades, síntomas que nadie explica.",
   },
   {
     icon: Heart,
@@ -37,11 +37,11 @@ const identItems = [
   },
   {
     icon: Heart,
-    text: "Sientes un vacío que no se llena con logros. Estás funcional por fuera, pero por dentro algo sigue apagado.",
+    text: "emocional",
   },
   {
     icon: Target,
-    text: "Tienes metas claras pero no avanzas. Sabes lo que quieres construir, pero una fuerza invisible te frena justo antes de lograrlo.",
+    text: "Tienes metas claras pero no avanzas. Dudes o sepas lo que quieres construir, pero una fuerza invisible te frena justo antes de lograrlo.",
   },
 ];
 
@@ -204,7 +204,7 @@ const Index = () => {
               Lo que hago
             </p>
             <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-16 leading-tight">
-              Revelo lo que sostiene todo lo demás
+              Revelar lo que se esconde de tu psiquismo
             </h2>
           </FadeIn>
 
@@ -256,10 +256,10 @@ const Index = () => {
         >
           <FadeIn>
             <h2 className="font-display text-3xl md:text-5xl font-light mb-6 leading-tight text-center">
-              Reconoces esto porque ya lo has vivido
+              El patron que se repite
             </h2>
             <p className="font-body text-sm text-foreground/40 text-center mb-16 tracking-wide">
-              No hace falta que lo expliques. Solo léelo.
+              Diferentes áreas de tu vida, una misma estructura operando
             </p>
           </FadeIn>
 
@@ -385,7 +385,7 @@ const Index = () => {
             {[
               { icon: Activity, area: "Energía", text: "La vitalidad que deseas, sin depender de ciclos de agotamiento que no elegiste." },
               { icon: HeartHandshake, area: "Pareja", text: "Relaciones que construyes desde la elección, no desde la carencia heredada." },
-              { icon: Zap, area: "Salud", text: "Un cuerpo que responde a ti, no a los programas de estrés que carga desde antes de tu consciencia." },
+              { icon: Zap, area: "Salud", text: "Un cuerpo que responde a ti, no a los programas de enfermedad, cansancio o dolor que cargas." },
               { icon: DollarSign, area: "Finanzas", text: "Abundancia real, sin el techo invisible que frena cada vez que estás a punto de expandirte." },
               { icon: Brain, area: "Claridad mental", text: "Decisiones nítidas, sin el ruido de un sistema operativo que no te pertenece." },
               { icon: Gem, area: "Propósito", text: "Metas que se materializan porque nacen de una estructura nueva, no de la fuerza de voluntad." },
