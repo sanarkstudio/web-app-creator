@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import FadeIn from "@/components/shared/FadeIn";
 import SectionDivider from "@/components/shared/SectionDivider";
-import FloatingParticles from "@/components/shared/FloatingParticles";
+import HeroBackground from "@/components/shared/HeroBackground";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
@@ -37,7 +37,7 @@ const identItems = [
   },
   {
     icon: Flame,
-    text: "Sientes un vacío que no se llena con logros, relaciones ni experiencias. Funcional por fuera, apagado por dentro — y nadie lo nota.",
+    text: "Algo dentro de ti no descansa. Ansiedad sin causa, tristeza sin motivo, una sensación de vacío que no se llena con nada externo — y que aprendiste a esconder.",
   },
   {
     icon: Target,
