@@ -21,7 +21,7 @@ const identItems = [
   },
   {
     icon: DollarSign,
-    text: "Ganas más pero el dinero se fuga. Hay un techo invisible que no tiene que ver con tu talento.",
+    text: "Produces, generas, facturas — pero el dinero no se queda. Algo en tu estructura lo expulsa antes de que puedas sostenerlo.",
   },
   {
     icon: Brain,
@@ -36,12 +36,12 @@ const identItems = [
     text: "Has probado todo — terapia, coaching, meditación — y algo fundamental sigue sin moverse.",
   },
   {
-    icon: Heart,
-    text: "emocional",
+    icon: Flame,
+    text: "Sientes un vacío que no se llena con logros, relaciones ni experiencias. Funcional por fuera, apagado por dentro — y nadie lo nota.",
   },
   {
     icon: Target,
-    text: "Tienes metas claras pero no avanzas. Dudes o sepas lo que quieres construir, pero una fuerza invisible te frena justo antes de lograrlo.",
+    text: "Sabes exactamente lo que quieres crear, pero te saboteas justo antes de lograrlo. No es falta de disciplina — es una estructura que no te deja llegar.",
   },
 ];
 
@@ -94,7 +94,20 @@ const Index = () => {
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.08)_0%,transparent_70%)]" />
-        <FloatingParticles count={50} />
+        
+        {/* Pulsing radial glow */}
+        <motion.div
+          className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,hsl(38_50%_48%/0.12)_0%,transparent_50%)]"
+          animate={{ opacity: [0.3, 1, 0.3], scale: [0.9, 1.1, 0.9] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute inset-0 bg-[radial-gradient(circle_at_30%_60%,hsl(38_40%_40%/0.06)_0%,transparent_40%)]"
+          animate={{ opacity: [0.5, 1, 0.5], scale: [1, 1.2, 1] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        />
+        
+        <FloatingParticles count={60} />
 
         <motion.div
           style={{
@@ -119,9 +132,9 @@ const Index = () => {
 
           <FadeIn delay={0.6}>
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-light leading-[1.05] mb-8 text-shadow-gold">
-              Tu vida funciona.
+              Lo que eres hoy
               <br />
-              <span className="gradient-text-gold font-medium">Pero no te pertenece.</span>
+              <span className="gradient-text-gold font-medium">no lo decidiste tú.</span>
             </h1>
           </FadeIn>
 
