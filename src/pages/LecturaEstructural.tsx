@@ -345,7 +345,7 @@ const LecturaEstructural = () => {
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 }
-              />)
+              />
               <p className="mt-5 font-body text-sm text-foreground/50">
                 Plazas limitadas · Respuesta en 24h
               </p>
