@@ -95,6 +95,7 @@ const Index = () => {
       {/* Hero */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <HeroBackground particles={60} />
+        <CinematicHero />
 
         <motion.div
           style={{
@@ -103,7 +104,7 @@ const Index = () => {
             y: heroY,
             filter: useTransform(heroBlur, (v) => `blur(${v}px)`),
           }}
-          className="relative z-10 container mx-auto px-6 text-center max-w-4xl"
+          className="relative z-10 container mx-auto px-6 text-center max-w-5xl"
         >
           <FadeIn delay={0}>
             <div className="flex justify-center mb-10">
@@ -119,26 +120,34 @@ const Index = () => {
 
           <FadeIn delay={0.6}>
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-light leading-[1.05] mb-8 text-shadow-gold">
-              Lo que eres hoy
+              Tu vida no se repite por azar.
               <br />
-              <span className="gradient-text-gold font-medium">no lo decidiste tú.</span>
+              <span className="gradient-text-gold font-medium">Se repite por estructura.</span>
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.8}>
-            <p className="font-body text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto mb-14 leading-relaxed">
-              No es un problema de voluntad. Es un problema de estructura.
+            <p className="font-body text-xl md:text-2xl text-foreground/70 max-w-2xl mx-auto mb-14 leading-relaxed">
+              No es falta de voluntad ni de información. Es una arquitectura heredada operando bajo tu consciencia. Hoy puedes verla — y dejar de repetirla.
             </p>
           </FadeIn>
 
           <FadeIn delay={1}>
-            <Link
-              to="/lectura-estructural"
-              className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
-            >
-              Quiero ver lo que no veo
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link
+                to="/lectura-estructural"
+                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]"
+              >
+                Acceder a mi Lectura Estructural
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                to="/lectura-introductoria"
+                className="font-body text-sm tracking-wider uppercase text-foreground/60 hover:text-gold transition-colors duration-300 underline-offset-4 hover:underline"
+              >
+                O prueba la lectura gratuita →
+              </Link>
+            </div>
           </FadeIn>
         </motion.div>
 
