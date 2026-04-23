@@ -71,20 +71,20 @@ const LecturaEstructural = () => {
           </FadeIn>
 
           <FadeIn delay={0.5}>
-            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-light leading-[1.05] mb-8 text-shadow-gold">
+            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-light leading-[1.05] mb-6 text-shadow-gold">
               Lectura Estructural
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.7}>
-            <p className="font-body text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto mb-6 leading-relaxed">
+            <p className="font-body text-base md:text-lg text-foreground/70 max-w-2xl mx-auto mb-5 leading-relaxed">
               En 90 minutos veo la estructura invisible que dirige tu cuerpo, tus emociones, tus relaciones y tu dinero — y te muestro exactamente por qué se repite lo que se repite.
             </p>
           </FadeIn>
 
           <FadeIn delay={0.85}>
             <motion.p
-              className="font-display text-2xl md:text-3xl font-light text-foreground max-w-xl mx-auto leading-snug mb-10"
+              className="font-display text-xl md:text-2xl font-light text-foreground max-w-xl mx-auto leading-snug mb-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

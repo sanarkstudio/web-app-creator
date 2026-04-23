@@ -132,14 +132,14 @@ const ProcesoSanark = () => {
             </p>
           </FadeIn>
           <FadeIn delay={0.4}>
-            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-light leading-[1.05] mb-8 text-shadow-gold">
+            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-light leading-[1.05] mb-6 text-shadow-gold">
               Lo que heredaste
               <br />
               <span className="gradient-text-gold font-medium">ya no tiene que dirigirte.</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.6}>
-            <p className="font-body text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto leading-relaxed">
+            <p className="font-body text-base md:text-lg text-foreground/60 max-w-2xl mx-auto leading-relaxed">
               12 sesiones para desmontar la arquitectura heredada que limita tu vida
               y edificar una estructura desde la que realmente quieres operar.
             </p>
