@@ -4,6 +4,7 @@ import FadeIn from "@/components/shared/FadeIn";
 import SectionDivider from "@/components/shared/SectionDivider";
 import FloatingParticles from "@/components/shared/FloatingParticles";
 import HeroBackground from "@/components/shared/HeroBackground";
+import CinematicHero from "@/components/shared/CinematicHero";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
@@ -44,6 +45,7 @@ const LecturaEstructural = () => {
       {/* Hero */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <HeroBackground particles={60} />
+        <CinematicHero />
 
         <motion.div
           style={{
@@ -77,14 +79,14 @@ const LecturaEstructural = () => {
           </FadeIn>
 
           <FadeIn delay={0.7}>
-            <p className="font-body text-base md:text-lg text-foreground/60 max-w-xl mx-auto mb-6 leading-relaxed">
-              Accedo a los programas heredados que operan en tu cuerpo, emociones, relaciones y finanzas — sin que lo sepas.
+            <p className="font-body text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto mb-6 leading-relaxed">
+              En 90 minutos veo la estructura invisible que dirige tu cuerpo, tus emociones, tus relaciones y tu dinero — y te muestro exactamente por qué se repite lo que se repite.
             </p>
           </FadeIn>
 
           <FadeIn delay={0.85}>
             <motion.p
-              className="font-display text-2xl md:text-3xl font-light text-foreground max-w-xl mx-auto leading-snug"
+              className="font-display text-2xl md:text-3xl font-light text-foreground max-w-xl mx-auto leading-snug mb-10"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -93,6 +95,16 @@ const LecturaEstructural = () => {
               No lo que te pasa.{" "}
               <span className="gradient-text-gold font-medium">Sino lo que lo sostiene.</span>
             </motion.p>
+          </FadeIn>
+
+          <FadeIn delay={1.1}>
+            <a
+              href="#reservar"
+              className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]"
+            >
+              Reservar mi Lectura · 180€
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </a>
           </FadeIn>
         </motion.div>
 
@@ -122,20 +134,20 @@ const LecturaEstructural = () => {
           <h2 className="font-display text-4xl md:text-6xl font-light mt-12 mb-10">
             <span className="gradient-text-gold">¿Qué es una Lectura Estructural?</span>
           </h2>
-          <p className="font-body text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto leading-relaxed mb-6">
+          <p className="font-body text-xl md:text-2xl text-foreground/75 max-w-2xl mx-auto leading-relaxed mb-6">
             Es una lectura que va más allá de los síntomas o las emociones visibles.
             Accede a la capa más profunda de tu funcionamiento — esa que determina
             por qué repites lo que repites, por qué te agotas siempre de la misma
             forma, por qué tus relaciones siguen un guión invisible y por qué el
             dinero se comporta siempre igual en tu vida.
           </p>
-          <p className="font-body text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto leading-relaxed mb-6">
+          <p className="font-body text-xl md:text-2xl text-foreground/75 max-w-2xl mx-auto leading-relaxed mb-6">
             No es terapia, no es coaching, no es interpretación. Es una decodificación
             precisa de los programas que tu sistema familiar inscribió en ti — programas
             que hoy operan en automático y que condicionan cada decisión, cada vínculo
             y cada resultado sin que seas consciente de ello.
           </p>
-          <p className="font-body text-base text-foreground/40 max-w-xl mx-auto leading-relaxed">
+          <p className="font-body text-lg text-foreground/55 max-w-xl mx-auto leading-relaxed italic">
             Trabajo con lo que realmente está activo — no con lo que crees que te pasa.
           </p>
         </div>
@@ -153,7 +165,7 @@ const LecturaEstructural = () => {
           <div className="mt-16">
             <ScrollTextReveal
               text="La Lectura Estructural los hace visibles. Te muestra qué estructura estás habitando y por qué ciertos patrones se repiten sin importar lo que hagas."
-              className="font-body text-lg md:text-xl text-foreground/60 text-center leading-relaxed"
+              className="font-body text-xl md:text-2xl text-foreground/75 text-center leading-relaxed"
               as="p"
             />
           </div>
@@ -170,7 +182,7 @@ const LecturaEstructural = () => {
             <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-4">
               Lo que revela
             </h2>
-            <p className="font-body text-sm text-foreground/40 text-center mb-14 tracking-wide">
+            <p className="font-body text-base md:text-lg text-foreground/65 text-center mb-14 tracking-wide max-w-2xl mx-auto">
               Lo que ninguna otra lectura te ha mostrado
             </p>
           </FadeIn>
@@ -203,7 +215,7 @@ const LecturaEstructural = () => {
                     <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                     <Icon size={18} className="text-gold mb-3 relative z-10" />
                     <h3 className="font-display text-lg font-medium mb-3 relative z-10">{item.title}</h3>
-                    <p className="font-body text-sm text-foreground/50 leading-relaxed relative z-10">{item.desc}</p>
+                    <p className="font-body text-base text-foreground/70 leading-relaxed relative z-10">{item.desc}</p>
                   </motion.div>
                 </FadeIn>
               );
@@ -221,7 +233,7 @@ const LecturaEstructural = () => {
             <h2 className="font-display text-3xl md:text-4xl font-light text-center mb-5">
               Cuando ves la estructura, dejas de repetirla
             </h2>
-            <p className="font-body text-sm text-foreground/40 text-center mb-12 max-w-xl mx-auto">
+            <p className="font-body text-lg md:text-xl text-foreground/70 text-center mb-12 max-w-2xl mx-auto leading-relaxed">
               La Lectura Estructural es el primer paso hacia una vida donde cada área responde a ti — no a un programa heredado.
             </p>
           </FadeIn>
@@ -246,7 +258,7 @@ const LecturaEstructural = () => {
                       <Icon size={18} className="text-gold" />
                       <p className="font-display text-xs tracking-[0.2em] uppercase text-gold/80">{item.label}</p>
                     </div>
-                    <p className="font-body text-sm text-foreground/50 leading-relaxed relative z-10">{item.text}</p>
+                    <p className="font-body text-base text-foreground/70 leading-relaxed relative z-10">{item.text}</p>
                   </motion.div>
                 </FadeIn>
               );
@@ -254,7 +266,7 @@ const LecturaEstructural = () => {
           </div>
 
           <FadeIn delay={0.4}>
-            <p className="font-body text-sm text-foreground/40 mt-10 text-center">
+            <p className="font-body text-base md:text-lg text-foreground/65 mt-10 text-center max-w-2xl mx-auto leading-relaxed">
               Con el <Link to="/proceso-sanark" className="text-gold hover:text-gold-light transition-colors">Proceso Sanark de 4 fases</Link>, cada área se transforma desde la raíz.
             </p>
           </FadeIn>
@@ -271,7 +283,7 @@ const LecturaEstructural = () => {
           </FadeIn>
           <ScrollTextReveal
             text="¿Has recorrido un camino significativo de autoconocimiento? ¿Has hecho terapia, coaching o trabajo personal? ¿Sabes — aunque no puedas nombrarlo — que hay una capa más profunda que aún no has tocado?"
-            className="font-body text-lg md:text-xl text-foreground/60 text-center leading-relaxed"
+            className="font-body text-xl md:text-2xl text-foreground/75 text-center leading-relaxed"
             as="p"
           />
           <FadeIn delay={0.3}>
@@ -286,7 +298,7 @@ const LecturaEstructural = () => {
       </section>
 
       {/* Price box */}
-      <section ref={ctaRef} className="py-24 md:py-32 relative overflow-hidden">
+      <section ref={ctaRef} id="reservar" className="py-24 md:py-32 relative overflow-hidden scroll-mt-24">
         <motion.div
           className="absolute inset-0"
           style={{
@@ -311,7 +323,7 @@ const LecturaEstructural = () => {
               <h3 className="font-display text-2xl md:text-3xl font-light mb-4">
                 90 minutos · 1 lectura · Tu estructura al descubierto
               </h3>
-              <p className="font-body text-sm text-foreground/50 leading-relaxed mb-8 max-w-lg mx-auto">
+              <p className="font-body text-base md:text-lg text-foreground/70 leading-relaxed mb-8 max-w-lg mx-auto">
                 Una sesión individual conmigo donde leo la arquitectura
                 desde la que operas. Sin interpretaciones. Sin suposiciones. Solo lo que está activo.
               </p>
@@ -329,11 +341,14 @@ const LecturaEstructural = () => {
               </p>
               <a
                 href="mailto:info@sanark.com?subject=Quiero%20mi%20Lectura%20Estructural"
-                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
+                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]"
               >
-                Quiero mi Lectura Estructural
+                Reservar mi Lectura ahora
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </a>
+              <p className="mt-5 font-body text-sm text-foreground/50">
+                Plazas limitadas · Respuesta en 24h
+              </p>
             </motion.div>
           </FadeIn>
         </div>
