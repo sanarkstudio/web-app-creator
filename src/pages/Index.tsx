@@ -9,10 +9,8 @@ import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
 import { ArrowRight, Flame, Heart, DollarSign, Brain, Users, Zap, ShieldOff, Eye, Target, Sparkles, Activity, HeartHandshake, Gem, TrendingUp } from "lucide-react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { lazy, Suspense, useRef } from "react";
+import { useRef } from "react";
 import juanCarlosImg from "@/assets/juan-carlos.jpg";
-
-const StructuralOrb3D = lazy(() => import("@/components/shared/StructuralOrb3D"));
 
 const identItems = [
   {
@@ -108,19 +106,8 @@ const Index = () => {
           className="relative z-10 container mx-auto px-6 text-center max-w-5xl"
         >
           <FadeIn delay={0}>
-            <div className="flex justify-center mb-6">
-              <div className="relative w-[280px] h-[280px] md:w-[360px] md:h-[360px]">
-                <Suspense
-                  fallback={
-                    <div className="w-full h-full flex items-center justify-center">
-                      <SanarkSymbol size={140} className="opacity-50" />
-                    </div>
-                  }
-                >
-                  <StructuralOrb3D />
-                </Suspense>
-                <div className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(circle,transparent_55%,hsl(var(--background))_85%)]" />
-              </div>
+            <div className="flex justify-center mb-10">
+              <SanarkSymbol size={140} className="opacity-50" />
             </div>
           </FadeIn>
 
@@ -515,12 +502,6 @@ const Index = () => {
               >
                 Reservar Lectura Estructural
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                to="/lectura-introductoria"
-                className="font-body text-sm tracking-wider uppercase text-foreground/70 hover:text-gold transition-colors duration-300 underline-offset-4 hover:underline"
-              >
-                O prueba la lectura gratuita →
               </Link>
             </div>
           </FadeIn>
