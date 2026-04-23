@@ -4,6 +4,7 @@ import FadeIn from "@/components/shared/FadeIn";
 import SectionDivider from "@/components/shared/SectionDivider";
 import FloatingParticles from "@/components/shared/FloatingParticles";
 import HeroBackground from "@/components/shared/HeroBackground";
+import CinematicHero from "@/components/shared/CinematicHero";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
@@ -113,6 +114,7 @@ const ProcesoSanark = () => {
       {/* Hero */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <HeroBackground particles={50} />
+        <CinematicHero />
 
         <motion.div
           style={{
