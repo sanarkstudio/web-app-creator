@@ -108,8 +108,19 @@ const Index = () => {
           className="relative z-10 container mx-auto px-6 text-center max-w-5xl"
         >
           <FadeIn delay={0}>
-            <div className="flex justify-center mb-10">
-              <SanarkSymbol size={140} className="opacity-50" />
+            <div className="flex justify-center mb-6">
+              <div className="relative w-[280px] h-[280px] md:w-[360px] md:h-[360px]">
+                <Suspense
+                  fallback={
+                    <div className="w-full h-full flex items-center justify-center">
+                      <SanarkSymbol size={140} className="opacity-50" />
+                    </div>
+                  }
+                >
+                  <StructuralOrb3D />
+                </Suspense>
+                <div className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(circle,transparent_55%,hsl(var(--background))_85%)]" />
+              </div>
             </div>
           </FadeIn>
 
