@@ -4,6 +4,7 @@ import FadeIn from "@/components/shared/FadeIn";
 import SectionDivider from "@/components/shared/SectionDivider";
 import FloatingParticles from "@/components/shared/FloatingParticles";
 import HeroBackground from "@/components/shared/HeroBackground";
+import CinematicHero from "@/components/shared/CinematicHero";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
@@ -94,6 +95,7 @@ const Index = () => {
       {/* Hero */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <HeroBackground particles={60} />
+        <CinematicHero />
 
         <motion.div
           style={{
@@ -102,7 +104,7 @@ const Index = () => {
             y: heroY,
             filter: useTransform(heroBlur, (v) => `blur(${v}px)`),
           }}
-          className="relative z-10 container mx-auto px-6 text-center max-w-4xl"
+          className="relative z-10 container mx-auto px-6 text-center max-w-5xl"
         >
           <FadeIn delay={0}>
             <div className="flex justify-center mb-10">
@@ -118,26 +120,34 @@ const Index = () => {
 
           <FadeIn delay={0.6}>
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-light leading-[1.05] mb-8 text-shadow-gold">
-              Lo que eres hoy
+              Tu vida no se repite por azar.
               <br />
-              <span className="gradient-text-gold font-medium">no lo decidiste tú.</span>
+              <span className="gradient-text-gold font-medium">Se repite por estructura.</span>
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.8}>
-            <p className="font-body text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto mb-14 leading-relaxed">
-              No es un problema de voluntad. Es un problema de estructura.
+            <p className="font-body text-xl md:text-2xl text-foreground/70 max-w-2xl mx-auto mb-14 leading-relaxed">
+              No es falta de voluntad ni de información. Es una arquitectura heredada operando bajo tu consciencia. Hoy puedes verla — y dejar de repetirla.
             </p>
           </FadeIn>
 
           <FadeIn delay={1}>
-            <Link
-              to="/lectura-estructural"
-              className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
-            >
-              Quiero ver lo que no veo
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link
+                to="/lectura-estructural"
+                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]"
+              >
+                Acceder a mi Lectura Estructural
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                to="/lectura-introductoria"
+                className="font-body text-sm tracking-wider uppercase text-foreground/60 hover:text-gold transition-colors duration-300 underline-offset-4 hover:underline"
+              >
+                O prueba la lectura gratuita →
+              </Link>
+            </div>
           </FadeIn>
         </motion.div>
 
@@ -169,7 +179,7 @@ const Index = () => {
             <br />
             <span className="gradient-text-gold my-[2px]">pero el patrón permanece</span>
           </h2>
-          <p className="font-body text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto leading-relaxed">
+          <p className="font-body text-xl md:text-2xl text-foreground/70 max-w-2xl mx-auto leading-relaxed">
             No es que no hayas avanzado. Es que hay una capa más profunda que nadie te ha
             mostrado: la estructura desde la que operas.
           </p>
@@ -256,8 +266,8 @@ const Index = () => {
             <h2 className="font-display text-3xl md:text-5xl font-light mb-6 leading-tight text-center">
               El patron que se repite
             </h2>
-            <p className="font-body text-sm text-foreground/40 text-center mb-16 tracking-wide">
-              Diferentes áreas de tu vida, una misma estructura operando
+            <p className="font-body text-base md:text-lg text-foreground/60 text-center mb-16 tracking-wide max-w-2xl mx-auto">
+              Diferentes áreas de tu vida, una misma estructura operando por debajo.
             </p>
           </FadeIn>
 
@@ -274,7 +284,7 @@ const Index = () => {
                     <div className="flex-shrink-0 mt-1">
                       <Icon size={20} className="text-gold/70 group-hover:text-gold transition-colors duration-300" />
                     </div>
-                    <p className="font-body text-sm md:text-base text-foreground/70 leading-relaxed group-hover:text-foreground/90 transition-colors duration-300">
+                    <p className="font-body text-base md:text-lg text-foreground/75 leading-relaxed group-hover:text-foreground transition-colors duration-300">
                       {item.text}
                     </p>
                   </motion.div>
@@ -300,11 +310,14 @@ const Index = () => {
             <div className="mt-10 text-center">
               <Link
                 to="/lectura-estructural"
-                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-all duration-500"
+                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.35)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.55)]"
               >
-                Deja de repetir. Empieza a ver.
+                Ver mi estructura ahora · 180€
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
+              <p className="mt-4 font-body text-sm text-foreground/50">
+                90 minutos · Sesión 1:1 · Acceso inmediato a tu arquitectura
+              </p>
             </div>
           </FadeIn>
         </motion.div>
@@ -374,7 +387,7 @@ const Index = () => {
             <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-6 leading-tight">
               ¿Y si pudieras elegir desde dónde operas?
             </h2>
-            <p className="font-body text-base text-foreground/50 text-center mb-16 max-w-2xl mx-auto">
+            <p className="font-body text-lg md:text-xl text-foreground/70 text-center mb-16 max-w-2xl mx-auto leading-relaxed">
               No es un deseo. Es una decisión estructural. Con el Proceso Sanark de 4 fases, cada una de estas áreas deja de estar determinada por lo heredado.
             </p>
           </FadeIn>
@@ -398,7 +411,7 @@ const Index = () => {
                   >
                     <Icon size={20} className="text-gold/70 mb-3 group-hover:text-gold transition-colors" />
                     <p className="font-display text-sm tracking-[0.2em] uppercase text-gold/80 mb-2">{item.area}</p>
-                    <p className="font-body text-sm text-foreground/60 leading-relaxed group-hover:text-foreground/80 transition-colors">{item.text}</p>
+                    <p className="font-body text-base text-foreground/75 leading-relaxed group-hover:text-foreground transition-colors">{item.text}</p>
                   </motion.div>
                 </FadeIn>
               );
@@ -434,7 +447,7 @@ const Index = () => {
             </h2>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <p className="font-body text-base md:text-lg text-foreground/60 text-center max-w-2xl mx-auto mb-12 leading-relaxed">
+            <p className="font-body text-lg md:text-xl text-foreground/70 text-center max-w-2xl mx-auto mb-12 leading-relaxed">
               90 minutos para ver con claridad desde dónde estás operando.
               No es terapia. No es coaching. No es nada que hayas probado antes.
               Es la puerta de entrada a todo mi sistema de decodificación estructural.
@@ -443,17 +456,18 @@ const Index = () => {
           <FadeIn delay={0.3}>
             <div className="p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 text-center hover:glow-gold">
               <h3 className="font-display text-2xl md:text-3xl font-light mb-4">Lectura Estructural</h3>
-              <p className="font-body text-sm text-foreground/50 leading-relaxed mb-8 max-w-xl mx-auto">
+              <p className="font-body text-base text-foreground/65 leading-relaxed mb-8 max-w-xl mx-auto">
                 Una sesión única donde leo la arquitectura activa desde la que operas hoy — la estructura
                 que heredaste y que sigue dirigiendo tu vida aunque hayas trabajado en ti durante años.
               </p>
               <Link
                 to="/lectura-estructural"
-                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
+                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]"
               >
-                Quiero ver lo que no veo
+                Reservar mi Lectura · 180€
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
+              <p className="mt-4 font-body text-sm text-foreground/50">Plazas limitadas cada mes</p>
             </div>
           </FadeIn>
         </div>
@@ -482,25 +496,24 @@ const Index = () => {
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="font-body text-base text-foreground/60 mb-10 max-w-xl mx-auto">
+            <p className="font-body text-lg md:text-xl text-foreground/70 mb-10 max-w-xl mx-auto leading-relaxed">
               Empieza con una lectura introductoria gratuita. Descubre en minutos qué estructura opera por debajo de tus decisiones.
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
-                to="/lectura-introductoria"
-                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
+                to="/lectura-estructural"
+                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]"
               >
-                Lectura gratuita
+                Reservar Lectura Estructural
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                to="/lectura-estructural"
-                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-all duration-500"
+                to="/lectura-introductoria"
+                className="font-body text-sm tracking-wider uppercase text-foreground/70 hover:text-gold transition-colors duration-300 underline-offset-4 hover:underline"
               >
-                Lectura completa
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                O prueba la lectura gratuita →
               </Link>
             </div>
           </FadeIn>
