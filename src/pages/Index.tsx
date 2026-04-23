@@ -9,7 +9,10 @@ import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
 import { ArrowRight, Flame, Heart, DollarSign, Brain, Users, Zap, ShieldOff, Eye, Target, Sparkles, Activity, HeartHandshake, Gem, TrendingUp } from "lucide-react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { useRef } from "react";
+import { lazy, Suspense, useRef } from "react";
+import juanCarlosImg from "@/assets/juan-carlos.jpg";
+
+const StructuralOrb3D = lazy(() => import("@/components/shared/StructuralOrb3D"));
 
 const identItems = [
   {
@@ -304,7 +307,7 @@ const Index = () => {
                 to="/lectura-estructural"
                 className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.35)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.55)]"
               >
-                Ver mi estructura ahora · 180€
+                Ver mi estructura ahora
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <p className="mt-4 font-body text-sm text-foreground/50">
@@ -327,15 +330,16 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
             <FadeIn delay={0.15}>
               <div className="relative">
-                <div className="aspect-[3/4] overflow-hidden border border-border/40 bg-surface-elevated flex items-center justify-center">
-                  <div className="text-center px-8">
-                    <SanarkSymbol size={80} className="mx-auto mb-6 opacity-30" />
-                    <p className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground">
-                      Foto próximamente
-                    </p>
-                  </div>
+                <div className="aspect-[3/4] overflow-hidden border border-border/40 bg-surface-elevated">
+                  <img
+                    src={juanCarlosImg}
+                    alt="Juan Carlos Sánchez Velázquez — fundador de Sanark"
+                    className="w-full h-full object-cover transition-transform duration-[1.4s] ease-out hover:scale-[1.04]"
+                    loading="lazy"
+                  />
                 </div>
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 border border-gold/20 -z-10" />
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 border border-gold/30 -z-10" />
+                <div className="absolute -top-4 -left-4 w-16 h-16 border border-gold/20 -z-10" />
               </div>
             </FadeIn>
             <motion.div style={{ x: bioTextX, opacity: bioTextOpacity }}>
@@ -456,7 +460,7 @@ const Index = () => {
                 to="/lectura-estructural"
                 className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]"
               >
-                Reservar mi Lectura · 180€
+                Reservar mi Lectura
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <p className="mt-4 font-body text-sm text-foreground/50">Plazas limitadas cada mes</p>
