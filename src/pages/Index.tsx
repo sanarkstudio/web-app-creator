@@ -167,6 +167,9 @@ const Index = () => {
         />
       </div>
 
+      {/* Video explainer — 60-90s */}
+      <VideoExplainer />
+
       {/* Apple-style sticky reveal — Problem */}
       <StickyRevealSection scrollHeight={2}>
         <div className="container mx-auto px-6 max-w-3xl text-center">
