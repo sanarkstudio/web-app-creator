@@ -128,7 +128,7 @@ const Index = () => {
 
           <FadeIn delay={0.8}>
             <p className="font-body text-base md:text-lg text-foreground/70 max-w-2xl mx-auto mb-10 leading-relaxed">
-              No es falta de voluntad ni de información. Es una arquitectura heredada operando bajo tu consciencia. Hoy puedes verla — y dejar de repetirla.
+              No es falta de voluntad ni de información. Es una arquitectura heredada operando bajo tu consciencia. Hoy puedes verla — y comenzar a construir una nueva.
             </p>
           </FadeIn>
 
