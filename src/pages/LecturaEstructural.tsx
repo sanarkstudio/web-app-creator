@@ -8,9 +8,10 @@ import GenerativeParallax from "@/components/shared/GenerativeParallax";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
-import { ArrowRight, Layers, Flame, Map, Activity, HeartHandshake, Zap, DollarSign, Sparkles } from "lucide-react";
+import { ArrowRight, Layers, Flame, Map, Activity, HeartHandshake, Zap, DollarSign, Sparkles, Mail, CalendarCheck, MessageSquare, Lock } from "lucide-react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
+import { trackCtaClick } from "@/lib/analytics";
 
 const LecturaEstructural = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -99,6 +100,7 @@ const LecturaEstructural = () => {
           <FadeIn delay={1.1}>
             <a
               href="#reservar"
+              onClick={() => trackCtaClick("Reservar mi Lectura", "lectura_estructural_hero")}
               className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]"
             >
               Reservar mi Lectura
@@ -230,19 +232,19 @@ const LecturaEstructural = () => {
           <FadeIn>
             <Sparkles size={20} className="text-gold mx-auto mb-5" />
             <h2 className="font-display text-3xl md:text-4xl font-light text-center mb-5">
-              Cuando ves la estructura, dejas de repetirla
+              Después de tu Lectura, sales con un mapa que antes no tenías
             </h2>
             <p className="font-body text-lg md:text-xl text-foreground/70 text-center mb-12 max-w-2xl mx-auto leading-relaxed">
-              La Lectura Estructural es el primer paso hacia una vida donde cada área responde a ti — no a un programa heredado.
+              No te llevas teoría ni motivación. Te llevas evidencia precisa de tu propia arquitectura — qué la sostiene, dónde se fuga y por qué tus intentos previos no la han movido.
             </p>
           </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {[
-              { icon: Activity, label: "Energía", text: "La vitalidad que deseas, disponible sin depender de ciclos heredados." },
-              { icon: HeartHandshake, label: "Pareja", text: "Relaciones que eliges desde la plenitud, no desde la carencia." },
-              { icon: Zap, label: "Salud", text: "Tu cuerpo respondiendo a ti, no a los programas de dolor o enfermedad." },
-              { icon: DollarSign, label: "Finanzas", text: "Abundancia que se sostiene, sin el techo invisible que la frena." },
+              { icon: Activity, label: "Tu cuerpo", text: "Identificas el patrón energético que se repite y dónde tu sistema colapsa de forma cíclica." },
+              { icon: HeartHandshake, label: "Tus vínculos", text: "Ves el guión invisible que se activa en tus relaciones — y por qué siempre acaba igual." },
+              { icon: Zap, label: "Tu salud", text: "Reconoces qué emociones heredadas se están expresando como síntoma físico." },
+              { icon: DollarSign, label: "Tu dinero", text: "Descubres el techo estructural que limita tus ingresos sin importar tu esfuerzo." },
             ].map((item, i) => {
               const Icon = item.icon;
               return (
@@ -266,7 +268,7 @@ const LecturaEstructural = () => {
 
           <FadeIn delay={0.4}>
             <p className="font-body text-base md:text-lg text-foreground/65 mt-10 text-center max-w-2xl mx-auto leading-relaxed">
-              Con el <Link to="/proceso-sanark" className="text-gold hover:text-gold-light transition-colors">Proceso Sanark de 4 fases</Link>, cada área se transforma desde la raíz.
+              Verlo es el primer corte. Transformarlo es el trabajo del <Link to="/proceso-sanark" className="text-gold hover:text-gold-light transition-colors">Proceso Sanark de 4 fases</Link>.
             </p>
           </FadeIn>
         </div>
@@ -335,9 +337,30 @@ const LecturaEstructural = () => {
               >
                 180€
               </motion.p>
-              <p className="font-body text-xs text-foreground/40 tracking-wider mb-10">
-                Sesión única 1:1 · 90 minutos
+              <p className="font-body text-xs text-foreground/40 tracking-wider mb-8">
+                Sesión única 1:1 · 90 minutos · Online
               </p>
+
+              {/* Qué pasa después de reservar */}
+              <div className="text-left max-w-md mx-auto mb-10 border-t border-border/40 pt-8">
+                <p className="font-body text-xs tracking-[0.3em] uppercase text-gold/80 mb-5 text-center">
+                  Qué pasa después de reservar
+                </p>
+                <ul className="space-y-4">
+                  {[
+                    { icon: Mail, text: "Recibes un email de confirmación con el enlace de pago seguro." },
+                    { icon: CalendarCheck, text: "Una vez confirmado el pago, te envío las fechas disponibles para agendar." },
+                    { icon: MessageSquare, text: "El día de la sesión, conectamos por videollamada privada durante 90 minutos." },
+                    { icon: Lock, text: "Todo lo que se trabaje queda entre nosotros. Confidencialidad absoluta." },
+                  ].map(({ icon: Icon, text }, i) => (
+                    <li key={i} className="flex gap-3 items-start">
+                      <Icon size={16} className="text-gold mt-0.5 shrink-0" />
+                      <p className="font-body text-sm text-foreground/65 leading-relaxed">{text}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
               <BookingFormDialog
                 cta="Reservar mi Lectura ahora"
                 location="lectura_estructural_page"
@@ -349,7 +372,7 @@ const LecturaEstructural = () => {
                 }
               />
               <p className="mt-5 font-body text-sm text-foreground/50">
-                Plazas limitadas · Respuesta en 24h
+                Plazas limitadas · Te respondo personalmente en 24h
               </p>
             </motion.div>
           </FadeIn>
