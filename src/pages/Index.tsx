@@ -8,6 +8,8 @@ import GenerativeParallax from "@/components/shared/GenerativeParallax";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
+import VideoExplainer from "@/components/shared/VideoExplainer";
+import FaqSection from "@/components/shared/FaqSection";
 import { ArrowRight, Flame, Heart, DollarSign, Brain, Users, Zap, ShieldOff, Eye, Target, Sparkles, Activity, HeartHandshake, Gem, TrendingUp } from "lucide-react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
@@ -137,7 +139,7 @@ const Index = () => {
               <BookingFormDialog
                 trigger={
                   <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
-                    Acceder a mi Lectura Estructural
+                    Quiero ver mi estructura
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 }
@@ -164,6 +166,9 @@ const Index = () => {
           transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
         />
       </div>
+
+      {/* Video explainer — 60-90s */}
+      <VideoExplainer />
 
       {/* Apple-style sticky reveal — Problem */}
       <StickyRevealSection scrollHeight={2}>
@@ -225,7 +230,7 @@ const Index = () => {
                   heredados dirigen tu vida física, emocional, relacional y financiera.
                 </p>
                 <span className="inline-flex items-center gap-2 text-gold text-sm font-body tracking-wider uppercase group-hover:gap-4 transition-all duration-300">
-                  Accede a tu lectura <ArrowRight size={14} />
+                  Entrar a la Lectura <ArrowRight size={14} />
                 </span>
               </Link>
             </FadeIn>
@@ -259,7 +264,7 @@ const Index = () => {
         >
           <FadeIn>
             <h2 className="font-display text-3xl md:text-5xl font-light mb-6 leading-tight text-center">
-              El patron que se repite
+              El patrón que se repite
             </h2>
             <p className="font-body text-base md:text-lg text-foreground/60 text-center mb-16 tracking-wide max-w-2xl mx-auto">
               Diferentes áreas de tu vida, una misma estructura operando por debajo.
@@ -306,7 +311,7 @@ const Index = () => {
               <BookingFormDialog
                 trigger={
                   <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.35)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.55)]">
-                    Ver mi estructura ahora
+                    Reservar mis 90 minutos
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 }
@@ -350,14 +355,14 @@ const Index = () => {
                   <p className="font-body text-sm text-gold tracking-wider mb-8">Sánchez Velázquez</p>
                   <div className="space-y-5 font-body text-base text-foreground/60 leading-relaxed">
                     <p>
-                      14 años trabajando con los patrones inconscientes que dirigen a las personas en su dia a dia.{" "}
+                      14 años trabajando con los patrones inconscientes que dirigen a las personas en su día a día.{" "}
                       <span className="text-foreground font-medium">He acompañado a cientos de personas,
                       parejas, familias, grupos y empresas</span> a identificar los programas heredados
                       que operan por debajo de su consciencia — y a crear estructuras nuevas desde las
                       que vivir, relacionarse y producir.
                     </p>
                     <p>
-                      No ofrezco motivación ni acompañamiento emocional. Trabajo directo sobre la arquitectura invisible que dirige tu vida. Mi trabajo consiste en enseñarte a detectar lo que opera por debajo de tu consciencia,para desmantelar los programas instaurados y asi crear nuevos circuitos de respuesta ante las situaciones mas diversas de tu vida.
+                      No ofrezco motivación ni acompañamiento emocional. Trabajo directo sobre la arquitectura invisible que dirige tu vida. Mi trabajo consiste en enseñarte a detectar lo que opera por debajo de tu consciencia, para desmantelar los programas instaurados y así crear nuevos circuitos de respuesta ante las situaciones más diversas de tu vida.
                     </p>
                     <p className="text-foreground/40 text-sm italic border-l-2 border-gold/30 pl-4">
                       "No voy a decirte lo que quieres escuchar. Voy a mostrarte lo que necesitas ver."
@@ -458,7 +463,7 @@ const Index = () => {
               <BookingFormDialog
                 trigger={
                   <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
-                    Reservar mi Lectura
+                    Empezar por la verdad
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 }
@@ -469,6 +474,9 @@ const Index = () => {
         </div>
       </section>
 
+
+      {/* FAQ */}
+      <FaqSection />
 
       {/* Final CTA */}
       <section ref={finalRef} className="py-32 md:py-48 relative overflow-hidden">
@@ -501,7 +509,7 @@ const Index = () => {
               <BookingFormDialog
                 trigger={
                   <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
-                    Reservar Lectura Estructural
+                    Dar el paso estructural
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 }
