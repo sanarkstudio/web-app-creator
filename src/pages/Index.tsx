@@ -429,6 +429,7 @@ const Index = () => {
             <div className="mt-14 text-center">
               <Link
                 to="/proceso-sanark"
+                onClick={() => trackCtaClick("Conoce las 4 fases del proceso", "home_vision")}
                 className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-8 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-all duration-500"
               >
                 Conoce las 4 fases del proceso
