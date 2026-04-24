@@ -321,17 +321,41 @@ const ProcesoSanark = () => {
               >
                 2.000€
               </motion.p>
-              <p className="font-body text-xs text-foreground/40 tracking-wider mb-10">
-                12 sesiones individuales 1:1
+              <p className="font-body text-xs text-foreground/40 tracking-wider mb-8">
+                12 sesiones individuales 1:1 · Online
               </p>
+
+              {/* Qué pasa después de reservar */}
+              <div className="text-left max-w-md mx-auto mb-10 border-t border-border/40 pt-8">
+                <p className="font-body text-xs tracking-[0.3em] uppercase text-gold/80 mb-5 text-center">
+                  Qué pasa después de reservar
+                </p>
+                <ul className="space-y-4">
+                  {[
+                    { icon: Mail, text: "Recibes un email de confirmación con los detalles del proceso y las opciones de pago." },
+                    { icon: CalendarCheck, text: "Una vez confirmado, agendamos juntos las 12 sesiones según tu disponibilidad." },
+                    { icon: MessageSquare, text: "Cada sesión es una videollamada privada conmigo. Sin grupos. Sin fórmulas genéricas." },
+                    { icon: Lock, text: "Todo lo que se trabaja queda entre nosotros. Confidencialidad absoluta." },
+                  ].map(({ icon: Icon, text }, i) => (
+                    <li key={i} className="flex gap-3 items-start">
+                      <Icon size={16} className="text-gold mt-0.5 shrink-0" />
+                      <p className="font-body text-sm text-foreground/65 leading-relaxed">{text}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
               <a
                 href="mailto:sanark.studio@gmail.com?subject=Quiero%20iniciar%20el%20Proceso%20Sanark"
                 onClick={() => trackCtaClick("Estoy listo. Quiero empezar.", "proceso_sanark_price_box")}
-                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
+                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]"
               >
                 Estoy listo. Quiero empezar.
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </a>
+              <p className="mt-5 font-body text-sm text-foreground/50">
+                Plazas limitadas · Te respondo personalmente en 24h
+              </p>
             </motion.div>
           </FadeIn>
         </div>
