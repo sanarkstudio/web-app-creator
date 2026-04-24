@@ -80,6 +80,8 @@ const FaqSection = () => {
               ¿Tu pregunta no está aquí? La respuesta más honesta llega en sesión.
             </p>
             <BookingFormDialog
+              cta="Resolver lo mío en 90 minutos"
+              location="home_faq"
               trigger={
                 <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-all duration-500">
                   Resolver lo mío en 90 minutos
