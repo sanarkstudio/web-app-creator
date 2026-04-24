@@ -511,17 +511,11 @@ const Index = () => {
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="font-body text-lg md:text-xl text-foreground/70 mb-10 max-w-xl mx-auto leading-relaxed">
-              Empieza con una lectura introductoria gratuita. Descubre en minutos qué estructura opera por debajo de tus decisiones.
+              Reserva tu Lectura Estructural y descubre qué arquitectura opera por debajo de tus decisiones.
             </p>
           </FadeIn>
           <FadeIn delay={0.25}>
-            <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 mb-10 px-8 py-6 border border-gold/20 bg-card/40 backdrop-blur-sm">
-              <div className="text-center">
-                <p className="font-body text-[10px] tracking-[0.3em] uppercase text-gold/80 mb-2">Lectura Introductoria</p>
-                <p className="font-display text-3xl md:text-4xl font-light text-gold mb-1">Gratis</p>
-                <p className="font-body text-xs text-foreground/50">Online · En minutos</p>
-              </div>
-              <div className="hidden sm:block w-px h-16 bg-border/50" />
+            <div className="inline-flex items-center justify-center gap-6 mb-10 px-10 py-6 border border-gold/20 bg-card/40 backdrop-blur-sm">
               <div className="text-center">
                 <p className="font-body text-[10px] tracking-[0.3em] uppercase text-gold/80 mb-2">Lectura Estructural</p>
                 <p className="font-display text-3xl md:text-4xl font-light text-gold mb-1">180€</p>
