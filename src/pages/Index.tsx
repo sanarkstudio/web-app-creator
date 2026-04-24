@@ -207,7 +207,7 @@ const Index = () => {
               Lo que hago
             </p>
             <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-16 leading-tight">
-              Revelar lo que se esconde de tu psiquismo
+              Revelar lo que se esconde
             </h2>
           </FadeIn>
 
@@ -350,19 +350,17 @@ const Index = () => {
                   <p className="font-body text-sm text-gold tracking-wider mb-8">Sánchez Velázquez</p>
                   <div className="space-y-5 font-body text-base text-foreground/60 leading-relaxed">
                     <p>
-                      14 años trabajando con lo que la mayoría no ve.{" "}
+                      14 años trabajando con los patrones inconscientes que dirigen a las personas en su dia a dia.{" "}
                       <span className="text-foreground font-medium">He acompañado a cientos de personas,
                       parejas, familias, grupos y empresas</span> a identificar los programas heredados
                       que operan por debajo de su consciencia — y a crear estructuras nuevas desde las
                       que vivir, relacionarse y producir.
                     </p>
                     <p>
-                      No ofrezco motivación ni acompañamiento emocional. Trabajo directo sobre la
-                      arquitectura invisible que dirige tu vida. Mi trabajo termina cuando tu estructura
-                      se sostiene sola.
+                      No ofrezco motivación ni acompañamiento emocional. Trabajo directo sobre la arquitectura invisible que dirige tu vida. Mi trabajo consiste en enseñarte a detectar lo que opera por debajo de tu consciencia,para desmantelar los programas instaurados y asi crear nuevos circuitos de respuesta ante las situaciones mas diversas de tu vida.
                     </p>
                     <p className="text-foreground/40 text-sm italic border-l-2 border-gold/30 pl-4">
-                      "No vengo a decirte lo que quieres escuchar. Vengo a mostrarte lo que necesitas ver."
+                      "No voy a decirte lo que quieres escuchar. Voy a mostrarte lo que necesitas ver."
                     </p>
                   </div>
                 </div>
@@ -385,7 +383,7 @@ const Index = () => {
               ¿Y si pudieras elegir desde dónde operas?
             </h2>
             <p className="font-body text-lg md:text-xl text-foreground/70 text-center mb-16 max-w-2xl mx-auto leading-relaxed">
-              No es un deseo. Es una decisión estructural. Con el Proceso Sanark de 4 fases, cada una de estas áreas deja de estar determinada por lo heredado.
+              No es una ilusión. Es una decisión estructural. Con el Proceso Sanark de 4 fases, cada una de estas áreas deja de estar determinada por lo heredado.
             </p>
           </FadeIn>
 
