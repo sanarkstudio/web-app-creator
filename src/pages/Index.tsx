@@ -11,6 +11,7 @@ import StickyRevealSection from "@/components/shared/StickyRevealSection";
 import VideoExplainer from "@/components/shared/VideoExplainer";
 import FaqSection from "@/components/shared/FaqSection";
 import { ArrowRight, Flame, Heart, DollarSign, Brain, Users, Zap, ShieldOff, Eye, Target, Sparkles, Activity, HeartHandshake, Gem, TrendingUp } from "lucide-react";
+import { trackCtaClick } from "@/lib/analytics";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
 import juanCarlosImg from "@/assets/juan-carlos.jpg";
@@ -137,6 +138,8 @@ const Index = () => {
           <FadeIn delay={1}>
             <div className="flex justify-center items-center">
               <BookingFormDialog
+                cta="Quiero ver mi estructura"
+                location="home_hero"
                 trigger={
                   <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
                     Quiero ver mi estructura
@@ -220,6 +223,7 @@ const Index = () => {
             <FadeIn delay={0.15}>
               <Link
                 to="/lectura-estructural"
+                onClick={() => trackCtaClick("Entrar a la Lectura", "home_solution_card")}
                 className="group block p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 hover:glow-gold h-full"
               >
                 <Flame size={22} className="text-gold mb-4" />
@@ -237,6 +241,7 @@ const Index = () => {
             <FadeIn delay={0.3}>
               <Link
                 to="/proceso-sanark"
+                onClick={() => trackCtaClick("Conocer el proceso", "home_solution_card")}
                 className="group block p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 hover:glow-gold h-full"
               >
                 <Zap size={22} className="text-gold mb-4" />
@@ -309,6 +314,8 @@ const Index = () => {
           <FadeIn delay={0.85}>
             <div className="mt-10 text-center">
               <BookingFormDialog
+                cta="Reservar mis 90 minutos"
+                location="home_identification"
                 trigger={
                   <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.35)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.55)]">
                     Reservar mis 90 minutos
@@ -422,6 +429,7 @@ const Index = () => {
             <div className="mt-14 text-center">
               <Link
                 to="/proceso-sanark"
+                onClick={() => trackCtaClick("Conoce las 4 fases del proceso", "home_vision")}
                 className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-8 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-all duration-500"
               >
                 Conoce las 4 fases del proceso
@@ -461,6 +469,8 @@ const Index = () => {
                 que heredaste y que sigue dirigiendo tu vida aunque hayas trabajado en ti durante años.
               </p>
               <BookingFormDialog
+                cta="Empezar por la verdad"
+                location="home_entry"
                 trigger={
                   <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
                     Empezar por la verdad
@@ -507,6 +517,8 @@ const Index = () => {
           <FadeIn delay={0.3}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <BookingFormDialog
+                cta="Dar el paso estructural"
+                location="home_final"
                 trigger={
                   <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
                     Dar el paso estructural

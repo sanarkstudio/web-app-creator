@@ -7,16 +7,35 @@ import { supabase } from "@/integrations/supabase/client";
 import { ArrowRight, Loader2, CheckCircle2 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { motion, AnimatePresence } from "framer-motion";
+import {
+  trackBookingError,
+  trackBookingOpen,
+  trackBookingSubmit,
+  trackBookingSuccess,
+  trackCtaClick,
+} from "@/lib/analytics";
 
 interface BookingFormDialogProps {
   trigger: ReactNode;
+  /** Short label of the CTA that opened the dialog (e.g. "Quiero ver mi estructura"). */
+  cta?: string;
+  /** Section/page where the CTA lives (e.g. "home_hero"). */
+  location?: string;
 }
 
-const BookingFormDialog = ({ trigger }: BookingFormDialogProps) => {
+const BookingFormDialog = ({ trigger, cta = "(unknown)", location = "(unknown)" }: BookingFormDialogProps) => {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
   const [form, setForm] = useState({ nombre: "", email: "", telefono: "", mensaje: "" });
+
+  const handleOpenChange = (next: boolean) => {
+    if (next && !open) {
+      trackCtaClick(cta, location);
+      trackBookingOpen(cta, location);
+    }
+    setOpen(next);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,9 +44,11 @@ const BookingFormDialog = ({ trigger }: BookingFormDialogProps) => {
       return;
     }
     setLoading(true);
+    trackBookingSubmit(cta, location);
     try {
       const { error } = await supabase.functions.invoke("send-booking-emails", { body: form });
       if (error) throw error;
+      trackBookingSuccess(cta, location);
       setDone(true);
       setTimeout(() => {
         setOpen(false);
@@ -38,6 +59,8 @@ const BookingFormDialog = ({ trigger }: BookingFormDialogProps) => {
       }, 2400);
     } catch (err) {
       console.error(err);
+      const message = err instanceof Error ? err.message : "unknown";
+      trackBookingError(cta, location, message);
       toast({
         title: "No se pudo enviar",
         description: "Inténtalo de nuevo o escríbenos a sanark.studio@gmail.com",
@@ -49,7 +72,7 @@ const BookingFormDialog = ({ trigger }: BookingFormDialogProps) => {
   };
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent className="bg-card/95 backdrop-blur-xl border-gold/30 max-w-lg">
         <AnimatePresence mode="wait">
