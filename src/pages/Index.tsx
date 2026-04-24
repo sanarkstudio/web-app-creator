@@ -475,6 +475,9 @@ const Index = () => {
       </section>
 
 
+      {/* FAQ */}
+      <FaqSection />
+
       {/* Final CTA */}
       <section ref={finalRef} className="py-32 md:py-48 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
