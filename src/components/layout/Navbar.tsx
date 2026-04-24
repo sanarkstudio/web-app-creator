@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import sanarkLogo from "@/assets/sanark-logo.png";
+import { trackCtaClick } from "@/lib/analytics";
 
 const navLinks = [
   { to: "/", label: "Inicio" },
@@ -51,6 +52,7 @@ const Navbar = () => {
           ))}
           <Link
             to="/lectura-estructural"
+            onClick={() => trackCtaClick("Reservar", "navbar_desktop")}
             className="font-body text-sm tracking-wider uppercase px-6 py-2.5 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-all duration-300"
           >
             Reservar
@@ -87,7 +89,10 @@ const Navbar = () => {
               ))}
               <Link
                 to="/lectura-estructural"
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  trackCtaClick("Reservar", "navbar_mobile");
+                  setOpen(false);
+                }}
                 className="font-body text-sm tracking-wider uppercase px-6 py-2.5 border border-gold/40 text-gold text-center hover:bg-gold hover:text-background transition-all duration-300"
               >
                 Reservar

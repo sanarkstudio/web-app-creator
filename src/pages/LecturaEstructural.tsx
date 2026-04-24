@@ -8,9 +8,10 @@ import GenerativeParallax from "@/components/shared/GenerativeParallax";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
-import { ArrowRight, Layers, Flame, Map, Activity, HeartHandshake, Zap, DollarSign, Sparkles } from "lucide-react";
+import { ArrowRight, Layers, Flame, Map, Activity, HeartHandshake, Zap, DollarSign, Sparkles, Mail, CalendarCheck, MessageSquare, Lock } from "lucide-react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
+import { trackCtaClick } from "@/lib/analytics";
 
 const LecturaEstructural = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -99,6 +100,7 @@ const LecturaEstructural = () => {
           <FadeIn delay={1.1}>
             <a
               href="#reservar"
+              onClick={() => trackCtaClick("Reservar mi Lectura", "lectura_estructural_hero")}
               className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]"
             >
               Reservar mi Lectura
