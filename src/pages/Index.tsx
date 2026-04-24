@@ -465,6 +465,8 @@ const Index = () => {
                 que heredaste y que sigue dirigiendo tu vida aunque hayas trabajado en ti durante años.
               </p>
               <BookingFormDialog
+                cta="Empezar por la verdad"
+                location="home_entry"
                 trigger={
                   <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
                     Empezar por la verdad
