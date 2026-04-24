@@ -241,6 +241,7 @@ const Index = () => {
             <FadeIn delay={0.3}>
               <Link
                 to="/proceso-sanark"
+                onClick={() => trackCtaClick("Conocer el proceso", "home_solution_card")}
                 className="group block p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 hover:glow-gold h-full"
               >
                 <Zap size={22} className="text-gold mb-4" />
