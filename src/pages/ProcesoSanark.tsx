@@ -10,6 +10,7 @@ import StickyRevealSection from "@/components/shared/StickyRevealSection";
 import { ArrowRight, Search, Compass, Hammer, Home, Activity, HeartHandshake, Zap, DollarSign, Brain, Gem, Sparkles } from "lucide-react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
+import { trackCtaClick } from "@/lib/analytics";
 
 const phases = [
   {
@@ -324,7 +325,8 @@ const ProcesoSanark = () => {
                 12 sesiones individuales 1:1
               </p>
               <a
-                href="mailto:info@sanark.com?subject=Quiero%20iniciar%20el%20Proceso%20Sanark"
+                href="mailto:sanark.studio@gmail.com?subject=Quiero%20iniciar%20el%20Proceso%20Sanark"
+                onClick={() => trackCtaClick("Estoy listo. Quiero empezar.", "proceso_sanark_price_box")}
                 className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
               >
                 Estoy listo. Quiero empezar.
@@ -353,6 +355,7 @@ const ProcesoSanark = () => {
           <FadeIn delay={0.35}>
             <Link
               to="/lectura-estructural"
+              onClick={() => trackCtaClick("Comienza con tu Lectura Estructural", "proceso_sanark_prerequisite")}
               className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-8 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-all duration-500"
             >
               Comienza con tu Lectura Estructural
@@ -391,7 +394,8 @@ const ProcesoSanark = () => {
           </FadeIn>
           <FadeIn delay={0.45}>
             <a
-              href="mailto:info@sanark.com?subject=Información%20Proceso%20Sanark"
+              href="mailto:sanark.studio@gmail.com?subject=Información%20Proceso%20Sanark"
+              onClick={() => trackCtaClick("Solicitar información", "proceso_sanark_final_cta")}
               className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
             >
               Solicitar información
