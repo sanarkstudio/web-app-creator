@@ -20,10 +20,10 @@ const VideoExplainer = ({ videoUrl, poster }: VideoExplainerProps) => {
             En 90 segundos
           </p>
           <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-6 leading-tight">
-            Mira lo que <span className="gradient-text-gold">nadie te ha mostrado</span>
+            Una mirada distinta a <span className="gradient-text-gold">lo que te sostiene</span>
           </h2>
           <p className="font-body text-base md:text-lg text-foreground/65 text-center mb-14 max-w-2xl mx-auto leading-relaxed">
-            Un ejemplo real de cómo opera una estructura heredada — y qué cambia cuando la ves por primera vez.
+            Un ejemplo concreto de cómo opera una estructura por debajo de tu vida — y qué se abre cuando empiezas a verla.
           </p>
         </FadeIn>
 
