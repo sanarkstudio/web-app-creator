@@ -346,14 +346,16 @@ const ProcesoSanark = () => {
                 </ul>
               </div>
 
-              <a
-                href="mailto:sanark.studio@gmail.com?subject=Quiero%20iniciar%20el%20Proceso%20Sanark"
-                onClick={() => trackCtaClick("Estoy listo. Quiero empezar.", "proceso_sanark_price_box")}
-                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]"
-              >
-                Estoy listo. Quiero empezar.
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </a>
+              <BookingFormDialog
+                cta="Estoy listo. Quiero empezar."
+                location="proceso_sanark_price_box"
+                trigger={
+                  <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
+                    Estoy listo. Quiero empezar.
+                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  </button>
+                }
+              />
               <p className="mt-5 font-body text-sm text-foreground/50">
                 Plazas limitadas · Te respondo personalmente en 24h
               </p>
