@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
 import BookingFormDialog from "@/components/shared/BookingFormDialog";
 import FadeIn from "@/components/shared/FadeIn";
@@ -43,6 +44,22 @@ const LecturaEstructural = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Lectura Estructural 1:1 · 90 min · 180€ | Sanark</title>
+        <meta name="description" content="Sesión individual de 90 minutos donde leo la arquitectura que opera por debajo de tu consciencia y te muestro exactamente por qué se repite lo que se repite." />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://sanark.com/lectura-estructural" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://sanark.com/lectura-estructural" />
+        <meta property="og:title" content="Lectura Estructural | Sanark — No lo que te pasa. Sino lo que lo sostiene." />
+        <meta property="og:description" content="Sesión 1:1 de 90 minutos. Leo la arquitectura heredada que dirige tu cuerpo, tus relaciones, tus emociones y tu dinero. 180€ · Online · Plazas limitadas." />
+        <meta property="og:image" content="https://sanark.com/og-image-sanark.jpg" />
+        <meta property="og:locale" content="es_ES" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Lectura Estructural | Sanark" />
+        <meta name="twitter:description" content="Sesión 1:1 de 90 minutos para ver la arquitectura que opera por debajo de tu consciencia. 180€ · Online." />
+        <meta name="twitter:image" content="https://sanark.com/og-image-sanark.jpg" />
+      </Helmet>
       {/* Hero */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <GenerativeParallax density={75} intensity={0.9} />
