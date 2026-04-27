@@ -11,6 +11,7 @@ import { ArrowRight, Search, Compass, Hammer, Home, Activity, HeartHandshake, Za
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
 import { trackCtaClick } from "@/lib/analytics";
+import BookingFormDialog from "@/components/shared/BookingFormDialog";
 
 const phases = [
   {
