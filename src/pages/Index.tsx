@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
 import BookingFormDialog from "@/components/shared/BookingFormDialog";
 import FadeIn from "@/components/shared/FadeIn";
@@ -96,6 +97,22 @@ const Index = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Decodificación Estructural de Vida | Sanark</title>
+        <meta name="description" content="Descubre la arquitectura heredada que dirige tu vida. Lectura Estructural 1:1 de 90 minutos con Juan Carlos Sánchez Velázquez." />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://sanark.com/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://sanark.com/" />
+        <meta property="og:title" content="Tu vida no se repite por azar. Se repite por estructura." />
+        <meta property="og:description" content="Decodificación Estructural de Vida. Una metodología para ver la arquitectura heredada que opera bajo tu consciencia y comenzar a construir una nueva." />
+        <meta property="og:image" content="https://sanark.com/og-image-sanark.jpg" />
+        <meta property="og:locale" content="es_ES" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Tu vida no se repite por azar. Se repite por estructura." />
+        <meta name="twitter:description" content="Decodificación Estructural de Vida. Una metodología para ver la arquitectura heredada que opera bajo tu consciencia." />
+        <meta name="twitter:image" content="https://sanark.com/og-image-sanark.jpg" />
+      </Helmet>
       {/* Hero */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <GenerativeParallax density={80} intensity={1} />
