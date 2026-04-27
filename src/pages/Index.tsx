@@ -314,7 +314,7 @@ const Index = () => {
           <FadeIn delay={0.85}>
             <div className="mt-10 text-center">
               <BookingFormDialog
-                cta="Reservar mis 90 minutos"
+                cta="Quiero saber qué estructura opera en mí"
                 location="home_identification"
                 trigger={
                   <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.35)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.55)]">
