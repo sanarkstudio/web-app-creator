@@ -146,6 +146,23 @@ const ProcesoSanark = () => {
               y edificar una estructura desde la que realmente quieres operar.
             </p>
           </FadeIn>
+          <FadeIn delay={0.85}>
+            <div className="mt-12 flex flex-col items-center gap-4">
+              <BookingFormDialog
+                cta="Quiero edificar mi nueva estructura"
+                location="proceso_sanark_hero"
+                trigger={
+                  <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
+                    Quiero edificar mi nueva estructura
+                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  </button>
+                }
+              />
+              <p className="font-body text-xs tracking-[0.2em] uppercase text-foreground/40">
+                12 sesiones · 1:1 · Plazas limitadas
+              </p>
+            </div>
+          </FadeIn>
         </motion.div>
 
         <motion.div
