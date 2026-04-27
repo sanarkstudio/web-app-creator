@@ -59,6 +59,30 @@ const LecturaEstructural = () => {
         <meta name="twitter:title" content="Lectura Estructural | Sanark" />
         <meta name="twitter:description" content="Sesión 1:1 de 90 minutos para ver la arquitectura que opera por debajo de tu consciencia. 180€ · Online." />
         <meta name="twitter:image" content="https://sanark.com/og-image-sanark.jpg" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Lectura Estructural",
+          "provider": {
+            "@type": "Person",
+            "name": "Juan Carlos Sánchez Velázquez",
+            "url": "https://sanark.com"
+          },
+          "description": "Sesión individual de 90 minutos donde se lee la arquitectura heredada que dirige el cuerpo, las emociones, las relaciones y el dinero del cliente.",
+          "offers": {
+            "@type": "Offer",
+            "price": "180",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/LimitedAvailability"
+          },
+          "url": "https://sanark.com/lectura-estructural",
+          "serviceType": "Coaching estructural",
+          "areaServed": "ES",
+          "availableChannel": {
+            "@type": "ServiceChannel",
+            "serviceType": "Online"
+          }
+        })}</script>
       </Helmet>
       {/* Hero */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
