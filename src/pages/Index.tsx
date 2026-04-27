@@ -19,15 +19,15 @@ import juanCarlosImg from "@/assets/juan-carlos.jpg";
 const identItems = [
   {
     icon: Zap,
-    text: "Tu cuerpo te habla antes que tú: cansancio que no descansa, tensiones que vuelven, síntomas que nadie termina de explicar.",
+    text: "Tu cuerpo lleva tiempo avisando: agotamiento que el descanso no repara, tensiones que vuelven, malestares o síntomas que nadie termina de nombrar.",
   },
   {
     icon: Heart,
-    text: "Tus vínculos cambian de rostro, pero repiten la misma forma. Pareja, familia, amistades — distintos nombres, mismo guion.",
+    text: "Tus vínculos cambian de rostro pero repiten la misma forma. Pareja, familia, amistades, trabajo — distintos escenarios, las mismas dinámicas, los mismos desencuentros.",
   },
   {
     icon: DollarSign,
-    text: "Tu relación con el dinero tiene techo. Lo generas, lo mueves, pero algo en tu estructura no lo deja quedarse ni expandirse.",
+    text: "Tu relación con el dinero tiene un límite invisible. Te cuesta generar lo que querrías, o lo generas y no se queda — algo en tu estructura no lo deja expandirse.",
   },
   {
     icon: Brain,
@@ -35,19 +35,19 @@ const identItems = [
   },
   {
     icon: Users,
-    text: "Sostienes a otros, pero no a ti. Cumples, acompañas, resuelves — y por dentro hay un cansancio que nadie alcanza a ver.",
+    text: "En tus relaciones das más de lo que recibes. Sostienes, cumples, te adaptas, callas — y por dentro hay un desgaste que pocos ven.",
   },
   {
     icon: ShieldOff,
-    text: "Has hecho de todo — terapia, formaciones, prácticas, procesos — y sientes que algo esencial sigue intacto.",
+    text: "Has recorrido caminos — terapia, formaciones, prácticas, procesos — y aun así sientes que algo esencial sigue sin moverse.",
   },
   {
     icon: Flame,
-    text: "Por fuera funcionas, por dentro algo no se calma. Ansiedad, vacío, desconexión — y ya no distingues qué es tuyo y qué heredaste.",
+    text: "Por fuera todo funciona, por dentro algo no se calma. Ansiedad, vacío, desconexión, hartazgo — y ya no distingues qué es tuyo y qué heredaste.",
   },
   {
     icon: Target,
-    text: "Sabes hacia dónde quieres ir, pero algo te frena justo antes. No es falta de voluntad — es una estructura que no te deja llegar.",
+    text: "Sabes hacia dónde quieres ir, pero algo se interpone justo antes de llegar. No es falta de voluntad ni de recursos — es una estructura que no lo permite.",
   },
 ];
 
