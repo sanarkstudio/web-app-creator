@@ -318,7 +318,7 @@ const Index = () => {
                 location="home_identification"
                 trigger={
                   <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.35)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.55)]">
-                    Reservar mis 90 minutos
+                    Quiero saber qué estructura opera en mí
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 }
