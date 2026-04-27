@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
 import FadeIn from "@/components/shared/FadeIn";
 import SectionDivider from "@/components/shared/SectionDivider";
@@ -112,6 +113,22 @@ const ProcesoSanark = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Proceso Sanark · 12 sesiones · Ingeniería estructural de vida</title>
+        <meta name="description" content="12 sesiones individuales 1:1 para detectar, diseñar, crear y habitar una nueva estructura. Desmantela los programas heredados que limitan tu vida. 2.000€ · Online." />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://sanark.com/proceso-sanark" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://sanark.com/proceso-sanark" />
+        <meta property="og:title" content="Proceso Sanark — Lo que heredaste ya no tiene que dirigirte." />
+        <meta property="og:description" content="12 sesiones 1:1 para desmontar la arquitectura heredada y edificar una estructura desde la que realmente quieres operar. Ingeniería estructural de vida." />
+        <meta property="og:image" content="https://sanark.com/og-image-sanark.jpg" />
+        <meta property="og:locale" content="es_ES" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Proceso Sanark · Ingeniería estructural de vida" />
+        <meta name="twitter:description" content="12 sesiones 1:1 para detectar, diseñar, crear y habitar una nueva estructura. Desmantela los programas heredados que te limitan." />
+        <meta name="twitter:image" content="https://sanark.com/og-image-sanark.jpg" />
+      </Helmet>
       {/* Hero */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <GenerativeParallax density={70} intensity={0.85} />
