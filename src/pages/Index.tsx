@@ -19,35 +19,35 @@ import juanCarlosImg from "@/assets/juan-carlos.jpg";
 const identItems = [
   {
     icon: Zap,
-    text: "Tu cuerpo habla antes que tú. Fatiga crónica, tensión que no se va, enfermedades, síntomas que nadie explica.",
+    text: "Tu cuerpo te habla antes que tú: cansancio que no descansa, tensiones que vuelven, síntomas que nadie termina de explicar.",
   },
   {
     icon: Heart,
-    text: "Atraes las mismas relaciones con distinto rostro. El patrón cambia de nombre, pero no de forma.",
+    text: "Tus vínculos cambian de rostro, pero repiten la misma forma. Pareja, familia, amistades — distintos nombres, mismo guion.",
   },
   {
     icon: DollarSign,
-    text: "Produces, generas, facturas — pero el dinero no se queda. Algo en tu estructura lo expulsa antes de que puedas sostenerlo.",
+    text: "Tu relación con el dinero tiene techo. Lo generas, lo mueves, pero algo en tu estructura no lo deja quedarse ni expandirse.",
   },
   {
     icon: Brain,
-    text: "Piensas demasiado, decides poco. El ruido mental te paraliza cuando más claridad necesitas.",
+    text: "Tu mente no descansa. Analizas, anticipas, dudas — y cuando llega el momento de decidir, el ruido pesa más que la claridad.",
   },
   {
     icon: Users,
-    text: "Cuidas a todos menos a ti. Das hasta vaciarte y después no entiendes por qué te sientes solo.",
+    text: "Sostienes a otros, pero no a ti. Cumples, acompañas, resuelves — y por dentro hay un cansancio que nadie alcanza a ver.",
   },
   {
     icon: ShieldOff,
-    text: "Has probado todo — terapia, coaching, meditación — y algo fundamental sigue sin moverse.",
+    text: "Has hecho de todo — terapia, formaciones, prácticas, procesos — y sientes que algo esencial sigue intacto.",
   },
   {
     icon: Flame,
-    text: "Algo dentro de ti no descansa. Ansiedad que aparece sin causa, tristeza sin motivo, un vacío que no se llena con nada de afuera. Funcional por fuera, apagado por dentro — y ya no sabes si lo que sientes es tuyo o heredado.",
+    text: "Por fuera funcionas, por dentro algo no se calma. Ansiedad, vacío, desconexión — y ya no distingues qué es tuyo y qué heredaste.",
   },
   {
     icon: Target,
-    text: "Sabes exactamente lo que quieres crear, pero te saboteas justo antes de lograrlo. No es falta de disciplina — es una estructura que no te deja llegar.",
+    text: "Sabes hacia dónde quieres ir, pero algo te frena justo antes. No es falta de voluntad — es una estructura que no te deja llegar.",
   },
 ];
 
