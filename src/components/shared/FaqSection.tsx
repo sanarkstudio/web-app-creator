@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     q: "Llevo años trabajando en mí. ¿Qué encontraré aquí que no haya visto antes?",
-    a: "La capa que casi nadie toca: la arquitectura heredada que sigue dirigiendo tus respuestas aunque hayas hecho mucho trabajo personal. Si todo lo demás ya lo has probado y sigue habiendo algo que no se mueve, es exactamente esto.",
+    a: "Encontrarás la capa de la que casi nadie habla: la arquitectura heredada que sigue dirigiendo tus respuestas por debajo, aunque ya hayas hecho mucho trabajo personal. No es más información ni otra técnica encima de las que ya conoces — es ver el plano desde el que se sostienen tus patrones, y aprender a desmontarlo. Si sientes que has avanzado mucho y aun así hay algo que no termina de moverse, casi siempre está aquí.",
   },
   {
     q: "¿Necesito creer en algo espiritual o energético?",
