@@ -76,7 +76,7 @@ const LecturaEstructural = () => {
             "availability": "https://schema.org/LimitedAvailability"
           },
           "url": "https://sanark.com/lectura-estructural",
-          "serviceType": "Coaching estructural",
+          "serviceType": "Decodificación Estructural de Vida",
           "areaServed": "ES",
           "availableChannel": {
             "@type": "ServiceChannel",
