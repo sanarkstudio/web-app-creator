@@ -100,10 +100,10 @@ const LecturaEstructural = () => {
           <FadeIn delay={1.1}>
             <a
               href="#reservar"
-              onClick={() => trackCtaClick("Reservar mi Lectura", "lectura_estructural_hero")}
+              onClick={() => trackCtaClick("Ver qué estructura opera en mí", "lectura_estructural_hero")}
               className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]"
             >
-              Reservar mi Lectura
+              Ver qué estructura opera en mí
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </a>
           </FadeIn>
@@ -362,11 +362,11 @@ const LecturaEstructural = () => {
               </div>
 
               <BookingFormDialog
-                cta="Reservar mi Lectura ahora"
+                cta="Sí. Quiero ver mi estructura."
                 location="lectura_estructural_page"
                 trigger={
                   <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
-                    Reservar mi Lectura ahora
+                    Sí. Quiero ver mi estructura.
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 }
