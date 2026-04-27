@@ -420,14 +420,16 @@ const ProcesoSanark = () => {
             </p>
           </FadeIn>
           <FadeIn delay={0.45}>
-            <a
-              href="mailto:sanark.studio@gmail.com?subject=Información%20Proceso%20Sanark"
-              onClick={() => trackCtaClick("Solicitar información", "proceso_sanark_final_cta")}
-              className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium"
-            >
-              Solicitar información
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </a>
+            <BookingFormDialog
+              cta="Dar el siguiente paso estructural"
+              location="proceso_sanark_final_cta"
+              trigger={
+                <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium">
+                  Dar el siguiente paso estructural
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                </button>
+              }
+            />
           </FadeIn>
         </div>
       </section>
