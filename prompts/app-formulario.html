@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanark — Decodificación Estructural de Vida</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a08; --surface: #111110; --border: #2a2a26;
+    --gold: #c9a96e; --gold-light: #e8c98a; --gold-dim: #7a6340;
+    --text: #e8e4dc; --text-muted: #7a7870; --text-dim: #4a4840;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'Cormorant Garamond', serif; min-height: 100vh; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1000; opacity: 0.4; }
+  .ambient { position: fixed; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 70%); top: -200px; right: -200px; pointer-events: none; z-index: 0; animation: drift 8s ease-in-out infinite alternate; }
+  @keyframes drift { from { transform: translate(0,0); } to { transform: translate(-40px,40px); } }
+  #app { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 0 24px; min-height: 100vh; display: flex; flex-direction: column; }
+  .header { padding: 48px 0 32px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); }
+  .logo { font-family: 'DM Mono', monospace; font-size: 13px; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; font-weight: 300; }
+  .logo-sub { font-size: 10px; letter-spacing: 0.2em; color: var(--text-muted); text-transform: uppercase; margin-top: 4px; }
+  .step-indicator { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-dim); letter-spacing: 0.1em; }
+  .step-indicator span { color: var(--gold); }
+  .progress-track { width: 100%; height: 1px; background: var(--border); margin-top: 24px; overflow: visible; }
+  .progress-fill { height: 1px; background: linear-gradient(90deg, var(--gold-dim), var(--gold)); transition: width 0.8s cubic-bezier(0.4,0,0.2,1); position: relative; }
+  .progress-fill::after { content: ''; position: absolute; right: -4px; top: -3px; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 12px var(--gold); }
+  .main { flex: 1; padding: 64px 0 48px; }
+  .screen { display: none; animation: fadeUp 0.6s ease forwards; }
+  .screen.active { display: block; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* Welcome */
+  .welcome-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.4em; color: var(--gold-dim); text-transform: uppercase; margin-bottom: 32px; }
+  .welcome-title { font-size: clamp(36px,6vw,58px); font-weight: 300; line-height: 1.1; color: var(--text); margin-bottom: 8px; }
+  .welcome-title em { font-style: italic; color: var(--gold); }
+  .welcome-divider { width: 48px; height: 1px; background: var(--gold-dim); margin: 32px 0; }
+  .welcome-body { font-size: 18px; font-weight: 300; line-height: 1.8; color: var(--text-muted); max-width: 520px; margin-bottom: 16px; }
+  .welcome-body strong { color: var(--text); font-weight: 400; }
+  .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 40px 0 48px; }
+  .pillar { border: 1px solid var(--border); padding: 16px 20px; position: relative; }
+  .pillar::before { content: ''; position: absolute; top: 0; left: 0; width: 2px; height: 100%; background: var(--gold-dim); }
+  .pillar-num { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--gold-dim); letter-spacing: 0.2em; margin-bottom: 6px; }
+  .pillar-name { font-size: 14px; font-weight: 400; color: var(--text); letter-spacing: 0.05em; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 12px; background: transparent; border: 1px solid var(--gold); color: var(--gold); font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.25em; text-transform: uppercase; padding: 18px 36px; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; }
+  .btn-primary::before { content: ''; position: absolute; inset: 0; background: var(--gold); transform: translateX(-101%); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); z-index: 0; }
+  .btn-primary:hover::before { transform: translateX(0); }
+  .btn-primary:hover { color: var(--bg); }
+  .btn-primary span { position: relative; z-index: 1; }
+  .btn-arrow { font-size: 16px; transition: transform 0.3s ease; position: relative; z-index: 1; }
+  .btn-primary:hover .btn-arrow { transform: translateX(4px); }
+
+  /* Question */
+  .q-category { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.4em; color: var(--gold-dim); text-transform: uppercase; margin-bottom: 20px; }
+  .q-text { font-size: clamp(20px,3.5vw,28px); font-weight: 300; line-height: 1.45; color: var(--text); margin-bottom: 40px; max-width: 580px; }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .option { display: flex; align-items: flex-start; gap: 16px; padding: 18px 20px; border: 1px solid var(--border); cursor: pointer; transition: all 0.25s ease; background: transparent; text-align: left; font-family: 'Cormorant Garamond', serif; color: var(--text-muted); font-size: 16px; line-height: 1.5; position: relative; overflow: hidden; width: 100%; }
+  .option::before { content: ''; position: absolute; inset: 0; background: rgba(201,169,110,0.04); opacity: 0; transition: opacity 0.25s ease; }
+  .option:hover::before { opacity: 1; }
+  .option:hover { border-color: var(--gold-dim); color: var(--text); }
+  .option.selected { border-color: var(--gold); color: var(--text); background: rgba(201,169,110,0.06); }
+  .option-letter { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--gold-dim); letter-spacing: 0.1em; min-width: 20px; padding-top: 2px; transition: color 0.25s ease; }
+  .option.selected .option-letter { color: var(--gold); }
+  .q-note { margin-top: 28px; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-dim); line-height: 1.6; letter-spacing: 0.05em; font-style: italic; }
+
+  /* Processing */
+  .processing { display: none; flex-direction: column; align-items: center; justify-content: center; padding: 80px 0; text-align: center; }
+  .processing.active { display: flex; }
+  .processing-ring { width: 80px; height: 80px; border: 1px solid var(--border); border-top-color: var(--gold); border-radius: 50%; animation: spin 1.2s linear infinite; margin-bottom: 32px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .processing-text { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.4em; color: var(--gold-dim); text-transform: uppercase; animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+  /* Results */
+  .results-header { text-align: center; padding-bottom: 48px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+  .results-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.4em; color: var(--gold-dim); text-transform: uppercase; margin-bottom: 20px; }
+  .results-title { font-size: clamp(28px,5vw,44px); font-weight: 300; line-height: 1.2; color: var(--text); }
+  .results-title em { color: var(--gold); font-style: italic; }
+  .diagram-container { margin: 0 0 40px; }
+  .diagram-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.3em; color: var(--text-dim); text-align: center; margin-bottom: 20px; text-transform: uppercase; }
+  .diagram { width: 100%; height: 260px; }
+  .diagram svg { width: 100%; height: 100%; }
+  .patterns { display: flex; flex-direction: column; gap: 1px; background: var(--border); margin-bottom: 48px; }
+  .pattern-card { background: var(--surface); padding: 28px 32px; position: relative; opacity: 0; transform: translateY(12px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .pattern-card.revealed { opacity: 1; transform: translateY(0); }
+  .pattern-card:nth-child(2).revealed { transition-delay: 0.15s; }
+  .pattern-card:nth-child(3).revealed { transition-delay: 0.3s; }
+  .pattern-card:nth-child(4).revealed { transition-delay: 0.45s; }
+  .pattern-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--gold-dim); }
+  .pattern-num { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.3em; color: var(--gold-dim); text-transform: uppercase; margin-bottom: 8px; }
+  .pattern-title { font-size: 20px; font-weight: 400; color: var(--gold); margin-bottom: 12px; letter-spacing: 0.02em; }
+  .pattern-body { font-size: 16px; font-weight: 300; line-height: 1.75; color: var(--text-muted); }
+  .cta-section { border: 1px solid var(--border); padding: 48px 40px; position: relative; overflow: hidden; opacity: 0; transition: opacity 0.5s ease 0.65s; }
+  .cta-section.revealed { opacity: 1; }
+  .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at top right, rgba(201,169,110,0.06) 0%, transparent 60%); pointer-events: none; }
+  .cta-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.4em; color: var(--gold-dim); text-transform: uppercase; margin-bottom: 20px; }
+  .cta-title { font-size: 28px; font-weight: 300; line-height: 1.3; color: var(--text); margin-bottom: 16px; }
+  .cta-body { font-size: 16px; font-weight: 300; line-height: 1.8; color: var(--text-muted); margin-bottom: 32px; max-width: 480px; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 14px; background: var(--gold); border: 1px solid var(--gold); color: var(--bg); font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; padding: 20px 40px; cursor: pointer; transition: all 0.3s ease; text-decoration: none; font-weight: 400; }
+  .btn-cta:hover { background: var(--gold-light); border-color: var(--gold-light); box-shadow: 0 0 40px rgba(201,169,110,0.2); transform: translateY(-1px); }
+  .url-display { margin-top: 20px; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-dim); letter-spacing: 0.05em; }
+  .footer { padding: 32px 0; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+  .footer-logo { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.3em; color: var(--text-dim); text-transform: uppercase; }
+  .footer-line { font-size: 13px; font-style: italic; color: var(--text-dim); }
+  /* Lead Capture */
+  .capture-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.4em; color: var(--gold-dim); text-transform: uppercase; margin-bottom: 28px; }
+  .capture-title { font-size: clamp(28px,5vw,42px); font-weight: 300; line-height: 1.2; color: var(--text); margin-bottom: 12px; }
+  .capture-title em { color: var(--gold); font-style: italic; }
+  .capture-divider { width: 48px; height: 1px; background: var(--gold-dim); margin: 28px 0; }
+  .capture-body { font-size: 17px; font-weight: 300; line-height: 1.8; color: var(--text-muted); max-width: 500px; margin-bottom: 40px; }
+  .capture-body strong { color: var(--text); font-weight: 400; }
+  .capture-preview { display: flex; flex-direction: column; gap: 1px; background: var(--border); margin-bottom: 40px; }
+  .preview-item { background: var(--surface); padding: 14px 20px; display: flex; align-items: center; gap: 14px; }
+  .preview-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold-dim); flex-shrink: 0; }
+  .preview-text { font-size: 15px; font-weight: 300; color: var(--text-muted); font-style: italic; }
+  .preview-blur { filter: blur(4px); user-select: none; opacity: 0.5; }
+  .capture-form { display: flex; flex-direction: column; gap: 14px; margin-bottom: 16px; }
+  .field-wrap { display: flex; flex-direction: column; gap: 6px; }
+  .field-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.3em; color: var(--gold-dim); text-transform: uppercase; }
+  .field-input { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-family: 'Cormorant Garamond', serif; font-size: 17px; padding: 16px 20px; outline: none; transition: border-color 0.25s ease; width: 100%; }
+  .field-input::placeholder { color: var(--text-dim); }
+  .field-input:focus { border-color: var(--gold-dim); }
+  .field-input.error { border-color: #8b4040; }
+  .capture-error { font-family: 'DM Mono', monospace; font-size: 11px; color: #8b4040; letter-spacing: 0.05em; margin-top: -4px; display: none; }
+  .capture-error.visible { display: block; }
+  .capture-privacy { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-dim); letter-spacing: 0.05em; line-height: 1.6; margin-top: 12px; }
+
+  @media (max-width: 480px) { .pillars { grid-template-columns: 1fr; } .pattern-card { padding: 20px 24px; } .cta-section { padding: 32px 24px; } }
+</style>
+</head>
+<body>
+<div class="ambient"></div>
+<div id="app">
+  <div class="header">
+    <div>
+      <div class="logo">Sanark</div>
+      <div class="logo-sub">Decodificación Estructural de Vida</div>
+    </div>
+    <div class="step-indicator" id="stepIndicator"><span>00</span> / 08</div>
+  </div>
+  <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+
+  <div class="main">
+    <!-- Welcome -->
+    <div class="screen active" id="screen-welcome">
+      <div class="welcome-eyebrow">Lectura Estructural Básica</div>
+      <h1 class="welcome-title">Tu estructura<br><em>invisible</em><br>al descubierto.</h1>
+      <div class="welcome-divider"></div>
+      <p class="welcome-body">Lo que estás a punto de experimentar no es un test de personalidad.<br><br>
+      Es un proceso de <strong>detección estructural</strong> — un espejo que revela los patrones desde los cuales operas en tu vida, muchas veces sin saberlo.</p>
+      <p class="welcome-body">Analizaremos cuatro dimensiones clave de tu arquitectura interna:</p>
+      <div class="pillars">
+        <div class="pillar"><div class="pillar-num">01</div><div class="pillar-name">Patroneado Repetitivo</div></div>
+        <div class="pillar"><div class="pillar-num">02</div><div class="pillar-name">Lo Similar en lo Diferente</div></div>
+        <div class="pillar"><div class="pillar-num">03</div><div class="pillar-name">La Fuga</div></div>
+        <div class="pillar"><div class="pillar-num">04</div><div class="pillar-name">La Fortaleza</div></div>
+      </div>
+      <button class="btn-primary" onclick="startQuiz()"><span>Iniciar lectura</span><span class="btn-arrow">→</span></button>
+    </div>
+
+    <!-- Question -->
+    <div class="screen" id="screen-question">
+      <div class="q-category" id="qCategory"></div>
+      <p class="q-text" id="qText"></p>
+      <div class="options" id="optionsContainer"></div>
+      <p class="q-note" id="qNote"></p>
+    </div>
+
+    <!-- Processing -->
+    <div class="processing" id="processing">
+      <div class="processing-ring"></div>
+      <div class="processing-text">Procesando tu estructura</div>
+    </div>
+
+    <!-- Lead Capture -->
+    <div class="screen" id="screen-capture">
+      <div class="capture-eyebrow">Tu lectura está lista</div>
+      <h2 class="capture-title">Hemos detectado<br>tu <em>estructura.</em></h2>
+      <div class="capture-divider"></div>
+      <p class="capture-body">En un momento verás los 4 patrones que operan en tu vida.<br><br>
+      Déjanos un nombre y email para enviarte también la lectura completa por escrito — y notificarte cuando haya una plaza disponible para la <strong>Lectura Estructural Completa</strong>.</p>
+
+      <div class="capture-preview">
+        <div class="preview-item">
+          <div class="preview-dot"></div>
+          <div class="preview-text">01 · Patroneado Repetitivo — <span class="preview-blur">detectado en tu estructura</span></div>
+        </div>
+        <div class="preview-item">
+          <div class="preview-dot"></div>
+          <div class="preview-text">02 · Lo Similar en lo Diferente — <span class="preview-blur">patrón transversal identificado</span></div>
+        </div>
+        <div class="preview-item">
+          <div class="preview-dot"></div>
+          <div class="preview-text">03 · La Fuga — <span class="preview-blur">zona de evasión activa</span></div>
+        </div>
+        <div class="preview-item">
+          <div class="preview-dot"></div>
+          <div class="preview-text">04 · La Fortaleza — <span class="preview-blur">recurso estructural clave</span></div>
+        </div>
+      </div>
+
+      <div class="capture-form">
+        <div class="field-wrap">
+          <div class="field-label">Nombre</div>
+          <input class="field-input" id="inputName" type="text" placeholder="¿Cómo te llamas?" autocomplete="given-name" />
+          <div class="capture-error" id="errorName">Por favor ingresa tu nombre.</div>
+        </div>
+        <div class="field-wrap">
+          <div class="field-label">Email</div>
+          <input class="field-input" id="inputEmail" type="email" placeholder="tu@email.com" autocomplete="email" />
+          <div class="capture-error" id="errorEmail">Por favor ingresa un email válido.</div>
+        </div>
+      </div>
+
+      <button class="btn-primary" onclick="submitCapture()">
+        <span>Ver mi Lectura Estructural</span>
+        <span class="btn-arrow">→</span>
+      </button>
+
+      <div class="capture-privacy">Tu información es privada. No compartimos datos con terceros.</div>
+    </div>
+
+    <!-- Results -->
+    <div class="screen" id="screen-results">
+      <div class="results-header">
+        <div class="results-eyebrow">Resultado · Sanark</div>
+        <h2 class="results-title">Tu <em>Lectura Estructural</em><br>Básica</h2>
+      </div>
+      <div class="diagram-container">
+        <div class="diagram-label">Mapa de estructura detectada</div>
+        <div class="diagram" id="diagramContainer"></div>
+      </div>
+      <div class="patterns" id="patternCards"></div>
+      <div class="cta-section" id="ctaSection">
+        <div class="cta-eyebrow">El siguiente paso</div>
+        <h3 class="cta-title">Esta lectura es solo<br>el umbral.</h3>
+        <p class="cta-body" id="ctaBody"></p>
+        <a href="https://www.sanark.com/lectura-estructural-completa" class="btn-cta" target="_blank">
+          <span>Accede a tu Lectura Completa</span><span>→</span>
+        </a>
+        <div class="url-display">sanark.com/lectura-estructural-completa</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-logo">Sanark © 2025</div>
+    <div class="footer-line">Decodificación Estructural de Vida</div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// PREGUNTAS
+// ═══════════════════════════════════════════════════════════
+const questions = [
+  {
+    id: 'q1', category: "Área de vida",
+    text: "Cuando piensas en el área de tu vida donde más frecuentemente sientes frustración, bloqueo o insatisfacción... ¿cuál es la primera que viene a tu mente?",
+    note: "Responde desde el primer impulso. No hay respuesta correcta.",
+    options: [
+      { letter:"A", text:"Relaciones personales o afectivas" },
+      { letter:"B", text:"Carrera, trabajo o propósito profesional" },
+      { letter:"C", text:"Finanzas o abundancia material" },
+      { letter:"D", text:"Salud, energía o bienestar físico" },
+      { letter:"E", text:"Bienestar emocional o paz interior" },
+    ]
+  },
+  {
+    id: 'q2', category: "Patrón de experiencia",
+    text: "¿Cuál de estas frases describe mejor lo que vives con más frecuencia en ese ámbito?",
+    note: "Elige la que más resuene, aunque no sea perfecta.",
+    options: [
+      { letter:"A", text:"Empiezo con energía pero con el tiempo pierdo el impulso o el interés" },
+      { letter:"B", text:"Me esfuerzo mucho pero los resultados no reflejan lo que invierto" },
+      { letter:"C", text:"Sé lo que quiero, pero algo interno me frena antes de llegar" },
+      { letter:"D", text:"Me cuesta definir qué es realmente lo que quiero o hacia dónde ir" },
+      { letter:"E", text:"Llego a cierto nivel y ahí me estanco, como si hubiera un techo invisible" },
+    ]
+  },
+  {
+    id: 'q3', category: "Transferencia de patrón",
+    text: "Ese patrón que acabas de identificar... ¿lo reconoces también en alguna otra área de tu vida?",
+    note: "Esta pregunta es clave. Responde con honestidad.",
+    options: [
+      { letter:"A", text:"Sí, en relaciones — llego a cierto nivel de intimidad y algo se interrumpe" },
+      { letter:"B", text:"Sí, en proyectos personales — los inicio pero rara vez los llevo al siguiente nivel" },
+      { letter:"C", text:"Sí, en finanzas — hay un nivel económico del que no logro salir" },
+      { letter:"D", text:"Sí, lo veo claramente en más de una área" },
+      { letter:"E", text:"No, siento que es específico al área que mencioné" },
+    ]
+  },
+  {
+    id: 'q4', category: "Mecanismo interno",
+    text: "Cuando estás cerca de un salto importante — profesional, económico o personal — ¿qué ocurre generalmente en ti?",
+    note: "No hay respuesta más válida que otra.",
+    options: [
+      { letter:"A", text:"Aparece una razón 'lógica' por la que no es el momento adecuado" },
+      { letter:"B", text:"Siento ansiedad o tensión que me lleva a frenar o postergar" },
+      { letter:"C", text:"Actúo, pero inconscientemente hago algo que sabotea el resultado" },
+      { letter:"D", text:"Me desconecto emocionalmente del objetivo, como si dejara de importarme" },
+      { letter:"E", text:"Avanzo, pero algo externo siempre aparece para interrumpirlo" },
+    ]
+  },
+  {
+    id: 'q5', category: "Capa profunda",
+    text: "Cuando reflexionas con honestidad sobre ese freno interno... ¿con cuál de estas ideas conectas más?",
+    note: "Lo que tocamos aquí pocas veces se verbaliza. Tómate el tiempo necesario.",
+    options: [
+      { letter:"A", text:"En el fondo no me siento completamente merecedor de ese nivel de éxito" },
+      { letter:"B", text:"Temo lo que cambiaría en mi vida o relaciones si realmente lo lograra" },
+      { letter:"C", text:"Creo que el éxito grande trae consecuencias o responsabilidades que no quiero" },
+      { letter:"D", text:"Me identifico tanto con el esfuerzo y la lucha que no sé quién sería sin ellos" },
+      { letter:"E", text:"No lo tengo del todo claro, pero sé que algo interno interfiere" },
+    ]
+  },
+  {
+    id: 'q6', category: "Zona de fortaleza",
+    text: "En los momentos donde sí has avanzado y superado obstáculos difíciles... ¿qué ha estado presente en ti?",
+    note: "Esta es tu zona de fortaleza estructural.",
+    options: [
+      { letter:"A", text:"Capacidad de análisis y pensamiento estratégico para encontrar salidas" },
+      { letter:"B", text:"Persistencia o resistencia interna que me hace seguir aunque todo se complique" },
+      { letter:"C", text:"Habilidad para conectar con personas clave que me abren puertas" },
+      { letter:"D", text:"Visión clara de hacia dónde voy que me mantiene orientado en la incertidumbre" },
+      { letter:"E", text:"Intuición o sensibilidad especial para leer situaciones y personas" },
+    ]
+  },
+  {
+    id: 'q7', category: "La Fuga",
+    text: "¿Hay algún tema o decisión relacionada con tu crecimiento que sabes que deberías enfrentar... pero que sistemáticamente evitas o postpones?",
+    note: "Lo que evitamos con más consistencia suele ser donde está la clave.",
+    options: [
+      { letter:"A", text:"Reconocer y declarar mi propio valor — cobrar lo que merezco o pedir lo que necesito" },
+      { letter:"B", text:"Tener conversaciones difíciles con personas clave de mi vida o trabajo" },
+      { letter:"C", text:"Tomar una decisión grande que implicaría dejar algo conocido o seguro atrás" },
+      { letter:"D", text:"Mirar de frente mi situación real — económica, emocional o relacional — y actuar" },
+      { letter:"E", text:"Comprometerme plenamente con algo sin tener garantías de que funcionará" },
+    ]
+  },
+  {
+    id: 'q8', category: "El cambio deseado",
+    text: "Si pudieras transformar una sola cosa en cómo operas internamente — no en el mundo exterior, sino en ti — ¿qué sería?",
+    note: "Tu respuesta aquí cerrará el ciclo de detección.",
+    options: [
+      { letter:"A", text:"Sentirme genuinamente merecedor y capaz de resultados grandes y sostenidos" },
+      { letter:"B", text:"Dejar de sabotearme justo cuando estoy cerca de lograr lo que quiero" },
+      { letter:"C", text:"Actuar desde la confianza plena en lugar de desde el miedo o la duda" },
+      { letter:"D", text:"Sostener el éxito cuando llega, sin minimizarlo ni destruirlo inconscientemente" },
+      { letter:"E", text:"Tener claridad real sobre lo que quiero y el coraje de ir por ello sin frenar" },
+    ]
+  }
+];
+
+// ═══════════════════════════════════════════════════════════
+// BANCO DE RESULTADOS
+// ═══════════════════════════════════════════════════════════
+
+const areaLabels = { A:"relaciones", B:"carrera", C:"finanzas", D:"salud", E:"bienestar" };
+
+// PATRONEADO: cruce q2 (tipo) x q4 (mecanismo)
+const PATRONEADO = {
+  'A-A':{ title:"El Ciclo de la Energía Fugaz", body:"Tu patrón central es un ciclo de entusiasmo que se agota antes de completarse. Comienzas desde un lugar genuino de impulso, pero una razón lógica aparece en el trayecto para justificar el abandono. No es falta de motivación: es una estructura que racionaliza el freno justo cuando el compromiso se vuelve real." },
+  'A-B':{ title:"El Arranque sin Aterrizaje", body:"Inicias desde un lugar de posibilidad real, pero la tensión o ansiedad que surge cuando el compromiso se concreta interrumpe el ciclo antes de cerrarse. El patrón se activa especialmente cuando comenzar a ser visto en lo que haces se vuelve inevitable." },
+  'A-C':{ title:"El Impulso que se Deshace", body:"La energía inicial es genuina, pero una acción inconsciente aparece en el momento más crítico para deshacer el avance. Este sabotaje no se experimenta como tal desde adentro — se vive como mala suerte, mal momento o circunstancias que escapan a tu control." },
+  'A-D':{ title:"La Desconexión Progresiva", body:"Comienzas con entusiasmo real, pero en algún punto del proceso te desconectas emocionalmente del objetivo. Lo que antes importaba deja de importar — no por decisión consciente, sino como un mecanismo protector ante lo que podría ocurrir si llegas de verdad." },
+  'A-E':{ title:"El Ciclo de la Interferencia Oportuna", body:"Tu ciclo tiene una regularidad llamativa: la energía aparece, el inicio ocurre, y justo cuando el avance se consolida, algo externo lo interrumpe. Lo externo cambia de forma constantemente; el momento exacto en que aparece, no." },
+  'B-A':{ title:"El Esfuerzo Justificado", body:"Hay un patrón claro de alta inversión que no se traduce en resultados proporcionales. La razón lógica siempre aparece para explicar el desequilibrio — 'aún no es el momento', 'falta solo un poco más' — postergando indefinidamente el cierre de la ecuación." },
+  'B-B':{ title:"La Trampa del Movimiento Constante", body:"El esfuerzo se convierte en un estado permanente que genera sensación de avance sin resultados reales. La ansiedad que surge ante la posibilidad de que los resultados lleguen de verdad mantiene el ciclo girando sin que se cierre." },
+  'B-C':{ title:"El Sabotaje de la Proporcionalidad", body:"Inviertes genuinamente, pero en el momento en que los resultados deberían materializarse, una acción inconsciente desajusta la ecuación. El patrón protege de algo que ocurriría si el esfuerzo y el resultado finalmente se alinearan de manera sostenida." },
+  'B-D':{ title:"La Anestesia del Trabajo", body:"El trabajo intenso ocupa el espacio donde deberían estar los resultados. Cuando los resultados se acercan, la desconexión emocional aparece como un mecanismo de protección ante lo que implicaría recibirlos y sostenerlos." },
+  'B-E':{ title:"El Esfuerzo Interrumpido", body:"Trabajas genuinamente, pero algo externo aparece con regularidad para desbalancear la ecuación antes de que el resultado se consolide. La interrupción cambia de forma; el momento en que ocurre, no." },
+  'C-A':{ title:"El Freno Racional", body:"Sabes lo que quieres con claridad, pero justo antes del paso definitivo, una razón lógica y bien construida aparece para justificar la espera. El freno no es externo ni irracional — es sofisticado, convincente, y siempre llega antes de tiempo." },
+  'C-B':{ title:"El Freno de la Tensión", body:"La dirección está clara, pero la ansiedad que se activa ante la posibilidad real de lograrlo detiene el movimiento. Esa tensión no responde al peligro — responde a la proximidad del éxito y lo que significa alcanzarlo realmente." },
+  'C-C':{ title:"El Sabotaje del Umbral", body:"Avanzas con claridad hacia lo que quieres, pero en el momento de mayor acercamiento — en el umbral mismo — algo se deshace. Una acción, una omisión, una decisión. El sabotaje opera en el punto exacto de llegada." },
+  'C-D':{ title:"El Freno de la Distancia Emocional", body:"La visión es nítida hasta que se vuelve alcanzable. En ese punto exacto, la conexión emocional con el objetivo se diluye, como si la posibilidad real de lograrlo activara una necesidad automática de poner distancia." },
+  'C-E':{ title:"El Freno desde Afuera", body:"Cuando el objetivo está al alcance, algo del entorno aparece para re-establecer la distancia con el nivel siguiente. El freno parece externo y circunstancial, pero su puntualidad revela una arquitectura interna que lo convoca." },
+  'D-A':{ title:"La Búsqueda sin Norte Justificada", body:"La falta de claridad sobre la dirección se sostiene mediante razones lógicas que justifican seguir explorando. El 'no saber todavía' funciona como un estado que posterga indefinidamente la decisión de comprometerse con algo concreto." },
+  'D-B':{ title:"La Niebla Ansiosa", body:"La indefinición coexiste con una tensión de fondo. No es tranquilidad ante la apertura — es ansiedad ante la decisión. La falta de dirección no es neutral: tiene un peso emocional que se intensifica justo cuando la claridad comienza a asomarse." },
+  'D-C':{ title:"La Indefinición Protegida", body:"Cada vez que una dirección comienza a perfilarse, algo ocurre que la desdibuja nuevamente. La indefinición no es un punto de partida transitorio — es un estado al que se regresa con regularidad, sostenido por acciones que disuelven lo que comenzaba a tomar forma." },
+  'D-D':{ title:"La Distancia de la Claridad", body:"Cuando una dirección comienza a volverse real y requiere compromiso, la conexión emocional con ella se retira. La indefinición es el espacio seguro; la claridad, una amenaza que activa distancia antes de que pueda arraigar." },
+  'D-E':{ title:"El Laberinto Renovado", body:"Justo cuando una dirección toma forma y podría consolidarse, una circunstancia externa la interrumpe o complica, renovando la necesidad de seguir buscando. El laberinto tiene salidas que se cierran antes de ser cruzadas." },
+  'E-A':{ title:"El Techo Argumentado", body:"Existe un nivel al que llegas con consistencia, y desde ahí, una razón lógica siempre aparece para explicar por qué el siguiente paso no es posible ahora. El techo no es circunstancial — está intelectualmente justificado y estructuralmente sostenido." },
+  'E-B':{ title:"El Techo de la Tensión", body:"Llegas a un nivel con regularidad, y en ese punto exacto, la ansiedad o tensión se intensifica de manera que frenar se vuelve la respuesta más razonable. El techo no es una pared externa — es el umbral donde el sistema interno activa la alarma." },
+  'E-C':{ title:"El Techo Saboteado", body:"Llegas al límite conocido y, en ese momento preciso, una acción inconsciente re-establece la distancia con el nivel siguiente. El techo se mantiene activo no desde afuera, sino desde adentro — con una precisión que pocas veces se reconoce." },
+  'E-D':{ title:"El Techo de la Desconexión", body:"Al alcanzar el nivel conocido, el interés o la motivación se diluyen de manera que continuar ya no parece necesario o deseable. La desconexión hace que el techo se sienta como un punto de llegada natural, no como el límite que realmente es." },
+  'E-E':{ title:"El Techo desde el Exterior", body:"Con una regularidad llamativa, justo cuando estás en el umbral del siguiente nivel, algo externo aparece para interrumpir el avance. El techo parece impuesto por las circunstancias, pero su puntualidad sistemática revela que tiene raíces más profundas." },
+};
+
+// SIMILAR: cruce q1 (área) x q3 (transferencia)
+const SIMILAR = {
+  'A-A':{ title:"El Límite en la Intimidad", body:"La misma estructura que opera en tus relaciones —llegar hasta cierto nivel de cercanía y luego interrumpir— aparece también en el área de vida que señalaste. En ambos espacios, el patrón se activa justo antes del compromiso real y sostenido." },
+  'A-B':{ title:"El Inicio sin Completar", body:"En tus relaciones y en tus proyectos personales, la estructura es la misma: arranques genuinos que no llegan a consolidarse. El patrón no discrimina entre el vínculo emocional y la iniciativa personal." },
+  'A-C':{ title:"El Techo Emocional y Material", body:"Las relaciones y las finanzas comparten la misma arquitectura: hay un nivel de intimidad y un nivel económico al que llegas con regularidad y desde el cual algo te mantiene. El límite no es emocional ni económico — es estructural." },
+  'A-D':{ title:"Una Estructura que Lo Atraviesa Todo", body:"El patrón que identificaste en tus relaciones no es exclusivo de ellas — aparece en múltiples áreas de tu vida. Esto confirma que no se trata de circunstancias particulares: es la arquitectura desde la que operas, independientemente del contexto." },
+  'A-E':{ title:"Una Concentración Significativa", body:"La intensidad del patrón en las relaciones, sin que aparezca con la misma fuerza en otras áreas, es en sí misma información estructural importante. Hay algo específico en el dominio del vínculo que activa tu estructura de forma particular." },
+  'B-A':{ title:"El Mismo Techo Profesional y Vincular", body:"Lo que vives en tu carrera y en tus relaciones comparte una arquitectura idéntica: un límite no declarado sobre cuánto te permites recibir — ya sea reconocimiento, intimidad o éxito. El contexto cambia; la estructura, no." },
+  'B-B':{ title:"El Esfuerzo sin Cierre en Dos Dominios", body:"Lo que ocurre en tu carrera con los proyectos también ocurre en tus iniciativas personales: hay inversión real pero el ciclo no se cierra. Lo similar no está en el tema — está en el momento exacto donde algo interrumpe la llegada." },
+  'B-C':{ title:"El Mismo Límite en Carrera y Finanzas", body:"Carrera y finanzas operan bajo la misma lógica de techo: hay un nivel de reconocimiento profesional y un nivel económico que se repiten. Lo que logras y lo que ganas están limitados por la misma estructura interna." },
+  'B-D':{ title:"Una Sola Estructura, Múltiples Escenarios", body:"Lo que vives en tu carrera se replica en otras áreas de tu vida con llamativa consistencia. Eso descarta que el problema sea el trabajo, el dinero o las relaciones — y apunta a una estructura más profunda que los atraviesa a todos." },
+  'B-E':{ title:"El Foco en la Carrera", body:"El hecho de que el patrón se concentre especialmente en el área profesional indica que algo particular de ese dominio — el rendimiento, la visibilidad, el juicio externo — activa la estructura con especial intensidad." },
+  'C-A':{ title:"El Techo Económico y Vincular", body:"Las finanzas y las relaciones comparten la misma arquitectura: hay un nivel de abundancia y un nivel de intimidad al que llegas con regularidad y desde el cual algo te mantiene. El límite no es ni económico ni emocional — es estructural." },
+  'C-B':{ title:"El Patrón de lo Incompleto", body:"En finanzas y en proyectos personales, la estructura comparte la misma característica: avances que no se consolidan. El dinero y las metas personales parecen dominios distintos, pero obedecen al mismo límite interno." },
+  'C-C':{ title:"El Ciclo Financiero Consolidado", body:"Las finanzas son el espejo más claro de tu patrón: hay un nivel que se alcanza y un nivel del que no se sale. La claridad con la que lo reconoces en ambos registros sugiere que esta es la expresión más directa de tu arquitectura." },
+  'C-D':{ title:"El Patrón que No Es Financiero", body:"Aunque lo reconoces primero en las finanzas, el patrón está presente en múltiples áreas. Eso significa que trabajar solo la dimensión económica no resuelve la raíz — la raíz está en la estructura que las une a todas." },
+  'C-E':{ title:"El Dinero como Espejo Específico", body:"Que el patrón aparezca principalmente en el ámbito financiero revela que el dinero carga un peso simbólico particular en tu estructura. No es solo un tema económico — es el área donde tu arquitectura interna se vuelve más visible y medible." },
+  'D-A':{ title:"El Límite en lo Vital y lo Vincular", body:"La estructura que limita tu bienestar físico opera con la misma lógica en tus relaciones: hay un nivel de plenitud — física o emocional — que alcanzas y desde el cual algo activa la desconexión o el freno." },
+  'D-B':{ title:"La Energía que No Llega", body:"Tu bienestar físico y tus proyectos personales comparten el mismo patrón: inicios con energía que no llegan a su destino. Lo que falla no es la capacidad — es la estructura que sostiene el recorrido completo hasta el cierre." },
+  'D-C':{ title:"La Energía y el Dinero Limitados", body:"Tu bienestar físico y tu realidad financiera comparten el mismo patrón: hay techos en ambos. El cuerpo y las finanzas operan como espejos de la misma estructura que administra cuánto puedes sostener." },
+  'D-D':{ title:"El Cuerpo como Mapa General", body:"Tu bienestar físico era el punto de entrada, pero el patrón se extiende a múltiples áreas. El cuerpo raramente miente — y en este caso, estaba señalando una estructura que opera de forma transversal en tu vida entera." },
+  'D-E':{ title:"El Cuerpo como Territorio Propio", body:"La concentración del patrón en el bienestar físico indica que el cuerpo es el terreno donde tu estructura se expresa con más claridad. Lo que ocurre a nivel físico suele ser el eco de algo que opera en capas más profundas y menos visibles." },
+  'E-A':{ title:"La Misma Distancia Interior", body:"En tu mundo emocional y en tus relaciones, el patrón es idéntico: existe un umbral de bienestar o cercanía que, al ser alcanzado, activa un mecanismo de distancia. La paz y la intimidad reales se vuelven incómodas antes de consolidarse." },
+  'E-B':{ title:"El Proyecto Emocional sin Resolver", body:"Tu mundo emocional y tus proyectos personales obedecen a la misma lógica: se inician pero no se completan, se sienten pero no se integran. Lo similar está en la dificultad de sostener el proceso hasta el cierre real." },
+  'E-C':{ title:"El Límite en lo Emocional y lo Material", body:"Tu mundo emocional y tus finanzas comparten la misma frontera: hay un nivel de plenitud interna y un nivel económico que se repiten con consistencia. Ambos dominios obedecen al mismo límite sobre cuánto es posible tener o sostener." },
+  'E-D':{ title:"El Patrón Total", body:"Lo que comenzó como una observación de tu mundo emocional resulta ser una estructura que opera en la mayoría de las áreas de tu vida. Esta transversalidad es la señal más clara de que estamos ante un patrón estructural profundo, no ante síntomas aislados." },
+  'E-E':{ title:"El Territorio Interior", body:"Que el patrón se concentre especialmente en tu mundo emocional sugiere que es ahí donde la estructura opera con más fuerza. El bienestar emocional no es un síntoma aislado — es el sistema central desde el que se organiza todo lo demás en tu vida." },
+};
+
+// FUGA: q7 directo
+const FUGA = {
+  A:{ title:"La Evasión del Propio Valor", body:"El área de mayor evasión estructural es el reconocimiento y la declaración de tu valor. Postergar lo que cobras, lo que pides o lo que declaras merecer no es un problema de estrategia ni de contexto — es una desconexión sistemática de lo que vales. Esta evasión tiene un costo directo y medible en tus resultados." },
+  B:{ title:"Las Conversaciones Aplazadas", body:"Hay conversaciones clave que sabes que deben ocurrir y que sistemáticamente postpones. No es cobardía — es un mecanismo de protección ante lo que podría cambiar si esas conversaciones se dan. Lo que evitas decir define tanto como lo que dices; a veces más." },
+  C:{ title:"La Decisión que Orbita sin Aterrizar", body:"Hay una decisión grande que orbita tu vida sin aterrizar. El costo percibido de tomarla — dejar algo conocido, seguro o familiar — aparece como mayor que el costo de no tomarla. Pero esa ecuación está distorsionada por la estructura, no por la realidad objetiva." },
+  D:{ title:"La Realidad Mantenida en la Periferia", body:"Hay información sobre tu situación real — económica, emocional o relacional — que mantienes en la periferia de tu consciencia. Mirarla de frente implicaría actuar, y actuar implicaría cambiar. La evasión de esa mirada mantiene todo exactamente en su lugar." },
+  E:{ title:"La Evasión del Compromiso Total", body:"Hay una resistencia específica al compromiso pleno con algo — sin redes de seguridad, sin garantías previas. Esa resistencia no es prudencia ni madurez: es una estructura que requiere condiciones perfectas para actuar, condiciones que nunca terminan de llegar." },
+};
+
+// FORTALEZA: cruce q6 (recurso) x q8 (cambio deseado)
+const FORTALEZA = {
+  'A-A':{ title:"La Inteligencia Estratégica al Servicio del Merecimiento", body:"Tu capacidad de análisis y pensamiento estratégico es un recurso real y probado. La transformación que buscas — sentirte genuinamente merecedor de resultados grandes — tiene en esa inteligencia su mejor aliada. El siguiente paso es dirigirla hacia adentro con la misma precisión que la diriges hacia afuera." },
+  'A-B':{ title:"La Estrategia contra el Sabotaje", body:"Tu pensamiento estratégico es genuino y valioso. La clave está en aplicarlo al patrón de sabotaje con la misma claridad que lo aplicas a los problemas externos. Puedes diseñar la salida — primero necesitas ver la estructura completa desde la que operas." },
+  'A-C':{ title:"La Mente Clara en Terreno Incierto", body:"Tu capacidad de análisis te permite operar con claridad en situaciones complejas. Esa misma claridad, dirigida hacia la estructura interna que genera la falta de confianza, puede transformar la confianza en un punto de partida en lugar de en un destino lejano." },
+  'A-D':{ title:"La Inteligencia que Puede Sostener", body:"Tu pensamiento estratégico ha sido el recurso que te ha permitido construir lo que tienes. Desarrollar la capacidad de sostener el éxito requiere dirigir esa misma inteligencia hacia los mecanismos que activan la entrega o el auto-destrucción en el momento del logro." },
+  'A-E':{ title:"La Claridad como Brújula hacia la Dirección", body:"Tu capacidad analítica es el recurso que puede transformar la nebulosa de la indefinición en una dirección real. La claridad no llega sola — se construye con las mismas herramientas que ya tienes, aplicadas con consistencia en la dirección correcta." },
+  'B-A':{ title:"La Resistencia que Merece su Recompensa", body:"Tu capacidad de mantenerte en pie cuando todo se complica es excepcional. Esa misma resistencia, sostenida desde un sentido genuino de merecimiento, puede llevar tus resultados a un nivel que aún no has experimentado. Tienes la durabilidad — falta integrar el derecho." },
+  'B-B':{ title:"La Resistencia al Servicio del Cambio Interior", body:"Has demostrado que puedes sostenerte en circunstancias difíciles. Esa capacidad de permanecer es exactamente lo que se necesita para atravesar el umbral del patrón de sabotaje — que también requiere mantenerse firme, pero hacia adentro." },
+  'B-C':{ title:"La Fortaleza de la Permanencia", body:"Tu resistencia interna es el recurso que puede hacer posible una confianza real y duradera. Confiar no requiere la ausencia de miedo — requiere la capacidad de mantenerse en movimiento a pesar de él. Eso ya lo tienes demostrado." },
+  'B-D':{ title:"La Durabilidad como Base del Sostenimiento", body:"Has podido sostenerte en situaciones donde otros no habrían podido. Esa misma capacidad de resistencia es la base sobre la cual se puede construir la habilidad de sostener el éxito — que también requiere permanecer, pero en la abundancia y no solo en la adversidad." },
+  'B-E':{ title:"La Resistencia en la Incertidumbre", body:"Tu capacidad de persistir en lo difícil es un recurso real y verificado. La claridad y el coraje que buscas no vienen de condiciones perfectas — vienen de la capacidad de avanzar en la incertidumbre. Eso ya lo has demostrado que puedes hacer." },
+  'C-A':{ title:"La Red como Espejo del Merecimiento", body:"Tu habilidad para conectar con personas clave es una expresión de tu valor que el entorno ya reconoce con claridad. La distancia entre ese reconocimiento externo y lo que sientes internamente sobre tu propio merecimiento es el mapa exacto de la transformación posible." },
+  'C-B':{ title:"El Vínculo como Recurso del Cambio", body:"Tu capacidad de generar conexiones significativas es el recurso que puede sostener el cambio de patrón. La transformación del sabotaje no ocurre en soledad — ocurre en contacto con otros que ven en ti lo que tú aún no ves completamente." },
+  'C-C':{ title:"La Confianza Relacional hacia la Interna", body:"Sabes cómo generar confianza en otros con naturalidad. El siguiente paso es dirigir esa misma capacidad hacia ti mismo — construir la confianza interna con la misma facilidad con que generas conexión genuina con el entorno." },
+  'C-D':{ title:"Las Personas como Ancla del Sostenimiento", body:"Tu habilidad relacional es el recurso que puede ayudarte a sostener lo que logres. Las personas clave con quienes conectas son también quienes pueden sostenerte en los momentos donde el impulso interno de deshacer lo construido se activa." },
+  'C-E':{ title:"La Red como Espejo de la Dirección", body:"Las personas clave con quienes conectas suelen tener claridad sobre lo que ven en ti — a veces más de lo que tú mismo ves. Esa perspectiva externa puede ser el recurso que te ayude a encontrar y comprometerte con la dirección que buscas desde adentro." },
+  'D-A':{ title:"La Visión que Merece Ser Habitada", body:"Tienes la capacidad de saber hacia dónde vas incluso cuando el camino es turbulento. Esa visión es real y merece ser habitada completamente — no desde la orilla. El trabajo estructural es el puente entre saber hacia dónde ir y sentirte merecedor de llegar." },
+  'D-B':{ title:"La Visión más Allá del Sabotaje", body:"Tu capacidad de mantener la orientación en la incertidumbre es el recurso que puede mantenerte en curso cuando el patrón de sabotaje se activa. La visión no elimina el patrón — pero puede ser más fuerte que él cuando está completamente integrada." },
+  'D-C':{ title:"La Dirección como Forma de Confianza", body:"Saber hacia dónde vas es una forma de confianza que ya tienes integrada. El siguiente paso es trasladar esa confianza orientadora al plano de la acción — confiar no solo en el destino que ves, sino en tu capacidad real de llegar a él." },
+  'D-D':{ title:"La Visión que Puede Sostener", body:"Tu claridad de dirección es el recurso que puede hacer posible la capacidad de sostener el éxito. Saber a dónde vas te permite reconocer cuándo has llegado — y resistir el impulso de deshacer lo construido en el momento del logro." },
+  'D-E':{ title:"La Visión como Puente al Compromiso", body:"Tu capacidad de orientarte en la incertidumbre es exactamente el recurso que necesitas para comprometerte plenamente con algo. No necesitas garantías cuando tienes visión real. Eso ya lo tienes — falta integrar la confianza para actuar desde ella sin frenos." },
+  'E-A':{ title:"La Intuición del Merecimiento", body:"Tu sensibilidad especial para leer situaciones y personas es una forma de inteligencia que pocas veces es reconocida — incluyendo por ti mismo. Esa misma sensibilidad, dirigida hacia tu propio valor, puede alinear lo que mereces con lo que te permites tener." },
+  'E-B':{ title:"La Intuición como Detector del Patrón", body:"Tu capacidad de leer situaciones y personas también te permite, cuando la diriges hacia adentro, detectar cuándo el patrón de sabotaje está a punto de activarse. Esa consciencia temprana es el primer paso real para interrumpirlo antes de que actúe." },
+  'E-C':{ title:"La Sensibilidad como Brújula de la Confianza", body:"Tu intuición es el recurso que puede transformar la confianza desde adentro. Aprender a confiar en lo que sientes antes de que la mente lo racionalice — esa es la confianza más real y la más difícil de sabotear con argumentos." },
+  'E-D':{ title:"La Intuición como Guardiana del Logro", body:"Tu sensibilidad para leer lo que ocurre en situaciones y personas puede ser tu mejor aliada para sostener el éxito. Percibir cuándo el impulso de auto-sabotaje se activa — antes de que se traduzca en acción — es la clave para sostener lo que construyes." },
+  'E-E':{ title:"La Intuición hacia la Claridad", body:"Tu sensibilidad es el recurso más subestimado que tienes. En un estado de mayor claridad estructural interna, esa intuición se vuelve más precisa y accesible — y puede señalarte la dirección con mayor contundencia de lo que cualquier análisis externo podría." },
+};
+
+// CTA personalizado: q1 x q5
+const CTA_BODIES = {
+  'A-A':"Tu estructura relacional está gobernada por un límite sobre el merecimiento cuya transformación es completamente posible y mapeada. La Lectura Completa revela la arquitectura exacta y el proceso preciso para habitarla desde un lugar radicalmente distinto.",
+  'A-B':"Lo que cambiaría en tus relaciones si el nivel siguiente llegara de verdad es exactamente lo que la Lectura Completa explora — porque ese miedo tiene una forma precisa que puede ser identificada, comprendida y trabajada.",
+  'A-C':"La creencia de que lograr más en tus relaciones trae consecuencias no deseadas opera de forma sistemática en tu estructura. La Lectura Completa mapea el origen de esa creencia y el camino concreto para desactivarla.",
+  'A-D':"Tu identidad relacional está entretejida con el esfuerzo de una manera que la Lectura Completa puede destejer con precisión — para que puedas operar desde el vínculo pleno en lugar de desde la lucha constante.",
+  'A-E':"Hay algo que interfiere en tus relaciones cuya forma exacta esta lectura básica no puede capturar. La Lectura Completa está diseñada para encontrarlo, mapearlo y ofrecer el camino de transformación.",
+  'B-A':"Tu carrera está limitada no por capacidad, sino por una estructura de merecimiento que tiene raíces específicas y completamente mapeables. La Lectura Completa revela esas raíces y el proceso exacto para transformar ese límite de forma sostenida.",
+  'B-B':"Lo que cambiaría en tu vida profesional si el éxito llegara de verdad es exactamente lo que la Lectura Completa explora — porque ese miedo tiene una forma precisa que puede ser identificada y trabajada con profundidad.",
+  'B-C':"La creencia de que el éxito grande trae consecuencias negativas opera en tu carrera de forma sistemática y silenciosa. La Lectura Completa mapea el origen exacto de esa creencia y el camino concreto para desactivarla.",
+  'B-D':"Tu identidad profesional está entretejida con el esfuerzo de una manera que la Lectura Completa puede destejer con precisión — para que puedas operar desde el logro natural en lugar de desde la lucha perpetua.",
+  'B-E':"Hay algo que interfiere en tu desarrollo profesional que esta lectura básica apenas puede esbozar. La Lectura Completa está diseñada exactamente para encontrarlo, nombrarlo y trabajarlo en profundidad.",
+  'C-A':"Tu realidad financiera está gobernada por una estructura de merecimiento cuya transformación es posible y tiene un proceso mapeado. La Lectura Completa revela ese proceso completo con la profundidad que este espacio no puede alcanzar.",
+  'C-B':"El miedo a lo que cambiaría si tu situación financiera se transformara realmente es el núcleo que la Lectura Completa trabaja con profundidad y precisión. Ese miedo tiene una forma específica — y tiene una salida.",
+  'C-C':"La creencia sobre el éxito y sus consecuencias es lo que mantiene tu techo financiero exactamente en su lugar. La Lectura Completa mapea esa creencia con una precisión que esta lectura básica no puede alcanzar.",
+  'C-D':"La identidad construida alrededor de la lucha económica tiene una arquitectura específica y mapeada. La Lectura Completa la revela por completo y ofrece el proceso para habitarla desde un lugar radicalmente diferente.",
+  'C-E':"Hay algo que mantiene tu realidad financiera en el nivel actual cuya forma exacta requiere una exploración más profunda. La Lectura Completa está diseñada para encontrarlo con precisión y trabajarlo.",
+  'D-A':"Tu bienestar físico está conectado con una estructura de merecimiento que opera también en los niveles más profundos de tu vida. La Lectura Completa revela esa conexión y el camino concreto para transformarla.",
+  'D-B':"El cuerpo raramente miente sobre lo que evitamos sentir o recibir. La Lectura Completa explora la conexión entre tu bienestar físico y lo que temes que cambiaría si te sintieras bien de manera real y sostenida.",
+  'D-C':"La relación entre tu salud y tus creencias sobre el éxito es más directa de lo que parece. La Lectura Completa mapea esa relación con la profundidad y precisión que esta lectura básica no puede alcanzar.",
+  'D-D':"El cuerpo que se identifica con el esfuerzo y el malestar tiene una historia estructural específica. La Lectura Completa revela esa historia con precisión y ofrece el proceso para escribir una radicalmente diferente.",
+  'D-E':"Hay algo que tu cuerpo está señalando que esta lectura básica apenas puede esbozar. La Lectura Completa está diseñada para leer esa señal con profundidad y traducirla en un mapa de transformación real.",
+  'E-A':"Tu mundo emocional está organizado desde un sentido de merecimiento que puede ser transformado de forma real y sostenida. La Lectura Completa revela la arquitectura completa de esa organización y el camino preciso para rehacerla.",
+  'E-B':"Lo que sientes ante la posibilidad del bienestar emocional real tiene una forma precisa que la Lectura Completa puede mapear y trabajar con la profundidad que este espacio inicial no permite.",
+  'E-C':"Las creencias sobre el éxito y sus consecuencias que operan en tu mundo emocional tienen raíces específicas. La Lectura Completa las revela con una profundidad que esta lectura básica no puede alcanzar.",
+  'E-D':"La identidad emocional construida alrededor del esfuerzo y la lucha tiene una arquitectura que puede ser transformada con un proceso específico. La Lectura Completa ofrece ese mapa completo.",
+  'E-E':"Hay algo que opera en tu mundo emocional cuya forma exacta requiere una exploración más profunda de lo que este espacio permite. La Lectura Completa está diseñada para encontrarlo y trabajarlo con precisión.",
+};
+
+// ═══════════════════════════════════════════════════════════
+// MOTOR DE LA APP
+// ═══════════════════════════════════════════════════════════
+let currentQ = 0;
+const answers = {};
+
+function startQuiz() {
+  showScreen('screen-question');
+  renderQuestion(0);
+  updateProgress(1);
+}
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id)?.classList.add('active');
+}
+
+function updateProgress(step) {
+  document.getElementById('progressFill').style.width = (step / questions.length * 100) + '%';
+  document.getElementById('stepIndicator').innerHTML = `<span>${String(step).padStart(2,'0')}</span> / 08`;
+}
+
+function renderQuestion(index) {
+  const q = questions[index];
+  document.getElementById('qCategory').textContent = q.category;
+  document.getElementById('qText').textContent = q.text;
+  document.getElementById('qNote').textContent = q.note;
+  const container = document.getElementById('optionsContainer');
+  container.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option';
+    btn.style.cssText = `opacity:0; animation: fadeUp 0.4s ease ${i*0.07}s forwards`;
+    btn.innerHTML = `<span class="option-letter">${opt.letter}</span><span>${opt.text}</span>`;
+    btn.onclick = () => pick(btn, opt.letter, index, q.id);
+    container.appendChild(btn);
+  });
+}
+
+function pick(btn, letter, qIndex, qId) {
+  document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  btn.classList.add('selected');
+  answers[qId] = letter;
+
+  setTimeout(() => {
+    if (qIndex < questions.length - 1) {
+      currentQ = qIndex + 1;
+      updateProgress(currentQ + 1);
+      const qs = document.getElementById('screen-question');
+      qs.style.cssText = 'opacity:0; transform:translateY(-8px); transition:all 0.3s ease';
+      setTimeout(() => {
+        renderQuestion(currentQ);
+        qs.removeAttribute('style');
+      }, 300);
+    } else {
+      showProcessing();
+    }
+  }, 350);
+}
+
+function showProcessing() {
+  document.getElementById('screen-question').classList.remove('active');
+  document.getElementById('processing').classList.add('active');
+  document.getElementById('progressFill').style.width = '100%';
+  document.getElementById('stepIndicator').innerHTML = `<span>08</span> / 08`;
+  setTimeout(() => {
+    buildResults(); // pre-build while user fills form
+    document.getElementById('processing').classList.remove('active');
+    showScreen('screen-capture');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, 2400);
+}
+
+function submitCapture() {
+  const nameEl  = document.getElementById('inputName');
+  const emailEl = document.getElementById('inputEmail');
+  const errName  = document.getElementById('errorName');
+  const errEmail = document.getElementById('errorEmail');
+  let valid = true;
+
+  // Reset
+  nameEl.classList.remove('error');
+  emailEl.classList.remove('error');
+  errName.classList.remove('visible');
+  errEmail.classList.remove('visible');
+
+  if (!nameEl.value.trim()) {
+    nameEl.classList.add('error');
+    errName.classList.add('visible');
+    valid = false;
+  }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(emailEl.value.trim())) {
+    emailEl.classList.add('error');
+    errEmail.classList.add('visible');
+    valid = false;
+  }
+  if (!valid) return;
+
+  // Store lead data (in production: send to your CRM/email tool)
+  const lead = {
+    name: nameEl.value.trim(),
+    email: emailEl.value.trim(),
+    answers: { ...answers },
+    timestamp: new Date().toISOString()
+  };
+  console.log('LEAD CAPTURADO:', JSON.stringify(lead));
+  // → Aquí conectas tu herramienta: Mailchimp, ConvertKit, Make, n8n, etc.
+
+  // Personalize results header with name
+  const firstName = lead.name.split(' ')[0];
+  document.querySelector('.results-title').innerHTML =
+    `La Lectura de <em>${firstName}</em>`;
+
+  showScreen('screen-results');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(() => {
+    document.querySelectorAll('.pattern-card').forEach(el => el.classList.add('revealed'));
+    document.getElementById('ctaSection').classList.add('revealed');
+  }, 150);
+}
+
+function lookup(map, key, fallbackKey) {
+  return map[key] || map[fallbackKey] || Object.values(map)[0];
+}
+
+function buildResults() {
+  const q1 = answers.q1 || 'B';
+  const q2 = answers.q2 || 'E';
+  const q3 = answers.q3 || 'C';
+  const q4 = answers.q4 || 'C';
+  const q5 = answers.q5 || 'A';
+  const q6 = answers.q6 || 'B';
+  const q7 = answers.q7 || 'A';
+  const q8 = answers.q8 || 'D';
+
+  const patron     = lookup(PATRONEADO, `${q2}-${q4}`, 'E-C');
+  const similar    = lookup(SIMILAR,    `${q1}-${q3}`, 'B-D');
+  const fuga       = FUGA[q7] || FUGA['A'];
+  const fortaleza  = lookup(FORTALEZA,  `${q6}-${q8}`, 'B-D');
+  const ctaBody    = CTA_BODIES[`${q1}-${q5}`] || CTA_BODIES['B-A'];
+  const areaLabel  = areaLabels[q1] || 'vida';
+
+  document.getElementById('patternCards').innerHTML = `
+    <div class="pattern-card">
+      <div class="pattern-num">01 · Patroneado Repetitivo</div>
+      <div class="pattern-title">${patron.title}</div>
+      <div class="pattern-body">${patron.body}</div>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-num">02 · Lo Similar en lo Diferente</div>
+      <div class="pattern-title">${similar.title}</div>
+      <div class="pattern-body">${similar.body}</div>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-num">03 · La Fuga</div>
+      <div class="pattern-title">${fuga.title}</div>
+      <div class="pattern-body">${fuga.body}</div>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-num">04 · La Fortaleza</div>
+      <div class="pattern-title">${fortaleza.title}</div>
+      <div class="pattern-body">${fortaleza.body}</div>
+    </div>
+  `;
+
+  document.getElementById('ctaBody').textContent = ctaBody;
+
+  const s = t => t.length > 19 ? t.slice(0,18)+'…' : t;
+  document.getElementById('diagramContainer').innerHTML = `
+  <svg viewBox="0 0 600 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="300" y1="0" x2="300" y2="260" stroke="#2a2a26" stroke-width="0.5" stroke-dasharray="4 4"/>
+    <line x1="0" y1="130" x2="600" y2="130" stroke="#2a2a26" stroke-width="0.5" stroke-dasharray="4 4"/>
+    <ellipse cx="300" cy="130" rx="240" ry="108" stroke="#2a2a26" stroke-width="1"/>
+    <ellipse cx="300" cy="130" rx="155" ry="70" stroke="#2a2a26" stroke-width="0.5" stroke-dasharray="2 4"/>
+    <circle cx="300" cy="130" r="30" fill="rgba(201,169,110,0.08)" stroke="#c9a96e" stroke-width="1"/>
+    <circle cx="300" cy="130" r="14" fill="rgba(201,169,110,0.15)" stroke="#c9a96e" stroke-width="0.5"/>
+    <circle cx="300" cy="130" r="4" fill="#c9a96e"/>
+    <text x="300" y="136" text-anchor="middle" fill="#7a6340" font-family="DM Mono, monospace" font-size="7" letter-spacing="0.08em">${areaLabel.toUpperCase()}</text>
+    <line x1="300" y1="130" x2="100" y2="38" stroke="#c9a96e" stroke-width="0.5" opacity="0.5"/>
+    <line x1="300" y1="130" x2="500" y2="38" stroke="#c9a96e" stroke-width="0.5" opacity="0.5"/>
+    <line x1="300" y1="130" x2="100" y2="222" stroke="#7a6340" stroke-width="0.5" opacity="0.5" stroke-dasharray="3 3"/>
+    <line x1="300" y1="130" x2="500" y2="222" stroke="#c9a96e" stroke-width="0.5" opacity="0.5"/>
+    <circle cx="100" cy="38" r="22" fill="rgba(201,169,110,0.1)" stroke="#c9a96e" stroke-width="1"/>
+    <text x="100" y="42" text-anchor="middle" fill="#c9a96e" font-family="DM Mono, monospace" font-size="9">01</text>
+    <text x="100" y="72" text-anchor="middle" fill="#7a7870" font-family="Cormorant Garamond, serif" font-size="10" font-style="italic">${s(patron.title)}</text>
+    <circle cx="500" cy="38" r="22" fill="rgba(201,169,110,0.1)" stroke="#c9a96e" stroke-width="1"/>
+    <text x="500" y="42" text-anchor="middle" fill="#c9a96e" font-family="DM Mono, monospace" font-size="9">02</text>
+    <text x="500" y="72" text-anchor="middle" fill="#7a7870" font-family="Cormorant Garamond, serif" font-size="10" font-style="italic">${s(similar.title)}</text>
+    <circle cx="100" cy="222" r="22" fill="rgba(122,99,64,0.08)" stroke="#7a6340" stroke-width="1" stroke-dasharray="3 3"/>
+    <text x="100" y="226" text-anchor="middle" fill="#7a6340" font-family="DM Mono, monospace" font-size="9">03</text>
+    <text x="100" y="254" text-anchor="middle" fill="#4a4840" font-family="Cormorant Garamond, serif" font-size="10" font-style="italic">${s(fuga.title)}</text>
+    <circle cx="500" cy="222" r="22" fill="rgba(201,169,110,0.1)" stroke="#c9a96e" stroke-width="1"/>
+    <text x="500" y="226" text-anchor="middle" fill="#c9a96e" font-family="DM Mono, monospace" font-size="9">04</text>
+    <text x="500" y="254" text-anchor="middle" fill="#7a7870" font-family="Cormorant Garamond, serif" font-size="10" font-style="italic">${s(fortaleza.title)}</text>
+    <circle cx="300" cy="130" r="30" fill="none" stroke="#c9a96e" stroke-width="0.5" opacity="0.6">
+      <animate attributeName="r" values="30;52;30" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;0;0.6" dur="3s" repeatCount="indefinite"/>
+    </circle>
+  </svg>`;
+}
+</script>
+</body>
+</html>

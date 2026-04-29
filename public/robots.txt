@@ -1,14 +1,5 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
+# Sitio en construcción — no indexar
+# Remover estas directivas cuando el sitio esté listo para producción
 
 User-agent: *
-Allow: /
+Disallow: /
