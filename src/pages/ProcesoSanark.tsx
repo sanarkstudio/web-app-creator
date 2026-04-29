@@ -169,7 +169,7 @@ const ProcesoSanark = () => {
                 cta="Quiero edificar mi nueva estructura"
                 location="proceso_sanark_hero"
                 trigger={
-                  <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
+                  <button className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-6 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
                     Quiero edificar mi nueva estructura
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
@@ -384,7 +384,7 @@ const ProcesoSanark = () => {
                 cta="Estoy listo. Quiero empezar."
                 location="proceso_sanark_price_box"
                 trigger={
-                  <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
+                  <button className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-6 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
                     Estoy listo. Quiero empezar.
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
@@ -458,7 +458,7 @@ const ProcesoSanark = () => {
               cta="Dar el siguiente paso estructural"
               location="proceso_sanark_final_cta"
               trigger={
-                <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium">
+                <button className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-6 md:px-10 py-3 md:py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-medium">
                   Dar el siguiente paso estructural
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </button>

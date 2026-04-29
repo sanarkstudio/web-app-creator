@@ -260,32 +260,34 @@ function truncate(t: string, max = 19): string {
 
 function buildDiagramSvg(areaLabel: string, patron: PatternResult, similar: PatternResult, fuga: PatternResult, fortaleza: PatternResult): string {
   const s = (t: string) => truncate(t);
+  // Palette aligned with Lovable home: gold #B68C40, gold-dark ~#916A1E, muted ~#6B6662, border ~#282726
+  const G = "#B68C40", GD = "#916A1E", M = "#6B6662", B = "#282726";
   return `<svg viewBox="0 0 600 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <line x1="300" y1="0" x2="300" y2="260" stroke="#2a2a26" stroke-width="0.5" stroke-dasharray="4 4"/>
-    <line x1="0" y1="130" x2="600" y2="130" stroke="#2a2a26" stroke-width="0.5" stroke-dasharray="4 4"/>
-    <ellipse cx="300" cy="130" rx="240" ry="108" stroke="#2a2a26" stroke-width="1"/>
-    <ellipse cx="300" cy="130" rx="155" ry="70" stroke="#2a2a26" stroke-width="0.5" stroke-dasharray="2 4"/>
-    <circle cx="300" cy="130" r="30" fill="rgba(201,169,110,0.08)" stroke="#c9a96e" stroke-width="1"/>
-    <circle cx="300" cy="130" r="14" fill="rgba(201,169,110,0.15)" stroke="#c9a96e" stroke-width="0.5"/>
-    <circle cx="300" cy="130" r="4" fill="#c9a96e"/>
-    <text x="300" y="136" text-anchor="middle" fill="#7a6340" font-family="monospace" font-size="7" letter-spacing="0.08em">${areaLabel.toUpperCase()}</text>
-    <line x1="300" y1="130" x2="100" y2="38" stroke="#c9a96e" stroke-width="0.5" opacity="0.5"/>
-    <line x1="300" y1="130" x2="500" y2="38" stroke="#c9a96e" stroke-width="0.5" opacity="0.5"/>
-    <line x1="300" y1="130" x2="100" y2="222" stroke="#7a6340" stroke-width="0.5" opacity="0.5" stroke-dasharray="3 3"/>
-    <line x1="300" y1="130" x2="500" y2="222" stroke="#c9a96e" stroke-width="0.5" opacity="0.5"/>
-    <circle cx="100" cy="38" r="22" fill="rgba(201,169,110,0.1)" stroke="#c9a96e" stroke-width="1"/>
-    <text x="100" y="42" text-anchor="middle" fill="#c9a96e" font-family="monospace" font-size="9">01</text>
-    <text x="100" y="72" text-anchor="middle" fill="#7a7870" font-family="serif" font-size="10" font-style="italic">${s(patron.title)}</text>
-    <circle cx="500" cy="38" r="22" fill="rgba(201,169,110,0.1)" stroke="#c9a96e" stroke-width="1"/>
-    <text x="500" y="42" text-anchor="middle" fill="#c9a96e" font-family="monospace" font-size="9">02</text>
-    <text x="500" y="72" text-anchor="middle" fill="#7a7870" font-family="serif" font-size="10" font-style="italic">${s(similar.title)}</text>
-    <circle cx="100" cy="222" r="22" fill="rgba(122,99,64,0.08)" stroke="#7a6340" stroke-width="1" stroke-dasharray="3 3"/>
-    <text x="100" y="226" text-anchor="middle" fill="#7a6340" font-family="monospace" font-size="9">03</text>
-    <text x="100" y="254" text-anchor="middle" fill="#4a4840" font-family="serif" font-size="10" font-style="italic">${s(fuga.title)}</text>
-    <circle cx="500" cy="222" r="22" fill="rgba(201,169,110,0.1)" stroke="#c9a96e" stroke-width="1"/>
-    <text x="500" y="226" text-anchor="middle" fill="#c9a96e" font-family="monospace" font-size="9">04</text>
-    <text x="500" y="254" text-anchor="middle" fill="#7a7870" font-family="serif" font-size="10" font-style="italic">${s(fortaleza.title)}</text>
-    <circle cx="300" cy="130" r="30" fill="none" stroke="#c9a96e" stroke-width="0.5" opacity="0.6">
+    <line x1="300" y1="0" x2="300" y2="260" stroke="${B}" stroke-width="0.5" stroke-dasharray="4 4"/>
+    <line x1="0" y1="130" x2="600" y2="130" stroke="${B}" stroke-width="0.5" stroke-dasharray="4 4"/>
+    <ellipse cx="300" cy="130" rx="240" ry="108" stroke="${B}" stroke-width="1"/>
+    <ellipse cx="300" cy="130" rx="155" ry="70" stroke="${B}" stroke-width="0.5" stroke-dasharray="2 4"/>
+    <circle cx="300" cy="130" r="30" fill="rgba(182,140,64,0.08)" stroke="${G}" stroke-width="1"/>
+    <circle cx="300" cy="130" r="14" fill="rgba(182,140,64,0.15)" stroke="${G}" stroke-width="0.5"/>
+    <circle cx="300" cy="130" r="4" fill="${G}"/>
+    <text x="300" y="136" text-anchor="middle" fill="${GD}" font-family="monospace" font-size="7" letter-spacing="0.08em">${areaLabel.toUpperCase()}</text>
+    <line x1="300" y1="130" x2="100" y2="38" stroke="${G}" stroke-width="0.5" opacity="0.5"/>
+    <line x1="300" y1="130" x2="500" y2="38" stroke="${G}" stroke-width="0.5" opacity="0.5"/>
+    <line x1="300" y1="130" x2="100" y2="222" stroke="${GD}" stroke-width="0.5" opacity="0.5" stroke-dasharray="3 3"/>
+    <line x1="300" y1="130" x2="500" y2="222" stroke="${G}" stroke-width="0.5" opacity="0.5"/>
+    <circle cx="100" cy="38" r="22" fill="rgba(182,140,64,0.1)" stroke="${G}" stroke-width="1"/>
+    <text x="100" y="42" text-anchor="middle" fill="${G}" font-family="monospace" font-size="9">01</text>
+    <text x="100" y="72" text-anchor="middle" fill="${M}" font-family="serif" font-size="10" font-style="italic">${s(patron.title)}</text>
+    <circle cx="500" cy="38" r="22" fill="rgba(182,140,64,0.1)" stroke="${G}" stroke-width="1"/>
+    <text x="500" y="42" text-anchor="middle" fill="${G}" font-family="monospace" font-size="9">02</text>
+    <text x="500" y="72" text-anchor="middle" fill="${M}" font-family="serif" font-size="10" font-style="italic">${s(similar.title)}</text>
+    <circle cx="100" cy="222" r="22" fill="rgba(145,106,30,0.08)" stroke="${GD}" stroke-width="1" stroke-dasharray="3 3"/>
+    <text x="100" y="226" text-anchor="middle" fill="${GD}" font-family="monospace" font-size="9">03</text>
+    <text x="100" y="254" text-anchor="middle" fill="${M}" font-family="serif" font-size="10" font-style="italic">${s(fuga.title)}</text>
+    <circle cx="500" cy="222" r="22" fill="rgba(182,140,64,0.1)" stroke="${G}" stroke-width="1"/>
+    <text x="500" y="226" text-anchor="middle" fill="${G}" font-family="monospace" font-size="9">04</text>
+    <text x="500" y="254" text-anchor="middle" fill="${M}" font-family="serif" font-size="10" font-style="italic">${s(fortaleza.title)}</text>
+    <circle cx="300" cy="130" r="30" fill="none" stroke="${G}" stroke-width="0.5" opacity="0.6">
       <animate attributeName="r" values="30;52;30" dur="3s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="0.6;0;0.6" dur="3s" repeatCount="indefinite"/>
     </circle>
@@ -375,26 +377,26 @@ const LecturaBasica = () => {
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
-      <div className="min-h-screen" style={{ background: "#0a0a08", color: "#e8e4dc", fontFamily: "'Cormorant Garamond', serif" }}>
+      <div className="min-h-screen bg-background text-foreground font-display">
         {/* Ambient glow */}
-        <div className="fixed w-[600px] h-[600px] rounded-full pointer-events-none z-0 -top-[200px] -right-[200px]" style={{ background: "radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 70%)", animation: "drift 8s ease-in-out infinite alternate" }} />
+        <div className="fixed w-[600px] h-[600px] rounded-full pointer-events-none z-0 -top-[200px] -right-[200px] bg-[radial-gradient(circle,hsl(var(--gold)/0.06)_0%,transparent_70%)] animate-drift" />
 
         <div className="relative z-10 max-w-[680px] mx-auto px-6 min-h-screen flex flex-col">
           {/* Header */}
-          <div className="pt-12 pb-8 flex items-center justify-between border-b" style={{ borderColor: "#2a2a26" }}>
+          <div className="pt-12 pb-8 flex items-center justify-between border-b border-border">
             <div>
-              <Link to="/" className="block font-mono text-[13px] tracking-[0.3em] uppercase font-light" style={{ color: "#c9a96e" }}>Sanark</Link>
-              <div className="text-[10px] tracking-[0.2em] uppercase mt-1" style={{ color: "#7a7870" }}>Decodificación Estructural de Vida</div>
+              <Link to="/" className="block font-mono text-[13px] tracking-[0.3em] uppercase font-light text-gold">Sanark</Link>
+              <div className="text-[10px] tracking-[0.2em] uppercase mt-1 text-muted-foreground">Decodificación Estructural de Vida</div>
             </div>
-            <div className="font-mono text-[11px] tracking-[0.1em]" style={{ color: "#4a4840" }}>
-              <span style={{ color: "#c9a96e" }}>{stepLabel}</span> / 08
+            <div className="font-mono text-[11px] tracking-[0.1em] text-muted-foreground">
+              <span className="text-gold">{stepLabel}</span> / 08
             </div>
           </div>
 
           {/* Progress bar */}
-          <div className="w-full h-px mt-6 overflow-visible" style={{ background: "#2a2a26" }}>
-            <div className="h-px relative transition-all duration-700" style={{ background: "linear-gradient(90deg, #7a6340, #c9a96e)", width: `${progress}%` }}>
-              <div className="absolute -right-1 -top-[3px] w-[7px] h-[7px] rounded-full" style={{ background: "#c9a96e", boxShadow: "0 0 12px #c9a96e" }} />
+          <div className="w-full h-px mt-6 overflow-visible bg-border">
+            <div className="h-px relative transition-all duration-700 gradient-progress-gold" style={{ width: `${progress}%` }}>
+              <div className="absolute -right-1 -top-[3px] w-[7px] h-[7px] rounded-full bg-gold glow-gold-dot" />
             </div>
           </div>
 
@@ -402,27 +404,27 @@ const LecturaBasica = () => {
           <div className="flex-1 py-16">
             {/* Welcome Screen */}
             {screen === "welcome" && (
-              <div className="animate-fadeUp">
-                <div className="font-mono text-[10px] tracking-[0.4em] uppercase mb-8" style={{ color: "#7a6340" }}>Lectura Estructural Básica</div>
-                <h1 className="text-4xl md:text-[58px] font-light leading-[1.1] mb-2" style={{ color: "#e8e4dc" }}>
-                  Tu estructura<br /><em className="italic" style={{ color: "#c9a96e" }}>invisible</em><br />al descubierto.
+              <div className="animate-fade-up">
+                <div className="font-mono text-[10px] tracking-[0.4em] uppercase mb-8 text-gold-dark">Lectura Estructural Básica</div>
+                <h1 className="text-4xl md:text-[58px] font-light leading-[1.1] mb-2 text-foreground">
+                  Tu estructura<br /><em className="italic text-gold">invisible</em><br />al descubierto.
                 </h1>
-                <div className="w-12 h-px my-8" style={{ background: "#7a6340" }} />
-                <p className="text-lg font-light leading-[1.8] max-w-[520px] mb-4" style={{ color: "#7a7870" }}>
+                <div className="w-12 h-px my-8 bg-gold-dark" />
+                <p className="text-lg font-light leading-[1.8] max-w-[520px] mb-4 text-muted-foreground">
                   Lo que estás a punto de experimentar no es un test de personalidad.<br /><br />
-                  Es un proceso de <strong style={{ color: "#e8e4dc", fontWeight: 400 }}>detección estructural</strong> — un espejo que revela los patrones desde los cuales operas en tu vida, muchas veces sin saberlo.
+                  Es un proceso de <strong className="text-foreground font-normal">detección estructural</strong> — un espejo que revela los patrones desde los cuales operas en tu vida, muchas veces sin saberlo.
                 </p>
-                <p className="text-lg font-light leading-[1.8] mb-10" style={{ color: "#7a7870" }}>Analizaremos cuatro dimensiones clave de tu arquitectura interna:</p>
+                <p className="text-lg font-light leading-[1.8] mb-10 text-muted-foreground">Analizaremos cuatro dimensiones clave de tu arquitectura interna:</p>
                 <div className="grid grid-cols-2 gap-3 mb-12">
                   {["Patroneado Repetitivo", "Lo Similar en lo Diferente", "La Fuga", "La Fortaleza"].map((name, i) => (
-                    <div key={i} className="border relative pl-5 py-4 pr-5" style={{ borderColor: "#2a2a26" }}>
-                      <div className="absolute left-0 top-0 w-0.5 h-full" style={{ background: "#7a6340" }} />
-                      <div className="font-mono text-[10px] tracking-[0.2em] mb-1.5" style={{ color: "#7a6340" }}>0{i + 1}</div>
-                      <div className="text-sm font-normal tracking-[0.05em]" style={{ color: "#e8e4dc" }}>{name}</div>
+                    <div key={i} className="border border-border relative pl-5 py-4 pr-5">
+                      <div className="absolute left-0 top-0 w-0.5 h-full bg-gold-dark" />
+                      <div className="font-mono text-[10px] tracking-[0.2em] mb-1.5 text-gold-dark">0{i + 1}</div>
+                      <div className="text-sm font-normal tracking-[0.05em] text-foreground">{name}</div>
                     </div>
                   ))}
                 </div>
-                <button onClick={() => { setScreen("question"); setCurrentQ(0); }} className="group inline-flex items-center gap-3 border px-9 py-[18px] font-mono text-xs tracking-[0.25em] uppercase cursor-pointer transition-all duration-300 relative overflow-hidden" style={{ borderColor: "#c9a96e", color: "#c9a96e", background: "transparent" }} onMouseEnter={e => { e.currentTarget.style.background = "#c9a96e"; e.currentTarget.style.color = "#0a0a08"; }} onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#c9a96e"; }}>
+                <button onClick={() => { setScreen("question"); setCurrentQ(0); }} className="group inline-flex items-center gap-3 border border-gold text-gold bg-transparent px-9 py-[18px] font-mono text-xs tracking-[0.25em] uppercase cursor-pointer transition-all duration-300 relative overflow-hidden hover:bg-gold hover:text-background">
                   <span>Iniciar lectura</span><span className="text-base transition-transform group-hover:translate-x-1">→</span>
                 </button>
               </div>
@@ -430,47 +432,50 @@ const LecturaBasica = () => {
 
             {/* Question Screen */}
             {screen === "question" && q && (
-              <div className={`transition-all duration-300 ${fadingOut ? "opacity-0 -translate-y-2" : "animate-fadeUp"}`} key={currentQ}>
-                <div className="font-mono text-[10px] tracking-[0.4em] uppercase mb-5" style={{ color: "#7a6340" }}>{q.category}</div>
-                <p className="text-xl md:text-[28px] font-light leading-[1.45] mb-10 max-w-[580px]" style={{ color: "#e8e4dc" }}>{q.text}</p>
+              <div className={`transition-all duration-300 ${fadingOut ? "opacity-0 -translate-y-2" : "animate-fade-up"}`} key={currentQ}>
+                <div className="font-mono text-[10px] tracking-[0.4em] uppercase mb-5 text-gold-dark">{q.category}</div>
+                <p className="text-xl md:text-[28px] font-light leading-[1.45] mb-10 max-w-[580px] text-foreground">{q.text}</p>
                 <div className="flex flex-col gap-2.5">
-                  {q.options.map((opt, i) => (
-                    <button key={opt.letter} onClick={() => handlePick(opt.letter, currentQ, q.id)} className="flex items-start gap-4 py-[18px] px-5 border text-left transition-all duration-200 w-full" style={{ borderColor: selectedOption === opt.letter ? "#c9a96e" : "#2a2a26", color: selectedOption === opt.letter ? "#e8e4dc" : "#7a7870", background: selectedOption === opt.letter ? "rgba(201,169,110,0.06)" : "transparent", fontFamily: "'Cormorant Garamond', serif", fontSize: "16px", lineHeight: 1.5, animationDelay: `${i * 0.07}s` }} onMouseEnter={e => { if (selectedOption !== opt.letter) { e.currentTarget.style.borderColor = "#7a6340"; e.currentTarget.style.color = "#e8e4dc"; }}} onMouseLeave={e => { if (selectedOption !== opt.letter) { e.currentTarget.style.borderColor = "#2a2a26"; e.currentTarget.style.color = "#7a7870"; }}}>
-                      <span className="font-mono text-[11px] tracking-[0.1em] min-w-[20px] pt-0.5" style={{ color: selectedOption === opt.letter ? "#c9a96e" : "#7a6340" }}>{opt.letter}</span>
-                      <span>{opt.text}</span>
-                    </button>
-                  ))}
+                  {q.options.map((opt) => {
+                    const isSelected = selectedOption === opt.letter;
+                    return (
+                      <button key={opt.letter} onClick={() => handlePick(opt.letter, currentQ, q.id)} className={`flex items-start gap-4 py-[18px] px-5 border text-left transition-all duration-200 w-full font-display text-base leading-normal ${isSelected ? "border-gold text-foreground bg-gold/[0.06]" : "border-border text-muted-foreground hover:border-gold-dark hover:text-foreground"}`}>
+                        <span className={`font-mono text-[11px] tracking-[0.1em] min-w-[20px] pt-0.5 ${isSelected ? "text-gold" : "text-gold-dark"}`}>{opt.letter}</span>
+                        <span>{opt.text}</span>
+                      </button>
+                    );
+                  })}
                 </div>
-                <p className="mt-7 font-mono text-[11px] leading-[1.6] tracking-[0.05em] italic" style={{ color: "#4a4840" }}>{q.note}</p>
+                <p className="mt-7 font-mono text-[11px] leading-[1.6] tracking-[0.05em] italic text-muted-foreground/70">{q.note}</p>
               </div>
             )}
 
             {/* Processing Screen */}
             {screen === "processing" && (
-              <div className="flex flex-col items-center justify-center py-20 text-center animate-fadeUp">
-                <div className="w-20 h-20 border rounded-full mb-8 animate-spin" style={{ borderColor: "#2a2a26", borderTopColor: "#c9a96e" }} />
-                <div className="font-mono text-[11px] tracking-[0.4em] uppercase animate-pulse" style={{ color: "#7a6340" }}>Procesando tu estructura</div>
+              <div className="flex flex-col items-center justify-center py-20 text-center animate-fade-up">
+                <div className="w-20 h-20 border border-border border-t-gold rounded-full mb-8 animate-spin" />
+                <div className="font-mono text-[11px] tracking-[0.4em] uppercase animate-pulse text-gold-dark">Procesando tu estructura</div>
               </div>
             )}
 
             {/* Lead Capture Screen */}
             {screen === "capture" && (
-              <div className="animate-fadeUp">
-                <div className="font-mono text-[10px] tracking-[0.4em] uppercase mb-7" style={{ color: "#7a6340" }}>Tu lectura está lista</div>
-                <h2 className="text-3xl md:text-[42px] font-light leading-[1.2] mb-3">Hemos detectado<br />tu <em className="italic" style={{ color: "#c9a96e" }}>estructura.</em></h2>
-                <div className="w-12 h-px my-7" style={{ background: "#7a6340" }} />
-                <p className="text-[17px] font-light leading-[1.8] max-w-[500px] mb-10" style={{ color: "#7a7870" }}>
+              <div className="animate-fade-up">
+                <div className="font-mono text-[10px] tracking-[0.4em] uppercase mb-7 text-gold-dark">Tu lectura está lista</div>
+                <h2 className="text-3xl md:text-[42px] font-light leading-[1.2] mb-3 text-foreground">Hemos detectado<br />tu <em className="italic text-gold">estructura.</em></h2>
+                <div className="w-12 h-px my-7 bg-gold-dark" />
+                <p className="text-[17px] font-light leading-[1.8] max-w-[500px] mb-10 text-muted-foreground">
                   En un momento verás los 4 patrones que operan en tu vida.<br /><br />
-                  Déjanos un nombre y email para enviarte también la lectura completa por escrito — y notificarte cuando haya una plaza disponible para la <strong style={{ color: "#e8e4dc", fontWeight: 400 }}>Lectura Estructural Completa</strong>.
+                  Déjanos un nombre y email para enviarte también la lectura completa por escrito — y notificarte cuando haya una plaza disponible para la <strong className="text-foreground font-normal">Lectura Estructural Completa</strong>.
                 </p>
 
                 {/* Preview items */}
-                <div className="flex flex-col gap-px mb-10" style={{ background: "#2a2a26" }}>
+                <div className="flex flex-col gap-px mb-10 bg-border">
                   {["Patroneado Repetitivo", "Lo Similar en lo Diferente", "La Fuga", "La Fortaleza"].map((name, i) => (
-                    <div key={i} className="flex items-center gap-3.5 py-3.5 px-5" style={{ background: "#111110" }}>
-                      <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "#7a6340" }} />
-                      <div className="text-[15px] font-light italic" style={{ color: "#7a7870" }}>
-                        0{i + 1} · {name} — <span style={{ filter: "blur(4px)", userSelect: "none", opacity: 0.5 }}>{i === 0 ? "detectado en tu estructura" : i === 1 ? "patrón transversal identificado" : i === 2 ? "zona de evasión activa" : "recurso estructural clave"}</span>
+                    <div key={i} className="flex items-center gap-3.5 py-3.5 px-5 bg-card">
+                      <div className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-gold-dark" />
+                      <div className="text-[15px] font-light italic text-muted-foreground">
+                        0{i + 1} · {name} — <span className="blur-[4px] select-none opacity-50">{i === 0 ? "detectado en tu estructura" : i === 1 ? "patrón transversal identificado" : i === 2 ? "zona de evasión activa" : "recurso estructural clave"}</span>
                       </div>
                     </div>
                   ))}
@@ -479,65 +484,65 @@ const LecturaBasica = () => {
                 {/* Form */}
                 <div className="flex flex-col gap-3.5 mb-4">
                   <div className="flex flex-col gap-1.5">
-                    <label className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: "#7a6340" }}>Nombre</label>
-                    <input type="text" value={userName} onChange={e => { setUserName(e.target.value); setErrors(prev => ({ ...prev, name: false })); }} placeholder="¿Cómo te llamas?" autoComplete="given-name" className="w-full py-4 px-5 text-[17px] outline-none transition-colors" style={{ background: "#111110", border: `1px solid ${errors.name ? "#8b4040" : "#2a2a26"}`, color: "#e8e4dc", fontFamily: "'Cormorant Garamond', serif" }} onFocus={e => (e.currentTarget.style.borderColor = "#7a6340")} onBlur={e => (e.currentTarget.style.borderColor = errors.name ? "#8b4040" : "#2a2a26")} />
-                    {errors.name && <div className="font-mono text-[11px] tracking-[0.05em]" style={{ color: "#8b4040" }}>Por favor ingresa tu nombre.</div>}
+                    <label className="font-mono text-[10px] tracking-[0.3em] uppercase text-gold-dark">Nombre</label>
+                    <input type="text" value={userName} onChange={e => { setUserName(e.target.value); setErrors(prev => ({ ...prev, name: false })); }} placeholder="¿Cómo te llamas?" autoComplete="given-name" className={`w-full py-4 px-5 text-[17px] outline-none transition-colors bg-card text-foreground font-display border ${errors.name ? "border-destructive" : "border-border"} focus:border-gold-dark`} />
+                    {errors.name && <div className="font-mono text-[11px] tracking-[0.05em] text-destructive">Por favor ingresa tu nombre.</div>}
                   </div>
                   <div className="flex flex-col gap-1.5">
-                    <label className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: "#7a6340" }}>Email</label>
-                    <input type="email" value={userEmail} onChange={e => { setUserEmail(e.target.value); setErrors(prev => ({ ...prev, email: false })); }} placeholder="tu@email.com" autoComplete="email" className="w-full py-4 px-5 text-[17px] outline-none transition-colors" style={{ background: "#111110", border: `1px solid ${errors.email ? "#8b4040" : "#2a2a26"}`, color: "#e8e4dc", fontFamily: "'Cormorant Garamond', serif" }} onFocus={e => (e.currentTarget.style.borderColor = "#7a6340")} onBlur={e => (e.currentTarget.style.borderColor = errors.email ? "#8b4040" : "#2a2a26")} />
-                    {errors.email && <div className="font-mono text-[11px] tracking-[0.05em]" style={{ color: "#8b4040" }}>Por favor ingresa un email válido.</div>}
+                    <label className="font-mono text-[10px] tracking-[0.3em] uppercase text-gold-dark">Email</label>
+                    <input type="email" value={userEmail} onChange={e => { setUserEmail(e.target.value); setErrors(prev => ({ ...prev, email: false })); }} placeholder="tu@email.com" autoComplete="email" className={`w-full py-4 px-5 text-[17px] outline-none transition-colors bg-card text-foreground font-display border ${errors.email ? "border-destructive" : "border-border"} focus:border-gold-dark`} />
+                    {errors.email && <div className="font-mono text-[11px] tracking-[0.05em] text-destructive">Por favor ingresa un email válido.</div>}
                   </div>
                 </div>
-                <button onClick={handleSubmitCapture} className="group inline-flex items-center gap-3 border px-9 py-[18px] font-mono text-xs tracking-[0.25em] uppercase cursor-pointer transition-all duration-300" style={{ borderColor: "#c9a96e", color: "#c9a96e", background: "transparent" }} onMouseEnter={e => { e.currentTarget.style.background = "#c9a96e"; e.currentTarget.style.color = "#0a0a08"; }} onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#c9a96e"; }}>
+                <button onClick={handleSubmitCapture} className="group inline-flex items-center gap-3 border border-gold text-gold bg-transparent px-9 py-[18px] font-mono text-xs tracking-[0.25em] uppercase cursor-pointer transition-all duration-300 hover:bg-gold hover:text-background">
                   <span>Ver mi Lectura Estructural</span><span className="text-base transition-transform group-hover:translate-x-1">→</span>
                 </button>
-                <div className="font-mono text-[10px] tracking-[0.05em] leading-[1.6] mt-3" style={{ color: "#4a4840" }}>Tu información es privada. No compartimos datos con terceros.</div>
+                <div className="font-mono text-[10px] tracking-[0.05em] leading-[1.6] mt-3 text-muted-foreground/70">Tu información es privada. No compartimos datos con terceros.</div>
               </div>
             )}
 
             {/* Results Screen */}
             {screen === "results" && results && (
-              <div className="animate-fadeUp">
+              <div className="animate-fade-up">
                 {/* Header */}
-                <div className="text-center pb-12 mb-10 border-b" style={{ borderColor: "#2a2a26" }}>
-                  <div className="font-mono text-[10px] tracking-[0.4em] uppercase mb-5" style={{ color: "#7a6340" }}>Resultado · Sanark</div>
-                  <h2 className="text-3xl md:text-[44px] font-light leading-[1.2]">
-                    {results.firstName ? <>La Lectura de <em className="italic" style={{ color: "#c9a96e" }}>{results.firstName}</em></> : <>Tu <em className="italic" style={{ color: "#c9a96e" }}>Lectura Estructural</em><br />Básica</>}
+                <div className="text-center pb-12 mb-10 border-b border-border">
+                  <div className="font-mono text-[10px] tracking-[0.4em] uppercase mb-5 text-gold-dark">Resultado · Sanark</div>
+                  <h2 className="text-3xl md:text-[44px] font-light leading-[1.2] text-foreground">
+                    {results.firstName ? <>La Lectura de <em className="italic text-gold">{results.firstName}</em></> : <>Tu <em className="italic text-gold">Lectura Estructural</em><br />Básica</>}
                   </h2>
                 </div>
 
                 {/* Diagram */}
                 <div className="mb-10">
-                  <div className="font-mono text-[10px] tracking-[0.3em] text-center mb-5 uppercase" style={{ color: "#4a4840" }}>Mapa de estructura detectada</div>
+                  <div className="font-mono text-[10px] tracking-[0.3em] text-center mb-5 uppercase text-muted-foreground/70">Mapa de estructura detectada</div>
                   <div className="w-full h-[260px]" dangerouslySetInnerHTML={{ __html: buildDiagramSvg(results.areaLabel, results.patron, results.similar, results.fuga, results.fortaleza) }} />
                 </div>
 
                 {/* Pattern cards */}
-                <div className="flex flex-col gap-px mb-12" style={{ background: "#2a2a26" }}>
+                <div className="flex flex-col gap-px mb-12 bg-border">
                   {[
                     { num: "01 · Patroneado Repetitivo", data: results.patron },
                     { num: "02 · Lo Similar en lo Diferente", data: results.similar },
                     { num: "03 · La Fuga", data: results.fuga },
                     { num: "04 · La Fortaleza", data: results.fortaleza },
                   ].map((item, i) => (
-                    <div key={i} className="relative py-7 px-8 animate-fadeUp" style={{ background: "#111110", animationDelay: `${i * 0.15}s` }}>
-                      <div className="absolute left-0 top-0 bottom-0 w-0.5" style={{ background: "#7a6340" }} />
-                      <div className="font-mono text-[10px] tracking-[0.3em] uppercase mb-2" style={{ color: "#7a6340" }}>{item.num}</div>
-                      <div className="text-xl font-normal mb-3 tracking-[0.02em]" style={{ color: "#c9a96e" }}>{item.data.title}</div>
-                      <div className="text-base font-light leading-[1.75]" style={{ color: "#7a7870" }}>{item.data.body}</div>
+                    <div key={i} className="relative py-7 px-8 animate-fade-up bg-card" style={{ animationDelay: `${i * 0.15}s` }}>
+                      <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gold-dark" />
+                      <div className="font-mono text-[10px] tracking-[0.3em] uppercase mb-2 text-gold-dark">{item.num}</div>
+                      <div className="text-xl font-normal mb-3 tracking-[0.02em] text-gold">{item.data.title}</div>
+                      <div className="text-base font-light leading-[1.75] text-muted-foreground">{item.data.body}</div>
                     </div>
                   ))}
                 </div>
 
                 {/* CTA */}
-                <div className="border relative overflow-hidden p-12 animate-fadeUp" style={{ borderColor: "#2a2a26", animationDelay: "0.65s" }}>
-                  <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at top right, rgba(201,169,110,0.06) 0%, transparent 60%)" }} />
+                <div className="border border-border relative overflow-hidden p-12 animate-fade-up" style={{ animationDelay: "0.65s" }}>
+                  <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_top_right,hsl(var(--gold)/0.06)_0%,transparent_60%)]" />
                   <div className="relative">
-                    <div className="font-mono text-[10px] tracking-[0.4em] uppercase mb-5" style={{ color: "#7a6340" }}>El siguiente paso</div>
-                    <h3 className="text-[28px] font-light leading-[1.3] mb-4" style={{ color: "#e8e4dc" }}>Esta lectura es solo<br />el umbral.</h3>
-                    <p className="text-base font-light leading-[1.8] max-w-[480px] mb-8" style={{ color: "#7a7870" }}>{results.ctaBody}</p>
-                    <Link to="/lectura-estructural" className="inline-flex items-center gap-3.5 px-10 py-5 font-mono text-xs tracking-[0.2em] uppercase font-normal no-underline transition-all duration-300" style={{ background: "#c9a96e", border: "1px solid #c9a96e", color: "#0a0a08" }} onMouseEnter={e => { e.currentTarget.style.background = "#e8c98a"; e.currentTarget.style.boxShadow = "0 0 40px rgba(201,169,110,0.2)"; }} onMouseLeave={e => { e.currentTarget.style.background = "#c9a96e"; e.currentTarget.style.boxShadow = "none"; }}>
+                    <div className="font-mono text-[10px] tracking-[0.4em] uppercase mb-5 text-gold-dark">El siguiente paso</div>
+                    <h3 className="text-[28px] font-light leading-[1.3] mb-4 text-foreground">Esta lectura es solo<br />el umbral.</h3>
+                    <p className="text-base font-light leading-[1.8] max-w-[480px] mb-8 text-muted-foreground">{results.ctaBody}</p>
+                    <Link to="/lectura-estructural" className="inline-flex items-center gap-3.5 px-10 py-5 font-mono text-xs tracking-[0.2em] uppercase font-normal no-underline transition-all duration-300 bg-gold border border-gold text-background hover:bg-gold-light hover:shadow-[0_0_40px_hsl(var(--gold)/0.2)]">
                       <span>Accede a tu Lectura Completa</span><span>→</span>
                     </Link>
                   </div>
@@ -547,17 +552,11 @@ const LecturaBasica = () => {
           </div>
 
           {/* Footer */}
-          <div className="py-8 border-t flex items-center justify-between" style={{ borderColor: "#2a2a26" }}>
-            <div className="font-mono text-[11px] tracking-[0.3em] uppercase" style={{ color: "#4a4840" }}>Sanark © 2025</div>
-            <div className="text-[13px] italic" style={{ color: "#4a4840" }}>Decodificación Estructural de Vida</div>
+          <div className="py-8 border-t border-border flex items-center justify-between">
+            <div className="font-mono text-[11px] tracking-[0.3em] uppercase text-muted-foreground/70">Sanark © 2025</div>
+            <div className="text-[13px] italic text-muted-foreground/70">Decodificación Estructural de Vida</div>
           </div>
         </div>
-
-        <style>{`
-          @keyframes drift { from { transform: translate(0,0); } to { transform: translate(-40px,40px); } }
-          @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-          .animate-fadeUp { animation: fadeUp 0.6s ease forwards; }
-        `}</style>
       </div>
     </>
   );

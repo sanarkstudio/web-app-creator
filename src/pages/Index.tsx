@@ -157,7 +157,7 @@ const Index = () => {
               <Link
                 to="/lectura-basica"
                 onClick={() => trackCtaClick("home_hero", "Quiero ver mi estructura")}
-                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]"
+                className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-8 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]"
               >
                 Quiero ver mi estructura
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -332,9 +332,9 @@ const Index = () => {
                 cta="Quiero saber qué estructura opera en mí"
                 location="home_identification"
                 trigger={
-                  <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.35)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.55)]">
+                  <button className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-6 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.35)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.55)]">
                     Quiero saber qué estructura opera en mí
-                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform flex-shrink-0" />
                   </button>
                 }
               />
@@ -445,7 +445,7 @@ const Index = () => {
               <Link
                 to="/proceso-sanark"
                 onClick={() => trackCtaClick("Conoce las 4 fases del proceso", "home_vision")}
-                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-8 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-all duration-500"
+                className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-6 md:px-8 py-3 md:py-4 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-all duration-500"
               >
                 Conoce las 4 fases del proceso
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -487,9 +487,9 @@ const Index = () => {
                 cta="Empezar por la verdad"
                 location="home_entry"
                 trigger={
-                  <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
+                  <button className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-8 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
                     Empezar por la verdad
-                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform flex-shrink-0" />
                   </button>
                 }
               />
@@ -530,7 +530,7 @@ const Index = () => {
             </p>
           </FadeIn>
           <FadeIn delay={0.25}>
-            <div className="inline-flex items-center justify-center gap-6 mb-10 px-10 py-6 border border-gold/20 bg-card/40 backdrop-blur-sm">
+            <div className="inline-flex items-center justify-center gap-6 mb-10 px-6 md:px-10 py-5 md:py-6 border border-gold/20 bg-card/40 backdrop-blur-sm">
               <div className="text-center">
                 <p className="font-body text-[10px] tracking-[0.3em] uppercase text-gold/80 mb-2">Lectura Estructural</p>
                 <p className="font-display text-3xl md:text-4xl font-light text-gold mb-1">180€</p>
@@ -544,9 +544,9 @@ const Index = () => {
                 cta="Dar el paso estructural"
                 location="home_final"
                 trigger={
-                  <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
+                  <button className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-8 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
                     Dar el paso estructural
-                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform flex-shrink-0" />
                   </button>
                 }
               />
