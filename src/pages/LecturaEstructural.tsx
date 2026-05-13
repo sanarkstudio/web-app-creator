@@ -227,16 +227,8 @@ const LecturaEstructural = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
         <FloatingParticles count={25} />
         <motion.div style={{ scale: revealScale }} className="container mx-auto px-6 max-w-5xl relative z-10">
-          <FadeIn>
-            <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-4">
-              Lo que revela
-            </h2>
-            <p className="font-body text-base md:text-lg text-foreground/65 text-center mb-14 tracking-wide max-w-2xl mx-auto">
-              Lo que ninguna otra lectura te ha mostrado
-            </p>
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {[
+          {(() => {
+            const reveals = [
               {
                 icon: Layers,
                 title: "Tu arquitectura heredada",
@@ -252,24 +244,62 @@ const LecturaEstructural = () => {
                 title: "Tu mapa estructural",
                 desc: "Una visión clara de cómo estos programas operan en cada dimensión de tu vida: física, emocional, mental, relacional, social y financiera.",
               },
-            ].map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <FadeIn key={i} delay={i * 0.15}>
-                  <motion.div
-                    className="relative p-6 bg-card/50 backdrop-blur-sm border border-border/30 h-full hover:border-gold/30 transition-all duration-500 overflow-hidden group"
-                    whileHover={{ y: -4 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                    <Icon size={18} className="text-gold mb-3 relative z-10" />
-                    <h3 className="font-display text-lg font-medium mb-3 relative z-10">{item.title}</h3>
-                    <p className="font-body text-base text-foreground/70 leading-relaxed relative z-10">{item.desc}</p>
-                  </motion.div>
+            ];
+            return (
+              <>
+                <FadeIn>
+                  <h2 className="font-display text-2xl md:text-5xl font-light text-center mb-3 md:mb-4">
+                    Lo que revela
+                  </h2>
+                  <p className="font-body text-sm md:text-lg text-foreground/65 text-center mb-10 md:mb-14 tracking-wide max-w-2xl mx-auto">
+                    Lo que ninguna otra lectura te ha mostrado
+                  </p>
                 </FadeIn>
-              );
-            })}
-          </div>
+
+                {/* Desktop */}
+                <div className="hidden md:grid md:grid-cols-3 gap-5">
+                  {reveals.map((item, i) => {
+                    const Icon = item.icon;
+                    return (
+                      <FadeIn key={i} delay={i * 0.15}>
+                        <motion.div
+                          className="relative p-6 bg-card/50 backdrop-blur-sm border border-border/30 h-full hover:border-gold/30 transition-all duration-500 overflow-hidden group"
+                          whileHover={{ y: -4 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                          <Icon size={18} className="text-gold mb-3 relative z-10" />
+                          <h3 className="font-display text-lg font-medium mb-3 relative z-10">{item.title}</h3>
+                          <p className="font-body text-base text-foreground/70 leading-relaxed relative z-10">{item.desc}</p>
+                        </motion.div>
+                      </FadeIn>
+                    );
+                  })}
+                </div>
+
+                {/* Mobile carousel */}
+                <div className="md:hidden -mx-6">
+                  <Carousel opts={{ align: "start" }} className="w-full">
+                    <CarouselContent className="px-6">
+                      {reveals.map((item, i) => {
+                        const Icon = item.icon;
+                        return (
+                          <CarouselItem key={i} className="basis-[85%] pl-4">
+                            <div className="p-5 bg-card/60 backdrop-blur-sm border border-border/40 h-full min-h-[200px]">
+                              <Icon size={20} className="text-gold mb-3" />
+                              <h3 className="font-display text-base font-medium mb-2">{item.title}</h3>
+                              <p className="font-body text-sm text-foreground/70 leading-relaxed">{item.desc}</p>
+                            </div>
+                          </CarouselItem>
+                        );
+                      })}
+                    </CarouselContent>
+                  </Carousel>
+                  <p className="mt-4 text-center font-body text-[10px] tracking-[0.25em] uppercase text-gold/50">Desliza →</p>
+                </div>
+              </>
+            );
+          })()}
         </motion.div>
       </section>
 
