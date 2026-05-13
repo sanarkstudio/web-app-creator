@@ -13,6 +13,7 @@ import VideoExplainer from "@/components/shared/VideoExplainer";
 import FaqSection from "@/components/shared/FaqSection";
 import { ArrowRight, Flame, Heart, DollarSign, Brain, Users, Zap, ShieldOff, Eye, Target, Sparkles, Activity, HeartHandshake, Gem, TrendingUp } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import MobileExpandable from "@/components/shared/MobileExpandable";
 import { trackCtaClick } from "@/lib/analytics";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
