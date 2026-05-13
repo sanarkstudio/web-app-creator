@@ -381,13 +381,13 @@ const Index = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,hsl(38_50%_48%/0.04)_0%,transparent_50%)]" />
         <div className="container mx-auto px-6 max-w-5xl relative z-10">
           <FadeIn>
-            <p className="font-body text-xs tracking-[0.4em] uppercase text-gold text-center mb-14">
+            <p className="font-body text-[10px] md:text-xs tracking-[0.3em] md:tracking-[0.4em] uppercase text-gold text-center mb-8 md:mb-14">
               El arquitecto detrás del proceso
             </p>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
             <FadeIn delay={0.15}>
-              <div className="relative">
+              <div className="relative max-w-xs md:max-w-none mx-auto">
                 <div className="aspect-[3/4] overflow-hidden border border-border/40 bg-surface-elevated">
                   <img
                     src={juanCarlosImg}
@@ -403,23 +403,26 @@ const Index = () => {
             <motion.div style={{ x: bioTextX, opacity: bioTextOpacity }}>
               <FadeIn delay={0.3}>
                 <div>
-                  <h2 className="font-display text-3xl md:text-4xl font-light mb-2">Juan Carlos</h2>
-                  <p className="font-body text-sm text-gold tracking-wider mb-8">Sánchez Velázquez</p>
-                  <div className="space-y-5 font-body text-base text-foreground/60 leading-relaxed">
-                    <p>
-                      14 años trabajando con los patrones inconscientes que dirigen a las personas en su día a día.{" "}
-                      <span className="text-foreground font-medium">He acompañado a cientos de personas,
-                      parejas, familias, grupos y empresas</span> a identificar los programas heredados
-                      que operan por debajo de su consciencia — y a crear estructuras nuevas desde las
-                      que vivir, relacionarse y producir.
-                    </p>
-                    <p>
-                      No ofrezco motivación ni acompañamiento emocional. Trabajo directo sobre la arquitectura invisible que dirige tu vida. Mi trabajo consiste en enseñarte a detectar lo que opera por debajo de tu consciencia, para desmantelar los programas instaurados y así crear nuevos circuitos de respuesta ante las situaciones más diversas de tu vida.
-                    </p>
-                    <p className="text-foreground/40 text-sm italic border-l-2 border-gold/30 pl-4">
-                      "No voy a decirte lo que quieres escuchar. Voy a mostrarte lo que necesitas ver."
-                    </p>
-                  </div>
+                  <h2 className="font-display text-2xl md:text-4xl font-light mb-2">Juan Carlos</h2>
+                  <p className="font-body text-xs md:text-sm text-gold tracking-wider mb-6 md:mb-8">Sánchez Velázquez</p>
+                  <MobileExpandable
+                    preview={
+                      <p className="font-body text-sm md:text-base text-foreground/65 leading-relaxed">
+                        14 años trabajando con los patrones inconscientes que dirigen a las personas.{" "}
+                        <span className="text-foreground font-medium">He acompañado a cientos de personas, parejas, familias y empresas</span> a identificar los programas heredados que operan por debajo de su consciencia.
+                      </p>
+                    }
+                    extra={
+                      <div className="space-y-4 md:space-y-5 font-body text-sm md:text-base text-foreground/60 leading-relaxed md:mt-5">
+                        <p>
+                          No ofrezco motivación ni acompañamiento emocional. Trabajo directo sobre la arquitectura invisible que dirige tu vida. Mi trabajo consiste en enseñarte a detectar lo que opera por debajo de tu consciencia, para desmantelar los programas instaurados y crear nuevos circuitos de respuesta.
+                        </p>
+                        <p className="text-foreground/45 text-xs md:text-sm italic border-l-2 border-gold/30 pl-4">
+                          "No voy a decirte lo que quieres escuchar. Voy a mostrarte lo que necesitas ver."
+                        </p>
+                      </div>
+                    }
+                  />
                 </div>
               </FadeIn>
             </motion.div>
