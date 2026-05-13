@@ -377,7 +377,7 @@ const Index = () => {
       </section>
 
       {/* Quien dirige — Juan Carlos (trust before possibility) */}
-      <section ref={bioRef} className="py-32 md:py-48 relative overflow-hidden">
+      <section ref={bioRef} className="py-20 md:py-48 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,hsl(38_50%_48%/0.04)_0%,transparent_50%)]" />
         <div className="container mx-auto px-6 max-w-5xl relative z-10">
           <FadeIn>
@@ -428,7 +428,7 @@ const Index = () => {
       </section>
 
       {/* Vision — What's possible */}
-      <section className="py-32 md:py-48 relative overflow-hidden">
+      <section className="py-20 md:py-48 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
         <div className="container mx-auto px-6 max-w-4xl relative z-10">
           <FadeIn>
@@ -485,7 +485,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-32 md:py-48 relative overflow-hidden">
+      <section className="py-20 md:py-48 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.08)_0%,transparent_60%)]" />
         <FloatingParticles count={20} />
@@ -534,7 +534,7 @@ const Index = () => {
       <FaqSection />
 
       {/* Final CTA */}
-      <section ref={finalRef} className="py-32 md:py-48 relative overflow-hidden">
+      <section ref={finalRef} className="py-20 md:py-48 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
         <motion.div
           className="absolute inset-0"
