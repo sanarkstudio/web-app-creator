@@ -196,7 +196,7 @@ const LecturaEstructural = () => {
       </StickyRevealSection>
 
       {/* Word-by-word scroll reveal */}
-      <section className="py-28 md:py-36 relative">
+      <section className="py-16 md:py-36 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(38_50%_48%/0.03)_0%,transparent_50%)]" />
         <div className="container mx-auto px-6 max-w-3xl relative z-10">
           <ScrollTextReveal
@@ -215,7 +215,7 @@ const LecturaEstructural = () => {
       </section>
 
       {/* What it reveals — compact cards like home style */}
-      <section ref={revealRef} className="py-24 md:py-32 relative overflow-hidden">
+      <section ref={revealRef} className="py-14 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
         <FloatingParticles count={25} />
@@ -267,7 +267,7 @@ const LecturaEstructural = () => {
       </section>
 
       {/* Horizontal reveal — disruptive animation */}
-      <section className="py-24 md:py-32 relative overflow-hidden">
+      <section className="py-14 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(38_50%_48%/0.05)_0%,transparent_60%)]" />
         <div className="container mx-auto px-6 max-w-4xl relative z-10">
           <FadeIn>
@@ -316,7 +316,7 @@ const LecturaEstructural = () => {
       </section>
 
       {/* ¿Para quién es? */}
-      <section className="py-24 md:py-32">
+      <section className="py-14 md:py-32">
         <div className="container mx-auto px-6 max-w-3xl">
           <FadeIn>
             <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-12">
@@ -340,7 +340,7 @@ const LecturaEstructural = () => {
       </section>
 
       {/* Price box */}
-      <section ref={ctaRef} id="reservar" className="py-24 md:py-32 relative overflow-hidden scroll-mt-24">
+      <section ref={ctaRef} id="reservar" className="py-14 md:py-32 relative overflow-hidden scroll-mt-24">
         <motion.div
           className="absolute inset-0"
           style={{

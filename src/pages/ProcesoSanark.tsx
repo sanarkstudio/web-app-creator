@@ -218,7 +218,7 @@ const ProcesoSanark = () => {
       </StickyRevealSection>
 
       {/* Apple-style word-by-word scroll reveal */}
-      <section className="py-28 md:py-36 relative">
+      <section className="py-16 md:py-36 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(38_50%_48%/0.03)_0%,transparent_50%)]" />
         <div className="container mx-auto px-6 max-w-3xl relative z-10">
           <ScrollTextReveal
@@ -230,7 +230,7 @@ const ProcesoSanark = () => {
       </section>
 
       {/* Phases — golden flow timeline */}
-      <section ref={phasesRef} className="py-28 md:py-36 relative overflow-hidden">
+      <section ref={phasesRef} className="py-16 md:py-36 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
         <FloatingParticles count={25} />
@@ -282,7 +282,7 @@ const ProcesoSanark = () => {
       </section>
 
       {/* Vision — What becomes possible */}
-      <section className="py-28 md:py-36 relative">
+      <section className="py-16 md:py-36 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.04)_0%,transparent_60%)]" />
         <div className="container mx-auto px-6 max-w-4xl relative z-10">
           <FadeIn>
@@ -323,7 +323,7 @@ const ProcesoSanark = () => {
       </section>
 
       {/* Price box */}
-      <section className="py-28 md:py-36 relative overflow-hidden">
+      <section className="py-16 md:py-36 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
         <FloatingParticles count={12} />
         <div className="container mx-auto px-6 max-w-3xl relative z-10">
@@ -399,7 +399,7 @@ const ProcesoSanark = () => {
       </section>
 
       {/* Prerequisite */}
-      <section className="py-28 md:py-36">
+      <section className="py-16 md:py-36">
         <div className="container mx-auto px-6 max-w-3xl text-center">
           <FadeIn>
             <h2 className="font-display text-3xl md:text-5xl font-light mb-8">
@@ -427,7 +427,7 @@ const ProcesoSanark = () => {
       </section>
 
       {/* CTA — final */}
-      <section ref={ctaRef} className="py-28 md:py-36 relative overflow-hidden">
+      <section ref={ctaRef} className="py-16 md:py-36 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
         <motion.div
           className="absolute inset-0"
