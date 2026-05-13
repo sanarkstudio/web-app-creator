@@ -177,25 +177,28 @@ const LecturaEstructural = () => {
       <StickyRevealSection scrollHeight={1.8}>
         <div className="container mx-auto px-6 max-w-3xl text-center">
           <SectionDivider />
-          <h2 className="font-display text-4xl md:text-6xl font-light mt-12 mb-10">
+          <h2 className="font-display text-3xl md:text-6xl font-light mt-8 md:mt-12 mb-6 md:mb-10 leading-tight">
             <span className="gradient-text-gold">¿Qué es una Lectura Estructural?</span>
           </h2>
-          <p className="font-body text-xl md:text-2xl text-foreground/75 max-w-2xl mx-auto leading-relaxed mb-6">
-            Es una lectura que va más allá de los síntomas o las emociones visibles.
-            Accede a la capa más profunda de tu funcionamiento — esa que determina
-            por qué repites lo que repites, por qué te agotas siempre de la misma
-            forma, por qué tus relaciones siguen un guión invisible y por qué el
-            dinero se comporta siempre igual en tu vida.
-          </p>
-          <p className="font-body text-xl md:text-2xl text-foreground/75 max-w-2xl mx-auto leading-relaxed mb-6">
-            No es terapia, no es coaching, no es interpretación. Es una decodificación
-            precisa de los programas que tu sistema familiar inscribió en ti — programas
-            que hoy operan en automático y que condicionan cada decisión, cada vínculo
-            y cada resultado sin que seas consciente de ello.
-          </p>
-          <p className="font-body text-lg text-foreground/55 max-w-xl mx-auto leading-relaxed italic">
-            Trabajo con lo que realmente está activo — no con lo que crees que te pasa.
-          </p>
+          <MobileExpandable
+            preview={
+              <p className="font-body text-base md:text-2xl text-foreground/80 max-w-2xl mx-auto leading-relaxed">
+                Una lectura que va más allá de los síntomas. Accede a la capa más profunda — esa que determina por qué repites lo que repites.
+              </p>
+            }
+            extra={
+              <div className="space-y-5 md:space-y-6 mt-5 md:mt-6">
+                <p className="font-body text-base md:text-2xl text-foreground/75 max-w-2xl mx-auto leading-relaxed">
+                  No es terapia, no es coaching, no es interpretación. Es una decodificación
+                  precisa de los programas que tu sistema familiar inscribió en ti — programas
+                  que hoy operan en automático y condicionan cada decisión, cada vínculo y cada resultado.
+                </p>
+                <p className="font-body text-sm md:text-lg text-foreground/55 max-w-xl mx-auto leading-relaxed italic">
+                  Trabajo con lo que realmente está activo — no con lo que crees que te pasa.
+                </p>
+              </div>
+            }
+          />
         </div>
       </StickyRevealSection>
 
@@ -205,13 +208,13 @@ const LecturaEstructural = () => {
         <div className="container mx-auto px-6 max-w-3xl relative z-10">
           <ScrollTextReveal
             text="Los programas heredados actúan en múltiples dimensiones — física, emocional, mental, conductual, relacional y social — y determinan tus resultados de forma silenciosa pero constante."
-            className="font-display text-2xl md:text-4xl font-light text-center text-foreground leading-snug"
+            className="font-display text-xl md:text-4xl font-light text-center text-foreground leading-snug"
             as="h2"
           />
-          <div className="mt-16">
+          <div className="mt-10 md:mt-16">
             <ScrollTextReveal
               text="La Lectura Estructural los hace visibles. Te muestra qué estructura estás habitando y por qué ciertos patrones se repiten sin importar lo que hagas."
-              className="font-body text-xl md:text-2xl text-foreground/75 text-center leading-relaxed"
+              className="font-body text-lg md:text-2xl text-foreground/75 text-center leading-relaxed"
               as="p"
             />
           </div>
