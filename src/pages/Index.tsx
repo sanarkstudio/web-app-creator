@@ -128,19 +128,19 @@ const Index = () => {
           className="relative z-10 container mx-auto px-6 text-center max-w-5xl"
         >
           <FadeIn delay={0}>
-            <div className="flex justify-center mb-10">
-              <SanarkSymbol size={140} className="opacity-50" />
+            <div className="flex justify-center mb-6 md:mb-10">
+              <SanarkSymbol size={140} className="opacity-50 w-20 h-20 md:w-[140px] md:h-[140px]" />
             </div>
           </FadeIn>
 
           <FadeIn delay={0.4}>
-            <p className="font-body text-xs tracking-[0.5em] uppercase text-gold mb-8">
+            <p className="font-body text-[10px] md:text-xs tracking-[0.35em] md:tracking-[0.5em] uppercase text-gold mb-5 md:mb-8">
               Decodificación Estructural de Vida
             </p>
           </FadeIn>
 
           <FadeIn delay={0.6}>
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-light leading-[1.05] mb-6 text-shadow-gold">
+            <h1 className="font-display text-3xl md:text-6xl lg:text-7xl font-light leading-[1.1] md:leading-[1.05] mb-5 md:mb-6 text-shadow-gold">
               Tu vida no se repite por azar.
               <br />
               <span className="gradient-text-gold font-medium">Se repite por estructura.</span>
@@ -148,8 +148,9 @@ const Index = () => {
           </FadeIn>
 
           <FadeIn delay={0.8}>
-            <p className="font-body text-base md:text-lg text-foreground/70 max-w-2xl mx-auto mb-10 leading-relaxed">
-              No es falta de voluntad ni de información. Es una arquitectura heredada operando bajo tu consciencia. Hoy puedes verla — y comenzar a construir una nueva.
+            <p className="font-body text-sm md:text-lg text-foreground/70 max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed">
+              <span className="md:hidden">No es falta de voluntad. Es una arquitectura heredada. Hoy puedes verla.</span>
+              <span className="hidden md:inline">No es falta de voluntad ni de información. Es una arquitectura heredada operando bajo tu consciencia. Hoy puedes verla — y comenzar a construir una nueva.</span>
             </p>
           </FadeIn>
 
