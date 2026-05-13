@@ -485,6 +485,8 @@ const ProcesoSanark = () => {
           </FadeIn>
         </div>
       </section>
+      <div className="md:hidden h-20" aria-hidden />
+      <MobileStickyCTA cta="Reservar Proceso · 2.000€" location="proceso_sanark_sticky" meta="12 sesiones · 1:1 · Plazas limitadas" />
     </Layout>
   );
 };
