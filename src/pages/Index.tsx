@@ -219,38 +219,38 @@ const Index = () => {
       </section>
 
       {/* Solution — the path */}
-      <section ref={solutionRef} className="py-32 md:py-48 relative overflow-hidden">
+      <section ref={solutionRef} className="py-20 md:py-48 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
         <FloatingParticles count={20} />
         <motion.div style={{ scale: solutionScale }} className="container mx-auto px-6 max-w-5xl relative z-10">
           <FadeIn>
-            <div className="flex justify-center mb-6">
+            <div className="flex justify-center mb-5 md:mb-6">
               <Eye size={28} className="text-gold/60" />
             </div>
-            <p className="font-body text-xs tracking-[0.4em] uppercase text-gold text-center mb-6">
+            <p className="font-body text-[10px] md:text-xs tracking-[0.3em] md:tracking-[0.4em] uppercase text-gold text-center mb-5 md:mb-6">
               Lo que hago
             </p>
-            <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-16 leading-tight">
+            <h2 className="font-display text-2xl md:text-5xl font-light text-center mb-10 md:mb-16 leading-tight">
               Revelar lo que se esconde
             </h2>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
             <FadeIn delay={0.15}>
               <Link
                 to="/lectura-estructural"
                 onClick={() => trackCtaClick("Entrar a la Lectura", "home_solution_card")}
-                className="group block p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 hover:glow-gold h-full"
+                className="group block p-6 md:p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 hover:glow-gold h-full"
               >
-                <Flame size={22} className="text-gold mb-4" />
-                <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4">Paso 1</p>
-                <h3 className="font-display text-2xl md:text-3xl font-light mb-4">Lectura Estructural</h3>
-                <p className="font-body text-sm text-foreground/50 leading-relaxed mb-6">
-                  Una lectura profunda que revela la estructura desde la que operas: qué programas
-                  heredados dirigen tu vida física, emocional, relacional y financiera.
+                <Flame size={22} className="text-gold mb-3 md:mb-4" />
+                <p className="font-body text-[10px] md:text-xs tracking-[0.3em] uppercase text-gold mb-3 md:mb-4">Paso 1</p>
+                <h3 className="font-display text-xl md:text-3xl font-light mb-3 md:mb-4">Lectura Estructural</h3>
+                <p className="font-body text-sm text-foreground/55 leading-relaxed mb-5 md:mb-6">
+                  <span className="md:hidden">Lectura profunda de la estructura desde la que operas hoy.</span>
+                  <span className="hidden md:inline">Una lectura profunda que revela la estructura desde la que operas: qué programas heredados dirigen tu vida física, emocional, relacional y financiera.</span>
                 </p>
-                <span className="inline-flex items-center gap-2 text-gold text-sm font-body tracking-wider uppercase group-hover:gap-4 transition-all duration-300">
+                <span className="inline-flex items-center gap-2 text-gold text-xs md:text-sm font-body tracking-wider uppercase group-hover:gap-4 transition-all duration-300">
                   Entrar a la Lectura <ArrowRight size={14} />
                 </span>
               </Link>
@@ -259,16 +259,16 @@ const Index = () => {
               <Link
                 to="/proceso-sanark"
                 onClick={() => trackCtaClick("Conocer el proceso", "home_solution_card")}
-                className="group block p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 hover:glow-gold h-full"
+                className="group block p-6 md:p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 hover:glow-gold h-full"
               >
-                <Zap size={22} className="text-gold mb-4" />
-                <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4">Paso 2</p>
-                <h3 className="font-display text-2xl md:text-3xl font-light mb-4">Proceso Sanark</h3>
-                <p className="font-body text-sm text-foreground/50 leading-relaxed mb-6">
-                  12 sesiones individuales para detectar, diseñar, crear y habitar una nueva estructura.
-                  No se trata de mejorar la versión actual. Se trata de operar desde otro lugar.
+                <Zap size={22} className="text-gold mb-3 md:mb-4" />
+                <p className="font-body text-[10px] md:text-xs tracking-[0.3em] uppercase text-gold mb-3 md:mb-4">Paso 2</p>
+                <h3 className="font-display text-xl md:text-3xl font-light mb-3 md:mb-4">Proceso Sanark</h3>
+                <p className="font-body text-sm text-foreground/55 leading-relaxed mb-5 md:mb-6">
+                  <span className="md:hidden">12 sesiones para crear y habitar una nueva estructura.</span>
+                  <span className="hidden md:inline">12 sesiones individuales para detectar, diseñar, crear y habitar una nueva estructura. No se trata de mejorar la versión actual. Se trata de operar desde otro lugar.</span>
                 </p>
-                <span className="inline-flex items-center gap-2 text-gold text-sm font-body tracking-wider uppercase group-hover:gap-4 transition-all duration-300">
+                <span className="inline-flex items-center gap-2 text-gold text-xs md:text-sm font-body tracking-wider uppercase group-hover:gap-4 transition-all duration-300">
                   Conocer el proceso <ArrowRight size={14} />
                 </span>
               </Link>
