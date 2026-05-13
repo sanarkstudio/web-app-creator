@@ -9,6 +9,8 @@ import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
 import { ArrowRight, Search, Compass, Hammer, Home, Activity, HeartHandshake, Zap, DollarSign, Brain, Gem, Sparkles, Mail, CalendarCheck, MessageSquare, Lock } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import MobileStickyCTA from "@/components/shared/MobileStickyCTA";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
 import { trackCtaClick } from "@/lib/analytics";
