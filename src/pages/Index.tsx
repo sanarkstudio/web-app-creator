@@ -550,25 +550,25 @@ const Index = () => {
         <FloatingParticles count={25} />
         <div className="container mx-auto px-6 max-w-3xl text-center relative z-10">
           <FadeIn>
-            <SanarkSymbol size={80} className="mx-auto mb-8 opacity-40" />
+            <SanarkSymbol size={80} className="mx-auto mb-6 md:mb-8 opacity-40 w-14 h-14 md:w-20 md:h-20" />
           </FadeIn>
           <FadeIn delay={0.15}>
-            <h2 className="font-display text-3xl md:text-5xl font-light mb-8 leading-tight">
+            <h2 className="font-display text-2xl md:text-5xl font-light mb-6 md:mb-8 leading-tight">
               El punto de partida es siempre el mismo:
               <br />
               <span className="text-gold">ver lo que aún no has visto.</span>
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="font-body text-lg md:text-xl text-foreground/70 mb-10 max-w-xl mx-auto leading-relaxed">
+            <p className="font-body text-sm md:text-xl text-foreground/70 mb-8 md:mb-10 max-w-xl mx-auto leading-relaxed">
               Reserva tu Lectura Estructural y descubre qué arquitectura opera por debajo de tus decisiones.
             </p>
           </FadeIn>
           <FadeIn delay={0.25}>
-            <div className="inline-flex items-center justify-center gap-6 mb-10 px-10 py-6 border border-gold/20 bg-card/40 backdrop-blur-sm">
+            <div className="inline-flex items-center justify-center gap-6 mb-8 md:mb-10 px-8 md:px-10 py-5 md:py-6 border border-gold/20 bg-card/40 backdrop-blur-sm">
               <div className="text-center">
                 <p className="font-body text-[10px] tracking-[0.3em] uppercase text-gold/80 mb-2">Lectura Estructural</p>
-                <p className="font-display text-3xl md:text-4xl font-light text-gold mb-1">180€</p>
+                <p className="font-display text-2xl md:text-4xl font-light text-gold mb-1">180€</p>
                 <p className="font-body text-xs text-foreground/50">90 minutos · 1:1</p>
               </div>
             </div>
@@ -579,14 +579,14 @@ const Index = () => {
                 cta="Dar el paso estructural"
                 location="home_final"
                 trigger={
-                  <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
+                  <button className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-8 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
                     Dar el paso estructural
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 }
               />
             </div>
-            <p className="mt-5 font-body text-sm text-foreground/50">
+            <p className="mt-5 font-body text-xs md:text-sm text-foreground/50">
               Te respondo personalmente en 24h · Confidencialidad absoluta
             </p>
           </FadeIn>
