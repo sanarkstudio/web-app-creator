@@ -497,39 +497,38 @@ const Index = () => {
         <FloatingParticles count={20} />
         <div className="container mx-auto px-6 max-w-3xl relative z-10">
           <FadeIn>
-            <Flame size={24} className="text-gold/60 mx-auto mb-6" />
-            <p className="font-body text-xs tracking-[0.5em] uppercase text-gold text-center mb-6">
+            <Flame size={24} className="text-gold/60 mx-auto mb-5 md:mb-6" />
+            <p className="font-body text-[10px] md:text-xs tracking-[0.35em] md:tracking-[0.5em] uppercase text-gold text-center mb-5 md:mb-6">
               Entrada
             </p>
-            <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-8 leading-tight">
+            <h2 className="font-display text-2xl md:text-5xl font-light text-center mb-6 md:mb-8 leading-tight">
               Todo comienza con una sola sesión.
             </h2>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <p className="font-body text-lg md:text-xl text-foreground/70 text-center max-w-2xl mx-auto mb-12 leading-relaxed">
-              90 minutos para ver con claridad desde dónde estás operando.
-              No es terapia. No es coaching. No es nada que hayas probado antes.
-              Es la puerta de entrada a todo mi sistema de decodificación estructural.
+            <p className="font-body text-sm md:text-xl text-foreground/70 text-center max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
+              <span className="md:hidden">90 minutos para ver desde dónde operas. La puerta de entrada al sistema completo.</span>
+              <span className="hidden md:inline">90 minutos para ver con claridad desde dónde estás operando. No es terapia. No es coaching. No es nada que hayas probado antes. Es la puerta de entrada a todo mi sistema de decodificación estructural.</span>
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
-            <div className="p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 text-center hover:glow-gold">
-              <h3 className="font-display text-2xl md:text-3xl font-light mb-4">Lectura Estructural</h3>
-              <p className="font-body text-base text-foreground/65 leading-relaxed mb-8 max-w-xl mx-auto">
-                Una sesión única donde leo la arquitectura activa desde la que operas hoy — la estructura
-                que heredaste y que sigue dirigiendo tu vida aunque hayas trabajado en ti durante años.
+            <div className="p-6 md:p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 text-center hover:glow-gold">
+              <h3 className="font-display text-xl md:text-3xl font-light mb-3 md:mb-4">Lectura Estructural</h3>
+              <p className="font-body text-sm md:text-base text-foreground/65 leading-relaxed mb-6 md:mb-8 max-w-xl mx-auto">
+                <span className="md:hidden">Una sesión única donde leo la arquitectura activa desde la que operas hoy.</span>
+                <span className="hidden md:inline">Una sesión única donde leo la arquitectura activa desde la que operas hoy — la estructura que heredaste y que sigue dirigiendo tu vida aunque hayas trabajado en ti durante años.</span>
               </p>
               <BookingFormDialog
                 cta="Empezar por la verdad"
                 location="home_entry"
                 trigger={
-                  <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
+                  <button className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-8 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
                     Empezar por la verdad
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 }
               />
-              <p className="mt-4 font-body text-sm text-foreground/50">Plazas limitadas cada mes</p>
+              <p className="mt-4 font-body text-xs md:text-sm text-foreground/50">Plazas limitadas cada mes</p>
             </div>
           </FadeIn>
         </div>
