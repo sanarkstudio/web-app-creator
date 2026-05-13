@@ -308,16 +308,18 @@ const LecturaEstructural = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(38_50%_48%/0.05)_0%,transparent_60%)]" />
         <div className="container mx-auto px-6 max-w-4xl relative z-10">
           <FadeIn>
-            <Sparkles size={20} className="text-gold mx-auto mb-5" />
-            <h2 className="font-display text-3xl md:text-4xl font-light text-center mb-5">
-              Después de tu Lectura, sales con un mapa que antes no tenías
+            <Sparkles size={20} className="text-gold mx-auto mb-4 md:mb-5" />
+            <h2 className="font-display text-2xl md:text-4xl font-light text-center mb-4 md:mb-5 leading-tight">
+              <span className="md:hidden">Sales con un mapa que antes no tenías</span>
+              <span className="hidden md:inline">Después de tu Lectura, sales con un mapa que antes no tenías</span>
             </h2>
-            <p className="font-body text-lg md:text-xl text-foreground/70 text-center mb-12 max-w-2xl mx-auto leading-relaxed">
-              No te llevas teoría ni motivación. Te llevas evidencia precisa de tu propia arquitectura — qué la sostiene, dónde se fuga y por qué tus intentos previos no la han movido.
+            <p className="font-body text-sm md:text-xl text-foreground/70 text-center mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed">
+              <span className="md:hidden">Te llevas evidencia precisa de tu propia arquitectura.</span>
+              <span className="hidden md:inline">No te llevas teoría ni motivación. Te llevas evidencia precisa de tu propia arquitectura — qué la sostiene, dónde se fuga y por qué tus intentos previos no la han movido.</span>
             </p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-5">
             {[
               { icon: Activity, label: "Tu cuerpo", text: "Identificas el patrón energético que se repite y dónde tu sistema colapsa de forma cíclica." },
               { icon: HeartHandshake, label: "Tus vínculos", text: "Ves el guión invisible que se activa en tus relaciones — y por qué siempre acaba igual." },
@@ -328,16 +330,16 @@ const LecturaEstructural = () => {
               return (
                 <FadeIn key={i} delay={i * 0.12}>
                   <motion.div
-                    className="relative p-6 bg-card/50 backdrop-blur-sm border border-border/30 h-full hover:border-gold/30 transition-all duration-500 overflow-hidden group"
+                    className="relative p-4 md:p-6 bg-card/50 backdrop-blur-sm border border-border/30 h-full hover:border-gold/30 transition-all duration-500 overflow-hidden group"
                     whileHover={{ y: -4 }}
                     transition={{ duration: 0.3 }}
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                    <div className="flex items-center gap-3 mb-3 relative z-10">
-                      <Icon size={18} className="text-gold" />
-                      <p className="font-display text-xs tracking-[0.2em] uppercase text-gold/80">{item.label}</p>
+                    <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3 relative z-10">
+                      <Icon size={16} className="text-gold" />
+                      <p className="font-display text-[10px] md:text-xs tracking-[0.2em] uppercase text-gold/80">{item.label}</p>
                     </div>
-                    <p className="font-body text-base text-foreground/70 leading-relaxed relative z-10">{item.text}</p>
+                    <p className="font-body text-xs md:text-base text-foreground/70 leading-relaxed relative z-10">{item.text}</p>
                   </motion.div>
                 </FadeIn>
               );
@@ -345,7 +347,7 @@ const LecturaEstructural = () => {
           </div>
 
           <FadeIn delay={0.4}>
-            <p className="font-body text-base md:text-lg text-foreground/65 mt-10 text-center max-w-2xl mx-auto leading-relaxed">
+            <p className="font-body text-sm md:text-lg text-foreground/65 mt-8 md:mt-10 text-center max-w-2xl mx-auto leading-relaxed">
               Verlo es el primer corte. Transformarlo es el trabajo del <Link to="/proceso-sanark" className="text-gold hover:text-gold-light transition-colors">Proceso Sanark de 4 fases</Link>.
             </p>
           </FadeIn>
