@@ -278,28 +278,29 @@ const Index = () => {
       </section>
 
       {/* Identification — with icons */}
-      <section ref={identRef} className="py-32 md:py-48 relative">
+      <section ref={identRef} className="py-20 md:py-48 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.03)_0%,transparent_60%)]" />
         <motion.div
           style={{ scale: identScale }}
           className="container mx-auto px-6 max-w-4xl relative z-10"
         >
           <FadeIn>
-            <h2 className="font-display text-3xl md:text-5xl font-light mb-6 leading-tight text-center">
+            <h2 className="font-display text-2xl md:text-5xl font-light mb-4 md:mb-6 leading-tight text-center">
               El patrón que se repite
             </h2>
-            <p className="font-body text-base md:text-lg text-foreground/60 text-center mb-16 tracking-wide max-w-2xl mx-auto">
+            <p className="font-body text-sm md:text-lg text-foreground/60 text-center mb-10 md:mb-16 tracking-wide max-w-2xl mx-auto">
               Diferentes áreas de tu vida, una misma estructura operando por debajo.
             </p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Desktop: grid 2 columnas */}
+          <div className="hidden md:grid md:grid-cols-2 gap-6">
             {identItems.map((item, i) => {
               const Icon = item.icon;
               return (
                 <FadeIn key={i} delay={i * 0.1}>
                   <motion.div
-                    className="flex gap-5 p-6 bg-card/50 backdrop-blur-sm border border-border/30 hover:border-gold/30 transition-all duration-500 cursor-default group"
+                    className="flex gap-5 p-6 bg-card/50 backdrop-blur-sm border border-border/30 hover:border-gold/30 transition-all duration-500 cursor-default group h-full"
                     whileHover={{ x: 6, borderColor: "hsl(38 50% 48% / 0.4)" }}
                     transition={{ duration: 0.3 }}
                   >
@@ -315,13 +316,39 @@ const Index = () => {
             })}
           </div>
 
+          {/* Mobile: carousel swipeable */}
+          <div className="md:hidden -mx-6">
+            <Carousel opts={{ align: "start", loop: false }} className="w-full">
+              <CarouselContent className="px-6">
+                {identItems.map((item, i) => {
+                  const Icon = item.icon;
+                  return (
+                    <CarouselItem key={i} className="basis-[85%] pl-4">
+                      <div className="flex gap-4 p-5 bg-card/60 backdrop-blur-sm border border-border/40 h-full min-h-[180px]">
+                        <div className="flex-shrink-0 mt-1">
+                          <Icon size={20} className="text-gold/80" />
+                        </div>
+                        <p className="font-body text-sm text-foreground/80 leading-relaxed">
+                          {item.text}
+                        </p>
+                      </div>
+                    </CarouselItem>
+                  );
+                })}
+              </CarouselContent>
+            </Carousel>
+            <p className="mt-4 text-center font-body text-[10px] tracking-[0.25em] uppercase text-gold/50">
+              Desliza →
+            </p>
+          </div>
+
           <FadeIn delay={0.7}>
-            <div className="mt-16 p-8 border border-gold/20 bg-card/30 backdrop-blur-sm text-center">
-              <SanarkSymbol size={36} className="mx-auto mb-5 opacity-40" />
-              <p className="font-display text-xl md:text-2xl text-foreground/90 font-light leading-relaxed mb-2">
+            <div className="mt-12 md:mt-16 p-6 md:p-8 border border-gold/20 bg-card/30 backdrop-blur-sm text-center">
+              <SanarkSymbol size={36} className="mx-auto mb-4 md:mb-5 opacity-40" />
+              <p className="font-display text-base md:text-2xl text-foreground/90 font-light leading-relaxed mb-2">
                 Si estás listo para acceder a un nivel más avanzado —
               </p>
-              <p className="font-display text-xl md:text-2xl font-light leading-relaxed">
+              <p className="font-display text-base md:text-2xl font-light leading-relaxed">
                 el de crear desde una estructura nueva —{" "}
                 <span className="text-gold font-medium">este es tu punto de entrada.</span>
               </p>
@@ -329,18 +356,19 @@ const Index = () => {
           </FadeIn>
 
           <FadeIn delay={0.85}>
-            <div className="mt-10 text-center">
+            <div className="mt-8 md:mt-10 text-center">
               <BookingFormDialog
                 cta="Quiero saber qué estructura opera en mí"
                 location="home_identification"
                 trigger={
-                  <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.35)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.55)]">
-                    Quiero saber qué estructura opera en mí
+                  <button className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-6 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.35)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.55)]">
+                    <span className="md:hidden">Ver mi estructura</span>
+                    <span className="hidden md:inline">Quiero saber qué estructura opera en mí</span>
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 }
               />
-              <p className="mt-4 font-body text-sm text-foreground/50">
+              <p className="mt-4 font-body text-xs md:text-sm text-foreground/50">
                 90 minutos · Sesión 1:1 · Acceso inmediato a tu arquitectura
               </p>
             </div>
