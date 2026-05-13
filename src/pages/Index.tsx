@@ -194,25 +194,25 @@ const Index = () => {
       <StickyRevealSection scrollHeight={2}>
         <div className="container mx-auto px-6 max-w-3xl text-center">
           <SectionDivider />
-          <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-light mt-12 mb-10 leading-tight">
+          <h2 className="font-display text-3xl md:text-6xl lg:text-7xl font-light mt-8 md:mt-12 mb-6 md:mb-10 leading-tight">
             Has cambiado hábitos
             <br />
             <span className="gradient-text-gold my-[2px]">pero el patrón permanece</span>
           </h2>
-          <p className="font-body text-xl md:text-2xl text-foreground/70 max-w-2xl mx-auto leading-relaxed">
-            No es que no hayas avanzado. Es que hay una capa más profunda que nadie te ha
-            mostrado: la estructura desde la que operas.
+          <p className="font-body text-base md:text-2xl text-foreground/70 max-w-2xl mx-auto leading-relaxed">
+            <span className="md:hidden">Hay una capa más profunda que nadie te ha mostrado: la estructura desde la que operas.</span>
+            <span className="hidden md:inline">No es que no hayas avanzado. Es que hay una capa más profunda que nadie te ha mostrado: la estructura desde la que operas.</span>
           </p>
         </div>
       </StickyRevealSection>
 
       {/* Apple-style word-by-word reveal */}
-      <section className="py-28 md:py-36 relative">
+      <section className="py-16 md:py-36 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(38_50%_48%/0.04)_0%,transparent_50%)]" />
         <div className="container mx-auto px-6 max-w-3xl relative z-10">
           <ScrollTextReveal
             text="Un programa heredado, inscrito en tu sistema antes de que tuvieras palabras para nombrarlo. Esa estructura decide cómo gestionas tu energía, cómo te relacionas, qué permites y qué no. Y mientras siga ahí, cualquier cambio será temporal."
-            className="font-display text-2xl md:text-4xl font-light text-center text-foreground leading-snug"
+            className="font-display text-xl md:text-4xl font-light text-center text-foreground leading-snug"
             as="h2"
           />
         </div>
