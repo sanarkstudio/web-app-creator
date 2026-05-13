@@ -101,14 +101,14 @@ const LecturaEstructural = () => {
           className="relative z-10 container mx-auto px-6 text-center max-w-4xl"
         >
           <FadeIn delay={0}>
-            <div className="flex justify-center mb-10">
-              <SanarkSymbol size={130} className="opacity-50" />
+            <div className="flex justify-center mb-6 md:mb-10">
+              <SanarkSymbol size={130} className="opacity-50 w-20 h-20 md:w-[130px] md:h-[130px]" />
             </div>
           </FadeIn>
 
           <FadeIn delay={0.3}>
             <motion.p
-              className="font-body text-xs tracking-[0.5em] uppercase text-gold mb-8"
+              className="font-body text-[10px] md:text-xs tracking-[0.35em] md:tracking-[0.5em] uppercase text-gold mb-5 md:mb-8"
               animate={{ opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
@@ -117,20 +117,21 @@ const LecturaEstructural = () => {
           </FadeIn>
 
           <FadeIn delay={0.5}>
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-light leading-[1.05] mb-6 text-shadow-gold">
+            <h1 className="font-display text-3xl md:text-6xl lg:text-7xl font-light leading-[1.1] md:leading-[1.05] mb-5 md:mb-6 text-shadow-gold">
               Lectura Estructural
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.7}>
-            <p className="font-body text-base md:text-lg text-foreground/70 max-w-2xl mx-auto mb-5 leading-relaxed">
-              En 90 minutos veo la estructura invisible que dirige tu cuerpo, tus emociones, tus relaciones y tu dinero — y te muestro exactamente por qué se repite lo que se repite.
+            <p className="font-body text-sm md:text-lg text-foreground/70 max-w-2xl mx-auto mb-5 leading-relaxed">
+              <span className="md:hidden">90 minutos. Veo la estructura invisible que dirige tu vida.</span>
+              <span className="hidden md:inline">En 90 minutos veo la estructura invisible que dirige tu cuerpo, tus emociones, tus relaciones y tu dinero — y te muestro exactamente por qué se repite lo que se repite.</span>
             </p>
           </FadeIn>
 
           <FadeIn delay={0.85}>
             <motion.p
-              className="font-display text-xl md:text-2xl font-light text-foreground max-w-xl mx-auto leading-snug mb-8"
+              className="font-display text-lg md:text-2xl font-light text-foreground max-w-xl mx-auto leading-snug mb-7 md:mb-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -145,7 +146,7 @@ const LecturaEstructural = () => {
             <a
               href="#reservar"
               onClick={() => trackCtaClick("Ver qué estructura opera en mí", "lectura_estructural_hero")}
-              className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]"
+              className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-8 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]"
             >
               Ver qué estructura opera en mí
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
