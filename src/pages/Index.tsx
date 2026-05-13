@@ -12,6 +12,8 @@ import StickyRevealSection from "@/components/shared/StickyRevealSection";
 import VideoExplainer from "@/components/shared/VideoExplainer";
 import FaqSection from "@/components/shared/FaqSection";
 import { ArrowRight, Flame, Heart, DollarSign, Brain, Users, Zap, ShieldOff, Eye, Target, Sparkles, Activity, HeartHandshake, Gem, TrendingUp } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import MobileExpandable from "@/components/shared/MobileExpandable";
 import { trackCtaClick } from "@/lib/analytics";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
@@ -127,19 +129,19 @@ const Index = () => {
           className="relative z-10 container mx-auto px-6 text-center max-w-5xl"
         >
           <FadeIn delay={0}>
-            <div className="flex justify-center mb-10">
-              <SanarkSymbol size={140} className="opacity-50" />
+            <div className="flex justify-center mb-6 md:mb-10">
+              <SanarkSymbol size={140} className="opacity-50 w-20 h-20 md:w-[140px] md:h-[140px]" />
             </div>
           </FadeIn>
 
           <FadeIn delay={0.4}>
-            <p className="font-body text-xs tracking-[0.5em] uppercase text-gold mb-8">
+            <p className="font-body text-[10px] md:text-xs tracking-[0.35em] md:tracking-[0.5em] uppercase text-gold mb-5 md:mb-8">
               Decodificación Estructural de Vida
             </p>
           </FadeIn>
 
           <FadeIn delay={0.6}>
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-light leading-[1.05] mb-6 text-shadow-gold">
+            <h1 className="font-display text-3xl md:text-6xl lg:text-7xl font-light leading-[1.1] md:leading-[1.05] mb-5 md:mb-6 text-shadow-gold">
               Tu vida no se repite por azar.
               <br />
               <span className="gradient-text-gold font-medium">Se repite por estructura.</span>
@@ -147,8 +149,9 @@ const Index = () => {
           </FadeIn>
 
           <FadeIn delay={0.8}>
-            <p className="font-body text-base md:text-lg text-foreground/70 max-w-2xl mx-auto mb-10 leading-relaxed">
-              No es falta de voluntad ni de información. Es una arquitectura heredada operando bajo tu consciencia. Hoy puedes verla — y comenzar a construir una nueva.
+            <p className="font-body text-sm md:text-lg text-foreground/70 max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed">
+              <span className="md:hidden">No es falta de voluntad. Es una arquitectura heredada. Hoy puedes verla.</span>
+              <span className="hidden md:inline">No es falta de voluntad ni de información. Es una arquitectura heredada operando bajo tu consciencia. Hoy puedes verla — y comenzar a construir una nueva.</span>
             </p>
           </FadeIn>
 
@@ -157,7 +160,7 @@ const Index = () => {
               <Link
                 to="/lectura-basica"
                 onClick={() => trackCtaClick("home_hero", "Quiero ver mi estructura")}
-                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]"
+                className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-8 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]"
               >
                 Quiero ver mi estructura
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -192,63 +195,63 @@ const Index = () => {
       <StickyRevealSection scrollHeight={2}>
         <div className="container mx-auto px-6 max-w-3xl text-center">
           <SectionDivider />
-          <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-light mt-12 mb-10 leading-tight">
+          <h2 className="font-display text-3xl md:text-6xl lg:text-7xl font-light mt-8 md:mt-12 mb-6 md:mb-10 leading-tight">
             Has cambiado hábitos
             <br />
             <span className="gradient-text-gold my-[2px]">pero el patrón permanece</span>
           </h2>
-          <p className="font-body text-xl md:text-2xl text-foreground/70 max-w-2xl mx-auto leading-relaxed">
-            No es que no hayas avanzado. Es que hay una capa más profunda que nadie te ha
-            mostrado: la estructura desde la que operas.
+          <p className="font-body text-base md:text-2xl text-foreground/70 max-w-2xl mx-auto leading-relaxed">
+            <span className="md:hidden">Hay una capa más profunda que nadie te ha mostrado: la estructura desde la que operas.</span>
+            <span className="hidden md:inline">No es que no hayas avanzado. Es que hay una capa más profunda que nadie te ha mostrado: la estructura desde la que operas.</span>
           </p>
         </div>
       </StickyRevealSection>
 
       {/* Apple-style word-by-word reveal */}
-      <section className="py-28 md:py-36 relative">
+      <section className="py-16 md:py-36 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(38_50%_48%/0.04)_0%,transparent_50%)]" />
         <div className="container mx-auto px-6 max-w-3xl relative z-10">
           <ScrollTextReveal
             text="Un programa heredado, inscrito en tu sistema antes de que tuvieras palabras para nombrarlo. Esa estructura decide cómo gestionas tu energía, cómo te relacionas, qué permites y qué no. Y mientras siga ahí, cualquier cambio será temporal."
-            className="font-display text-2xl md:text-4xl font-light text-center text-foreground leading-snug"
+            className="font-display text-xl md:text-4xl font-light text-center text-foreground leading-snug"
             as="h2"
           />
         </div>
       </section>
 
       {/* Solution — the path */}
-      <section ref={solutionRef} className="py-32 md:py-48 relative overflow-hidden">
+      <section ref={solutionRef} className="py-20 md:py-48 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
         <FloatingParticles count={20} />
         <motion.div style={{ scale: solutionScale }} className="container mx-auto px-6 max-w-5xl relative z-10">
           <FadeIn>
-            <div className="flex justify-center mb-6">
+            <div className="flex justify-center mb-5 md:mb-6">
               <Eye size={28} className="text-gold/60" />
             </div>
-            <p className="font-body text-xs tracking-[0.4em] uppercase text-gold text-center mb-6">
+            <p className="font-body text-[10px] md:text-xs tracking-[0.3em] md:tracking-[0.4em] uppercase text-gold text-center mb-5 md:mb-6">
               Lo que hago
             </p>
-            <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-16 leading-tight">
+            <h2 className="font-display text-2xl md:text-5xl font-light text-center mb-10 md:mb-16 leading-tight">
               Revelar lo que se esconde
             </h2>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
             <FadeIn delay={0.15}>
               <Link
                 to="/lectura-estructural"
                 onClick={() => trackCtaClick("Entrar a la Lectura", "home_solution_card")}
-                className="group block p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 hover:glow-gold h-full"
+                className="group block p-6 md:p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 hover:glow-gold h-full"
               >
-                <Flame size={22} className="text-gold mb-4" />
-                <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4">Paso 1</p>
-                <h3 className="font-display text-2xl md:text-3xl font-light mb-4">Lectura Estructural</h3>
-                <p className="font-body text-sm text-foreground/50 leading-relaxed mb-6">
-                  Una lectura profunda que revela la estructura desde la que operas: qué programas
-                  heredados dirigen tu vida física, emocional, relacional y financiera.
+                <Flame size={22} className="text-gold mb-3 md:mb-4" />
+                <p className="font-body text-[10px] md:text-xs tracking-[0.3em] uppercase text-gold mb-3 md:mb-4">Paso 1</p>
+                <h3 className="font-display text-xl md:text-3xl font-light mb-3 md:mb-4">Lectura Estructural</h3>
+                <p className="font-body text-sm text-foreground/55 leading-relaxed mb-5 md:mb-6">
+                  <span className="md:hidden">Lectura profunda de la estructura desde la que operas hoy.</span>
+                  <span className="hidden md:inline">Una lectura profunda que revela la estructura desde la que operas: qué programas heredados dirigen tu vida física, emocional, relacional y financiera.</span>
                 </p>
-                <span className="inline-flex items-center gap-2 text-gold text-sm font-body tracking-wider uppercase group-hover:gap-4 transition-all duration-300">
+                <span className="inline-flex items-center gap-2 text-gold text-xs md:text-sm font-body tracking-wider uppercase group-hover:gap-4 transition-all duration-300">
                   Entrar a la Lectura <ArrowRight size={14} />
                 </span>
               </Link>
@@ -257,16 +260,16 @@ const Index = () => {
               <Link
                 to="/proceso-sanark"
                 onClick={() => trackCtaClick("Conocer el proceso", "home_solution_card")}
-                className="group block p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 hover:glow-gold h-full"
+                className="group block p-6 md:p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 hover:glow-gold h-full"
               >
-                <Zap size={22} className="text-gold mb-4" />
-                <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4">Paso 2</p>
-                <h3 className="font-display text-2xl md:text-3xl font-light mb-4">Proceso Sanark</h3>
-                <p className="font-body text-sm text-foreground/50 leading-relaxed mb-6">
-                  12 sesiones individuales para detectar, diseñar, crear y habitar una nueva estructura.
-                  No se trata de mejorar la versión actual. Se trata de operar desde otro lugar.
+                <Zap size={22} className="text-gold mb-3 md:mb-4" />
+                <p className="font-body text-[10px] md:text-xs tracking-[0.3em] uppercase text-gold mb-3 md:mb-4">Paso 2</p>
+                <h3 className="font-display text-xl md:text-3xl font-light mb-3 md:mb-4">Proceso Sanark</h3>
+                <p className="font-body text-sm text-foreground/55 leading-relaxed mb-5 md:mb-6">
+                  <span className="md:hidden">12 sesiones para crear y habitar una nueva estructura.</span>
+                  <span className="hidden md:inline">12 sesiones individuales para detectar, diseñar, crear y habitar una nueva estructura. No se trata de mejorar la versión actual. Se trata de operar desde otro lugar.</span>
                 </p>
-                <span className="inline-flex items-center gap-2 text-gold text-sm font-body tracking-wider uppercase group-hover:gap-4 transition-all duration-300">
+                <span className="inline-flex items-center gap-2 text-gold text-xs md:text-sm font-body tracking-wider uppercase group-hover:gap-4 transition-all duration-300">
                   Conocer el proceso <ArrowRight size={14} />
                 </span>
               </Link>
@@ -276,28 +279,29 @@ const Index = () => {
       </section>
 
       {/* Identification — with icons */}
-      <section ref={identRef} className="py-32 md:py-48 relative">
+      <section ref={identRef} className="py-20 md:py-48 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.03)_0%,transparent_60%)]" />
         <motion.div
           style={{ scale: identScale }}
           className="container mx-auto px-6 max-w-4xl relative z-10"
         >
           <FadeIn>
-            <h2 className="font-display text-3xl md:text-5xl font-light mb-6 leading-tight text-center">
+            <h2 className="font-display text-2xl md:text-5xl font-light mb-4 md:mb-6 leading-tight text-center">
               El patrón que se repite
             </h2>
-            <p className="font-body text-base md:text-lg text-foreground/60 text-center mb-16 tracking-wide max-w-2xl mx-auto">
+            <p className="font-body text-sm md:text-lg text-foreground/60 text-center mb-10 md:mb-16 tracking-wide max-w-2xl mx-auto">
               Diferentes áreas de tu vida, una misma estructura operando por debajo.
             </p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Desktop: grid 2 columnas */}
+          <div className="hidden md:grid md:grid-cols-2 gap-6">
             {identItems.map((item, i) => {
               const Icon = item.icon;
               return (
                 <FadeIn key={i} delay={i * 0.1}>
                   <motion.div
-                    className="flex gap-5 p-6 bg-card/50 backdrop-blur-sm border border-border/30 hover:border-gold/30 transition-all duration-500 cursor-default group"
+                    className="flex gap-5 p-6 bg-card/50 backdrop-blur-sm border border-border/30 hover:border-gold/30 transition-all duration-500 cursor-default group h-full"
                     whileHover={{ x: 6, borderColor: "hsl(38 50% 48% / 0.4)" }}
                     transition={{ duration: 0.3 }}
                   >
@@ -313,13 +317,39 @@ const Index = () => {
             })}
           </div>
 
+          {/* Mobile: carousel swipeable */}
+          <div className="md:hidden -mx-6">
+            <Carousel opts={{ align: "start", loop: false }} className="w-full">
+              <CarouselContent className="px-6">
+                {identItems.map((item, i) => {
+                  const Icon = item.icon;
+                  return (
+                    <CarouselItem key={i} className="basis-[85%] pl-4">
+                      <div className="flex gap-4 p-5 bg-card/60 backdrop-blur-sm border border-border/40 h-full min-h-[180px]">
+                        <div className="flex-shrink-0 mt-1">
+                          <Icon size={20} className="text-gold/80" />
+                        </div>
+                        <p className="font-body text-sm text-foreground/80 leading-relaxed">
+                          {item.text}
+                        </p>
+                      </div>
+                    </CarouselItem>
+                  );
+                })}
+              </CarouselContent>
+            </Carousel>
+            <p className="mt-4 text-center font-body text-[10px] tracking-[0.25em] uppercase text-gold/50">
+              Desliza →
+            </p>
+          </div>
+
           <FadeIn delay={0.7}>
-            <div className="mt-16 p-8 border border-gold/20 bg-card/30 backdrop-blur-sm text-center">
-              <SanarkSymbol size={36} className="mx-auto mb-5 opacity-40" />
-              <p className="font-display text-xl md:text-2xl text-foreground/90 font-light leading-relaxed mb-2">
+            <div className="mt-12 md:mt-16 p-6 md:p-8 border border-gold/20 bg-card/30 backdrop-blur-sm text-center">
+              <SanarkSymbol size={36} className="mx-auto mb-4 md:mb-5 opacity-40" />
+              <p className="font-display text-base md:text-2xl text-foreground/90 font-light leading-relaxed mb-2">
                 Si estás listo para acceder a un nivel más avanzado —
               </p>
-              <p className="font-display text-xl md:text-2xl font-light leading-relaxed">
+              <p className="font-display text-base md:text-2xl font-light leading-relaxed">
                 el de crear desde una estructura nueva —{" "}
                 <span className="text-gold font-medium">este es tu punto de entrada.</span>
               </p>
@@ -327,18 +357,19 @@ const Index = () => {
           </FadeIn>
 
           <FadeIn delay={0.85}>
-            <div className="mt-10 text-center">
+            <div className="mt-8 md:mt-10 text-center">
               <BookingFormDialog
                 cta="Quiero saber qué estructura opera en mí"
                 location="home_identification"
                 trigger={
-                  <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.35)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.55)]">
-                    Quiero saber qué estructura opera en mí
+                  <button className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-6 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.35)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.55)]">
+                    <span className="md:hidden">Ver mi estructura</span>
+                    <span className="hidden md:inline">Quiero saber qué estructura opera en mí</span>
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 }
               />
-              <p className="mt-4 font-body text-sm text-foreground/50">
+              <p className="mt-4 font-body text-xs md:text-sm text-foreground/50">
                 90 minutos · Sesión 1:1 · Acceso inmediato a tu arquitectura
               </p>
             </div>
@@ -347,17 +378,17 @@ const Index = () => {
       </section>
 
       {/* Quien dirige — Juan Carlos (trust before possibility) */}
-      <section ref={bioRef} className="py-32 md:py-48 relative overflow-hidden">
+      <section ref={bioRef} className="py-20 md:py-48 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,hsl(38_50%_48%/0.04)_0%,transparent_50%)]" />
         <div className="container mx-auto px-6 max-w-5xl relative z-10">
           <FadeIn>
-            <p className="font-body text-xs tracking-[0.4em] uppercase text-gold text-center mb-14">
+            <p className="font-body text-[10px] md:text-xs tracking-[0.3em] md:tracking-[0.4em] uppercase text-gold text-center mb-8 md:mb-14">
               El arquitecto detrás del proceso
             </p>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
             <FadeIn delay={0.15}>
-              <div className="relative">
+              <div className="relative max-w-xs md:max-w-none mx-auto">
                 <div className="aspect-[3/4] overflow-hidden border border-border/40 bg-surface-elevated">
                   <img
                     src={juanCarlosImg}
@@ -373,23 +404,26 @@ const Index = () => {
             <motion.div style={{ x: bioTextX, opacity: bioTextOpacity }}>
               <FadeIn delay={0.3}>
                 <div>
-                  <h2 className="font-display text-3xl md:text-4xl font-light mb-2">Juan Carlos</h2>
-                  <p className="font-body text-sm text-gold tracking-wider mb-8">Sánchez Velázquez</p>
-                  <div className="space-y-5 font-body text-base text-foreground/60 leading-relaxed">
-                    <p>
-                      14 años trabajando con los patrones inconscientes que dirigen a las personas en su día a día.{" "}
-                      <span className="text-foreground font-medium">He acompañado a cientos de personas,
-                      parejas, familias, grupos y empresas</span> a identificar los programas heredados
-                      que operan por debajo de su consciencia — y a crear estructuras nuevas desde las
-                      que vivir, relacionarse y producir.
-                    </p>
-                    <p>
-                      No ofrezco motivación ni acompañamiento emocional. Trabajo directo sobre la arquitectura invisible que dirige tu vida. Mi trabajo consiste en enseñarte a detectar lo que opera por debajo de tu consciencia, para desmantelar los programas instaurados y así crear nuevos circuitos de respuesta ante las situaciones más diversas de tu vida.
-                    </p>
-                    <p className="text-foreground/40 text-sm italic border-l-2 border-gold/30 pl-4">
-                      "No voy a decirte lo que quieres escuchar. Voy a mostrarte lo que necesitas ver."
-                    </p>
-                  </div>
+                  <h2 className="font-display text-2xl md:text-4xl font-light mb-2">Juan Carlos</h2>
+                  <p className="font-body text-xs md:text-sm text-gold tracking-wider mb-6 md:mb-8">Sánchez Velázquez</p>
+                  <MobileExpandable
+                    preview={
+                      <p className="font-body text-sm md:text-base text-foreground/65 leading-relaxed">
+                        14 años trabajando con los patrones inconscientes que dirigen a las personas.{" "}
+                        <span className="text-foreground font-medium">He acompañado a cientos de personas, parejas, familias y empresas</span> a identificar los programas heredados que operan por debajo de su consciencia.
+                      </p>
+                    }
+                    extra={
+                      <div className="space-y-4 md:space-y-5 font-body text-sm md:text-base text-foreground/60 leading-relaxed md:mt-5">
+                        <p>
+                          No ofrezco motivación ni acompañamiento emocional. Trabajo directo sobre la arquitectura invisible que dirige tu vida. Mi trabajo consiste en enseñarte a detectar lo que opera por debajo de tu consciencia, para desmantelar los programas instaurados y crear nuevos circuitos de respuesta.
+                        </p>
+                        <p className="text-foreground/45 text-xs md:text-sm italic border-l-2 border-gold/30 pl-4">
+                          "No voy a decirte lo que quieres escuchar. Voy a mostrarte lo que necesitas ver."
+                        </p>
+                      </div>
+                    }
+                  />
                 </div>
               </FadeIn>
             </motion.div>
@@ -398,23 +432,24 @@ const Index = () => {
       </section>
 
       {/* Vision — What's possible */}
-      <section className="py-32 md:py-48 relative overflow-hidden">
+      <section className="py-20 md:py-48 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
         <div className="container mx-auto px-6 max-w-4xl relative z-10">
           <FadeIn>
-            <Sparkles size={24} className="text-gold/60 mx-auto mb-6" />
-            <p className="font-body text-xs tracking-[0.4em] uppercase text-gold text-center mb-6">
+            <Sparkles size={24} className="text-gold/60 mx-auto mb-5 md:mb-6" />
+            <p className="font-body text-[10px] md:text-xs tracking-[0.3em] md:tracking-[0.4em] uppercase text-gold text-center mb-5 md:mb-6">
               Lo que es posible
             </p>
-            <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-6 leading-tight">
+            <h2 className="font-display text-2xl md:text-5xl font-light text-center mb-5 md:mb-6 leading-tight">
               ¿Y si pudieras elegir desde dónde operas?
             </h2>
-            <p className="font-body text-lg md:text-xl text-foreground/70 text-center mb-16 max-w-2xl mx-auto leading-relaxed">
-              No es una ilusión. Es una decisión estructural. Con el Proceso Sanark de 4 fases, cada una de estas áreas deja de estar determinada por lo heredado.
+            <p className="font-body text-sm md:text-xl text-foreground/70 text-center mb-10 md:mb-16 max-w-2xl mx-auto leading-relaxed">
+              <span className="md:hidden">Con el Proceso Sanark de 4 fases, cada área deja de estar determinada por lo heredado.</span>
+              <span className="hidden md:inline">No es una ilusión. Es una decisión estructural. Con el Proceso Sanark de 4 fases, cada una de estas áreas deja de estar determinada por lo heredado.</span>
             </p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5">
             {[
               { icon: Activity, area: "Energía", text: "La vitalidad que deseas, sin depender de ciclos de agotamiento que no elegiste." },
               { icon: HeartHandshake, area: "Pareja", text: "Relaciones que construyes desde la elección, no desde la carencia heredada." },
@@ -427,13 +462,13 @@ const Index = () => {
               return (
                 <FadeIn key={i} delay={i * 0.08}>
                   <motion.div
-                    className="p-6 bg-card/50 backdrop-blur-sm border border-border/30 hover:border-gold/30 transition-all duration-500 group h-full"
+                    className="p-4 md:p-6 bg-card/50 backdrop-blur-sm border border-border/30 hover:border-gold/30 transition-all duration-500 group h-full"
                     whileHover={{ y: -4 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <Icon size={20} className="text-gold/70 mb-3 group-hover:text-gold transition-colors" />
-                    <p className="font-display text-sm tracking-[0.2em] uppercase text-gold/80 mb-2">{item.area}</p>
-                    <p className="font-body text-base text-foreground/75 leading-relaxed group-hover:text-foreground transition-colors">{item.text}</p>
+                    <Icon size={18} className="text-gold/70 mb-2 md:mb-3 group-hover:text-gold transition-colors" />
+                    <p className="font-display text-[10px] md:text-sm tracking-[0.2em] uppercase text-gold/80 mb-2">{item.area}</p>
+                    <p className="font-body text-xs md:text-base text-foreground/75 leading-relaxed group-hover:text-foreground transition-colors">{item.text}</p>
                   </motion.div>
                 </FadeIn>
               );
@@ -441,13 +476,14 @@ const Index = () => {
           </div>
 
           <FadeIn delay={0.5}>
-            <div className="mt-14 text-center">
+            <div className="mt-10 md:mt-14 text-center">
               <Link
                 to="/proceso-sanark"
                 onClick={() => trackCtaClick("Conoce las 4 fases del proceso", "home_vision")}
-                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-8 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-all duration-500"
+                className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-6 md:px-8 py-3 md:py-4 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-all duration-500"
               >
-                Conoce las 4 fases del proceso
+                <span className="md:hidden">Ver las 4 fases</span>
+                <span className="hidden md:inline">Conoce las 4 fases del proceso</span>
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -455,45 +491,44 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-32 md:py-48 relative overflow-hidden">
+      <section className="py-20 md:py-48 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.08)_0%,transparent_60%)]" />
         <FloatingParticles count={20} />
         <div className="container mx-auto px-6 max-w-3xl relative z-10">
           <FadeIn>
-            <Flame size={24} className="text-gold/60 mx-auto mb-6" />
-            <p className="font-body text-xs tracking-[0.5em] uppercase text-gold text-center mb-6">
+            <Flame size={24} className="text-gold/60 mx-auto mb-5 md:mb-6" />
+            <p className="font-body text-[10px] md:text-xs tracking-[0.35em] md:tracking-[0.5em] uppercase text-gold text-center mb-5 md:mb-6">
               Entrada
             </p>
-            <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-8 leading-tight">
+            <h2 className="font-display text-2xl md:text-5xl font-light text-center mb-6 md:mb-8 leading-tight">
               Todo comienza con una sola sesión.
             </h2>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <p className="font-body text-lg md:text-xl text-foreground/70 text-center max-w-2xl mx-auto mb-12 leading-relaxed">
-              90 minutos para ver con claridad desde dónde estás operando.
-              No es terapia. No es coaching. No es nada que hayas probado antes.
-              Es la puerta de entrada a todo mi sistema de decodificación estructural.
+            <p className="font-body text-sm md:text-xl text-foreground/70 text-center max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
+              <span className="md:hidden">90 minutos para ver desde dónde operas. La puerta de entrada al sistema completo.</span>
+              <span className="hidden md:inline">90 minutos para ver con claridad desde dónde estás operando. No es terapia. No es coaching. No es nada que hayas probado antes. Es la puerta de entrada a todo mi sistema de decodificación estructural.</span>
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
-            <div className="p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 text-center hover:glow-gold">
-              <h3 className="font-display text-2xl md:text-3xl font-light mb-4">Lectura Estructural</h3>
-              <p className="font-body text-base text-foreground/65 leading-relaxed mb-8 max-w-xl mx-auto">
-                Una sesión única donde leo la arquitectura activa desde la que operas hoy — la estructura
-                que heredaste y que sigue dirigiendo tu vida aunque hayas trabajado en ti durante años.
+            <div className="p-6 md:p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 text-center hover:glow-gold">
+              <h3 className="font-display text-xl md:text-3xl font-light mb-3 md:mb-4">Lectura Estructural</h3>
+              <p className="font-body text-sm md:text-base text-foreground/65 leading-relaxed mb-6 md:mb-8 max-w-xl mx-auto">
+                <span className="md:hidden">Una sesión única donde leo la arquitectura activa desde la que operas hoy.</span>
+                <span className="hidden md:inline">Una sesión única donde leo la arquitectura activa desde la que operas hoy — la estructura que heredaste y que sigue dirigiendo tu vida aunque hayas trabajado en ti durante años.</span>
               </p>
               <BookingFormDialog
                 cta="Empezar por la verdad"
                 location="home_entry"
                 trigger={
-                  <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
+                  <button className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-8 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
                     Empezar por la verdad
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 }
               />
-              <p className="mt-4 font-body text-sm text-foreground/50">Plazas limitadas cada mes</p>
+              <p className="mt-4 font-body text-xs md:text-sm text-foreground/50">Plazas limitadas cada mes</p>
             </div>
           </FadeIn>
         </div>
@@ -504,7 +539,7 @@ const Index = () => {
       <FaqSection />
 
       {/* Final CTA */}
-      <section ref={finalRef} className="py-32 md:py-48 relative overflow-hidden">
+      <section ref={finalRef} className="py-20 md:py-48 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
         <motion.div
           className="absolute inset-0"
@@ -515,25 +550,25 @@ const Index = () => {
         <FloatingParticles count={25} />
         <div className="container mx-auto px-6 max-w-3xl text-center relative z-10">
           <FadeIn>
-            <SanarkSymbol size={80} className="mx-auto mb-8 opacity-40" />
+            <SanarkSymbol size={80} className="mx-auto mb-6 md:mb-8 opacity-40 w-14 h-14 md:w-20 md:h-20" />
           </FadeIn>
           <FadeIn delay={0.15}>
-            <h2 className="font-display text-3xl md:text-5xl font-light mb-8 leading-tight">
+            <h2 className="font-display text-2xl md:text-5xl font-light mb-6 md:mb-8 leading-tight">
               El punto de partida es siempre el mismo:
               <br />
               <span className="text-gold">ver lo que aún no has visto.</span>
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="font-body text-lg md:text-xl text-foreground/70 mb-10 max-w-xl mx-auto leading-relaxed">
+            <p className="font-body text-sm md:text-xl text-foreground/70 mb-8 md:mb-10 max-w-xl mx-auto leading-relaxed">
               Reserva tu Lectura Estructural y descubre qué arquitectura opera por debajo de tus decisiones.
             </p>
           </FadeIn>
           <FadeIn delay={0.25}>
-            <div className="inline-flex items-center justify-center gap-6 mb-10 px-10 py-6 border border-gold/20 bg-card/40 backdrop-blur-sm">
+            <div className="inline-flex items-center justify-center gap-6 mb-8 md:mb-10 px-8 md:px-10 py-5 md:py-6 border border-gold/20 bg-card/40 backdrop-blur-sm">
               <div className="text-center">
                 <p className="font-body text-[10px] tracking-[0.3em] uppercase text-gold/80 mb-2">Lectura Estructural</p>
-                <p className="font-display text-3xl md:text-4xl font-light text-gold mb-1">180€</p>
+                <p className="font-display text-2xl md:text-4xl font-light text-gold mb-1">180€</p>
                 <p className="font-body text-xs text-foreground/50">90 minutos · 1:1</p>
               </div>
             </div>
@@ -544,14 +579,14 @@ const Index = () => {
                 cta="Dar el paso estructural"
                 location="home_final"
                 trigger={
-                  <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
+                  <button className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-8 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
                     Dar el paso estructural
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 }
               />
             </div>
-            <p className="mt-5 font-body text-sm text-foreground/50">
+            <p className="mt-5 font-body text-xs md:text-sm text-foreground/50">
               Te respondo personalmente en 24h · Confidencialidad absoluta
             </p>
           </FadeIn>

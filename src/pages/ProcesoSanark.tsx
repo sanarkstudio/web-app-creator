@@ -9,6 +9,8 @@ import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
 import { ArrowRight, Search, Compass, Hammer, Home, Activity, HeartHandshake, Zap, DollarSign, Brain, Gem, Sparkles, Mail, CalendarCheck, MessageSquare, Lock } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import MobileStickyCTA from "@/components/shared/MobileStickyCTA";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
 import { trackCtaClick } from "@/lib/analytics";
@@ -218,7 +220,7 @@ const ProcesoSanark = () => {
       </StickyRevealSection>
 
       {/* Apple-style word-by-word scroll reveal */}
-      <section className="py-28 md:py-36 relative">
+      <section className="py-16 md:py-36 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(38_50%_48%/0.03)_0%,transparent_50%)]" />
         <div className="container mx-auto px-6 max-w-3xl relative z-10">
           <ScrollTextReveal
@@ -230,7 +232,7 @@ const ProcesoSanark = () => {
       </section>
 
       {/* Phases — golden flow timeline */}
-      <section ref={phasesRef} className="py-28 md:py-36 relative overflow-hidden">
+      <section ref={phasesRef} className="py-16 md:py-36 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
         <FloatingParticles count={25} />
@@ -246,7 +248,8 @@ const ProcesoSanark = () => {
 
           <div className="relative">
             <GoldenFlowPath />
-            <div className="space-y-16 md:space-y-24">
+            {/* Desktop timeline */}
+            <div className="hidden md:block space-y-24">
               {phases.map((phase, i) => (
                 <FadeIn key={i} delay={i * 0.1} direction={i % 2 === 0 ? "left" : "right"}>
                   <motion.div
@@ -255,34 +258,49 @@ const ProcesoSanark = () => {
                     transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                   >
                     <motion.div
-                      className={`hidden md:block absolute top-10 ${i % 2 === 0 ? "right-0 w-[calc(55vw/2-50%)]" : "left-0 w-[calc(55vw/2-50%)]"} h-px bg-gradient-to-r ${i % 2 === 0 ? "from-transparent to-gold/30" : "from-gold/30 to-transparent"}`}
+                      className={`absolute top-10 ${i % 2 === 0 ? "right-0 w-[calc(55vw/2-50%)]" : "left-0 w-[calc(55vw/2-50%)]"} h-px bg-gradient-to-r ${i % 2 === 0 ? "from-transparent to-gold/30" : "from-gold/30 to-transparent"}`}
                       initial={{ scaleX: 0 }}
                       whileInView={{ scaleX: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.15 + 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                       style={{ transformOrigin: i % 2 === 0 ? "right" : "left" }}
                     />
-                    <div className="relative p-8 md:p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/40 transition-all duration-500 hover:glow-gold overflow-hidden group">
+                    <div className="relative p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/40 transition-all duration-500 hover:glow-gold overflow-hidden group">
                       <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                      <span className="font-display text-5xl md:text-6xl font-light text-gold/20 block mb-3 relative z-10">
-                        {phase.num}
-                      </span>
+                      <span className="font-display text-6xl font-light text-gold/20 block mb-3 relative z-10">{phase.num}</span>
                       <phase.icon size={20} className="text-gold mb-3 relative z-10" />
-                      <h3 className="font-display text-xl md:text-2xl font-medium mb-3 relative z-10">{phase.title}</h3>
-                      <p className="font-body text-sm md:text-base text-foreground/50 leading-relaxed relative z-10">
-                        {phase.desc}
-                      </p>
+                      <h3 className="font-display text-2xl font-medium mb-3 relative z-10">{phase.title}</h3>
+                      <p className="font-body text-base text-foreground/55 leading-relaxed relative z-10">{phase.desc}</p>
                     </div>
                   </motion.div>
                 </FadeIn>
               ))}
+            </div>
+
+            {/* Mobile carousel */}
+            <div className="md:hidden -mx-6">
+              <Carousel opts={{ align: "start" }} className="w-full">
+                <CarouselContent className="px-6">
+                  {phases.map((phase, i) => (
+                    <CarouselItem key={i} className="basis-[88%] pl-4">
+                      <div className="relative p-6 bg-card/80 backdrop-blur-sm border border-gold/20 h-full min-h-[260px]">
+                        <span className="font-display text-5xl font-light text-gold/20 block mb-2">{phase.num}</span>
+                        <phase.icon size={20} className="text-gold mb-3" />
+                        <h3 className="font-display text-lg font-medium mb-2">{phase.title}</h3>
+                        <p className="font-body text-sm text-foreground/65 leading-relaxed">{phase.desc}</p>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
+              <p className="mt-4 text-center font-body text-[10px] tracking-[0.25em] uppercase text-gold/50">Desliza por las 4 fases →</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Vision — What becomes possible */}
-      <section className="py-28 md:py-36 relative">
+      <section className="py-16 md:py-36 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.04)_0%,transparent_60%)]" />
         <div className="container mx-auto px-6 max-w-4xl relative z-10">
           <FadeIn>
@@ -323,7 +341,7 @@ const ProcesoSanark = () => {
       </section>
 
       {/* Price box */}
-      <section className="py-28 md:py-36 relative overflow-hidden">
+      <section className="py-16 md:py-36 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
         <FloatingParticles count={12} />
         <div className="container mx-auto px-6 max-w-3xl relative z-10">
@@ -399,7 +417,7 @@ const ProcesoSanark = () => {
       </section>
 
       {/* Prerequisite */}
-      <section className="py-28 md:py-36">
+      <section className="py-16 md:py-36">
         <div className="container mx-auto px-6 max-w-3xl text-center">
           <FadeIn>
             <h2 className="font-display text-3xl md:text-5xl font-light mb-8">
@@ -427,7 +445,7 @@ const ProcesoSanark = () => {
       </section>
 
       {/* CTA — final */}
-      <section ref={ctaRef} className="py-28 md:py-36 relative overflow-hidden">
+      <section ref={ctaRef} className="py-16 md:py-36 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
         <motion.div
           className="absolute inset-0"
@@ -467,6 +485,8 @@ const ProcesoSanark = () => {
           </FadeIn>
         </div>
       </section>
+      <div className="md:hidden h-20" aria-hidden />
+      <MobileStickyCTA cta="Reservar Proceso · 2.000€" location="proceso_sanark_sticky" meta="12 sesiones · 1:1 · Plazas limitadas" />
     </Layout>
   );
 };
