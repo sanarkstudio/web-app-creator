@@ -458,6 +458,8 @@ const LecturaEstructural = () => {
           </FadeIn>
         </div>
       </section>
+      <div className="md:hidden h-20" aria-hidden />
+      <MobileStickyCTA cta="Reservar · 180€" location="lectura_estructural_sticky" meta="90 min · 1:1 · Plazas limitadas" />
     </Layout>
   );
 };
