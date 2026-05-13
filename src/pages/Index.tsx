@@ -436,19 +436,20 @@ const Index = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
         <div className="container mx-auto px-6 max-w-4xl relative z-10">
           <FadeIn>
-            <Sparkles size={24} className="text-gold/60 mx-auto mb-6" />
-            <p className="font-body text-xs tracking-[0.4em] uppercase text-gold text-center mb-6">
+            <Sparkles size={24} className="text-gold/60 mx-auto mb-5 md:mb-6" />
+            <p className="font-body text-[10px] md:text-xs tracking-[0.3em] md:tracking-[0.4em] uppercase text-gold text-center mb-5 md:mb-6">
               Lo que es posible
             </p>
-            <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-6 leading-tight">
+            <h2 className="font-display text-2xl md:text-5xl font-light text-center mb-5 md:mb-6 leading-tight">
               ¿Y si pudieras elegir desde dónde operas?
             </h2>
-            <p className="font-body text-lg md:text-xl text-foreground/70 text-center mb-16 max-w-2xl mx-auto leading-relaxed">
-              No es una ilusión. Es una decisión estructural. Con el Proceso Sanark de 4 fases, cada una de estas áreas deja de estar determinada por lo heredado.
+            <p className="font-body text-sm md:text-xl text-foreground/70 text-center mb-10 md:mb-16 max-w-2xl mx-auto leading-relaxed">
+              <span className="md:hidden">Con el Proceso Sanark de 4 fases, cada área deja de estar determinada por lo heredado.</span>
+              <span className="hidden md:inline">No es una ilusión. Es una decisión estructural. Con el Proceso Sanark de 4 fases, cada una de estas áreas deja de estar determinada por lo heredado.</span>
             </p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5">
             {[
               { icon: Activity, area: "Energía", text: "La vitalidad que deseas, sin depender de ciclos de agotamiento que no elegiste." },
               { icon: HeartHandshake, area: "Pareja", text: "Relaciones que construyes desde la elección, no desde la carencia heredada." },
@@ -461,13 +462,13 @@ const Index = () => {
               return (
                 <FadeIn key={i} delay={i * 0.08}>
                   <motion.div
-                    className="p-6 bg-card/50 backdrop-blur-sm border border-border/30 hover:border-gold/30 transition-all duration-500 group h-full"
+                    className="p-4 md:p-6 bg-card/50 backdrop-blur-sm border border-border/30 hover:border-gold/30 transition-all duration-500 group h-full"
                     whileHover={{ y: -4 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <Icon size={20} className="text-gold/70 mb-3 group-hover:text-gold transition-colors" />
-                    <p className="font-display text-sm tracking-[0.2em] uppercase text-gold/80 mb-2">{item.area}</p>
-                    <p className="font-body text-base text-foreground/75 leading-relaxed group-hover:text-foreground transition-colors">{item.text}</p>
+                    <Icon size={18} className="text-gold/70 mb-2 md:mb-3 group-hover:text-gold transition-colors" />
+                    <p className="font-display text-[10px] md:text-sm tracking-[0.2em] uppercase text-gold/80 mb-2">{item.area}</p>
+                    <p className="font-body text-xs md:text-base text-foreground/75 leading-relaxed group-hover:text-foreground transition-colors">{item.text}</p>
                   </motion.div>
                 </FadeIn>
               );
@@ -475,13 +476,14 @@ const Index = () => {
           </div>
 
           <FadeIn delay={0.5}>
-            <div className="mt-14 text-center">
+            <div className="mt-10 md:mt-14 text-center">
               <Link
                 to="/proceso-sanark"
                 onClick={() => trackCtaClick("Conoce las 4 fases del proceso", "home_vision")}
-                className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-8 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-all duration-500"
+                className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-6 md:px-8 py-3 md:py-4 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-all duration-500"
               >
-                Conoce las 4 fases del proceso
+                <span className="md:hidden">Ver las 4 fases</span>
+                <span className="hidden md:inline">Conoce las 4 fases del proceso</span>
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
