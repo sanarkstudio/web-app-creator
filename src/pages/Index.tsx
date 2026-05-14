@@ -508,7 +508,7 @@ const Index = () => {
           <FadeIn delay={0.15}>
             <p className="font-body text-sm md:text-xl text-foreground/70 text-center max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
               <span className="md:hidden">90 minutos para ver desde dónde operas. La puerta de entrada al sistema completo.</span>
-              <span className="hidden md:inline">90 minutos para ver con claridad desde dónde estás operando. No es terapia. No es coaching. No es nada que hayas probado antes. Es la puerta de entrada a todo mi sistema de decodificación estructural.</span>
+              <span className="hidden md:inline">90 minutos para ver, con precisión, la arquitectura desde la que estás operando hoy. Es la puerta de entrada a todo mi sistema de decodificación estructural — y, para muchos, el primer momento en que lo invisible deja de serlo.</span>
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
