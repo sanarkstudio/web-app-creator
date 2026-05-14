@@ -409,14 +409,14 @@ const Index = () => {
                   <MobileExpandable
                     preview={
                       <p className="font-body text-sm md:text-base text-foreground/65 leading-relaxed">
-                        14 años trabajando con los patrones inconscientes que dirigen a las personas.{" "}
-                        <span className="text-foreground font-medium">He acompañado a cientos de personas, parejas, familias y empresas</span> a identificar los programas heredados que operan por debajo de su consciencia.
+                        Casi 15 años leyendo lo que otros no ven. No en libros, ni en teorías — en cuerpos, en relaciones rotas, en vidas que se repetían a pesar de todo.{" "}
+                        <span className="text-foreground font-medium">El inconsciente no es un misterio romántico: es una arquitectura con reglas precisas.</span> Y una vez que sabes cómo leerla, no hay vuelta atrás.
                       </p>
                     }
                     extra={
                       <div className="space-y-4 md:space-y-5 font-body text-sm md:text-base text-foreground/60 leading-relaxed md:mt-5">
                         <p>
-                          No ofrezco motivación ni acompañamiento emocional. Trabajo directo sobre la arquitectura invisible que dirige tu vida. Mi trabajo consiste en enseñarte a detectar lo que opera por debajo de tu consciencia, para desmantelar los programas instaurados y crear nuevos circuitos de respuesta.
+                          Empecé acompañando a personas en crisis. Luego parejas al borde. Luego familias enteras. Y algo empezó a repetirse: todos llegaban con un problema distinto, pero debajo había el mismo patrón estructural operando. El inconsciente no habla con palabras — habla con síntomas, con repeticiones, con lo que "no sabes por qué" vuelve a pasar. Mi trabajo es enseñarte a leer ese lenguaje, para que puedas dejar de ser víctima de lo que no entiendes y empezar a operar desde la estructura consciente.
                         </p>
                         <p className="text-foreground/45 text-xs md:text-sm italic border-l-2 border-gold/30 pl-4">
                           "No voy a decirte lo que quieres escuchar. Voy a mostrarte lo que necesitas ver."
