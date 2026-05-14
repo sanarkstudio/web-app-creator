@@ -467,8 +467,7 @@ const ProcesoSanark = () => {
           </FadeIn>
           <FadeIn delay={0.3}>
             <p className="font-body text-base text-foreground/60 mb-12 max-w-xl mx-auto">
-              Si ya hiciste tu Lectura Estructural y estás listo para el siguiente nivel, el
-              Proceso Sanark es tu camino.
+              Si ya tienes el mapa, lo siguiente es construir el territorio. Doce sesiones para que la estructura nueva deje de ser idea y se vuelva tu forma natural de operar.
             </p>
           </FadeIn>
           <FadeIn delay={0.45}>

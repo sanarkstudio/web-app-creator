@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "¿Cómo sé si esto es para mí?",
-    a: "Si has probado mucho y algo fundamental sigue sin moverse, lo es. Si buscas que alguien te diga lo que quieres oír, no lo es.",
+    a: "Si has probado mucho y algo fundamental sigue sin moverse, lo es. Si lo que necesitas es que alguien te diga lo que quieres oír, no lo es.",
   },
 ];
 

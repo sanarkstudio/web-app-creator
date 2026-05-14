@@ -491,6 +491,39 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Lectura Básica — primera experiencia gratuita */}
+      <section className="py-16 md:py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
+        <div className="container mx-auto px-6 max-w-3xl relative z-10">
+          <FadeIn>
+            <div className="relative p-7 md:p-12 border border-gold/25 bg-card/40 backdrop-blur-sm hover:border-gold/50 transition-all duration-500 text-center">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-background border border-gold/40">
+                <p className="font-body text-[10px] md:text-xs tracking-[0.3em] uppercase text-gold">Gratis · 8 minutos</p>
+              </div>
+              <Sparkles size={22} className="text-gold/70 mx-auto mb-5 mt-2" strokeWidth={1.5} />
+              <h2 className="font-display text-2xl md:text-4xl font-light mb-4 md:mb-5 leading-tight">
+                Antes de reservar,
+                <br />
+                <span className="gradient-text-gold">vive una primera lectura.</span>
+              </h2>
+              <p className="font-body text-sm md:text-lg text-foreground/70 leading-relaxed max-w-xl mx-auto mb-7 md:mb-9">
+                <span className="md:hidden">8 preguntas. Una lectura estructural inicial de tu patrón. Sin coste, sin compromiso.</span>
+                <span className="hidden md:inline">Una experiencia inicial — gratuita y sin compromiso — del mismo tipo de lectura que hago en sesión. Respondes 8 preguntas y, al final, recibes una primera identificación del patrón estructural que se está repitiendo en tu vida. La forma más honesta de saber, antes de dar ningún paso, si esto es para ti.</span>
+              </p>
+              <Link
+                to="/lectura-basica"
+                onClick={() => trackCtaClick("Hacer mi Lectura Básica gratis", "home_lectura_basica")}
+                className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-8 md:px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_30px_hsl(38_50%_48%/0.3)] hover:shadow-[0_0_50px_hsl(38_50%_48%/0.5)]"
+              >
+                Hacer mi Lectura Básica gratis
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <p className="mt-5 font-body text-xs text-foreground/45">Resultado inmediato · Sin tarjeta</p>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       <section className="py-20 md:py-48 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.08)_0%,transparent_60%)]" />
@@ -508,7 +541,7 @@ const Index = () => {
           <FadeIn delay={0.15}>
             <p className="font-body text-sm md:text-xl text-foreground/70 text-center max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
               <span className="md:hidden">90 minutos para ver desde dónde operas. La puerta de entrada al sistema completo.</span>
-              <span className="hidden md:inline">90 minutos para ver con claridad desde dónde estás operando. No es terapia. No es coaching. No es nada que hayas probado antes. Es la puerta de entrada a todo mi sistema de decodificación estructural.</span>
+              <span className="hidden md:inline">90 minutos para ver, con precisión, la arquitectura desde la que estás operando hoy. Es la puerta de entrada a todo mi sistema de decodificación estructural — y, para muchos, el primer momento en que lo invisible deja de serlo.</span>
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
