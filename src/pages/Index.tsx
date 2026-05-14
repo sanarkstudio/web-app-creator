@@ -498,7 +498,7 @@ const Index = () => {
           <FadeIn>
             <div className="relative p-7 md:p-12 border border-gold/25 bg-card/40 backdrop-blur-sm hover:border-gold/50 transition-all duration-500 text-center">
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-background border border-gold/40">
-                <p className="font-body text-[10px] md:text-xs tracking-[0.3em] uppercase text-gold">Gratis · 8 minutos</p>
+                <p className="font-body text-[10px] md:text-xs tracking-[0.3em] uppercase text-gold">Gratis · 15 preguntas</p>
               </div>
               <Sparkles size={22} className="text-gold/70 mx-auto mb-5 mt-2" strokeWidth={1.5} />
               <h2 className="font-display text-2xl md:text-4xl font-light mb-4 md:mb-5 leading-tight">
@@ -507,8 +507,8 @@ const Index = () => {
                 <span className="gradient-text-gold">vive una primera lectura.</span>
               </h2>
               <p className="font-body text-sm md:text-lg text-foreground/70 leading-relaxed max-w-xl mx-auto mb-7 md:mb-9">
-                <span className="md:hidden">8 preguntas. Una lectura estructural inicial de tu patrón. Sin coste, sin compromiso.</span>
-                <span className="hidden md:inline">Una experiencia inicial — gratuita y sin compromiso — del mismo tipo de lectura que hago en sesión. Respondes 8 preguntas y, al final, recibes una primera identificación del patrón estructural que se está repitiendo en tu vida. La forma más honesta de saber, antes de dar ningún paso, si esto es para ti.</span>
+                <span className="md:hidden">15 preguntas. Una lectura estructural inicial de tu patrón. Sin coste, sin compromiso.</span>
+                <span className="hidden md:inline">Una experiencia inicial — gratuita y sin compromiso — del mismo tipo de lectura que hago en sesión. Respondes 15 preguntas y, al final, recibes una primera identificación del patrón estructural que se está repitiendo en tu vida. La forma más honesta de saber, antes de dar ningún paso, si esto es para ti.</span>
               </p>
               <Link
                 to="/lectura-basica"
