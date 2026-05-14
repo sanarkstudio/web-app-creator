@@ -372,7 +372,7 @@ const LecturaEstructural = () => {
               className="text-foreground font-medium text-center py-8 font-display text-2xl md:text-3xl"
               whileHover={{ scale: 1.02 }}
             >
-              No es para quien busca motivación. Es para quien busca la raíz.
+              No es para quien necesita motivación. Es para quien desea un cambio desde la raíz.
             </motion.p>
           </FadeIn>
         </div>
