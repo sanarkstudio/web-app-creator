@@ -409,14 +409,14 @@ const Index = () => {
                   <MobileExpandable
                     preview={
                       <p className="font-body text-sm md:text-base text-foreground/65 leading-relaxed">
-                        Casi 15 años leyendo lo que otros no ven. No en libros, ni en teorías — en cuerpos, en relaciones rotas, en vidas que se repetían a pesar de todo.{" "}
-                        <span className="text-foreground font-medium">El inconsciente no es un misterio romántico: es una arquitectura con reglas precisas.</span> Y una vez que sabes cómo leerla, no hay vuelta atrás.
+                        Casi 15 años aprendiendo a leer el lenguaje del inconsciente. En lo que dice la gente, en lo que no dice, en sus cuerpos, en sus relaciones, en las vidas que se repetían a pesar de todo.{" "}
+                        <span className="text-foreground font-medium">No es un misterio romántico: es una arquitectura con reglas precisas.</span> Y una vez que sabes cómo leerla, no hay vuelta atrás.
                       </p>
                     }
                     extra={
                       <div className="space-y-4 md:space-y-5 font-body text-sm md:text-base text-foreground/60 leading-relaxed md:mt-5">
                         <p>
-                          Empecé acompañando a personas en crisis. Luego parejas al borde. Luego familias enteras. Y algo empezó a repetirse: todos llegaban con un problema distinto, pero debajo había el mismo patrón estructural operando. El inconsciente no habla con palabras — habla con síntomas, con repeticiones, con lo que "no sabes por qué" vuelve a pasar. Mi trabajo es enseñarte a leer ese lenguaje, para que puedas dejar de ser víctima de lo que no entiendes y empezar a operar desde la estructura consciente.
+                          Empecé acompañando a personas en crisis. Luego parejas al borde. Luego familias enteras. Y algo empezó a repetirse: todos llegaban con un problema distinto, pero debajo había el mismo patrón estructural operando. El inconsciente habla en lo que dices y en lo que omites, en síntomas, en repeticiones, en lo que "no sabes por qué" vuelve a pasar. Mi trabajo es enseñarte a leer ese lenguaje, para que puedas dejar de ser víctima de lo que no entiendes y empezar a operar desde la estructura consciente.
                         </p>
                         <p className="text-foreground/45 text-xs md:text-sm italic border-l-2 border-gold/30 pl-4">
                           "No voy a decirte lo que quieres escuchar. Voy a mostrarte lo que necesitas ver."
