@@ -6,7 +6,21 @@ const Footer = () => (
     <div className="container mx-auto px-6 py-16">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
         <div>
-          <img src={sanarkLogo} alt="Sanark" className="h-12 w-auto mb-4 transition-all duration-500 hover:brightness-125 hover:drop-shadow-[0_0_12px_hsl(38_50%_48%/0.5)]" style={{ filter: 'brightness(0.85) sepia(1) saturate(2.5) hue-rotate(10deg)' }} onMouseEnter={e => e.currentTarget.style.filter = 'brightness(1.2) sepia(1) saturate(2.5) hue-rotate(10deg) drop-shadow(0 0 12px hsl(38 50% 48% / 0.5))'} onMouseLeave={e => e.currentTarget.style.filter = 'brightness(0.85) sepia(1) saturate(2.5) hue-rotate(10deg)'} />
+          <span
+            aria-label="Sanark"
+            className="block h-12 w-40 mb-4 transition-all duration-500 hover:drop-shadow-[0_0_12px_hsl(38_50%_48%/0.55)]"
+            style={{
+              WebkitMaskImage: `url(${sanarkLogo})`,
+              maskImage: `url(${sanarkLogo})`,
+              WebkitMaskRepeat: 'no-repeat',
+              maskRepeat: 'no-repeat',
+              WebkitMaskPosition: 'left center',
+              maskPosition: 'left center',
+              WebkitMaskSize: 'contain',
+              maskSize: 'contain',
+              backgroundColor: 'hsl(38 50% 48%)',
+            }}
+          />
           <p className="font-body text-sm text-muted-foreground leading-relaxed max-w-xs">
             Decodificación Estructural de Vida. Revelo la estructura desde la que operas para que diseñes la que deseas.
           </p>
