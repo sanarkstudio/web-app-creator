@@ -123,7 +123,7 @@ const LecturaEstructural = () => {
           </FadeIn>
 
           <FadeIn delay={0.7}>
-            <p className="font-body text-sm md:text-lg text-foreground/85 max-w-2xl mx-auto mb-5 leading-relaxed">
+            <p className="font-body text-base md:text-lg text-foreground/85 max-w-2xl mx-auto mb-5 leading-relaxed">
               <span className="md:hidden">90 minutos. Veo la estructura invisible que dirige tu vida.</span>
               <span className="hidden md:inline">En 90 minutos veo la estructura invisible que dirige tu cuerpo, tus emociones, tus relaciones y tu dinero — y te muestro exactamente por qué se repite lo que se repite.</span>
             </p>
@@ -182,18 +182,18 @@ const LecturaEstructural = () => {
           </h2>
           <MobileExpandable
             preview={
-              <p className="font-body text-base md:text-2xl text-foreground/80 max-w-2xl mx-auto leading-relaxed">
+              <p className="font-body text-lg md:text-2xl text-foreground/80 max-w-2xl mx-auto leading-relaxed">
                 Una lectura que va más allá de los síntomas. Accede a la capa más profunda — esa que determina por qué repites lo que repites.
               </p>
             }
             extra={
               <div className="space-y-5 md:space-y-6 mt-5 md:mt-6">
-                <p className="font-body text-base md:text-2xl text-foreground/90 max-w-2xl mx-auto leading-relaxed">
+                <p className="font-body text-lg md:text-2xl text-foreground/90 max-w-2xl mx-auto leading-relaxed">
                   No es terapia, no es coaching, no es interpretación. Es una decodificación
                   precisa de los programas que tu sistema familiar inscribió en ti — programas
                   que hoy operan en automático y condicionan cada decisión, cada vínculo y cada resultado.
                 </p>
-                <p className="font-body text-sm md:text-lg text-foreground/80 max-w-xl mx-auto leading-relaxed italic">
+                <p className="font-body text-base md:text-lg text-foreground/80 max-w-xl mx-auto leading-relaxed italic">
                   Trabajo con lo que realmente está activo — no con lo que crees que te pasa.
                 </p>
               </div>
@@ -251,7 +251,7 @@ const LecturaEstructural = () => {
                   <h2 className="font-display text-2xl md:text-5xl font-light text-center mb-3 md:mb-4">
                     Lo que revela
                   </h2>
-                  <p className="font-body text-sm md:text-lg text-foreground/85 text-center mb-10 md:mb-14 tracking-wide max-w-2xl mx-auto">
+                  <p className="font-body text-base md:text-lg text-foreground/85 text-center mb-10 md:mb-14 tracking-wide max-w-2xl mx-auto">
                     Lo que ninguna otra lectura te ha mostrado
                   </p>
                 </FadeIn>
@@ -313,7 +313,7 @@ const LecturaEstructural = () => {
               <span className="md:hidden">Sales con un mapa que antes no tenías</span>
               <span className="hidden md:inline">Después de tu Lectura, sales con un mapa que antes no tenías</span>
             </h2>
-            <p className="font-body text-sm md:text-xl text-foreground/85 text-center mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed">
+            <p className="font-body text-base md:text-xl text-foreground/85 text-center mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed">
               <span className="md:hidden">Te llevas evidencia precisa de tu propia arquitectura.</span>
               <span className="hidden md:inline">No te llevas teoría ni motivación. Te llevas evidencia precisa de tu propia arquitectura — qué la sostiene, dónde se fuga y por qué tus intentos previos no la han movido.</span>
             </p>
@@ -339,7 +339,7 @@ const LecturaEstructural = () => {
                       <Icon size={16} className="text-gold" />
                       <p className="font-display text-[10px] md:text-xs tracking-[0.2em] uppercase text-gold/80">{item.label}</p>
                     </div>
-                    <p className="font-body text-xs md:text-base text-foreground/85 leading-relaxed relative z-10">{item.text}</p>
+                    <p className="font-body text-sm md:text-base text-foreground/85 leading-relaxed relative z-10">{item.text}</p>
                   </motion.div>
                 </FadeIn>
               );
@@ -347,7 +347,7 @@ const LecturaEstructural = () => {
           </div>
 
           <FadeIn delay={0.4}>
-            <p className="font-body text-sm md:text-lg text-foreground/85 mt-8 md:mt-10 text-center max-w-2xl mx-auto leading-relaxed">
+            <p className="font-body text-base md:text-lg text-foreground/85 mt-8 md:mt-10 text-center max-w-2xl mx-auto leading-relaxed">
               Verlo es el primer corte. Transformarlo es el trabajo del <Link to="/proceso-sanark" className="text-gold hover:text-gold-light transition-colors">Proceso Sanark de 4 fases</Link>.
             </p>
           </FadeIn>

@@ -149,7 +149,7 @@ const Index = () => {
           </FadeIn>
 
           <FadeIn delay={0.8}>
-            <p className="font-body text-sm md:text-lg text-foreground/85 max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed">
+            <p className="font-body text-base md:text-lg text-foreground/85 max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed">
               <span className="md:hidden">No es falta de voluntad. Es una arquitectura heredada. Hoy puedes verla.</span>
               <span className="hidden md:inline">No es falta de voluntad ni de información. Es una arquitectura heredada operando bajo tu consciencia. Hoy puedes verla — y comenzar a construir una nueva.</span>
             </p>
@@ -200,7 +200,7 @@ const Index = () => {
             <br />
             <span className="gradient-text-gold my-[2px]">pero el patrón permanece</span>
           </h2>
-          <p className="font-body text-base md:text-2xl text-foreground/85 max-w-2xl mx-auto leading-relaxed">
+          <p className="font-body text-lg md:text-2xl text-foreground/85 max-w-2xl mx-auto leading-relaxed">
             <span className="md:hidden">Hay una capa más profunda que nadie te ha mostrado: la estructura desde la que operas.</span>
             <span className="hidden md:inline">No es que no hayas avanzado. Es que hay una capa más profunda que nadie te ha mostrado: la estructura desde la que operas.</span>
           </p>
@@ -289,7 +289,7 @@ const Index = () => {
             <h2 className="font-display text-2xl md:text-5xl font-light mb-4 md:mb-6 leading-tight text-center">
               El patrón que se repite
             </h2>
-            <p className="font-body text-sm md:text-lg text-foreground/80 text-center mb-10 md:mb-16 tracking-wide max-w-2xl mx-auto">
+            <p className="font-body text-base md:text-lg text-foreground/80 text-center mb-10 md:mb-16 tracking-wide max-w-2xl mx-auto">
               Diferentes áreas de tu vida, una misma estructura operando por debajo.
             </p>
           </FadeIn>
@@ -346,10 +346,10 @@ const Index = () => {
           <FadeIn delay={0.7}>
             <div className="mt-12 md:mt-16 p-6 md:p-8 border border-gold/20 bg-card/30 backdrop-blur-sm text-center">
               <SanarkSymbol size={36} className="mx-auto mb-4 md:mb-5 opacity-40" />
-              <p className="font-display text-base md:text-2xl text-foreground/90 font-light leading-relaxed mb-2">
+              <p className="font-display text-lg md:text-2xl text-foreground/90 font-light leading-relaxed mb-2">
                 Si estás listo para acceder a un nivel más avanzado —
               </p>
-              <p className="font-display text-base md:text-2xl font-light leading-relaxed">
+              <p className="font-display text-lg md:text-2xl font-light leading-relaxed">
                 el de crear desde una estructura nueva —{" "}
                 <span className="text-gold font-medium">este es tu punto de entrada.</span>
               </p>
@@ -443,7 +443,7 @@ const Index = () => {
             <h2 className="font-display text-2xl md:text-5xl font-light text-center mb-5 md:mb-6 leading-tight">
               ¿Y si pudieras elegir desde dónde operas?
             </h2>
-            <p className="font-body text-sm md:text-xl text-foreground/85 text-center mb-10 md:mb-16 max-w-2xl mx-auto leading-relaxed">
+            <p className="font-body text-base md:text-xl text-foreground/85 text-center mb-10 md:mb-16 max-w-2xl mx-auto leading-relaxed">
               <span className="md:hidden">Con el Proceso Sanark de 4 fases, cada área deja de estar determinada por lo heredado.</span>
               <span className="hidden md:inline">No es una ilusión. Es una decisión estructural. Con el Proceso Sanark de 4 fases, cada una de estas áreas deja de estar determinada por lo heredado.</span>
             </p>
@@ -468,7 +468,7 @@ const Index = () => {
                   >
                     <Icon size={18} className="text-gold/70 mb-2 md:mb-3 group-hover:text-gold transition-colors" />
                     <p className="font-display text-[10px] md:text-sm tracking-[0.2em] uppercase text-gold/80 mb-2">{item.area}</p>
-                    <p className="font-body text-xs md:text-base text-foreground/90 leading-relaxed group-hover:text-foreground transition-colors">{item.text}</p>
+                    <p className="font-body text-sm md:text-base text-foreground/90 leading-relaxed group-hover:text-foreground transition-colors">{item.text}</p>
                   </motion.div>
                 </FadeIn>
               );
@@ -506,7 +506,7 @@ const Index = () => {
                 <br />
                 <span className="gradient-text-gold">vive una primera lectura.</span>
               </h2>
-              <p className="font-body text-sm md:text-lg text-foreground/85 leading-relaxed max-w-xl mx-auto mb-7 md:mb-9">
+              <p className="font-body text-base md:text-lg text-foreground/85 leading-relaxed max-w-xl mx-auto mb-7 md:mb-9">
                 <span className="md:hidden">15 preguntas. Una lectura estructural inicial de tu patrón. Sin coste, sin compromiso.</span>
                 <span className="hidden md:inline">Una experiencia inicial — gratuita y sin compromiso — del mismo tipo de lectura que hago en sesión. Respondes 15 preguntas y, al final, recibes una primera identificación del patrón estructural que se está repitiendo en tu vida. La forma más honesta de saber, antes de dar ningún paso, si esto es para ti.</span>
               </p>
@@ -539,7 +539,7 @@ const Index = () => {
             </h2>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <p className="font-body text-sm md:text-xl text-foreground/85 text-center max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
+            <p className="font-body text-base md:text-xl text-foreground/85 text-center max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
               <span className="md:hidden">90 minutos para ver desde dónde operas. La puerta de entrada al sistema completo.</span>
               <span className="hidden md:inline">90 minutos para ver, con precisión, la arquitectura desde la que estás operando hoy. Es la puerta de entrada a todo mi sistema de decodificación estructural — y, para muchos, el primer momento en que lo invisible deja de serlo.</span>
             </p>
@@ -593,7 +593,7 @@ const Index = () => {
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="font-body text-sm md:text-xl text-foreground/85 mb-8 md:mb-10 max-w-xl mx-auto leading-relaxed">
+            <p className="font-body text-base md:text-xl text-foreground/85 mb-8 md:mb-10 max-w-xl mx-auto leading-relaxed">
               Reserva tu Lectura Estructural y descubre qué arquitectura opera por debajo de tus decisiones.
             </p>
           </FadeIn>
