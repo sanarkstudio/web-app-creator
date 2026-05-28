@@ -383,7 +383,7 @@ const Index = () => {
         <div className="container mx-auto px-6 max-w-5xl relative z-10">
           <FadeIn>
             <p className="font-body text-[10px] md:text-xs tracking-[0.3em] md:tracking-[0.4em] uppercase text-gold text-center mb-8 md:mb-14">
-              El arquitecto detrás del proceso
+              Quién soy
             </p>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
