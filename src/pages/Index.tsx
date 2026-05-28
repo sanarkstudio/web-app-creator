@@ -409,7 +409,7 @@ const Index = () => {
                   <MobileExpandable
                     preview={
                       <p className="font-body text-sm md:text-base text-foreground/85 leading-relaxed">
-                        Casi 15 años aprendiendo a leer el lenguaje del inconsciente. En lo que dice la gente, en lo que no dice, en sus cuerpos, en sus relaciones, en las vidas que se repetían a pesar de todo.{" "}
+                        Desde hace 15 años aprendiendo a leer el lenguaje del inconsciente. En lo que dice la gente, en lo que no dice, en sus cuerpos, en sus relaciones, en las vidas que se repetían a pesar de todo.{" "}
                         <span className="text-foreground font-medium">No es un misterio romántico: es una arquitectura con reglas precisas.</span> Y una vez que sabes cómo leerla, no hay vuelta atrás.
                       </p>
                     }
