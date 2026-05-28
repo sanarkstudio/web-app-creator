@@ -66,7 +66,7 @@ const FaqSection = () => {
                 <AccordionTrigger className="font-display text-base md:text-lg font-light text-left text-foreground/90 hover:no-underline hover:text-gold transition-colors py-5">
                   {item.q}
                 </AccordionTrigger>
-                <AccordionContent className="font-body text-base text-foreground/65 leading-relaxed pb-6 pt-1">
+                <AccordionContent className="font-body text-base text-foreground/85 leading-relaxed pb-6 pt-1">
                   {item.a}
                 </AccordionContent>
               </AccordionItem>
@@ -76,7 +76,7 @@ const FaqSection = () => {
 
         <FadeIn delay={0.3}>
           <div className="mt-14 text-center">
-            <p className="font-body text-base text-foreground/60 mb-6">
+            <p className="font-body text-base text-foreground/80 mb-6">
               ¿Tu pregunta no está aquí? La respuesta más honesta llega en sesión.
             </p>
             <BookingFormDialog
