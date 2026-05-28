@@ -159,10 +159,11 @@ const Index = () => {
             <div className="flex justify-center items-center">
               <Link
                 to="/lectura-basica"
-                onClick={() => trackCtaClick("home_hero", "Quiero ver mi estructura")}
+                onClick={() => trackCtaClick("Ver mi estructura gratis", "home_hero")}
                 className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-8 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]"
               >
-                Quiero ver mi estructura
+                <span className="md:hidden">Ver mi estructura · Gratis</span>
+                <span className="hidden md:inline">Ver mi estructura · Gratis en 15 preguntas</span>
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
