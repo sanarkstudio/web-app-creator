@@ -328,7 +328,7 @@ const Index = () => {
                     <CarouselItem key={i} className="basis-[85%] pl-4">
                       <div className="flex gap-4 p-5 bg-card/60 backdrop-blur-sm border border-border/40 h-full min-h-[180px]">
                         <div className="flex-shrink-0 mt-1">
-                          <Icon size={20} className="text-gold/80" />
+                          <Icon size={22} strokeWidth={1.75} className="text-gold" />
                         </div>
                         <p className="font-body text-sm text-foreground/80 leading-relaxed">
                           {item.text}
