@@ -306,8 +306,8 @@ const Index = () => {
                     whileHover={{ x: 6, borderColor: "hsl(38 50% 48% / 0.4)" }}
                     transition={{ duration: 0.3 }}
                   >
+                    <div className="flex-shrink-0 mt-1">
                       <Icon size={22} strokeWidth={1.75} className="text-gold group-hover:text-gold-light transition-colors duration-300" />
-                      <Icon size={20} className="text-gold/70 group-hover:text-gold transition-colors duration-300" />
                     </div>
                     <p className="font-body text-base md:text-lg text-foreground/90 leading-relaxed group-hover:text-foreground transition-colors duration-300">
                       {item.text}
