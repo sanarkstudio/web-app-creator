@@ -553,16 +553,17 @@ const Index = () => {
                 <span className="hidden md:inline">Una sesión única donde leo la arquitectura activa desde la que operas hoy — la estructura que heredaste y que sigue dirigiendo tu vida aunque hayas trabajado en ti durante años.</span>
               </p>
               <BookingFormDialog
-                cta="Empezar por la verdad"
+                cta="Reservar mi Lectura · 180€"
                 location="home_entry"
                 trigger={
                   <button className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-8 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
-                    Empezar por la verdad
+                    <span className="md:hidden">Reservar mi Lectura · 180€</span>
+                    <span className="hidden md:inline">Reservar mi Lectura Estructural · 180€</span>
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 }
               />
-              <p className="mt-4 font-body text-xs md:text-sm text-foreground/90">Plazas limitadas cada mes</p>
+              <p className="mt-4 font-body text-xs md:text-sm text-foreground/90">90 minutos · 1:1 · Plazas limitadas cada mes</p>
             </div>
           </FadeIn>
         </div>
