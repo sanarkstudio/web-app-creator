@@ -360,18 +360,18 @@ const Index = () => {
           <FadeIn delay={0.85}>
             <div className="mt-8 md:mt-10 text-center">
               <BookingFormDialog
-                cta="Quiero saber qué estructura opera en mí"
+                cta="Reservar mi Lectura Estructural"
                 location="home_identification"
                 trigger={
                   <button className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-6 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.35)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.55)]">
-                    <span className="md:hidden">Ver mi estructura</span>
-                    <span className="hidden md:inline">Quiero saber qué estructura opera en mí</span>
+                    <span className="md:hidden">Reservar mi Lectura</span>
+                    <span className="hidden md:inline">Reservar mi Lectura Estructural</span>
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 }
               />
               <p className="mt-4 font-body text-xs md:text-sm text-foreground/90">
-                90 minutos · Sesión 1:1 · Acceso inmediato a tu arquitectura
+                90 minutos · 1:1 · 180€ · Acceso inmediato a tu arquitectura
               </p>
             </div>
           </FadeIn>
