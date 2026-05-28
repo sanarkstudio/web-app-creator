@@ -159,10 +159,11 @@ const Index = () => {
             <div className="flex justify-center items-center">
               <Link
                 to="/lectura-basica"
-                onClick={() => trackCtaClick("home_hero", "Quiero ver mi estructura")}
+                onClick={() => trackCtaClick("Ver mi estructura gratis", "home_hero")}
                 className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-8 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]"
               >
-                Quiero ver mi estructura
+                <span className="md:hidden">Ver mi estructura · Gratis</span>
+                <span className="hidden md:inline">Ver mi estructura · Gratis en 15 preguntas</span>
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -359,18 +360,18 @@ const Index = () => {
           <FadeIn delay={0.85}>
             <div className="mt-8 md:mt-10 text-center">
               <BookingFormDialog
-                cta="Quiero saber qué estructura opera en mí"
+                cta="Reservar mi Lectura Estructural"
                 location="home_identification"
                 trigger={
                   <button className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-6 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.35)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.55)]">
-                    <span className="md:hidden">Ver mi estructura</span>
-                    <span className="hidden md:inline">Quiero saber qué estructura opera en mí</span>
+                    <span className="md:hidden">Reservar mi Lectura</span>
+                    <span className="hidden md:inline">Reservar mi Lectura Estructural</span>
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 }
               />
               <p className="mt-4 font-body text-xs md:text-sm text-foreground/90">
-                90 minutos · Sesión 1:1 · Acceso inmediato a tu arquitectura
+                90 minutos · 1:1 · 180€ · Acceso inmediato a tu arquitectura
               </p>
             </div>
           </FadeIn>
@@ -383,7 +384,7 @@ const Index = () => {
         <div className="container mx-auto px-6 max-w-5xl relative z-10">
           <FadeIn>
             <p className="font-body text-[10px] md:text-xs tracking-[0.3em] md:tracking-[0.4em] uppercase text-gold text-center mb-8 md:mb-14">
-              El arquitecto detrás del proceso
+              Quién soy
             </p>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
@@ -409,7 +410,7 @@ const Index = () => {
                   <MobileExpandable
                     preview={
                       <p className="font-body text-sm md:text-base text-foreground/85 leading-relaxed">
-                        Casi 15 años aprendiendo a leer el lenguaje del inconsciente. En lo que dice la gente, en lo que no dice, en sus cuerpos, en sus relaciones, en las vidas que se repetían a pesar de todo.{" "}
+                        Desde hace 15 años aprendiendo a leer el lenguaje del inconsciente. En lo que dice la gente, en lo que no dice, en sus cuerpos, en sus relaciones, en las vidas que se repetían a pesar de todo.{" "}
                         <span className="text-foreground font-medium">No es un misterio romántico: es una arquitectura con reglas precisas.</span> Y una vez que sabes cómo leerla, no hay vuelta atrás.
                       </p>
                     }
@@ -512,13 +513,13 @@ const Index = () => {
               </p>
               <Link
                 to="/lectura-basica"
-                onClick={() => trackCtaClick("Hacer mi Lectura Básica gratis", "home_lectura_basica")}
+                onClick={() => trackCtaClick("Empezar mi Lectura gratis", "home_lectura_basica")}
                 className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-8 md:px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_30px_hsl(38_50%_48%/0.3)] hover:shadow-[0_0_50px_hsl(38_50%_48%/0.5)]"
               >
-                Hacer mi Lectura Básica gratis
+                Empezar mi Lectura gratis
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
-              <p className="mt-5 font-body text-xs text-foreground/45">Resultado inmediato · Sin tarjeta</p>
+              <p className="mt-5 font-body text-xs text-foreground/70">Resultado inmediato</p>
             </div>
           </FadeIn>
         </div>
@@ -552,16 +553,17 @@ const Index = () => {
                 <span className="hidden md:inline">Una sesión única donde leo la arquitectura activa desde la que operas hoy — la estructura que heredaste y que sigue dirigiendo tu vida aunque hayas trabajado en ti durante años.</span>
               </p>
               <BookingFormDialog
-                cta="Empezar por la verdad"
+                cta="Reservar mi Lectura · 180€"
                 location="home_entry"
                 trigger={
                   <button className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-8 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
-                    Empezar por la verdad
+                    <span className="md:hidden">Reservar mi Lectura · 180€</span>
+                    <span className="hidden md:inline">Reservar mi Lectura Estructural · 180€</span>
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 }
               />
-              <p className="mt-4 font-body text-xs md:text-sm text-foreground/90">Plazas limitadas cada mes</p>
+              <p className="mt-4 font-body text-xs md:text-sm text-foreground/90">90 minutos · 1:1 · Plazas limitadas cada mes</p>
             </div>
           </FadeIn>
         </div>
@@ -609,11 +611,12 @@ const Index = () => {
           <FadeIn delay={0.3}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <BookingFormDialog
-                cta="Dar el paso estructural"
+                cta="Reservar mi sesión 1:1"
                 location="home_final"
                 trigger={
                   <button className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-8 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
-                    Dar el paso estructural
+                    <span className="md:hidden">Reservar mi sesión · 180€</span>
+                    <span className="hidden md:inline">Reservar mi Lectura Estructural · 180€</span>
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 }
