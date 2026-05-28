@@ -307,7 +307,7 @@ const Index = () => {
                     transition={{ duration: 0.3 }}
                   >
                     <div className="flex-shrink-0 mt-1">
-                      <Icon size={20} className="text-gold/70 group-hover:text-gold transition-colors duration-300" />
+                      <Icon size={22} strokeWidth={1.75} className="text-gold group-hover:text-gold-light transition-colors duration-300" />
                     </div>
                     <p className="font-body text-base md:text-lg text-foreground/90 leading-relaxed group-hover:text-foreground transition-colors duration-300">
                       {item.text}
@@ -328,7 +328,7 @@ const Index = () => {
                     <CarouselItem key={i} className="basis-[85%] pl-4">
                       <div className="flex gap-4 p-5 bg-card/60 backdrop-blur-sm border border-border/40 h-full min-h-[180px]">
                         <div className="flex-shrink-0 mt-1">
-                          <Icon size={20} className="text-gold/80" />
+                          <Icon size={22} strokeWidth={1.75} className="text-gold" />
                         </div>
                         <p className="font-body text-sm text-foreground/80 leading-relaxed">
                           {item.text}
@@ -467,7 +467,7 @@ const Index = () => {
                     whileHover={{ y: -4 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <Icon size={18} className="text-gold/70 mb-2 md:mb-3 group-hover:text-gold transition-colors" />
+                    <Icon size={22} strokeWidth={1.75} className="text-gold mb-2 md:mb-3 group-hover:text-gold-light transition-colors" />
                     <p className="font-display text-[10px] md:text-sm tracking-[0.2em] uppercase text-gold/80 mb-2">{item.area}</p>
                     <p className="font-body text-sm md:text-base text-foreground/90 leading-relaxed group-hover:text-foreground transition-colors">{item.text}</p>
                   </motion.div>
