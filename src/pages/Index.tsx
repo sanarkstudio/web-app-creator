@@ -466,8 +466,8 @@ const Index = () => {
                     className="p-4 md:p-6 bg-card/50 backdrop-blur-sm border border-border/30 hover:border-gold/30 transition-all duration-500 group h-full"
                     whileHover={{ y: -4 }}
                     transition={{ duration: 0.3 }}
-                    <Icon size={20} strokeWidth={1.75} className="text-gold mb-2 md:mb-3 group-hover:text-gold-light transition-colors" />
-                    <Icon size={18} className="text-gold/70 mb-2 md:mb-3 group-hover:text-gold transition-colors" />
+                  >
+                    <Icon size={22} strokeWidth={1.75} className="text-gold mb-2 md:mb-3 group-hover:text-gold-light transition-colors" />
                     <p className="font-display text-[10px] md:text-sm tracking-[0.2em] uppercase text-gold/80 mb-2">{item.area}</p>
                     <p className="font-body text-sm md:text-base text-foreground/90 leading-relaxed group-hover:text-foreground transition-colors">{item.text}</p>
                   </motion.div>
