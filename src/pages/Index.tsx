@@ -512,13 +512,13 @@ const Index = () => {
               </p>
               <Link
                 to="/lectura-basica"
-                onClick={() => trackCtaClick("Hacer mi Lectura Básica gratis", "home_lectura_basica")}
+                onClick={() => trackCtaClick("Empezar mi Lectura gratis", "home_lectura_basica")}
                 className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-8 md:px-10 py-4 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_30px_hsl(38_50%_48%/0.3)] hover:shadow-[0_0_50px_hsl(38_50%_48%/0.5)]"
               >
-                Hacer mi Lectura Básica gratis
+                Empezar mi Lectura gratis
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
-              <p className="mt-5 font-body text-xs text-foreground/45">Resultado inmediato · Sin tarjeta</p>
+              <p className="mt-5 font-body text-xs text-foreground/70">Resultado inmediato</p>
             </div>
           </FadeIn>
         </div>
