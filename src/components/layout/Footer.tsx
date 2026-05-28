@@ -14,20 +14,20 @@ const Footer = () => (
         <div>
           <h4 className="font-body text-xs tracking-widest uppercase text-muted-foreground mb-5">Navegación</h4>
           <div className="flex flex-col gap-3">
-            <Link to="/" className="font-body text-sm text-foreground/70 hover:text-gold transition-colors">Inicio</Link>
-            <Link to="/lectura-estructural" className="font-body text-sm text-foreground/70 hover:text-gold transition-colors">Lectura Estructural</Link>
-            <Link to="/proceso-sanark" className="font-body text-sm text-foreground/70 hover:text-gold transition-colors">Proceso Sanark</Link>
+            <Link to="/" className="font-body text-sm text-foreground/85 hover:text-gold transition-colors">Inicio</Link>
+            <Link to="/lectura-estructural" className="font-body text-sm text-foreground/85 hover:text-gold transition-colors">Lectura Estructural</Link>
+            <Link to="/proceso-sanark" className="font-body text-sm text-foreground/85 hover:text-gold transition-colors">Proceso Sanark</Link>
           </div>
         </div>
         <div>
           <h4 className="font-body text-xs tracking-widest uppercase text-muted-foreground mb-5">Contacto</h4>
-          <p className="font-body text-sm text-foreground/70 leading-relaxed mb-6">
+          <p className="font-body text-sm text-foreground/85 leading-relaxed mb-6">
             info@sanark.com
           </p>
           <h4 className="font-body text-xs tracking-widest uppercase text-muted-foreground mb-4">Legal</h4>
           <div className="flex flex-col gap-2">
-            <Link to="/politica-privacidad" className="font-body text-xs text-foreground/50 hover:text-gold transition-colors">Política de Privacidad</Link>
-            <Link to="/aviso-legal" className="font-body text-xs text-foreground/50 hover:text-gold transition-colors">Aviso Legal</Link>
+            <Link to="/politica-privacidad" className="font-body text-xs text-foreground/90 hover:text-gold transition-colors">Política de Privacidad</Link>
+            <Link to="/aviso-legal" className="font-body text-xs text-foreground/90 hover:text-gold transition-colors">Aviso Legal</Link>
           </div>
         </div>
       </div>

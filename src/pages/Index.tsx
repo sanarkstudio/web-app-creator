@@ -149,7 +149,7 @@ const Index = () => {
           </FadeIn>
 
           <FadeIn delay={0.8}>
-            <p className="font-body text-sm md:text-lg text-foreground/70 max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed">
+            <p className="font-body text-base md:text-lg text-foreground/85 max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed">
               <span className="md:hidden">No es falta de voluntad. Es una arquitectura heredada. Hoy puedes verla.</span>
               <span className="hidden md:inline">No es falta de voluntad ni de información. Es una arquitectura heredada operando bajo tu consciencia. Hoy puedes verla — y comenzar a construir una nueva.</span>
             </p>
@@ -200,7 +200,7 @@ const Index = () => {
             <br />
             <span className="gradient-text-gold my-[2px]">pero el patrón permanece</span>
           </h2>
-          <p className="font-body text-base md:text-2xl text-foreground/70 max-w-2xl mx-auto leading-relaxed">
+          <p className="font-body text-lg md:text-2xl text-foreground/85 max-w-2xl mx-auto leading-relaxed">
             <span className="md:hidden">Hay una capa más profunda que nadie te ha mostrado: la estructura desde la que operas.</span>
             <span className="hidden md:inline">No es que no hayas avanzado. Es que hay una capa más profunda que nadie te ha mostrado: la estructura desde la que operas.</span>
           </p>
@@ -247,7 +247,7 @@ const Index = () => {
                 <Flame size={22} className="text-gold mb-3 md:mb-4" />
                 <p className="font-body text-[10px] md:text-xs tracking-[0.3em] uppercase text-gold mb-3 md:mb-4">Paso 1</p>
                 <h3 className="font-display text-xl md:text-3xl font-light mb-3 md:mb-4">Lectura Estructural</h3>
-                <p className="font-body text-sm text-foreground/55 leading-relaxed mb-5 md:mb-6">
+                <p className="font-body text-sm text-foreground/80 leading-relaxed mb-5 md:mb-6">
                   <span className="md:hidden">Lectura profunda de la estructura desde la que operas hoy.</span>
                   <span className="hidden md:inline">Una lectura profunda que revela la estructura desde la que operas: qué programas heredados dirigen tu vida física, emocional, relacional y financiera.</span>
                 </p>
@@ -265,7 +265,7 @@ const Index = () => {
                 <Zap size={22} className="text-gold mb-3 md:mb-4" />
                 <p className="font-body text-[10px] md:text-xs tracking-[0.3em] uppercase text-gold mb-3 md:mb-4">Paso 2</p>
                 <h3 className="font-display text-xl md:text-3xl font-light mb-3 md:mb-4">Proceso Sanark</h3>
-                <p className="font-body text-sm text-foreground/55 leading-relaxed mb-5 md:mb-6">
+                <p className="font-body text-sm text-foreground/80 leading-relaxed mb-5 md:mb-6">
                   <span className="md:hidden">12 sesiones para crear y habitar una nueva estructura.</span>
                   <span className="hidden md:inline">12 sesiones individuales para detectar, diseñar, crear y habitar una nueva estructura. No se trata de mejorar la versión actual. Se trata de operar desde otro lugar.</span>
                 </p>
@@ -289,7 +289,7 @@ const Index = () => {
             <h2 className="font-display text-2xl md:text-5xl font-light mb-4 md:mb-6 leading-tight text-center">
               El patrón que se repite
             </h2>
-            <p className="font-body text-sm md:text-lg text-foreground/60 text-center mb-10 md:mb-16 tracking-wide max-w-2xl mx-auto">
+            <p className="font-body text-base md:text-lg text-foreground/80 text-center mb-10 md:mb-16 tracking-wide max-w-2xl mx-auto">
               Diferentes áreas de tu vida, una misma estructura operando por debajo.
             </p>
           </FadeIn>
@@ -308,7 +308,7 @@ const Index = () => {
                     <div className="flex-shrink-0 mt-1">
                       <Icon size={20} className="text-gold/70 group-hover:text-gold transition-colors duration-300" />
                     </div>
-                    <p className="font-body text-base md:text-lg text-foreground/75 leading-relaxed group-hover:text-foreground transition-colors duration-300">
+                    <p className="font-body text-base md:text-lg text-foreground/90 leading-relaxed group-hover:text-foreground transition-colors duration-300">
                       {item.text}
                     </p>
                   </motion.div>
@@ -346,10 +346,10 @@ const Index = () => {
           <FadeIn delay={0.7}>
             <div className="mt-12 md:mt-16 p-6 md:p-8 border border-gold/20 bg-card/30 backdrop-blur-sm text-center">
               <SanarkSymbol size={36} className="mx-auto mb-4 md:mb-5 opacity-40" />
-              <p className="font-display text-base md:text-2xl text-foreground/90 font-light leading-relaxed mb-2">
+              <p className="font-display text-lg md:text-2xl text-foreground/90 font-light leading-relaxed mb-2">
                 Si estás listo para acceder a un nivel más avanzado —
               </p>
-              <p className="font-display text-base md:text-2xl font-light leading-relaxed">
+              <p className="font-display text-lg md:text-2xl font-light leading-relaxed">
                 el de crear desde una estructura nueva —{" "}
                 <span className="text-gold font-medium">este es tu punto de entrada.</span>
               </p>
@@ -369,7 +369,7 @@ const Index = () => {
                   </button>
                 }
               />
-              <p className="mt-4 font-body text-xs md:text-sm text-foreground/50">
+              <p className="mt-4 font-body text-xs md:text-sm text-foreground/90">
                 90 minutos · Sesión 1:1 · Acceso inmediato a tu arquitectura
               </p>
             </div>
@@ -408,13 +408,13 @@ const Index = () => {
                   <p className="font-body text-xs md:text-sm text-gold tracking-wider mb-6 md:mb-8">Sánchez Velázquez</p>
                   <MobileExpandable
                     preview={
-                      <p className="font-body text-sm md:text-base text-foreground/65 leading-relaxed">
+                      <p className="font-body text-sm md:text-base text-foreground/85 leading-relaxed">
                         Casi 15 años aprendiendo a leer el lenguaje del inconsciente. En lo que dice la gente, en lo que no dice, en sus cuerpos, en sus relaciones, en las vidas que se repetían a pesar de todo.{" "}
                         <span className="text-foreground font-medium">No es un misterio romántico: es una arquitectura con reglas precisas.</span> Y una vez que sabes cómo leerla, no hay vuelta atrás.
                       </p>
                     }
                     extra={
-                      <div className="space-y-4 md:space-y-5 font-body text-sm md:text-base text-foreground/60 leading-relaxed md:mt-5">
+                      <div className="space-y-4 md:space-y-5 font-body text-sm md:text-base text-foreground/80 leading-relaxed md:mt-5">
                         <p>
                           Empecé acompañando a personas en crisis. Luego parejas al borde. Luego familias enteras. Y algo empezó a repetirse: todos llegaban con un problema distinto, pero debajo había el mismo patrón estructural operando. El inconsciente habla en lo que dices y en lo que omites, en síntomas, en repeticiones, en lo que "no sabes por qué" vuelve a pasar. Mi trabajo es enseñarte a leer ese lenguaje, para que puedas dejar de ser víctima de lo que no entiendes y empezar a operar desde la estructura consciente.
                         </p>
@@ -443,7 +443,7 @@ const Index = () => {
             <h2 className="font-display text-2xl md:text-5xl font-light text-center mb-5 md:mb-6 leading-tight">
               ¿Y si pudieras elegir desde dónde operas?
             </h2>
-            <p className="font-body text-sm md:text-xl text-foreground/70 text-center mb-10 md:mb-16 max-w-2xl mx-auto leading-relaxed">
+            <p className="font-body text-base md:text-xl text-foreground/85 text-center mb-10 md:mb-16 max-w-2xl mx-auto leading-relaxed">
               <span className="md:hidden">Con el Proceso Sanark de 4 fases, cada área deja de estar determinada por lo heredado.</span>
               <span className="hidden md:inline">No es una ilusión. Es una decisión estructural. Con el Proceso Sanark de 4 fases, cada una de estas áreas deja de estar determinada por lo heredado.</span>
             </p>
@@ -468,7 +468,7 @@ const Index = () => {
                   >
                     <Icon size={18} className="text-gold/70 mb-2 md:mb-3 group-hover:text-gold transition-colors" />
                     <p className="font-display text-[10px] md:text-sm tracking-[0.2em] uppercase text-gold/80 mb-2">{item.area}</p>
-                    <p className="font-body text-xs md:text-base text-foreground/75 leading-relaxed group-hover:text-foreground transition-colors">{item.text}</p>
+                    <p className="font-body text-sm md:text-base text-foreground/90 leading-relaxed group-hover:text-foreground transition-colors">{item.text}</p>
                   </motion.div>
                 </FadeIn>
               );
@@ -506,7 +506,7 @@ const Index = () => {
                 <br />
                 <span className="gradient-text-gold">vive una primera lectura.</span>
               </h2>
-              <p className="font-body text-sm md:text-lg text-foreground/70 leading-relaxed max-w-xl mx-auto mb-7 md:mb-9">
+              <p className="font-body text-base md:text-lg text-foreground/85 leading-relaxed max-w-xl mx-auto mb-7 md:mb-9">
                 <span className="md:hidden">15 preguntas. Una lectura estructural inicial de tu patrón. Sin coste, sin compromiso.</span>
                 <span className="hidden md:inline">Una experiencia inicial — gratuita y sin compromiso — del mismo tipo de lectura que hago en sesión. Respondes 15 preguntas y, al final, recibes una primera identificación del patrón estructural que se está repitiendo en tu vida. La forma más honesta de saber, antes de dar ningún paso, si esto es para ti.</span>
               </p>
@@ -539,7 +539,7 @@ const Index = () => {
             </h2>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <p className="font-body text-sm md:text-xl text-foreground/70 text-center max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
+            <p className="font-body text-base md:text-xl text-foreground/85 text-center max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
               <span className="md:hidden">90 minutos para ver desde dónde operas. La puerta de entrada al sistema completo.</span>
               <span className="hidden md:inline">90 minutos para ver, con precisión, la arquitectura desde la que estás operando hoy. Es la puerta de entrada a todo mi sistema de decodificación estructural — y, para muchos, el primer momento en que lo invisible deja de serlo.</span>
             </p>
@@ -547,7 +547,7 @@ const Index = () => {
           <FadeIn delay={0.3}>
             <div className="p-6 md:p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 text-center hover:glow-gold">
               <h3 className="font-display text-xl md:text-3xl font-light mb-3 md:mb-4">Lectura Estructural</h3>
-              <p className="font-body text-sm md:text-base text-foreground/65 leading-relaxed mb-6 md:mb-8 max-w-xl mx-auto">
+              <p className="font-body text-sm md:text-base text-foreground/85 leading-relaxed mb-6 md:mb-8 max-w-xl mx-auto">
                 <span className="md:hidden">Una sesión única donde leo la arquitectura activa desde la que operas hoy.</span>
                 <span className="hidden md:inline">Una sesión única donde leo la arquitectura activa desde la que operas hoy — la estructura que heredaste y que sigue dirigiendo tu vida aunque hayas trabajado en ti durante años.</span>
               </p>
@@ -561,7 +561,7 @@ const Index = () => {
                   </button>
                 }
               />
-              <p className="mt-4 font-body text-xs md:text-sm text-foreground/50">Plazas limitadas cada mes</p>
+              <p className="mt-4 font-body text-xs md:text-sm text-foreground/90">Plazas limitadas cada mes</p>
             </div>
           </FadeIn>
         </div>
@@ -593,7 +593,7 @@ const Index = () => {
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="font-body text-sm md:text-xl text-foreground/70 mb-8 md:mb-10 max-w-xl mx-auto leading-relaxed">
+            <p className="font-body text-base md:text-xl text-foreground/85 mb-8 md:mb-10 max-w-xl mx-auto leading-relaxed">
               Reserva tu Lectura Estructural y descubre qué arquitectura opera por debajo de tus decisiones.
             </p>
           </FadeIn>
@@ -602,7 +602,7 @@ const Index = () => {
               <div className="text-center">
                 <p className="font-body text-[10px] tracking-[0.3em] uppercase text-gold/80 mb-2">Lectura Estructural</p>
                 <p className="font-display text-2xl md:text-4xl font-light text-gold mb-1">180€</p>
-                <p className="font-body text-xs text-foreground/50">90 minutos · 1:1</p>
+                <p className="font-body text-xs text-foreground/90">90 minutos · 1:1</p>
               </div>
             </div>
           </FadeIn>
@@ -619,7 +619,7 @@ const Index = () => {
                 }
               />
             </div>
-            <p className="mt-5 font-body text-xs md:text-sm text-foreground/50">
+            <p className="mt-5 font-body text-xs md:text-sm text-foreground/90">
               Te respondo personalmente en 24h · Confidencialidad absoluta
             </p>
           </FadeIn>

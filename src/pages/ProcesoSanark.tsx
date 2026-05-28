@@ -160,7 +160,7 @@ const ProcesoSanark = () => {
             </h1>
           </FadeIn>
           <FadeIn delay={0.6}>
-            <p className="font-body text-base md:text-lg text-foreground/60 max-w-2xl mx-auto leading-relaxed">
+            <p className="font-body text-base md:text-lg text-foreground/80 max-w-2xl mx-auto leading-relaxed">
               12 sesiones para desmontar la arquitectura heredada que limita tu vida
               y edificar una estructura desde la que realmente quieres operar.
             </p>
@@ -177,7 +177,7 @@ const ProcesoSanark = () => {
                   </button>
                 }
               />
-              <p className="font-body text-xs tracking-[0.2em] uppercase text-foreground/40">
+              <p className="font-body text-xs tracking-[0.2em] uppercase text-foreground/85">
                 12 sesiones · 1:1 · Plazas limitadas
               </p>
             </div>
@@ -212,7 +212,7 @@ const ProcesoSanark = () => {
             <br />
             <span className="gradient-text-gold">Es ingeniería estructural de vida.</span>
           </h2>
-          <p className="font-body text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto">
+          <p className="font-body text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto">
             Parte de la base revelada en la Lectura Estructural y trabaja directamente
             sobre los programas que sostienen tus patrones repetitivos.
           </p>
@@ -241,7 +241,7 @@ const ProcesoSanark = () => {
             <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-6">
               Cuatro fases. Un solo propósito: crear desde cero.
             </h2>
-            <p className="font-body text-sm text-foreground/50 text-center mb-20 max-w-xl mx-auto">
+            <p className="font-body text-sm text-foreground/90 text-center mb-20 max-w-xl mx-auto">
               Cada fase es un paso irreversible. No hay vuelta atrás porque no queda nada a lo que volver.
             </p>
           </FadeIn>
@@ -270,7 +270,7 @@ const ProcesoSanark = () => {
                       <span className="font-display text-6xl font-light text-gold/20 block mb-3 relative z-10">{phase.num}</span>
                       <phase.icon size={20} className="text-gold mb-3 relative z-10" />
                       <h3 className="font-display text-2xl font-medium mb-3 relative z-10">{phase.title}</h3>
-                      <p className="font-body text-base text-foreground/55 leading-relaxed relative z-10">{phase.desc}</p>
+                      <p className="font-body text-base text-foreground/80 leading-relaxed relative z-10">{phase.desc}</p>
                     </div>
                   </motion.div>
                 </FadeIn>
@@ -287,7 +287,7 @@ const ProcesoSanark = () => {
                         <span className="font-display text-5xl font-light text-gold/20 block mb-2">{phase.num}</span>
                         <phase.icon size={20} className="text-gold mb-3" />
                         <h3 className="font-display text-lg font-medium mb-2">{phase.title}</h3>
-                        <p className="font-body text-sm text-foreground/65 leading-relaxed">{phase.desc}</p>
+                        <p className="font-body text-sm text-foreground/85 leading-relaxed">{phase.desc}</p>
                       </div>
                     </CarouselItem>
                   ))}
@@ -308,7 +308,7 @@ const ProcesoSanark = () => {
             <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-6 leading-tight">
               Lo que se abre cuando la estructura cambia
             </h2>
-            <p className="font-body text-base text-foreground/50 text-center mb-14 max-w-2xl mx-auto">
+            <p className="font-body text-base text-foreground/90 text-center mb-14 max-w-2xl mx-auto">
               Después de las 4 fases, estas áreas dejan de estar gobernadas por lo heredado. Tú decides cómo operan.
             </p>
           </FadeIn>
@@ -331,7 +331,7 @@ const ProcesoSanark = () => {
                   >
                     <Icon size={18} className="text-gold mb-2 group-hover:text-gold-light transition-colors" />
                     <p className="font-display text-xs tracking-[0.2em] uppercase text-gold/80 mb-1">{item.area}</p>
-                    <p className="font-body text-sm text-foreground/50 leading-relaxed group-hover:text-foreground/70 transition-colors">{item.text}</p>
+                    <p className="font-body text-sm text-foreground/90 leading-relaxed group-hover:text-foreground/85 transition-colors">{item.text}</p>
                   </motion.div>
                 </FadeIn>
               );
@@ -361,7 +361,7 @@ const ProcesoSanark = () => {
               <h3 className="font-display text-2xl md:text-3xl font-light mb-4">
                 12 sesiones · 4 fases · 1 transformación
               </h3>
-              <p className="font-body text-sm text-foreground/50 leading-relaxed mb-8 max-w-lg mx-auto">
+              <p className="font-body text-sm text-foreground/90 leading-relaxed mb-8 max-w-lg mx-auto">
                 Doce sesiones individuales conmigo donde trabajo directamente sobre tu estructura heredada.
                 Detectar, diseñar, crear y habitar. Cada fase es un paso irreversible hacia una nueva forma de operar.
               </p>
@@ -374,7 +374,7 @@ const ProcesoSanark = () => {
               >
                 2.000€
               </motion.p>
-              <p className="font-body text-xs text-foreground/40 tracking-wider mb-8">
+              <p className="font-body text-xs text-foreground/85 tracking-wider mb-8">
                 12 sesiones individuales 1:1 · Online
               </p>
 
@@ -392,7 +392,7 @@ const ProcesoSanark = () => {
                   ].map(({ icon: Icon, text }, i) => (
                     <li key={i} className="flex gap-3 items-start">
                       <Icon size={16} className="text-gold mt-0.5 shrink-0" />
-                      <p className="font-body text-sm text-foreground/65 leading-relaxed">{text}</p>
+                      <p className="font-body text-sm text-foreground/85 leading-relaxed">{text}</p>
                     </li>
                   ))}
                 </ul>
@@ -408,7 +408,7 @@ const ProcesoSanark = () => {
                   </button>
                 }
               />
-              <p className="mt-5 font-body text-sm text-foreground/50">
+              <p className="mt-5 font-body text-sm text-foreground/90">
                 Plazas limitadas · Te respondo personalmente en 24h
               </p>
             </motion.div>
@@ -425,7 +425,7 @@ const ProcesoSanark = () => {
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="font-body text-base md:text-lg text-foreground/60 leading-relaxed mb-10">
+            <p className="font-body text-base md:text-lg text-foreground/80 leading-relaxed mb-10">
               El Proceso Sanark comienza siempre con una Lectura Estructural. Es la lectura
               necesaria para saber exactamente desde dónde partes y qué estructuras están activas.
               Sin ese mapa, no hay intervención posible.
@@ -466,7 +466,7 @@ const ProcesoSanark = () => {
             </h2>
           </FadeIn>
           <FadeIn delay={0.3}>
-            <p className="font-body text-base text-foreground/60 mb-12 max-w-xl mx-auto">
+            <p className="font-body text-base text-foreground/80 mb-12 max-w-xl mx-auto">
               Si ya tienes el mapa, lo siguiente es construir el territorio. Doce sesiones para que la estructura nueva deje de ser idea y se vuelva tu forma natural de operar.
             </p>
           </FadeIn>
