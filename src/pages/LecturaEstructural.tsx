@@ -208,7 +208,7 @@ const LecturaEstructural = () => {
         <div className="container mx-auto px-6 max-w-3xl relative z-10 flex flex-col items-center text-center">
           <ScrollTextReveal
             text="Los programas heredados actúan en múltiples dimensiones — física, emocional, mental, conductual, relacional y social — y determinan tus resultados de forma silenciosa pero constante."
-            className="font-display text-2xl md:text-5xl font-light text-foreground leading-[1.25] tracking-tight"
+            className="font-display text-2xl md:text-4xl font-light text-foreground text-center leading-snug"
             as="h2"
           />
 
