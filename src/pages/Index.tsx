@@ -505,11 +505,11 @@ const Index = () => {
               <h2 className="font-display text-2xl md:text-4xl font-light mb-4 md:mb-5 leading-tight">
                 Antes de reservar,
                 <br />
-                <span className="gradient-text-gold">vive una primera lectura.</span>
+                <span className="gradient-text-gold">ve el patrón con tus propios ojos.</span>
               </h2>
               <p className="font-body text-base md:text-lg text-foreground/85 leading-relaxed max-w-xl mx-auto mb-7 md:mb-9">
-                <span className="md:hidden">15 preguntas. Una lectura estructural inicial de tu patrón. Sin coste, sin compromiso.</span>
-                <span className="hidden md:inline">Una experiencia inicial — gratuita y sin compromiso — del mismo tipo de lectura que hago en sesión. Respondes 15 preguntas y, al final, recibes una primera identificación del patrón estructural que se está repitiendo en tu vida. La forma más honesta de saber, antes de dar ningún paso, si esto es para ti.</span>
+                <span className="md:hidden">No necesitas creerme. 15 preguntas, y al final ves qué patrón se repite en tu vida. Sin coste, sin compromiso.</span>
+                <span className="hidden md:inline">No necesitas creerme. Respondes 15 preguntas. Y al final ves, con tus propios ojos, qué patrón estructural se está repitiendo en tu vida. Sin coste. Sin compromiso. Solo claridad.</span>
               </p>
               <Link
                 to="/lectura-basica"
@@ -536,13 +536,15 @@ const Index = () => {
               Entrada
             </p>
             <h2 className="font-display text-2xl md:text-5xl font-light text-center mb-6 md:mb-8 leading-tight">
-              Todo comienza con una sola sesión.
+              Una sesión. Una lectura.
+              <br />
+              <span className="gradient-text-gold">Todo cambia de lugar.</span>
             </h2>
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="font-body text-base md:text-xl text-foreground/85 text-center max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
-              <span className="md:hidden">90 minutos para ver desde dónde operas. La puerta de entrada al sistema completo.</span>
-              <span className="hidden md:inline">90 minutos para ver, con precisión, la arquitectura desde la que estás operando hoy. Es la puerta de entrada a todo mi sistema de decodificación estructural — y, para muchos, el primer momento en que lo invisible deja de serlo.</span>
+              <span className="md:hidden">En 90 minutos leo la arquitectura desde la que operas. La estructura que sigue dirigiendo tu vida aunque hayas trabajado en ti durante años.</span>
+              <span className="hidden md:inline">En 90 minutos leo la arquitectura desde la que operas. La estructura que heredaste y que sigue dirigiendo tu vida aunque hayas trabajado en ti durante años. No es terapia. Es una lectura.</span>
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
