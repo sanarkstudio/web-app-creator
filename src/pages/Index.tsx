@@ -214,7 +214,7 @@ const Index = () => {
         <div className="container mx-auto px-6 max-w-3xl relative z-10">
           <ScrollTextReveal
             text="Un programa heredado, inscrito en tu sistema antes de que tuvieras palabras para nombrarlo. Esa estructura decide cómo gestionas tu energía, cómo te relacionas, qué permites y qué no. Y mientras siga ahí, cualquier cambio será temporal."
-            className="font-display text-xl md:text-4xl font-light text-center text-foreground leading-snug"
+            className="font-display text-2xl md:text-4xl font-light text-center text-foreground leading-snug"
             as="h2"
           />
         </div>

@@ -208,7 +208,7 @@ const LecturaEstructural = () => {
         <div className="container mx-auto px-6 max-w-3xl relative z-10 flex flex-col items-center text-center">
           <ScrollTextReveal
             text="Los programas heredados actúan en múltiples dimensiones — física, emocional, mental, conductual, relacional y social — y determinan tus resultados de forma silenciosa pero constante."
-            className="font-display text-2xl md:text-5xl font-light text-foreground leading-[1.25] tracking-tight"
+            className="font-display text-2xl md:text-4xl font-light text-foreground text-center leading-snug"
             as="h2"
           />
 
@@ -223,7 +223,7 @@ const LecturaEstructural = () => {
 
           <ScrollTextReveal
             text="La Lectura Estructural los hace visibles. Te muestra qué estructura estás habitando y por qué ciertos patrones se repiten sin importar lo que hagas."
-            className="font-display text-lg md:text-3xl font-light text-foreground/70 leading-[1.4] tracking-tight max-w-2xl"
+            className="font-display text-lg md:text-2xl font-light text-foreground/70 text-center leading-relaxed max-w-2xl"
             as="p"
           />
         </div>
@@ -372,12 +372,12 @@ const LecturaEstructural = () => {
           </FadeIn>
           <ScrollTextReveal
             text="¿Has recorrido un camino significativo de autoconocimiento? ¿Has hecho terapia, coaching o trabajo personal? ¿Sabes — aunque no puedas nombrarlo — que hay una capa más profunda que aún no has tocado?"
-            className="font-body text-xl md:text-2xl text-foreground/90 text-center leading-relaxed"
+            className="font-display text-2xl md:text-4xl font-light text-foreground text-center leading-snug"
             as="p"
           />
           <FadeIn delay={0.3}>
             <motion.p
-              className="text-foreground font-medium text-center py-8 font-display text-2xl md:text-3xl"
+              className="text-foreground/70 text-center mt-10 md:mt-14 font-display text-lg md:text-2xl font-light max-w-2xl mx-auto leading-relaxed"
               whileHover={{ scale: 1.02 }}
             >
               No es para quien necesita motivación. Es para quien desea un cambio desde la raíz.
