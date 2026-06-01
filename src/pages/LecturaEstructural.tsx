@@ -223,7 +223,7 @@ const LecturaEstructural = () => {
 
           <ScrollTextReveal
             text="La Lectura Estructural los hace visibles. Te muestra qué estructura estás habitando y por qué ciertos patrones se repiten sin importar lo que hagas."
-            className="font-display text-lg md:text-3xl font-light text-foreground/70 leading-[1.4] tracking-tight max-w-2xl"
+            className="font-display text-lg md:text-2xl font-light text-foreground/70 text-center leading-relaxed max-w-2xl"
             as="p"
           />
         </div>
