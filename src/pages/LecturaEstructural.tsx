@@ -372,12 +372,12 @@ const LecturaEstructural = () => {
           </FadeIn>
           <ScrollTextReveal
             text="¿Has recorrido un camino significativo de autoconocimiento? ¿Has hecho terapia, coaching o trabajo personal? ¿Sabes — aunque no puedas nombrarlo — que hay una capa más profunda que aún no has tocado?"
-            className="font-body text-xl md:text-2xl text-foreground/90 text-center leading-relaxed"
+            className="font-display text-2xl md:text-4xl font-light text-foreground text-center leading-snug"
             as="p"
           />
           <FadeIn delay={0.3}>
             <motion.p
-              className="text-foreground font-medium text-center py-8 font-display text-2xl md:text-3xl"
+              className="text-foreground/70 text-center mt-10 md:mt-14 font-display text-lg md:text-2xl font-light max-w-2xl mx-auto leading-relaxed"
               whileHover={{ scale: 1.02 }}
             >
               No es para quien necesita motivación. Es para quien desea un cambio desde la raíz.
