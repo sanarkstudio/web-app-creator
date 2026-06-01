@@ -536,13 +536,15 @@ const Index = () => {
               Entrada
             </p>
             <h2 className="font-display text-2xl md:text-5xl font-light text-center mb-6 md:mb-8 leading-tight">
-              Todo comienza con una sola sesión.
+              Una sesión. Una lectura.
+              <br />
+              <span className="gradient-text-gold">Todo cambia de lugar.</span>
             </h2>
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="font-body text-base md:text-xl text-foreground/85 text-center max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
-              <span className="md:hidden">90 minutos para ver desde dónde operas. La puerta de entrada al sistema completo.</span>
-              <span className="hidden md:inline">90 minutos para ver, con precisión, la arquitectura desde la que estás operando hoy. Es la puerta de entrada a todo mi sistema de decodificación estructural — y, para muchos, el primer momento en que lo invisible deja de serlo.</span>
+              <span className="md:hidden">En 90 minutos leo la arquitectura desde la que operas. La estructura que sigue dirigiendo tu vida aunque hayas trabajado en ti durante años.</span>
+              <span className="hidden md:inline">En 90 minutos leo la arquitectura desde la que operas. La estructura que heredaste y que sigue dirigiendo tu vida aunque hayas trabajado en ti durante años. No es terapia. Es una lectura.</span>
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
