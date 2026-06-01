@@ -508,8 +508,8 @@ const Index = () => {
                 <span className="gradient-text-gold">ve el patrón con tus propios ojos.</span>
               </h2>
               <p className="font-body text-base md:text-lg text-foreground/85 leading-relaxed max-w-xl mx-auto mb-7 md:mb-9">
-                <span className="md:hidden">No necesitas creerme. 15 preguntas, y al final ves qué patrón se repite en tu vida. Sin coste, sin compromiso.</span>
-                <span className="hidden md:inline">No necesitas creerme. Respondes 15 preguntas. Y al final ves, con tus propios ojos, qué patrón estructural se está repitiendo en tu vida. Sin coste. Sin compromiso. Solo claridad.</span>
+                <span className="md:hidden">15 preguntas. Al terminar, recibes una primera lectura del patrón que se repite en tu vida. Sin coste y sin compromiso.</span>
+                <span className="hidden md:inline">15 preguntas. Al terminar, recibes una primera lectura del patrón estructural que se repite en tu vida. La misma mirada que aplico en sesión, sin coste y sin compromiso.</span>
               </p>
               <Link
                 to="/lectura-basica"
