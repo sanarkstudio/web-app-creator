@@ -203,21 +203,29 @@ const LecturaEstructural = () => {
       </StickyRevealSection>
 
       {/* Word-by-word scroll reveal */}
-      <section className="py-16 md:py-36 relative">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(38_50%_48%/0.03)_0%,transparent_50%)]" />
-        <div className="container mx-auto px-6 max-w-3xl relative z-10">
+      <section className="py-20 md:py-44 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.04)_0%,transparent_55%)]" />
+        <div className="container mx-auto px-6 max-w-3xl relative z-10 flex flex-col items-center text-center">
           <ScrollTextReveal
             text="Los programas heredados actúan en múltiples dimensiones — física, emocional, mental, conductual, relacional y social — y determinan tus resultados de forma silenciosa pero constante."
-            className="font-display text-xl md:text-4xl font-light text-center text-foreground leading-snug"
+            className="font-display text-2xl md:text-5xl font-light text-foreground leading-[1.25] tracking-tight"
             as="h2"
           />
-          <div className="mt-10 md:mt-16">
-            <ScrollTextReveal
-              text="La Lectura Estructural los hace visibles. Te muestra qué estructura estás habitando y por qué ciertos patrones se repiten sin importar lo que hagas."
-              className="font-body text-lg md:text-2xl text-foreground/90 text-center leading-relaxed"
-              as="p"
-            />
-          </div>
+
+          {/* Animated gold divider */}
+          <motion.div
+            className="my-12 md:my-20 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent"
+            initial={{ width: 0, opacity: 0 }}
+            whileInView={{ width: "8rem", opacity: 1 }}
+            viewport={{ once: true, margin: "-20%" }}
+            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+          />
+
+          <ScrollTextReveal
+            text="La Lectura Estructural los hace visibles. Te muestra qué estructura estás habitando y por qué ciertos patrones se repiten sin importar lo que hagas."
+            className="font-display text-lg md:text-3xl font-light text-foreground/70 leading-[1.4] tracking-tight max-w-2xl"
+            as="p"
+          />
         </div>
       </section>
 
