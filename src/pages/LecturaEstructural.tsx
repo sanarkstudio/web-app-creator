@@ -386,7 +386,7 @@ const LecturaEstructural = () => {
           <FadeIn delay={0.3}>
             <div className="w-16 h-px bg-gold/30 mx-auto mb-8 md:mb-10" />
             <p className="font-display text-2xl md:text-3xl font-light text-foreground/90 leading-snug max-w-2xl mx-auto text-center mt-10 md:mt-14">
-              No es para quien necesita motivación. Es para quien busca un{" "}
+              No es para quien necesita motivación. Es para quien desea un{" "}
               <span className="text-gold">cambio desde la raíz</span>.
             </p>
           </FadeIn>
