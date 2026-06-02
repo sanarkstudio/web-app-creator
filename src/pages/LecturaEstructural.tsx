@@ -225,18 +225,31 @@ const LecturaEstructural = () => {
             </h2>
           </FadeIn>
 
-          <FadeIn delay={0.2}>
-            <div className="flex flex-wrap justify-center gap-2.5 md:gap-3 my-8 md:my-12 max-w-2xl">
-              {["Física", "Emocional", "Mental", "Conductual", "Relacional", "Social"].map((dim) => (
-                <span
-                  key={dim}
-                  className="font-body text-xs md:text-sm tracking-wide text-foreground/75 border border-gold/20 rounded-full px-4 py-1.5 md:px-5 md:py-2 bg-secondary/40"
-                >
-                  {dim}
-                </span>
-              ))}
-            </div>
-          </FadeIn>
+          <motion.div
+            className="flex flex-wrap justify-center gap-2.5 md:gap-3 my-8 md:my-12 max-w-2xl"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={{
+              hidden: {},
+              show: { transition: { staggerChildren: 0.08, delayChildren: 0.2 } },
+            }}
+          >
+            {["Física", "Emocional", "Mental", "Conductual", "Relacional", "Social"].map((dim) => (
+              <motion.span
+                key={dim}
+                variants={{
+                  hidden: { opacity: 0, y: 12, scale: 0.9 },
+                  show: { opacity: 1, y: 0, scale: 1 },
+                }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ scale: 1.06, borderColor: "hsl(38 50% 48% / 0.5)" }}
+                className="font-body text-xs md:text-sm tracking-wide text-foreground/75 border border-gold/20 rounded-full px-4 py-1.5 md:px-5 md:py-2 bg-secondary/40 cursor-default"
+              >
+                {dim}
+              </motion.span>
+            ))}
+          </motion.div>
 
           <FadeIn delay={0.3}>
             <p className="font-display text-xl md:text-3xl font-light text-foreground/90 leading-snug max-w-2xl mx-auto">
