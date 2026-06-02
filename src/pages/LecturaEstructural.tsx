@@ -145,14 +145,27 @@ const LecturaEstructural = () => {
           </FadeIn>
 
           <FadeIn delay={1.1}>
-            <a
+            <motion.a
               href="#reservar"
               onClick={() => trackCtaClick("Ver qué estructura opera en mí", "lectura_estructural_hero")}
-              className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-8 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]"
+              className="group relative inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-8 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-colors duration-500 font-semibold overflow-hidden"
+              animate={{
+                boxShadow: [
+                  "0 0 30px hsl(38 50% 48% / 0.35)",
+                  "0 0 55px hsl(38 50% 48% / 0.6)",
+                  "0 0 30px hsl(38 50% 48% / 0.35)",
+                ],
+              }}
+              transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
             >
-              Ver qué estructura opera en mí
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </a>
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-background/25 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1000" />
+              <span className="relative z-10 inline-flex items-center gap-3">
+                Ver qué estructura opera en mí
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </span>
+            </motion.a>
           </FadeIn>
         </motion.div>
 
