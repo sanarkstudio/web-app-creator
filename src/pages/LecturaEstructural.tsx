@@ -8,6 +8,8 @@ import FloatingParticles from "@/components/shared/FloatingParticles";
 import GenerativeParallax from "@/components/shared/GenerativeParallax";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
+import ScrollProgress from "@/components/shared/ScrollProgress";
+import SectionConnector from "@/components/shared/SectionConnector";
 import { ArrowRight, Layers, Flame, Map, Activity, HeartHandshake, Zap, DollarSign, Sparkles, Mail, CalendarCheck, MessageSquare, Lock, Footprints, Users, Eye } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import MobileExpandable from "@/components/shared/MobileExpandable";
@@ -46,6 +48,7 @@ const LecturaEstructural = () => {
 
   return (
     <Layout>
+      <ScrollProgress />
       <Helmet>
         <title>Lectura Estructural 1:1 · 90 min · 180€ | Sanark</title>
         <meta name="description" content="Sesión individual de 90 minutos donde leo la arquitectura que opera por debajo de tu consciencia y te muestro exactamente por qué se repite lo que se repite." />
@@ -142,14 +145,27 @@ const LecturaEstructural = () => {
           </FadeIn>
 
           <FadeIn delay={1.1}>
-            <a
+            <motion.a
               href="#reservar"
               onClick={() => trackCtaClick("Ver qué estructura opera en mí", "lectura_estructural_hero")}
-              className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-8 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]"
+              className="group relative inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-8 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-colors duration-500 font-semibold overflow-hidden"
+              animate={{
+                boxShadow: [
+                  "0 0 30px hsl(38 50% 48% / 0.35)",
+                  "0 0 55px hsl(38 50% 48% / 0.6)",
+                  "0 0 30px hsl(38 50% 48% / 0.35)",
+                ],
+              }}
+              transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
             >
-              Ver qué estructura opera en mí
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </a>
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-background/25 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1000" />
+              <span className="relative z-10 inline-flex items-center gap-3">
+                Ver qué estructura opera en mí
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </span>
+            </motion.a>
           </FadeIn>
         </motion.div>
 
@@ -209,18 +225,31 @@ const LecturaEstructural = () => {
             </h2>
           </FadeIn>
 
-          <FadeIn delay={0.2}>
-            <div className="flex flex-wrap justify-center gap-2.5 md:gap-3 my-8 md:my-12 max-w-2xl">
-              {["Física", "Emocional", "Mental", "Conductual", "Relacional", "Social"].map((dim) => (
-                <span
-                  key={dim}
-                  className="font-body text-xs md:text-sm tracking-wide text-foreground/75 border border-gold/20 rounded-full px-4 py-1.5 md:px-5 md:py-2 bg-secondary/40"
-                >
-                  {dim}
-                </span>
-              ))}
-            </div>
-          </FadeIn>
+          <motion.div
+            className="flex flex-wrap justify-center gap-2.5 md:gap-3 my-8 md:my-12 max-w-2xl"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={{
+              hidden: {},
+              show: { transition: { staggerChildren: 0.08, delayChildren: 0.2 } },
+            }}
+          >
+            {["Física", "Emocional", "Mental", "Conductual", "Relacional", "Social"].map((dim) => (
+              <motion.span
+                key={dim}
+                variants={{
+                  hidden: { opacity: 0, y: 12, scale: 0.9 },
+                  show: { opacity: 1, y: 0, scale: 1 },
+                }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ scale: 1.06, borderColor: "hsl(38 50% 48% / 0.5)" }}
+                className="font-body text-xs md:text-sm tracking-wide text-foreground/75 border border-gold/20 rounded-full px-4 py-1.5 md:px-5 md:py-2 bg-secondary/40 cursor-default"
+              >
+                {dim}
+              </motion.span>
+            ))}
+          </motion.div>
 
           <FadeIn delay={0.3}>
             <p className="font-display text-xl md:text-3xl font-light text-foreground/90 leading-snug max-w-2xl mx-auto">
@@ -231,6 +260,7 @@ const LecturaEstructural = () => {
         </div>
       </section>
 
+      <SectionConnector />
 
       {/* What it reveals — compact cards like home style */}
       <section ref={revealRef} className="py-14 md:py-32 relative overflow-hidden">
@@ -279,7 +309,7 @@ const LecturaEstructural = () => {
                           transition={{ duration: 0.3 }}
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                          <Icon size={18} className="text-gold mb-3 relative z-10" />
+                          <Icon size={18} className="text-gold mb-3 relative z-10 transition-transform duration-500 group-hover:scale-125 group-hover:rotate-3" />
                           <h3 className="font-display text-lg font-medium mb-3 relative z-10">{item.title}</h3>
                           <p className="font-body text-base text-foreground/85 leading-relaxed relative z-10">{item.desc}</p>
                         </motion.div>
@@ -347,7 +377,7 @@ const LecturaEstructural = () => {
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                     <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3 relative z-10">
-                      <Icon size={16} className="text-gold" />
+                      <Icon size={16} className="text-gold transition-transform duration-500 group-hover:scale-125 group-hover:rotate-3" />
                       <p className="font-display text-[10px] md:text-xs tracking-[0.2em] uppercase text-gold/80">{item.label}</p>
                     </div>
                     <p className="font-body text-sm md:text-base text-foreground/85 leading-relaxed relative z-10">{item.text}</p>
@@ -364,6 +394,8 @@ const LecturaEstructural = () => {
           </FadeIn>
         </div>
       </section>
+
+      <SectionConnector />
 
       {/* ¿Para quién es? */}
       <section className="py-16 md:py-32 relative overflow-hidden">
@@ -394,7 +426,7 @@ const LecturaEstructural = () => {
                     transition={{ duration: 0.3 }}
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                    <Icon size={20} className="text-gold mb-4 relative z-10" />
+                    <Icon size={20} className="text-gold mb-4 relative z-10 transition-transform duration-500 group-hover:scale-125 group-hover:rotate-3" />
                     <p className="font-display text-lg md:text-xl font-light text-foreground/90 leading-snug relative z-10">
                       {item.text}
                     </p>
@@ -413,6 +445,7 @@ const LecturaEstructural = () => {
         </div>
       </section>
 
+      <SectionConnector />
 
       {/* Price box */}
       <section ref={ctaRef} id="reservar" className="py-14 md:py-32 relative overflow-hidden scroll-mt-24">
@@ -479,10 +512,25 @@ const LecturaEstructural = () => {
                 cta="Sí. Quiero ver mi estructura."
                 location="lectura_estructural_page"
                 trigger={
-                  <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]">
-                    Sí. Quiero ver mi estructura.
-                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  <motion.button
+                    className="group relative inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-12 py-5 bg-gold text-background hover:bg-gold-light transition-colors duration-500 font-semibold overflow-hidden"
+                    animate={{
+                      boxShadow: [
+                        "0 0 30px hsl(38 50% 48% / 0.35)",
+                        "0 0 55px hsl(38 50% 48% / 0.6)",
+                        "0 0 30px hsl(38 50% 48% / 0.35)",
+                      ],
+                    }}
+                    transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-background/25 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1000" />
+                    <span className="relative z-10 inline-flex items-center gap-3">
+                      Sí. Quiero ver mi estructura.
+                      <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </motion.button>
                 }
               />
               <p className="mt-5 font-body text-sm text-foreground/90">
