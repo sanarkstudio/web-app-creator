@@ -362,7 +362,7 @@ const LecturaEstructural = () => {
             {[
               { icon: Footprints, text: "Has recorrido un camino real de autoconocimiento." },
               { icon: Users, text: "Has hecho terapia, coaching o trabajo personal." },
-              { icon: Eye, text: "Intuyes que hay una capa más honda que aún no has tocado." },
+              { icon: Eye, text: "Intuyes que hay una capa más profunda que aún no has tocado. o cambiado" },
             ].map((item, i) => {
               const Icon = item.icon;
               return (
