@@ -7,9 +7,8 @@ import SectionDivider from "@/components/shared/SectionDivider";
 import FloatingParticles from "@/components/shared/FloatingParticles";
 import GenerativeParallax from "@/components/shared/GenerativeParallax";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
-import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
-import { ArrowRight, Layers, Flame, Map, Activity, HeartHandshake, Zap, DollarSign, Sparkles, Mail, CalendarCheck, MessageSquare, Lock } from "lucide-react";
+import { ArrowRight, Layers, Flame, Map, Activity, HeartHandshake, Zap, DollarSign, Sparkles, Mail, CalendarCheck, MessageSquare, Lock, Footprints, Users, Eye } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import MobileExpandable from "@/components/shared/MobileExpandable";
 import MobileStickyCTA from "@/components/shared/MobileStickyCTA";
@@ -173,42 +172,29 @@ const LecturaEstructural = () => {
         />
       </div>
 
-      {/* Sticky reveal — expanded text */}
-      <StickyRevealSection scrollHeight={1.8}>
+      {/* Sticky reveal — what it is */}
+      <StickyRevealSection scrollHeight={1.3}>
         <div className="container mx-auto px-6 max-w-3xl text-center">
           <SectionDivider />
-          <h2 className="font-display text-3xl md:text-6xl font-light mt-8 md:mt-12 mb-6 md:mb-10 leading-tight">
+          <h2 className="font-display text-3xl md:text-6xl font-light mt-8 md:mt-12 mb-6 md:mb-8 leading-tight">
             <span className="gradient-text-gold">¿Qué es una Lectura Estructural?</span>
           </h2>
-          <MobileExpandable
-            preview={
-              <p className="font-body text-lg md:text-2xl text-foreground/80 max-w-2xl mx-auto leading-relaxed">
-                Una lectura que va más allá de los síntomas. Accede a la capa más profunda — esa que determina por qué repites lo que repites.
-              </p>
-            }
-            extra={
-              <div className="space-y-5 md:space-y-6 mt-5 md:mt-6">
-                <p className="font-body text-lg md:text-2xl text-foreground/90 max-w-2xl mx-auto leading-relaxed">
-                  No es terapia, no es coaching, no es interpretación. Es una decodificación
-                  precisa de los programas que tu sistema familiar, tu cultura y tu entorno
-                  inscribieron en ti — programas que hoy operan en automático y condicionan
-                  cada decisión, cada vínculo y cada resultado.
-                </p>
-                <p className="font-body text-base md:text-lg text-foreground/80 max-w-xl mx-auto leading-relaxed italic">
-                  Trabajo con lo que realmente está activo — no con lo que crees que te pasa.
-                </p>
-              </div>
-            }
-          />
+          <p className="font-body text-lg md:text-2xl text-foreground/90 max-w-2xl mx-auto leading-relaxed">
+            No es terapia, no es coaching, no es interpretación. Es una decodificación precisa de la capa
+            más profunda — esa que determina por qué repites lo que repites.
+          </p>
+          <p className="font-body text-base md:text-lg text-foreground/70 max-w-xl mx-auto leading-relaxed italic mt-5 md:mt-6">
+            Trabajo solo con lo que realmente está activo en ti — no con lo que crees que te pasa.
+          </p>
         </div>
       </StickyRevealSection>
 
       {/* Inherited structure — cinematic, clean reveal */}
-      <section className="py-24 md:py-44 relative overflow-hidden">
+      <section className="py-16 md:py-28 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.05)_0%,transparent_60%)]" />
         <div className="container mx-auto px-6 max-w-3xl relative z-10 flex flex-col items-center text-center">
           <FadeIn>
-            <span className="font-body text-xs md:text-sm tracking-[0.3em] uppercase text-gold/80 mb-8 md:mb-10 block">
+            <span className="font-body text-xs md:text-sm tracking-[0.3em] uppercase text-gold/80 mb-6 md:mb-8 block">
               Lo que heredaste sin elegirlo
             </span>
           </FadeIn>
@@ -222,7 +208,7 @@ const LecturaEstructural = () => {
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <div className="flex flex-wrap justify-center gap-2.5 md:gap-3 my-10 md:my-16 max-w-2xl">
+            <div className="flex flex-wrap justify-center gap-2.5 md:gap-3 my-8 md:my-12 max-w-2xl">
               {["Física", "Emocional", "Mental", "Conductual", "Relacional", "Social"].map((dim) => (
                 <span
                   key={dim}
@@ -236,7 +222,7 @@ const LecturaEstructural = () => {
 
           <FadeIn delay={0.3}>
             <p className="font-display text-xl md:text-3xl font-light text-foreground/90 leading-snug max-w-2xl mx-auto">
-              La Lectura Estructural los hace visibles — y te muestra por qué ciertos patrones se
+              La Lectura los hace visibles — y te muestra por qué ciertos patrones se
               repiten sin importar lo que hagas.
             </p>
           </FadeIn>
@@ -378,28 +364,53 @@ const LecturaEstructural = () => {
       </section>
 
       {/* ¿Para quién es? */}
-      <section className="py-14 md:py-32">
-        <div className="container mx-auto px-6 max-w-3xl">
+      <section className="py-16 md:py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-secondary/30" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
+        <div className="container mx-auto px-6 max-w-4xl relative z-10">
           <FadeIn>
-            <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-12">
+            <span className="font-body text-xs md:text-sm tracking-[0.3em] uppercase text-gold/80 mb-4 block text-center">
+              Antes de reservar
+            </span>
+            <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-10 md:mb-14">
               ¿Para quién es?
             </h2>
           </FadeIn>
-          <ScrollTextReveal
-            text="¿Has recorrido un camino significativo de autoconocimiento? ¿Has hecho terapia, coaching o trabajo personal? ¿Sabes — aunque no puedas nombrarlo — que hay una capa más profunda que aún no has tocado?"
-            className="font-display text-2xl md:text-4xl font-light text-foreground text-center leading-snug"
-            as="p"
-          />
+
+          <div className="grid md:grid-cols-3 gap-4 md:gap-5">
+            {[
+              { icon: Footprints, text: "Has recorrido un camino real de autoconocimiento." },
+              { icon: Users, text: "Has hecho terapia, coaching o trabajo personal." },
+              { icon: Eye, text: "Intuyes que hay una capa más honda que aún no has tocado." },
+            ].map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <FadeIn key={i} delay={i * 0.12}>
+                  <motion.div
+                    className="relative p-6 md:p-7 bg-card/50 backdrop-blur-sm border border-border/30 h-full hover:border-gold/30 transition-all duration-500 overflow-hidden group"
+                    whileHover={{ y: -4 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                    <Icon size={20} className="text-gold mb-4 relative z-10" />
+                    <p className="font-display text-lg md:text-xl font-light text-foreground/90 leading-snug relative z-10">
+                      {item.text}
+                    </p>
+                  </motion.div>
+                </FadeIn>
+              );
+            })}
+          </div>
+
           <FadeIn delay={0.3}>
-            <motion.p
-              className="text-foreground/70 text-center mt-10 md:mt-14 font-display text-lg md:text-2xl font-light max-w-2xl mx-auto leading-relaxed"
-              whileHover={{ scale: 1.02 }}
-            >
-              No es para quien necesita motivación. Es para quien desea un cambio desde la raíz.
-            </motion.p>
+            <p className="font-display text-xl md:text-3xl font-light text-foreground/90 leading-snug max-w-2xl mx-auto text-center mt-12 md:mt-16">
+              No es para quien necesita motivación. Es para quien busca un{" "}
+              <span className="text-gold">cambio desde la raíz</span>.
+            </p>
           </FadeIn>
         </div>
       </section>
+
 
       {/* Price box */}
       <section ref={ctaRef} id="reservar" className="py-14 md:py-32 relative overflow-hidden scroll-mt-24">
