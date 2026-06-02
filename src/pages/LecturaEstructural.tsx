@@ -395,6 +395,8 @@ const LecturaEstructural = () => {
         </div>
       </section>
 
+      <SectionConnector />
+
       {/* ¿Para quién es? */}
       <section className="py-16 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
