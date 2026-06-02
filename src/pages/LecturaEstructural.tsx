@@ -173,42 +173,29 @@ const LecturaEstructural = () => {
         />
       </div>
 
-      {/* Sticky reveal — expanded text */}
-      <StickyRevealSection scrollHeight={1.8}>
+      {/* Sticky reveal — what it is */}
+      <StickyRevealSection scrollHeight={1.3}>
         <div className="container mx-auto px-6 max-w-3xl text-center">
           <SectionDivider />
-          <h2 className="font-display text-3xl md:text-6xl font-light mt-8 md:mt-12 mb-6 md:mb-10 leading-tight">
+          <h2 className="font-display text-3xl md:text-6xl font-light mt-8 md:mt-12 mb-6 md:mb-8 leading-tight">
             <span className="gradient-text-gold">¿Qué es una Lectura Estructural?</span>
           </h2>
-          <MobileExpandable
-            preview={
-              <p className="font-body text-lg md:text-2xl text-foreground/80 max-w-2xl mx-auto leading-relaxed">
-                Una lectura que va más allá de los síntomas. Accede a la capa más profunda — esa que determina por qué repites lo que repites.
-              </p>
-            }
-            extra={
-              <div className="space-y-5 md:space-y-6 mt-5 md:mt-6">
-                <p className="font-body text-lg md:text-2xl text-foreground/90 max-w-2xl mx-auto leading-relaxed">
-                  No es terapia, no es coaching, no es interpretación. Es una decodificación
-                  precisa de los programas que tu sistema familiar, tu cultura y tu entorno
-                  inscribieron en ti — programas que hoy operan en automático y condicionan
-                  cada decisión, cada vínculo y cada resultado.
-                </p>
-                <p className="font-body text-base md:text-lg text-foreground/80 max-w-xl mx-auto leading-relaxed italic">
-                  Trabajo con lo que realmente está activo — no con lo que crees que te pasa.
-                </p>
-              </div>
-            }
-          />
+          <p className="font-body text-lg md:text-2xl text-foreground/90 max-w-2xl mx-auto leading-relaxed">
+            No es terapia, no es coaching, no es interpretación. Es una decodificación precisa de la capa
+            más profunda — esa que determina por qué repites lo que repites.
+          </p>
+          <p className="font-body text-base md:text-lg text-foreground/70 max-w-xl mx-auto leading-relaxed italic mt-5 md:mt-6">
+            Trabajo solo con lo que realmente está activo en ti — no con lo que crees que te pasa.
+          </p>
         </div>
       </StickyRevealSection>
 
       {/* Inherited structure — cinematic, clean reveal */}
-      <section className="py-24 md:py-44 relative overflow-hidden">
+      <section className="py-16 md:py-28 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.05)_0%,transparent_60%)]" />
         <div className="container mx-auto px-6 max-w-3xl relative z-10 flex flex-col items-center text-center">
           <FadeIn>
-            <span className="font-body text-xs md:text-sm tracking-[0.3em] uppercase text-gold/80 mb-8 md:mb-10 block">
+            <span className="font-body text-xs md:text-sm tracking-[0.3em] uppercase text-gold/80 mb-6 md:mb-8 block">
               Lo que heredaste sin elegirlo
             </span>
           </FadeIn>
@@ -222,7 +209,7 @@ const LecturaEstructural = () => {
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <div className="flex flex-wrap justify-center gap-2.5 md:gap-3 my-10 md:my-16 max-w-2xl">
+            <div className="flex flex-wrap justify-center gap-2.5 md:gap-3 my-8 md:my-12 max-w-2xl">
               {["Física", "Emocional", "Mental", "Conductual", "Relacional", "Social"].map((dim) => (
                 <span
                   key={dim}
@@ -236,7 +223,7 @@ const LecturaEstructural = () => {
 
           <FadeIn delay={0.3}>
             <p className="font-display text-xl md:text-3xl font-light text-foreground/90 leading-snug max-w-2xl mx-auto">
-              La Lectura Estructural los hace visibles — y te muestra por qué ciertos patrones se
+              La Lectura los hace visibles — y te muestra por qué ciertos patrones se
               repiten sin importar lo que hagas.
             </p>
           </FadeIn>
