@@ -625,7 +625,7 @@ const Index = () => {
               />
             </div>
             <p className="mt-5 font-body text-xs md:text-sm text-foreground/90">
-              Te respondo personalmente en 24h · Confidencialidad absoluta
+              Te respondo personalmente en 24h
             </p>
           </FadeIn>
         </div>
