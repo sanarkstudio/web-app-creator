@@ -196,71 +196,18 @@ const LecturaEstructural = () => {
             <span className="gradient-text-gold">¿Qué es una Lectura Estructural?</span>
           </h2>
           <p className="font-body text-lg md:text-2xl text-foreground/90 max-w-2xl mx-auto leading-relaxed">
-            Es la lectura precisa de eso que te hace volver a lo mismo aunque juraste que no lo harías. El motivo no está en lo que sientes ni en lo que piensas.
+            Es leer lo que te dirige cuando tú crees que decides.
           </p>
           <p className="font-body text-base md:text-lg text-foreground/70 max-w-xl mx-auto leading-relaxed mt-4 md:mt-5">
-            Es leer la capa más profunda: la subestructura de tu sistema, donde se activan los programas que heredaste sin elegirlos y que hoy condicionan cada decisión, cada vínculo y cada resultado.
+            Tu sistema familiar, tu cultura y tu entorno dejaron instrucciones en ti. Instrucciones que hoy actúan en tu cuerpo, tus relaciones, tu dinero y tus decisiones — sin que las veas, sin que las elijas.
           </p>
           <p className="font-body text-base md:text-lg text-foreground/70 max-w-xl mx-auto leading-relaxed italic mt-3 md:mt-4">
-            Es trabajar con lo que realmente está activo — no con lo que crees que te pasa.
+            La Lectura las hace visibles. Sin ese mapa, no hay instrucciones nuevas posibles. Con él, sí.
           </p>
         </div>
       </StickyRevealSection>
 
-      {/* Inherited structure — cinematic, clean reveal */}
-      <section className="py-16 md:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.05)_0%,transparent_60%)]" />
-        <div className="container mx-auto px-6 max-w-3xl relative z-10 flex flex-col items-center text-center">
-          <FadeIn>
-            <span className="font-body text-xs md:text-sm tracking-[0.3em] uppercase text-gold/80 mb-6 md:mb-8 block">
-              Lo que heredaste sin elegirlo
-            </span>
-          </FadeIn>
 
-          <FadeIn delay={0.1}>
-            <h2 className="font-display text-2xl md:text-5xl font-light text-foreground leading-tight">
-              No solo tu <span className="text-gold">sistema familiar</span>. También tu{" "}
-              <span className="text-gold">cultura</span>, tu <span className="text-gold">época</span> y tu{" "}
-              <span className="text-gold">entorno</span> inscribieron programas que hoy actúan en automático.
-            </h2>
-          </FadeIn>
-
-          <motion.div
-            className="flex flex-wrap justify-center gap-2.5 md:gap-3 my-8 md:my-12 max-w-2xl"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={{
-              hidden: {},
-              show: { transition: { staggerChildren: 0.08, delayChildren: 0.2 } },
-            }}
-          >
-            {["Física", "Emocional", "Mental", "Conductual", "Relacional", "Social"].map((dim) => (
-              <motion.span
-                key={dim}
-                variants={{
-                  hidden: { opacity: 0, y: 12, scale: 0.9 },
-                  show: { opacity: 1, y: 0, scale: 1 },
-                }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ scale: 1.06, borderColor: "hsl(38 50% 48% / 0.5)" }}
-                className="font-body text-xs md:text-sm tracking-wide text-foreground/75 border border-gold/20 rounded-full px-4 py-1.5 md:px-5 md:py-2 bg-secondary/40 cursor-default"
-              >
-                {dim}
-              </motion.span>
-            ))}
-          </motion.div>
-
-          <FadeIn delay={0.3}>
-            <p className="font-display text-xl md:text-3xl font-light text-foreground/90 leading-snug max-w-2xl mx-auto">
-              La Lectura los hace visibles — y te muestra por qué ciertos patrones se
-              repiten sin importar lo que hagas.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
-      <SectionConnector />
 
       {/* What it reveals — compact cards like home style */}
       <section ref={revealRef} className="py-14 md:py-32 relative overflow-hidden">
@@ -437,7 +384,8 @@ const LecturaEstructural = () => {
           </div>
 
           <FadeIn delay={0.3}>
-            <p className="font-display text-xl md:text-3xl font-light text-foreground/90 leading-snug max-w-2xl mx-auto text-center mt-12 md:mt-16">
+            <div className="w-16 h-px bg-gold/30 mx-auto mb-8 md:mb-10" />
+            <p className="font-display text-2xl md:text-3xl font-light text-foreground/90 leading-snug max-w-2xl mx-auto text-center mt-10 md:mt-14">
               No es para quien necesita motivación. Es para quien busca un{" "}
               <span className="text-gold">cambio desde la raíz</span>.
             </p>
@@ -497,8 +445,10 @@ const LecturaEstructural = () => {
                 </p>
                 <ul className="space-y-4">
                   {[
+                    { icon: Mail, text: "Recibes un email de confirmación con el enlace de pago seguro." },
                     { icon: CalendarCheck, text: "Una vez confirmado el pago, te envío las fechas disponibles para agendar." },
                     { icon: MessageSquare, text: "El día de la sesión, conectamos por videollamada privada durante 90 minutos." },
+                    { icon: Lock, text: "Todo lo que se trabaje queda entre nosotros. Confidencialidad absoluta." },
                   ].map(({ icon: Icon, text }, i) => (
                     <li key={i} className="flex gap-3 items-start">
                       <Icon size={16} className="text-gold mt-0.5 shrink-0" />
