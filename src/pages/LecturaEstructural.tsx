@@ -48,6 +48,7 @@ const LecturaEstructural = () => {
 
   return (
     <Layout>
+      <ScrollProgress />
       <Helmet>
         <title>Lectura Estructural 1:1 · 90 min · 180€ | Sanark</title>
         <meta name="description" content="Sesión individual de 90 minutos donde leo la arquitectura que opera por debajo de tu consciencia y te muestro exactamente por qué se repite lo que se repite." />
