@@ -309,7 +309,7 @@ const LecturaEstructural = () => {
                           transition={{ duration: 0.3 }}
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                          <Icon size={18} className="text-gold mb-3 relative z-10" />
+                          <Icon size={18} className="text-gold mb-3 relative z-10 transition-transform duration-500 group-hover:scale-125 group-hover:rotate-3" />
                           <h3 className="font-display text-lg font-medium mb-3 relative z-10">{item.title}</h3>
                           <p className="font-body text-base text-foreground/85 leading-relaxed relative z-10">{item.desc}</p>
                         </motion.div>
