@@ -360,9 +360,9 @@ const LecturaEstructural = () => {
 
           <div className="grid md:grid-cols-3 gap-4 md:gap-5">
             {[
-              { icon: Footprints, text: "Has recorrido un camino real de autoconocimiento." },
-              { icon: Users, text: "Has hecho terapia, coaching o trabajo personal." },
-              { icon: Eye, text: "Intuyes que hay una capa más profunda que aún no has tocado. o cambiado" },
+              { icon: Footprints, text: "Has trabajado en ti. De verdad. Y aun así hay algo que no cede, que vuelve, que no entiendes por qué sigue ahí." },
+              { icon: Users, text: "No buscas motivación ni técnicas. Buscas entender qué opera por debajo de todo lo que ya hiciste." },
+              { icon: Eye, text: "Estás dispuesto a ver algo que quizás no es cómodo ver." },
             ].map((item, i) => {
               const Icon = item.icon;
               return (
@@ -386,8 +386,8 @@ const LecturaEstructural = () => {
           <FadeIn delay={0.3}>
             <div className="w-16 h-px bg-gold/30 mx-auto mb-8 md:mb-10" />
             <p className="font-display text-2xl md:text-3xl font-light text-foreground/90 leading-snug max-w-2xl mx-auto text-center mt-10 md:mt-14">
-              No es para quien necesita motivación. Es para quien desea un{" "}
-              <span className="text-gold">cambio desde la raíz</span>.
+              No es para quien empieza. Es para quien ya lleva un camino y está listo para ir a{" "}
+              <span className="text-gold">la capa que ningún otro proceso ha tocado</span>.
             </p>
           </FadeIn>
         </div>
