@@ -351,10 +351,10 @@ const LecturaEstructural = () => {
         <div className="container mx-auto px-6 max-w-4xl relative z-10">
           <FadeIn>
             <span className="font-body text-xs md:text-sm tracking-[0.3em] uppercase text-gold/80 mb-4 block text-center">
-              Antes de reservar
+              Una pregunta antes
             </span>
             <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-10 md:mb-14">
-              ¿Para quién es?
+              ¿Esto es para ti?
             </h2>
           </FadeIn>
 
