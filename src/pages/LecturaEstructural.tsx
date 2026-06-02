@@ -445,6 +445,7 @@ const LecturaEstructural = () => {
         </div>
       </section>
 
+      <SectionConnector />
 
       {/* Price box */}
       <section ref={ctaRef} id="reservar" className="py-14 md:py-32 relative overflow-hidden scroll-mt-24">
