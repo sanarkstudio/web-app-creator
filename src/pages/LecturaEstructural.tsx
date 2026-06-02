@@ -190,8 +190,9 @@ const LecturaEstructural = () => {
               <div className="space-y-5 md:space-y-6 mt-5 md:mt-6">
                 <p className="font-body text-lg md:text-2xl text-foreground/90 max-w-2xl mx-auto leading-relaxed">
                   No es terapia, no es coaching, no es interpretación. Es una decodificación
-                  precisa de los programas que tu sistema familiar inscribió en ti — programas
-                  que hoy operan en automático y condicionan cada decisión, cada vínculo y cada resultado.
+                  precisa de los programas que tu sistema familiar, tu cultura y tu entorno
+                  inscribieron en ti — programas que hoy operan en automático y condicionan
+                  cada decisión, cada vínculo y cada resultado.
                 </p>
                 <p className="font-body text-base md:text-lg text-foreground/80 max-w-xl mx-auto leading-relaxed italic">
                   Trabajo con lo que realmente está activo — no con lo que crees que te pasa.
