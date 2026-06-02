@@ -445,7 +445,7 @@ const LecturaEstructural = () => {
                 </p>
                 <ul className="space-y-4">
                   {[
-                    { icon: Mail, text: "Recibes un email de confirmación con el enlace de pago seguro." },
+                    { icon: Mail, text: "Recibes un email de confirmación con el enlace de pago." },
                     { icon: CalendarCheck, text: "Una vez confirmado el pago, te envío las fechas disponibles para agendar." },
                     { icon: MessageSquare, text: "El día de la sesión, conectamos por videollamada privada durante 90 minutos." },
                     { icon: Lock, text: "Todo lo que se trabaje queda entre nosotros. Confidencialidad absoluta." },
