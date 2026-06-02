@@ -180,10 +180,10 @@ const LecturaEstructural = () => {
             <span className="gradient-text-gold">¿Qué es una Lectura Estructural?</span>
           </h2>
           <p className="font-body text-lg md:text-2xl text-foreground/90 max-w-2xl mx-auto leading-relaxed">
-            No es terapia, no es coaching, no es interpretación. Es una decodificación precisa de
-            la capa más profunda de tu estructura: la que opera por debajo de lo que piensas, sientes y haces.
+            No es terapia, no es coaching, no es interpretación. Es una decodificación precisa de la capa
+            más profunda — esa que determina por qué repites lo que repites.
           </p>
-          <p className="font-body text-base md:text-lg text-foreground/70 max-w-xl mx-auto leading-relaxed italic mt-7 md:mt-10">
+          <p className="font-body text-base md:text-lg text-foreground/70 max-w-xl mx-auto leading-relaxed italic mt-4 md:mt-5">
             Trabajo solo con lo que realmente está activo en ti — no con lo que crees que te pasa.
           </p>
         </div>
