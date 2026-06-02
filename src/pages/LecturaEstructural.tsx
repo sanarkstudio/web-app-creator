@@ -180,13 +180,13 @@ const LecturaEstructural = () => {
             <span className="gradient-text-gold">¿Qué es una Lectura Estructural?</span>
           </h2>
           <p className="font-body text-lg md:text-2xl text-foreground/90 max-w-2xl mx-auto leading-relaxed">
-            Vuelves a lo mismo aunque juraste que no lo harías. El motivo no está en lo que sientes ni en lo que piensas.
+            Es la lectura precisa de eso que te hace volver a lo mismo aunque juraste que no lo harías. El motivo no está en lo que sientes ni en lo que piensas.
           </p>
           <p className="font-body text-base md:text-lg text-foreground/70 max-w-xl mx-auto leading-relaxed mt-4 md:mt-5">
-            Está en una capa más profunda: la subestructura de tu sistema, donde se activan los programas que heredaste sin elegirlos y que hoy condicionan cada decisión, cada vínculo y cada resultado.
+            Es leer la capa más profunda: la subestructura de tu sistema, donde se activan los programas que heredaste sin elegirlos y que hoy condicionan cada decisión, cada vínculo y cada resultado.
           </p>
           <p className="font-body text-base md:text-lg text-foreground/70 max-w-xl mx-auto leading-relaxed italic mt-3 md:mt-4">
-            Trabajo con lo que realmente está activo — no con lo que crees que te pasa.
+            Es trabajar con lo que realmente está activo — no con lo que crees que te pasa.
           </p>
         </div>
       </StickyRevealSection>
