@@ -10,7 +10,7 @@ import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
 import ScrollProgress from "@/components/shared/ScrollProgress";
 import SectionConnector from "@/components/shared/SectionConnector";
-import { ArrowRight, Layers, Flame, Map, Activity, HeartHandshake, Zap, DollarSign, Sparkles, Mail, CalendarCheck, MessageSquare, Lock, Footprints, Users, Eye } from "lucide-react";
+import { ArrowRight, Layers, Flame, Map, Activity, HeartHandshake, Zap, DollarSign, Sparkles, Mail, CalendarCheck, MessageSquare, Lock, Footprints, Users, Eye, Brain, Target } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import MobileExpandable from "@/components/shared/MobileExpandable";
 import MobileStickyCTA from "@/components/shared/MobileStickyCTA";
@@ -209,7 +209,7 @@ const LecturaEstructural = () => {
 
 
 
-      {/* What it reveals — compact cards like home style */}
+      {/* Lo que verás en tu lectura — merged section */}
       <section ref={revealRef} className="py-14 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
@@ -217,30 +217,21 @@ const LecturaEstructural = () => {
         <motion.div style={{ scale: revealScale }} className="container mx-auto px-6 max-w-5xl relative z-10">
           {(() => {
             const reveals = [
-              {
-                icon: Layers,
-                title: "Tu arquitectura heredada",
-                desc: "Los programas e instrucciones instalados en ti — patrones, creencias y formas de funcionar que hoy dictan cómo gestionas tu energía, tus vínculos, tu salud y tus recursos.",
-              },
-              {
-                icon: Flame,
-                title: "Tus fugas activas",
-                desc: "Los puntos exactos donde pierdes energía, claridad y dirección de forma cíclica. Las repeticiones que ningún hábito nuevo ha logrado detener.",
-              },
-              {
-                icon: Map,
-                title: "Tu mapa estructural",
-                desc: "Una visión clara de cómo estos programas operan en cada dimensión de tu vida: física, emocional, mental, relacional, social y financiera.",
-              },
+              { icon: Activity, label: "Tu cuerpo", text: "El patrón energético que se repite y dónde tu sistema colapsa de forma cíclica." },
+              { icon: HeartHandshake, label: "Tus vínculos", text: "El guión invisible que se activa en tus relaciones — y por qué siempre acaba igual." },
+              { icon: Zap, label: "Tu salud", text: "Qué emociones heredadas se están expresando como síntoma físico." },
+              { icon: DollarSign, label: "Tu dinero", text: "El techo estructural que limita tus ingresos sin importar tu esfuerzo." },
+              { icon: Brain, label: "Tu mente", text: "El ruido que paraliza tus decisiones y de dónde viene realmente." },
+              { icon: Target, label: "Tu dirección", text: "Lo que sabotea tus metas justo antes de llegar — y desde dónde opera." },
             ];
             return (
               <>
                 <FadeIn>
                   <h2 className="font-display text-2xl md:text-5xl font-light text-center mb-3 md:mb-4">
-                    Lo que revela
+                    Lo que verás en tu lectura
                   </h2>
-                  <p className="font-body text-base md:text-lg text-foreground/85 text-center mb-10 md:mb-14 tracking-wide max-w-2xl mx-auto">
-                    Lo que ninguna otra lectura te ha mostrado
+                  <p className="font-body text-base md:text-lg text-foreground/85 text-center mb-10 md:mb-14 max-w-2xl mx-auto">
+                    Con precisión. Sin interpretaciones. Solo lo que está activo en ti ahora mismo.
                   </p>
                 </FadeIn>
 
@@ -249,16 +240,18 @@ const LecturaEstructural = () => {
                   {reveals.map((item, i) => {
                     const Icon = item.icon;
                     return (
-                      <FadeIn key={i} delay={i * 0.15}>
+                      <FadeIn key={i} delay={i * 0.12}>
                         <motion.div
-                          className="relative p-6 bg-card/50 backdrop-blur-sm border border-border/30 h-full hover:border-gold/30 transition-all duration-500 overflow-hidden group"
+                          className="relative p-4 md:p-6 bg-card/50 backdrop-blur-sm border border-border/30 h-full hover:border-gold/30 transition-all duration-500 overflow-hidden group"
                           whileHover={{ y: -4 }}
                           transition={{ duration: 0.3 }}
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                          <Icon size={18} className="text-gold mb-3 relative z-10 transition-transform duration-500 group-hover:scale-125 group-hover:rotate-3" />
-                          <h3 className="font-display text-lg font-medium mb-3 relative z-10">{item.title}</h3>
-                          <p className="font-body text-base text-foreground/85 leading-relaxed relative z-10">{item.desc}</p>
+                          <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3 relative z-10">
+                            <Icon size={16} className="text-gold transition-transform duration-500 group-hover:scale-125 group-hover:rotate-3" />
+                            <p className="font-display text-[10px] md:text-xs tracking-[0.2em] uppercase text-gold/80">{item.label}</p>
+                          </div>
+                          <p className="font-body text-sm md:text-base text-foreground/85 leading-relaxed relative z-10">{item.text}</p>
                         </motion.div>
                       </FadeIn>
                     );
@@ -273,11 +266,18 @@ const LecturaEstructural = () => {
                         const Icon = item.icon;
                         return (
                           <CarouselItem key={i} className="basis-[85%] pl-4">
-                            <div className="p-5 bg-card/60 backdrop-blur-sm border border-border/40 h-full min-h-[200px]">
-                              <Icon size={20} className="text-gold mb-3" />
-                              <h3 className="font-display text-base font-medium mb-2">{item.title}</h3>
-                              <p className="font-body text-sm text-foreground/85 leading-relaxed">{item.desc}</p>
-                            </div>
+                            <motion.div
+                              className="relative p-4 bg-card/50 backdrop-blur-sm border border-border/30 h-full hover:border-gold/30 transition-all duration-500 overflow-hidden group min-h-[180px]"
+                              whileHover={{ y: -4 }}
+                              transition={{ duration: 0.3 }}
+                            >
+                              <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                              <div className="flex items-center gap-2 mb-2 relative z-10">
+                                <Icon size={16} className="text-gold transition-transform duration-500 group-hover:scale-125 group-hover:rotate-3" />
+                                <p className="font-display text-[10px] tracking-[0.2em] uppercase text-gold/80">{item.label}</p>
+                              </div>
+                              <p className="font-body text-sm text-foreground/85 leading-relaxed relative z-10">{item.text}</p>
+                            </motion.div>
                           </CarouselItem>
                         );
                       })}
@@ -285,61 +285,19 @@ const LecturaEstructural = () => {
                   </Carousel>
                   <p className="mt-4 text-center font-body text-[10px] tracking-[0.25em] uppercase text-gold/50">Desliza →</p>
                 </div>
+
+                <FadeIn delay={0.4}>
+                  <p className="font-body text-base md:text-lg text-foreground/85 text-center max-w-2xl mx-auto leading-relaxed mt-10 md:mt-14">
+                    No te llevas teoría. Te llevas evidencia precisa de tu propia arquitectura — qué la sostiene, dónde se fuga y por qué tus intentos previos no la han movido.
+                  </p>
+                  <p className="font-body text-base md:text-lg text-foreground/85 text-center max-w-2xl mx-auto leading-relaxed mt-4">
+                    Verlo es el primer corte. Transformarlo es el trabajo del <Link to="/proceso-sanark" className="text-gold hover:text-gold-light transition-colors">Proceso Sanark de 4 fases</Link>.
+                  </p>
+                </FadeIn>
               </>
             );
           })()}
         </motion.div>
-      </section>
-
-      {/* Horizontal reveal — disruptive animation */}
-      <section className="py-14 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(38_50%_48%/0.05)_0%,transparent_60%)]" />
-        <div className="container mx-auto px-6 max-w-4xl relative z-10">
-          <FadeIn>
-            <Sparkles size={20} className="text-gold mx-auto mb-4 md:mb-5" />
-            <h2 className="font-display text-2xl md:text-4xl font-light text-center mb-4 md:mb-5 leading-tight">
-              <span className="md:hidden">Sales con un mapa que antes no tenías</span>
-              <span className="hidden md:inline">Después de tu Lectura, sales con un mapa que antes no tenías</span>
-            </h2>
-            <p className="font-body text-base md:text-xl text-foreground/85 text-center mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed">
-              <span className="md:hidden">Te llevas evidencia precisa de tu propia arquitectura.</span>
-              <span className="hidden md:inline">No te llevas teoría ni motivación. Te llevas evidencia precisa de tu propia arquitectura — qué la sostiene, dónde se fuga y por qué tus intentos previos no la han movido.</span>
-            </p>
-          </FadeIn>
-
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-5">
-            {[
-              { icon: Activity, label: "Tu cuerpo", text: "Identificas el patrón energético que se repite y dónde tu sistema colapsa de forma cíclica." },
-              { icon: HeartHandshake, label: "Tus vínculos", text: "Ves el guión invisible que se activa en tus relaciones — y por qué siempre acaba igual." },
-              { icon: Zap, label: "Tu salud", text: "Reconoces qué emociones heredadas se están expresando como síntoma físico." },
-              { icon: DollarSign, label: "Tu dinero", text: "Descubres el techo estructural que limita tus ingresos sin importar tu esfuerzo." },
-            ].map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <FadeIn key={i} delay={i * 0.12}>
-                  <motion.div
-                    className="relative p-4 md:p-6 bg-card/50 backdrop-blur-sm border border-border/30 h-full hover:border-gold/30 transition-all duration-500 overflow-hidden group"
-                    whileHover={{ y: -4 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                    <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3 relative z-10">
-                      <Icon size={16} className="text-gold transition-transform duration-500 group-hover:scale-125 group-hover:rotate-3" />
-                      <p className="font-display text-[10px] md:text-xs tracking-[0.2em] uppercase text-gold/80">{item.label}</p>
-                    </div>
-                    <p className="font-body text-sm md:text-base text-foreground/85 leading-relaxed relative z-10">{item.text}</p>
-                  </motion.div>
-                </FadeIn>
-              );
-            })}
-          </div>
-
-          <FadeIn delay={0.4}>
-            <p className="font-body text-base md:text-lg text-foreground/85 mt-8 md:mt-10 text-center max-w-2xl mx-auto leading-relaxed">
-              Verlo es el primer corte. Transformarlo es el trabajo del <Link to="/proceso-sanark" className="text-gold hover:text-gold-light transition-colors">Proceso Sanark de 4 fases</Link>.
-            </p>
-          </FadeIn>
-        </div>
       </section>
 
       <SectionConnector />
