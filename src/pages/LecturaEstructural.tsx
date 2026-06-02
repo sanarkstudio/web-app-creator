@@ -189,45 +189,6 @@ const LecturaEstructural = () => {
         </div>
       </StickyRevealSection>
 
-      {/* Inherited structure — cinematic, clean reveal */}
-      <section className="py-16 md:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.05)_0%,transparent_60%)]" />
-        <div className="container mx-auto px-6 max-w-3xl relative z-10 flex flex-col items-center text-center">
-          <FadeIn>
-            <span className="font-body text-xs md:text-sm tracking-[0.3em] uppercase text-gold/80 mb-6 md:mb-8 block">
-              Lo que heredaste sin elegirlo
-            </span>
-          </FadeIn>
-
-          <FadeIn delay={0.1}>
-            <h2 className="font-display text-2xl md:text-5xl font-light text-foreground leading-tight">
-              No solo tu <span className="text-gold">sistema familiar</span>. También tu{" "}
-              <span className="text-gold">cultura</span>, tu <span className="text-gold">época</span> y tu{" "}
-              <span className="text-gold">entorno</span> inscribieron programas que hoy actúan en automático.
-            </h2>
-          </FadeIn>
-
-          <FadeIn delay={0.2}>
-            <div className="flex flex-wrap justify-center gap-2.5 md:gap-3 my-8 md:my-12 max-w-2xl">
-              {["Física", "Emocional", "Mental", "Conductual", "Relacional", "Social"].map((dim) => (
-                <span
-                  key={dim}
-                  className="font-body text-xs md:text-sm tracking-wide text-foreground/75 border border-gold/20 rounded-full px-4 py-1.5 md:px-5 md:py-2 bg-secondary/40"
-                >
-                  {dim}
-                </span>
-              ))}
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={0.3}>
-            <p className="font-display text-xl md:text-3xl font-light text-foreground/90 leading-snug max-w-2xl mx-auto">
-              La Lectura los hace visibles — y te muestra por qué ciertos patrones se
-              repiten sin importar lo que hagas.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
 
 
       {/* What it reveals — compact cards like home style */}
