@@ -365,28 +365,53 @@ const LecturaEstructural = () => {
       </section>
 
       {/* ¿Para quién es? */}
-      <section className="py-14 md:py-32">
-        <div className="container mx-auto px-6 max-w-3xl">
+      <section className="py-16 md:py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-secondary/30" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
+        <div className="container mx-auto px-6 max-w-4xl relative z-10">
           <FadeIn>
-            <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-12">
+            <span className="font-body text-xs md:text-sm tracking-[0.3em] uppercase text-gold/80 mb-4 block text-center">
+              Antes de reservar
+            </span>
+            <h2 className="font-display text-3xl md:text-5xl font-light text-center mb-10 md:mb-14">
               ¿Para quién es?
             </h2>
           </FadeIn>
-          <ScrollTextReveal
-            text="¿Has recorrido un camino significativo de autoconocimiento? ¿Has hecho terapia, coaching o trabajo personal? ¿Sabes — aunque no puedas nombrarlo — que hay una capa más profunda que aún no has tocado?"
-            className="font-display text-2xl md:text-4xl font-light text-foreground text-center leading-snug"
-            as="p"
-          />
+
+          <div className="grid md:grid-cols-3 gap-4 md:gap-5">
+            {[
+              { icon: Footprints, text: "Has recorrido un camino real de autoconocimiento." },
+              { icon: Users, text: "Has hecho terapia, coaching o trabajo personal." },
+              { icon: Eye, text: "Intuyes que hay una capa más honda que aún no has tocado." },
+            ].map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <FadeIn key={i} delay={i * 0.12}>
+                  <motion.div
+                    className="relative p-6 md:p-7 bg-card/50 backdrop-blur-sm border border-border/30 h-full hover:border-gold/30 transition-all duration-500 overflow-hidden group"
+                    whileHover={{ y: -4 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                    <Icon size={20} className="text-gold mb-4 relative z-10" />
+                    <p className="font-display text-lg md:text-xl font-light text-foreground/90 leading-snug relative z-10">
+                      {item.text}
+                    </p>
+                  </motion.div>
+                </FadeIn>
+              );
+            })}
+          </div>
+
           <FadeIn delay={0.3}>
-            <motion.p
-              className="text-foreground/70 text-center mt-10 md:mt-14 font-display text-lg md:text-2xl font-light max-w-2xl mx-auto leading-relaxed"
-              whileHover={{ scale: 1.02 }}
-            >
-              No es para quien necesita motivación. Es para quien desea un cambio desde la raíz.
-            </motion.p>
+            <p className="font-display text-xl md:text-3xl font-light text-foreground/90 leading-snug max-w-2xl mx-auto text-center mt-12 md:mt-16">
+              No es para quien necesita motivación. Es para quien busca un{" "}
+              <span className="text-gold">cambio desde la raíz</span>.
+            </p>
           </FadeIn>
         </div>
       </section>
+
 
       {/* Price box */}
       <section ref={ctaRef} id="reservar" className="py-14 md:py-32 relative overflow-hidden scroll-mt-24">
