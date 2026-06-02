@@ -190,8 +190,9 @@ const LecturaEstructural = () => {
               <div className="space-y-5 md:space-y-6 mt-5 md:mt-6">
                 <p className="font-body text-lg md:text-2xl text-foreground/90 max-w-2xl mx-auto leading-relaxed">
                   No es terapia, no es coaching, no es interpretación. Es una decodificación
-                  precisa de los programas que tu sistema familiar inscribió en ti — programas
-                  que hoy operan en automático y condicionan cada decisión, cada vínculo y cada resultado.
+                  precisa de los programas que tu sistema familiar, tu cultura y tu entorno
+                  inscribieron en ti — programas que hoy operan en automático y condicionan
+                  cada decisión, cada vínculo y cada resultado.
                 </p>
                 <p className="font-body text-base md:text-lg text-foreground/80 max-w-xl mx-auto leading-relaxed italic">
                   Trabajo con lo que realmente está activo — no con lo que crees que te pasa.
@@ -202,32 +203,46 @@ const LecturaEstructural = () => {
         </div>
       </StickyRevealSection>
 
-      {/* Word-by-word scroll reveal */}
-      <section className="py-20 md:py-44 relative">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.04)_0%,transparent_55%)]" />
+      {/* Inherited structure — cinematic, clean reveal */}
+      <section className="py-24 md:py-44 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.05)_0%,transparent_60%)]" />
         <div className="container mx-auto px-6 max-w-3xl relative z-10 flex flex-col items-center text-center">
-          <ScrollTextReveal
-            text="Los programas heredados actúan en múltiples dimensiones — física, emocional, mental, conductual, relacional y social — y determinan tus resultados de forma silenciosa pero constante."
-            className="font-display text-2xl md:text-4xl font-light text-foreground text-center leading-snug"
-            as="h2"
-          />
+          <FadeIn>
+            <span className="font-body text-xs md:text-sm tracking-[0.3em] uppercase text-gold/80 mb-8 md:mb-10 block">
+              Lo que heredaste sin elegirlo
+            </span>
+          </FadeIn>
 
-          {/* Animated gold divider */}
-          <motion.div
-            className="my-12 md:my-20 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent"
-            initial={{ width: 0, opacity: 0 }}
-            whileInView={{ width: "8rem", opacity: 1 }}
-            viewport={{ once: true, margin: "-20%" }}
-            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-          />
+          <FadeIn delay={0.1}>
+            <h2 className="font-display text-2xl md:text-5xl font-light text-foreground leading-tight">
+              No solo tu <span className="text-gold">sistema familiar</span>. También tu{" "}
+              <span className="text-gold">cultura</span>, tu <span className="text-gold">época</span> y tu{" "}
+              <span className="text-gold">entorno</span> inscribieron programas que hoy actúan en automático.
+            </h2>
+          </FadeIn>
 
-          <ScrollTextReveal
-            text="La Lectura Estructural los hace visibles. Te muestra qué estructura estás habitando y por qué ciertos patrones se repiten sin importar lo que hagas."
-            className="font-display text-lg md:text-2xl font-light text-foreground/70 text-center leading-relaxed max-w-2xl"
-            as="p"
-          />
+          <FadeIn delay={0.2}>
+            <div className="flex flex-wrap justify-center gap-2.5 md:gap-3 my-10 md:my-16 max-w-2xl">
+              {["Física", "Emocional", "Mental", "Conductual", "Relacional", "Social"].map((dim) => (
+                <span
+                  key={dim}
+                  className="font-body text-xs md:text-sm tracking-wide text-foreground/75 border border-gold/20 rounded-full px-4 py-1.5 md:px-5 md:py-2 bg-secondary/40"
+                >
+                  {dim}
+                </span>
+              ))}
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.3}>
+            <p className="font-display text-xl md:text-3xl font-light text-foreground/90 leading-snug max-w-2xl mx-auto">
+              La Lectura Estructural los hace visibles — y te muestra por qué ciertos patrones se
+              repiten sin importar lo que hagas.
+            </p>
+          </FadeIn>
         </div>
       </section>
+
 
       {/* What it reveals — compact cards like home style */}
       <section ref={revealRef} className="py-14 md:py-32 relative overflow-hidden">
