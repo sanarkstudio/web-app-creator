@@ -388,7 +388,6 @@ const ProcesoSanark = () => {
                     { icon: Mail, text: "Recibes un email de confirmación con los detalles del proceso y las opciones de pago." },
                     { icon: CalendarCheck, text: "Una vez confirmado, agendamos juntos las 12 sesiones según tu disponibilidad." },
                     { icon: MessageSquare, text: "Cada sesión es una videollamada privada conmigo. Sin grupos. Sin fórmulas genéricas." },
-                    { icon: Lock, text: "Todo lo que se trabaja queda entre nosotros. Confidencialidad absoluta." },
                   ].map(({ icon: Icon, text }, i) => (
                     <li key={i} className="flex gap-3 items-start">
                       <Icon size={16} className="text-gold mt-0.5 shrink-0" />

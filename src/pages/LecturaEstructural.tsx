@@ -413,7 +413,7 @@ const LecturaEstructural = () => {
                 90 minutos · 1 lectura · Tu estructura al descubierto
               </h3>
               <p className="font-body text-base md:text-lg text-foreground/85 leading-relaxed mb-8 max-w-lg mx-auto">
-                Una sesión individual conmigo donde leo la arquitectura
+                Una sesión individual donde leo la arquitectura
                 desde la que operas. Sin interpretaciones. Sin suposiciones. Solo lo que está activo.
               </p>
               <motion.p
@@ -436,10 +436,8 @@ const LecturaEstructural = () => {
                 </p>
                 <ul className="space-y-4">
                   {[
-                    { icon: Mail, text: "Recibes un email de confirmación con el enlace de pago seguro." },
                     { icon: CalendarCheck, text: "Una vez confirmado el pago, te envío las fechas disponibles para agendar." },
                     { icon: MessageSquare, text: "El día de la sesión, conectamos por videollamada privada durante 90 minutos." },
-                    { icon: Lock, text: "Todo lo que se trabaje queda entre nosotros. Confidencialidad absoluta." },
                   ].map(({ icon: Icon, text }, i) => (
                     <li key={i} className="flex gap-3 items-start">
                       <Icon size={16} className="text-gold mt-0.5 shrink-0" />
