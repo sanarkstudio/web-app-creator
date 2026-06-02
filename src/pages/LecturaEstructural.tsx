@@ -421,7 +421,7 @@ const LecturaEstructural = () => {
               <h3 className="font-display text-2xl md:text-3xl font-light mb-4">
                 90 minutos · 1 lectura · Tu estructura al descubierto
               </h3>
-              <p className="font-body text-base md:text-lg text-foreground/85 leading-relaxed mb-8 max-w-lg mx-auto">
+              <p className="font-body text-base md:text-lg text-foreground/65 leading-relaxed mb-8 max-w-lg mx-auto">
                 Una sesión individual donde leo la arquitectura
                 desde la que operas. Sin interpretaciones. Sin suposiciones. Solo lo que está activo.
               </p>
@@ -434,7 +434,7 @@ const LecturaEstructural = () => {
               >
                 180€
               </motion.p>
-              <p className="font-body text-xs text-foreground/85 tracking-wider mb-8">
+              <p className="font-body text-xs text-foreground/50 tracking-wider mb-8">
                 Sesión única 1:1 · 90 minutos · Online
               </p>
 
