@@ -260,6 +260,7 @@ const LecturaEstructural = () => {
         </div>
       </section>
 
+      <SectionConnector />
 
       {/* What it reveals — compact cards like home style */}
       <section ref={revealRef} className="py-14 md:py-32 relative overflow-hidden">
