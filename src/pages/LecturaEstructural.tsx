@@ -8,6 +8,8 @@ import FloatingParticles from "@/components/shared/FloatingParticles";
 import GenerativeParallax from "@/components/shared/GenerativeParallax";
 import SanarkSymbol from "@/components/shared/SanarkSymbol";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
+import ScrollProgress from "@/components/shared/ScrollProgress";
+import SectionConnector from "@/components/shared/SectionConnector";
 import { ArrowRight, Layers, Flame, Map, Activity, HeartHandshake, Zap, DollarSign, Sparkles, Mail, CalendarCheck, MessageSquare, Lock, Footprints, Users, Eye } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import MobileExpandable from "@/components/shared/MobileExpandable";
