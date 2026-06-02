@@ -220,7 +220,7 @@ const LecturaEstructural = () => {
               {
                 icon: Layers,
                 title: "Tu arquitectura heredada",
-                desc: "Los programas que tu sistema familiar instaló en ti — patrones, creencias y formas de funcionar que hoy dictan cómo gestionas tu energía, tus vínculos, tu salud y tus recursos.",
+                desc: "Los programas que la cultura, sistema familiar y entorno instalaron en ti — patrones, creencias y formas de funcionar que hoy dictan cómo gestionas tu energía, tus vínculos, tu salud y tus recursos.",
               },
               {
                 icon: Flame,
