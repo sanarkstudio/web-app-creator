@@ -157,15 +157,32 @@ const Index = () => {
 
           <FadeIn delay={1}>
             <div className="flex justify-center items-center">
-              <Link
-                to="/lectura-basica"
-                onClick={() => trackCtaClick("Ver mi estructura gratis", "home_hero")}
-                className="group inline-flex items-center gap-3 font-body text-xs md:text-sm tracking-wider uppercase px-8 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold shadow-[0_0_40px_hsl(38_50%_48%/0.4)] hover:shadow-[0_0_60px_hsl(38_50%_48%/0.6)]"
+              <motion.a
+                href="/lectura-basica"
+                onClick={(e) => {
+                  e.preventDefault();
+                  trackCtaClick("Ver mi estructura gratis", "home_hero");
+                  window.location.href = "/lectura-basica";
+                }}
+                className="group relative inline-flex items-center font-body text-xs md:text-sm tracking-wider uppercase px-8 md:px-12 py-4 md:py-5 bg-gold text-background hover:bg-gold-light transition-all duration-500 font-semibold overflow-hidden"
+                animate={{
+                  boxShadow: [
+                    "0 0 30px hsl(38 50% 48% / 0.35)",
+                    "0 0 55px hsl(38 50% 48% / 0.6)",
+                    "0 0 30px hsl(38 50% 48% / 0.35)",
+                  ],
+                }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <span className="md:hidden">Ver mi estructura · Gratis</span>
-                <span className="hidden md:inline">Ver mi estructura · Gratis en 15 preguntas</span>
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-background/25 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1000" />
+                <span className="relative z-10 inline-flex items-center gap-3">
+                  <span className="md:hidden">Ver mi estructura · Gratis</span>
+                  <span className="hidden md:inline">Ver mi estructura · Gratis en 15 preguntas</span>
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                </span>
+              </motion.a>
             </div>
           </FadeIn>
         </motion.div>
