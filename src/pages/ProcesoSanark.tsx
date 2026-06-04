@@ -338,9 +338,49 @@ const ProcesoSanark = () => {
             })}
           </div>
         </div>
+      {/* Stats */}
+      <section className="py-10 md:py-16 relative">
+        <div className="container mx-auto px-6 max-w-3xl relative z-10">
+          <FadeIn>
+            <motion.div
+              className="flex flex-col md:flex-row items-center justify-center gap-0 divide-y md:divide-y-0 md:divide-x divide-gold/20"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            >
+              {[
+                { num: "12", label: "sesiones individuales" },
+                { num: "4", label: "fases irreversibles" },
+                { num: "1", label: "estructura nueva" },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  className="flex-1 text-center px-8 md:px-12 py-6 md:py-0"
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    delay: i * 0.15,
+                    duration: 0.7,
+                    ease: [0.22, 1, 0.36, 1]
+                  }}
+                >
+                  <p className="font-display text-5xl md:text-6xl font-light text-gold mb-2">
+                    {item.num}
+                  </p>
+                  <p className="font-body text-xs tracking-[0.25em] uppercase text-foreground/60">
+                    {item.label}
+                  </p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </FadeIn>
+        </div>
       </section>
 
       {/* Price box */}
+
       <section className="py-16 md:py-36 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38_50%_48%/0.06)_0%,transparent_60%)]" />
         <FloatingParticles count={12} />
