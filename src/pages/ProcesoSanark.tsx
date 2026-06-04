@@ -338,6 +338,8 @@ const ProcesoSanark = () => {
             })}
           </div>
         </div>
+      </section>
+
       {/* Stats */}
       <section className="py-10 md:py-16 relative">
         <div className="container mx-auto px-6 max-w-3xl relative z-10">
