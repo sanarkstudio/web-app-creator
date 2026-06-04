@@ -445,19 +445,19 @@ const Index = () => {
               ¿Y si pudieras elegir desde dónde operas?
             </h2>
             <p className="font-body text-base md:text-xl text-foreground/85 text-center mb-10 md:mb-16 max-w-2xl mx-auto leading-relaxed">
-              <span className="md:hidden">Con el Proceso Sanark de 4 fases, cada área deja de estar determinada por lo heredado.</span>
-              <span className="hidden md:inline">No es una ilusión. Es una decisión estructural. Con el Proceso Sanark de 4 fases, cada una de estas áreas deja de estar determinada por lo heredado.</span>
+              <span className="md:hidden">Con el Proceso Sanark de 4 fases, cada área se transforma desde la raíz.</span>
+              <span className="hidden md:inline">No es una promesa. Es lo que ocurre cuando la estructura que te limitaba deja de operar. Con el Proceso Sanark de 4 fases, cada una de estas áreas se transforma desde la raíz.</span>
             </p>
           </FadeIn>
 
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5">
             {[
-              { icon: Activity, area: "Energía", text: "La vitalidad que deseas, sin depender de ciclos de agotamiento que no elegiste." },
-              { icon: HeartHandshake, area: "Pareja", text: "Relaciones que construyes desde la elección, no desde la carencia heredada." },
-              { icon: Zap, area: "Salud", text: "Un cuerpo que responde a ti, no a los programas de enfermedad, cansancio o dolor que cargas." },
-              { icon: DollarSign, area: "Finanzas", text: "Abundancia real, sin el techo invisible que frena cada vez que estás a punto de expandirte." },
-              { icon: Brain, area: "Claridad mental", text: "Decisiones nítidas, sin el ruido de un sistema operativo que no te pertenece." },
-              { icon: Gem, area: "Propósito", text: "Metas que se materializan porque nacen de una estructura nueva, no de la fuerza de voluntad." },
+              { icon: Activity, area: "Energía", text: "Tu cuerpo responde. El cansancio de fondo que no cedía con nada empieza a tener menos terreno donde instalarse." },
+              { icon: HeartHandshake, area: "Pareja", text: "Eliges desde un lugar distinto. La historia ya no tiene la misma forma aunque cambie la persona." },
+              { icon: Zap, area: "Salud", text: "Lo que se expresaba en tu cuerpo sin explicación encuentra su origen. Y lo que tiene origen puede dejar de repetirse." },
+              { icon: DollarSign, area: "Finanzas", text: "El techo que frenaba tu expansión desaparece porque ya no existe la estructura que lo sostenía. El dinero empieza a comportarse diferente." },
+              { icon: Brain, area: "Claridad mental", text: "Decides desde un lugar más limpio. El ruido que no era tuyo deja de tener el mismo peso sobre ti." },
+              { icon: Gem, area: "Propósito", text: "Lo que antes se saboteaba justo antes de llegar empieza a materializarse. No porque hayas cambiado el esfuerzo — sino el punto desde el que operas." },
             ].map((item, i) => {
               const Icon = item.icon;
               return (
@@ -536,23 +536,21 @@ const Index = () => {
               Entrada
             </p>
             <h2 className="font-display text-2xl md:text-5xl font-light text-center mb-6 md:mb-8 leading-tight">
-              Una sesión. Una lectura.
-              <br />
-              <span className="gradient-text-gold">Todo cambia de lugar.</span>
+              La puerta de entrada es siempre la misma.
             </h2>
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="font-body text-base md:text-xl text-foreground/85 text-center max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
-              <span className="md:hidden">En 90 minutos leo la arquitectura desde la que operas. La estructura que sigue dirigiendo tu vida aunque hayas trabajado en ti durante años.</span>
-              <span className="hidden md:inline">En 90 minutos leo la arquitectura desde la que operas. La estructura que heredaste y que sigue dirigiendo tu vida aunque hayas trabajado en ti durante años. No es terapia. Es una lectura.</span>
+              <span className="md:hidden">Una sesión de 90 minutos donde lo que hasta ahora operaba en la sombra deja de ser invisible.</span>
+              <span className="hidden md:inline">Una sesión de 90 minutos donde lo que hasta ahora operaba en la sombra deja de ser invisible.</span>
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
             <div className="p-6 md:p-10 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-gold/30 transition-all duration-500 text-center hover:glow-gold">
               <h3 className="font-display text-xl md:text-3xl font-light mb-3 md:mb-4">Lectura Estructural</h3>
               <p className="font-body text-sm md:text-base text-foreground/85 leading-relaxed mb-6 md:mb-8 max-w-xl mx-auto">
-                <span className="md:hidden">Una sesión única donde leo la arquitectura activa desde la que operas hoy.</span>
-                <span className="hidden md:inline">Una sesión única donde leo la arquitectura activa desde la que operas hoy — la estructura que heredaste y que sigue dirigiendo tu vida aunque hayas trabajado en ti durante años.</span>
+                <span className="md:hidden">Una sesión 1:1 donde leo la arquitectura activa desde la que operas hoy.</span>
+                <span className="hidden md:inline">Una sesión 1:1 donde leo la arquitectura activa desde la que operas hoy. Sin interpretaciones. Sin suposiciones. Solo lo que está activo.</span>
               </p>
               <BookingFormDialog
                 cta="Reservar mi Lectura · 180€"
@@ -591,26 +589,17 @@ const Index = () => {
           </FadeIn>
           <FadeIn delay={0.15}>
             <h2 className="font-display text-2xl md:text-5xl font-light mb-6 md:mb-8 leading-tight">
-              El punto de partida es siempre el mismo:
+              Si algo en esta página te habló directamente —
               <br />
-              <span className="text-gold">ver lo que aún no has visto.</span>
+              <span className="text-gold">ya tienes la respuesta.</span>
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="font-body text-base md:text-xl text-foreground/85 mb-8 md:mb-10 max-w-xl mx-auto leading-relaxed">
-              Reserva tu Lectura Estructural y descubre qué arquitectura opera por debajo de tus decisiones.
+              El siguiente paso es ver tu propia estructura. No la de nadie más. La tuya.
             </p>
           </FadeIn>
           <FadeIn delay={0.25}>
-            <div className="inline-flex items-center justify-center gap-6 mb-8 md:mb-10 px-8 md:px-10 py-5 md:py-6 border border-gold/20 bg-card/40 backdrop-blur-sm">
-              <div className="text-center">
-                <p className="font-body text-[10px] tracking-[0.3em] uppercase text-gold/80 mb-2">Lectura Estructural</p>
-                <p className="font-display text-2xl md:text-4xl font-light text-gold mb-1">180€</p>
-                <p className="font-body text-xs text-foreground/90">90 minutos · 1:1</p>
-              </div>
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.3}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <BookingFormDialog
                 cta="Reservar mi sesión 1:1"
@@ -625,7 +614,7 @@ const Index = () => {
               />
             </div>
             <p className="mt-5 font-body text-xs md:text-sm text-foreground/90">
-              Te respondo personalmente en 24h
+              Te respondo personalmente en 24h · Confidencialidad absoluta
             </p>
           </FadeIn>
         </div>
