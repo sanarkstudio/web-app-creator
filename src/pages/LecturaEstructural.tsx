@@ -241,18 +241,20 @@ const LecturaEstructural = () => {
                     const Icon = item.icon;
                     return (
                       <FadeIn key={i} delay={i * 0.12}>
-                        <motion.div
-                          className="relative p-4 md:p-6 bg-card/50 backdrop-blur-sm border border-border/30 h-full hover:border-gold/30 transition-all duration-500 overflow-hidden group"
-                          whileHover={{ y: -4 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                          <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3 relative z-10">
+                      <motion.div
+                        className="relative p-4 md:p-6 bg-card/50 backdrop-blur-sm border border-border/30 h-full hover:border-gold/30 transition-all duration-500 overflow-hidden group"
+                        whileHover={{ y: -4 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                        <div className="relative z-10">
+                          <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
                             <Icon size={16} className="text-gold transition-transform duration-500 group-hover:scale-125 group-hover:rotate-3" />
                             <p className="font-display text-[10px] md:text-xs tracking-[0.2em] uppercase text-gold/80">{item.label}</p>
                           </div>
-                          <p className="font-body text-sm md:text-base text-foreground/85 leading-relaxed relative z-10">{item.text}</p>
-                        </motion.div>
+                          <p className="font-body text-sm md:text-base text-foreground/85 leading-relaxed">{item.text}</p>
+                        </div>
+                      </motion.div>
                       </FadeIn>
                     );
                   })}
@@ -272,11 +274,13 @@ const LecturaEstructural = () => {
                               transition={{ duration: 0.3 }}
                             >
                               <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                              <div className="flex items-center gap-2 mb-2 relative z-10">
-                                <Icon size={16} className="text-gold transition-transform duration-500 group-hover:scale-125 group-hover:rotate-3" />
-                                <p className="font-display text-[10px] tracking-[0.2em] uppercase text-gold/80">{item.label}</p>
+                              <div className="relative z-10">
+                                <div className="flex items-center gap-2 mb-2">
+                                  <Icon size={16} className="text-gold transition-transform duration-500 group-hover:scale-125 group-hover:rotate-3" />
+                                  <p className="font-display text-[10px] tracking-[0.2em] uppercase text-gold/80">{item.label}</p>
+                                </div>
+                                <p className="font-body text-sm text-foreground/85 leading-relaxed">{item.text}</p>
                               </div>
-                              <p className="font-body text-sm text-foreground/85 leading-relaxed relative z-10">{item.text}</p>
                             </motion.div>
                           </CarouselItem>
                         );
