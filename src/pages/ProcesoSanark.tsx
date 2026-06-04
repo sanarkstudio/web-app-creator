@@ -421,14 +421,14 @@ const ProcesoSanark = () => {
         <div className="container mx-auto px-6 max-w-3xl text-center">
           <FadeIn>
             <h2 className="font-display text-3xl md:text-5xl font-light mb-8">
-              El primer paso es ver desde dónde operas
+              Sin el mapa, no hay territorio que construir.
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="font-body text-base md:text-lg text-foreground/80 leading-relaxed mb-10">
-              El Proceso Sanark comienza siempre con una Lectura Estructural. Es la lectura
-              necesaria para saber exactamente desde dónde partes y qué estructuras están activas.
-              Sin ese mapa, no hay intervención posible.
+              El Proceso Sanark parte siempre de una Lectura Estructural. No como requisito — como punto de
+              partida real. Sin saber exactamente qué estructura está activa en ti, cualquier intervención trabaja
+              en la oscuridad.
             </p>
           </FadeIn>
           <FadeIn delay={0.35}>
