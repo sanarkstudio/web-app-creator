@@ -384,11 +384,12 @@ const ProcesoSanark = () => {
                   Qué pasa después de reservar
                 </p>
                 <ul className="space-y-4">
-                  {[
-                    { icon: Mail, text: "Recibes un email de confirmación con los detalles del proceso y las opciones de pago." },
-                    { icon: CalendarCheck, text: "Una vez confirmado, agendamos juntos las 12 sesiones según tu disponibilidad." },
-                    { icon: MessageSquare, text: "Cada sesión es una videollamada privada conmigo. Sin grupos. Sin fórmulas genéricas." },
-                  ].map(({ icon: Icon, text }, i) => (
+                {[
+                  { icon: Mail, text: "Recibes un email de confirmación con los detalles del proceso y las opciones de pago." },
+                  { icon: CalendarCheck, text: "Una vez confirmado, agendamos juntos las 12 sesiones según tu disponibilidad." },
+                  { icon: MessageSquare, text: "Cada sesión es una videollamada privada conmigo. Sin grupos. Sin fórmulas genéricas." },
+                  { icon: Lock, text: "Todo lo que se trabaja queda entre nosotros. Confidencialidad absoluta." },
+                ].map(({ icon: Icon, text }, i) => (
                     <li key={i} className="flex gap-3 items-start">
                       <Icon size={16} className="text-gold mt-0.5 shrink-0" />
                       <p className="font-body text-sm text-foreground/85 leading-relaxed">{text}</p>
@@ -420,14 +421,14 @@ const ProcesoSanark = () => {
         <div className="container mx-auto px-6 max-w-3xl text-center">
           <FadeIn>
             <h2 className="font-display text-3xl md:text-5xl font-light mb-8">
-              El primer paso es ver desde dónde operas
+              Sin el mapa, no hay territorio que construir.
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="font-body text-base md:text-lg text-foreground/80 leading-relaxed mb-10">
-              El Proceso Sanark comienza siempre con una Lectura Estructural. Es la lectura
-              necesaria para saber exactamente desde dónde partes y qué estructuras están activas.
-              Sin ese mapa, no hay intervención posible.
+              El Proceso Sanark parte siempre de una Lectura Estructural. No como requisito — como punto de
+              partida real. Sin saber exactamente qué estructura está activa en ti, cualquier intervención trabaja
+              en la oscuridad.
             </p>
           </FadeIn>
           <FadeIn delay={0.35}>
