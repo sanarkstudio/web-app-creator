@@ -384,7 +384,7 @@ const Index = () => {
         <div className="container mx-auto px-6 max-w-5xl relative z-10">
           <FadeIn>
             <p className="font-body text-[10px] md:text-xs tracking-[0.3em] md:tracking-[0.4em] uppercase text-gold text-center mb-8 md:mb-14">
-              Quién soy
+              Voy a mostrarte lo que dirige cuando tú crees que decides.
             </p>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
@@ -409,18 +409,25 @@ const Index = () => {
                   <p className="font-body text-xs md:text-sm text-gold tracking-wider mb-6 md:mb-8">Sánchez Velázquez</p>
                   <MobileExpandable
                     preview={
-                      <p className="font-body text-sm md:text-base text-foreground/85 leading-relaxed">
-                        Desde hace 15 años aprendiendo a leer el lenguaje del inconsciente. En lo que dice la gente, en lo que no dice, en sus cuerpos, en sus relaciones, en las vidas que se repetían a pesar de todo.{" "}
-                        <span className="text-foreground font-medium">No es un misterio romántico: es una arquitectura con reglas precisas.</span> Y una vez que sabes cómo leerla, no hay vuelta atrás.
-                      </p>
+                      <div className="space-y-4">
+                        <p className="font-body text-sm md:text-base text-foreground/85 leading-relaxed">
+                          Llevo 15 años leyendo el lenguaje del inconsciente. En lo que dice la gente, en lo que no dice, en sus cuerpos, en sus relaciones, en las vidas que se repetían a pesar de todo.
+                        </p>
+                        <p className="font-body text-sm md:text-base text-foreground/85 leading-relaxed">
+                          <span className="text-foreground font-medium">No es un misterio romántico: es una arquitectura con reglas precisas.</span> Y una vez que sabes cómo leerla, no hay vuelta atrás.
+                        </p>
+                      </div>
                     }
                     extra={
-                      <div className="space-y-4 md:space-y-5 font-body text-sm md:text-base text-foreground/80 leading-relaxed md:mt-5">
-                        <p>
-                          Empecé acompañando a personas en crisis. Luego parejas al borde. Luego familias enteras. Y algo empezó a repetirse: todos llegaban con un problema distinto, pero debajo había el mismo patrón estructural operando. El inconsciente habla en lo que dices y en lo que omites, en síntomas, en repeticiones, en lo que "no sabes por qué" vuelve a pasar. Mi trabajo es enseñarte a leer ese lenguaje, para que puedas dejar de ser víctima de lo que no entiendes y empezar a operar desde la estructura consciente.
+                      <div className="space-y-4 md:space-y-5">
+                        <p className="font-body text-sm md:text-base text-foreground/80 leading-relaxed">
+                          Empecé acompañando a personas en crisis. Luego parejas al borde. Luego familias enteras. Todos llegaban con un problema distinto — pero debajo había siempre el mismo patrón operando.
+                        </p>
+                        <p className="font-body text-sm md:text-base text-foreground/80 leading-relaxed">
+                          El inconsciente habla en lo que dices y en lo que callas, en los síntomas, en las repeticiones, en lo que no entiendes por qué sigue pasando. Mi trabajo es hacer visible eso que opera sin que lo veas — para que puedas, por primera vez, elegir desde otro lugar.
                         </p>
                         <p className="text-foreground/45 text-xs md:text-sm italic border-l-2 border-gold/30 pl-4">
-                          "No voy a decirte lo que quieres escuchar. Voy a mostrarte lo que necesitas ver."
+                          No voy a decirte lo que quieres escuchar. Voy a mostrarte lo que dirige cuando tú crees que decides.
                         </p>
                       </div>
                     }
