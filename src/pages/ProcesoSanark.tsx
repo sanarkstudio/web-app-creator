@@ -384,11 +384,12 @@ const ProcesoSanark = () => {
                   Qué pasa después de reservar
                 </p>
                 <ul className="space-y-4">
-                  {[
-                    { icon: Mail, text: "Recibes un email de confirmación con los detalles del proceso y las opciones de pago." },
-                    { icon: CalendarCheck, text: "Una vez confirmado, agendamos juntos las 12 sesiones según tu disponibilidad." },
-                    { icon: MessageSquare, text: "Cada sesión es una videollamada privada conmigo. Sin grupos. Sin fórmulas genéricas." },
-                  ].map(({ icon: Icon, text }, i) => (
+                {[
+                  { icon: Mail, text: "Recibes un email de confirmación con los detalles del proceso y las opciones de pago." },
+                  { icon: CalendarCheck, text: "Una vez confirmado, agendamos juntos las 12 sesiones según tu disponibilidad." },
+                  { icon: MessageSquare, text: "Cada sesión es una videollamada privada conmigo. Sin grupos. Sin fórmulas genéricas." },
+                  { icon: Lock, text: "Todo lo que se trabaja queda entre nosotros. Confidencialidad absoluta." },
+                ].map(({ icon: Icon, text }, i) => (
                     <li key={i} className="flex gap-3 items-start">
                       <Icon size={16} className="text-gold mt-0.5 shrink-0" />
                       <p className="font-body text-sm text-foreground/85 leading-relaxed">{text}</p>
