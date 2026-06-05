@@ -178,8 +178,8 @@ const Index = () => {
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-background/25 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1000" />
                 <span className="relative z-10 inline-flex items-center gap-3">
-                  <span className="md:hidden">Ver mi estructura · Gratis</span>
-                  <span className="hidden md:inline">Ver mi estructura · Gratis en 15 preguntas</span>
+                  <span className="md:hidden">Descubrir lo invisible</span>
+                  <span className="hidden md:inline">Descubrir lo invisible</span>
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </motion.a>
