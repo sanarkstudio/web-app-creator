@@ -29,3 +29,4 @@ dist-ssr
 
 # Claude Code auto-memory (per-developer, not shared)
 .claude/memory/
+.playwright-mcp/
