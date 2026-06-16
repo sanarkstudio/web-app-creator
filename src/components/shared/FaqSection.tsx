@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "¿Cómo sé si esto es para mí?",
-    a: "Si has probado mucho y algo fundamental sigue sin moverse, lo es. Si buscas que alguien te diga lo que quieres oír, no lo es.",
+    a: "Si has probado mucho y algo fundamental sigue sin moverse, lo es. Si lo que necesitas es que alguien te diga lo que quieres oír, no lo es.",
   },
 ];
 
@@ -66,7 +66,7 @@ const FaqSection = () => {
                 <AccordionTrigger className="font-display text-base md:text-lg font-light text-left text-foreground/90 hover:no-underline hover:text-gold transition-colors py-5">
                   {item.q}
                 </AccordionTrigger>
-                <AccordionContent className="font-body text-base text-foreground/65 leading-relaxed pb-6 pt-1">
+                <AccordionContent className="font-body text-base text-foreground/85 leading-relaxed pb-6 pt-1">
                   {item.a}
                 </AccordionContent>
               </AccordionItem>
@@ -76,15 +76,15 @@ const FaqSection = () => {
 
         <FadeIn delay={0.3}>
           <div className="mt-14 text-center">
-            <p className="font-body text-base text-foreground/60 mb-6">
+            <p className="font-body text-base text-foreground/80 mb-6">
               ¿Tu pregunta no está aquí? La respuesta más honesta llega en sesión.
             </p>
             <BookingFormDialog
-              cta="Resolver lo mío en 90 minutos"
+              cta="Quiero ver mi estructura"
               location="home_faq"
               trigger={
                 <button className="group inline-flex items-center gap-3 font-body text-sm tracking-wider uppercase px-10 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-all duration-500">
-                  Resolver lo mío en 90 minutos
+                  Quiero ver mi estructura
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </button>
               }

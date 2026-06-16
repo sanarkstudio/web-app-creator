@@ -6,7 +6,21 @@ const Footer = () => (
     <div className="container mx-auto px-6 py-16">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
         <div>
-          <img src={sanarkLogo} alt="Sanark" className="h-12 w-auto mb-4 transition-all duration-500 hover:brightness-125 hover:drop-shadow-[0_0_12px_hsl(38_50%_48%/0.5)]" style={{ filter: 'brightness(0.85) sepia(1) saturate(2.5) hue-rotate(10deg)' }} onMouseEnter={e => e.currentTarget.style.filter = 'brightness(1.2) sepia(1) saturate(2.5) hue-rotate(10deg) drop-shadow(0 0 12px hsl(38 50% 48% / 0.5))'} onMouseLeave={e => e.currentTarget.style.filter = 'brightness(0.85) sepia(1) saturate(2.5) hue-rotate(10deg)'} />
+          <span
+            aria-label="Sanark"
+            className="block h-12 w-40 mb-4 transition-all duration-500 hover:drop-shadow-[0_0_12px_hsl(38_50%_48%/0.55)]"
+            style={{
+              WebkitMaskImage: `url(${sanarkLogo})`,
+              maskImage: `url(${sanarkLogo})`,
+              WebkitMaskRepeat: 'no-repeat',
+              maskRepeat: 'no-repeat',
+              WebkitMaskPosition: 'left center',
+              maskPosition: 'left center',
+              WebkitMaskSize: 'contain',
+              maskSize: 'contain',
+              backgroundColor: 'hsl(38 50% 48%)',
+            }}
+          />
           <p className="font-body text-sm text-muted-foreground leading-relaxed max-w-xs">
             Decodificación Estructural de Vida. Revelo la estructura desde la que operas para que diseñes la que deseas.
           </p>
@@ -14,20 +28,20 @@ const Footer = () => (
         <div>
           <h4 className="font-body text-xs tracking-widest uppercase text-muted-foreground mb-5">Navegación</h4>
           <div className="flex flex-col gap-3">
-            <Link to="/" className="font-body text-sm text-foreground/70 hover:text-gold transition-colors">Inicio</Link>
-            <Link to="/lectura-estructural" className="font-body text-sm text-foreground/70 hover:text-gold transition-colors">Lectura Estructural</Link>
-            <Link to="/proceso-sanark" className="font-body text-sm text-foreground/70 hover:text-gold transition-colors">Proceso Sanark</Link>
+            <Link to="/" className="font-body text-sm text-foreground/85 hover:text-gold transition-colors">Inicio</Link>
+            <Link to="/lectura-estructural" className="font-body text-sm text-foreground/85 hover:text-gold transition-colors">Lectura Estructural</Link>
+            <Link to="/proceso-sanark" className="font-body text-sm text-foreground/85 hover:text-gold transition-colors">Proceso Sanark</Link>
           </div>
         </div>
         <div>
           <h4 className="font-body text-xs tracking-widest uppercase text-muted-foreground mb-5">Contacto</h4>
-          <p className="font-body text-sm text-foreground/70 leading-relaxed mb-6">
+          <p className="font-body text-sm text-foreground/85 leading-relaxed mb-6">
             info@sanark.com
           </p>
           <h4 className="font-body text-xs tracking-widest uppercase text-muted-foreground mb-4">Legal</h4>
           <div className="flex flex-col gap-2">
-            <Link to="/politica-privacidad" className="font-body text-xs text-foreground/50 hover:text-gold transition-colors">Política de Privacidad</Link>
-            <Link to="/aviso-legal" className="font-body text-xs text-foreground/50 hover:text-gold transition-colors">Aviso Legal</Link>
+            <Link to="/politica-privacidad" className="font-body text-xs text-foreground/90 hover:text-gold transition-colors">Política de Privacidad</Link>
+            <Link to="/aviso-legal" className="font-body text-xs text-foreground/90 hover:text-gold transition-colors">Aviso Legal</Link>
           </div>
         </div>
       </div>
