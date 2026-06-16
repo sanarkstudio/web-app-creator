@@ -26,3 +26,6 @@ dist-ssr
 # RaiSE personal directory (per-developer, not shared)
 .raise/rai/personal/
 .vercel
+
+# Claude Code auto-memory (per-developer, not shared)
+.claude/memory/
