@@ -11,7 +11,7 @@ import ScrollTextReveal from "@/components/shared/ScrollTextReveal";
 import StickyRevealSection from "@/components/shared/StickyRevealSection";
 import VideoExplainer from "@/components/shared/VideoExplainer";
 import FaqSection from "@/components/shared/FaqSection";
-import StructureSlider from "@/components/shared/StructureSlider";
+
 import { ArrowRight, Flame, Heart, DollarSign, Brain, Users, Zap, ShieldOff, Eye, Target, Sparkles, Activity, HeartHandshake, Gem, TrendingUp } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import MobileExpandable from "@/components/shared/MobileExpandable";
@@ -238,8 +238,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Structure slider — 3 images */}
-      <StructureSlider />
 
       {/* Solution — the path */}
       <section ref={solutionRef} className="py-20 md:py-48 relative overflow-hidden">
